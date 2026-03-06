@@ -400,6 +400,16 @@
             opacity: 0.3;
         }
 
+        /* Hover Card Effect */
+        .hover-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+        }
+
         /* Footer */
         footer {
             background: linear-gradient(to bottom, #1a1a1a, #000);
@@ -487,30 +497,25 @@
 
         <!-- Glass Content -->
         <div class="container position-relative">
-            <div class="hero-flip-card">
-                <div class="hero-flip-card-inner">
-                    <!-- Front Side -->
-                    <div class="hero-flip-card-front glass-panel">
-                        <h1 class="hero-title">Navigating Law with Precision</h1>
-                        <p class="lead mb-4" style="color: #1a1a1a; font-weight: 500;">
-                            Providing strategic legal counsel in Corporate Advisory, Public Policy, Energy, and Complex Disputes.
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="glass-panel p-5" style="border-left: 5px solid var(--primary-color);">
+                        <h1 class="display-4 fw-bold mb-3" style="color: #1a1a1a;">Premier Energy Law Advisory</h1>
+                        <p class="lead mb-4" style="color: #333; font-weight: 500;">
+                            Exclusive Tier 1 legal and strategic advisory services across the energy and natural resources value chain.
                         </p>
-                    </div>
-                    <!-- Back Side -->
-                    <div class="hero-flip-card-back glass-panel">
-                        <h2 class="mb-4 text-white">Clarity & Results</h2>
-                        <p class="lead mb-4 text-white">
-                            Partner with a team that delivers clarity and results.
-                        </p>
-                        <a href="contact.html" class="btn btn-light btn-lg text-primary fw-bold">Consultation</a>
+                        <div class="d-flex gap-3">
+                            <a href="#firm-overview" class="btn btn-primary btn-lg">Discover More</a>
+                            <a href="contact.html" class="btn btn-outline-dark btn-lg">Contact Us</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="about-section">
+    <!-- Firm Overview Section -->
+    <section id="firm-overview" class="about-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0">
@@ -523,11 +528,116 @@
                     </div>
                 </div>
                 <div class="col-lg-6 ps-lg-5">
-                    <h2 class="display-5 mb-4">Committed to Excellence</h2>
-                    <p class="text-muted mb-4">We are a boutique energy law advisory firm offering exclusive tier 1 legal, and strategic advisory services to clients across the energy and natural resources value chain.</p>
-                    <p class="mb-4">We work at the intersection of law, regulation, and commercial operations—supporting both government bodies, private sector entities, infrastructure investors, and project developers.</p>
-                    <a href="about.html" class="btn btn-glow mt-3">Read More</a>
+                    <span class="text-primary fw-bold text-uppercase mb-2 d-block">Who We Are</span>
+                    <h2 class="display-5 mb-4">Firm Overview</h2>
+                    <p class="lead text-muted mb-4">We are a boutique energy law advisory firm offering exclusive tier 1 legal and strategic advisory services to clients across the energy and natural resources value chain.</p>
+                    
+                    <div class="mb-4">
+                        <p>We work at the intersection of law, regulation, and commercial operations—supporting government bodies, private sector entities, infrastructure investors, and project developers.</p>
+                    </div>
+
+                    <div class="row g-3 mb-4">
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <span>Tier 1 Legal Advisory</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <span>Strategic Consulting</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <span>Regulatory Compliance</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-primary me-2"></i>
+                                <span>Dispute Resolution</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="about.html" class="btn btn-outline-primary mt-2">Learn More About Us</a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Overview Section -->
+    <section id="expertise" class="section-padding bg-light" style="padding: 100px 0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold text-uppercase">What We Do</span>
+                <h2 class="display-5 mb-3">Our Expertise</h2>
+                <p class="lead text-muted mx-auto" style="max-width: 700px;">Delivering specialized legal solutions across key sectors of the energy industry.</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Oil & Gas -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h4 class="h5 mb-3">Oil & Gas</h4>
+                            <p class="small text-muted mb-4">Comprehensive advisory for upstream, midstream, and downstream operations.</p>
+                            <a href="sectors.html" class="text-primary fw-bold text-decoration-none small">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Power -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h4 class="h5 mb-3">Power</h4>
+                            <p class="small text-muted mb-4">Expertise in generation, transmission, distribution, and renewable energy projects.</p>
+                            <a href="sectors.html" class="text-primary fw-bold text-decoration-none small">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mining -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h4 class="h5 mb-3">Mining</h4>
+                            <p class="small text-muted mb-4">Legal support for solid minerals, quarrying, and critical resource development.</p>
+                            <a href="sectors.html" class="text-primary fw-bold text-decoration-none small">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maritime -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="fas fa-ship"></i>
+                            </div>
+                            <h4 class="h5 mb-3">Maritime</h4>
+                            <p class="small text-muted mb-4">Advisory on vessel registration, logistics, and marine dispute resolution.</p>
+                            <a href="sectors.html" class="text-primary fw-bold text-decoration-none small">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-5">
+                 <a href="practice.html" class="btn btn-primary px-4 py-2">View All Practice Areas</a>
             </div>
         </div>
     </section>
