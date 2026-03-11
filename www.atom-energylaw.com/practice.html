@@ -60,6 +60,9 @@
         .nav-link {
             color: #555 !important;
             font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: 0.9rem;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -83,6 +86,44 @@
             width: 100%;
         }
 
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-color: transparent;
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            box-shadow: 0 14px 30px rgba(31, 137, 194, 0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            transform: translateY(-1px);
+            box-shadow: 0 18px 38px rgba(31, 137, 194, 0.3);
+        }
+
+        .btn-outline-primary,
+        .btn-outline-dark {
+            border-radius: 999px;
+            padding: 12px 28px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-outline-primary {
+            border-color: rgba(31, 137, 194, 0.45);
+            color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background: rgba(31, 137, 194, 0.08);
+            border-color: rgba(31, 137, 194, 0.7);
+            color: var(--primary-color);
+            transform: translateY(-1px);
+        }
+
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(10px);
@@ -96,56 +137,6 @@
         .practice-section {
             padding: 100px 0;
             background: #ffffff;
-        }
-
-        /* Flip Card Styles */
-        .flip-card {
-            background-color: transparent;
-            width: 100%;
-            height: 300px;
-            perspective: 1000px;
-            cursor: pointer;
-        }
-
-        .flip-card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-            border-radius: 15px;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .flip-card-front, .flip-card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border-radius: 15px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: 1px solid var(--glass-border);
-        }
-
-        .flip-card-front {
-            background: var(--glass-bg);
-            color: white;
-        }
-
-        .flip-card-back {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
-            color: white;
-            transform: rotateY(180deg);
         }
 
         .icon-box {
@@ -162,71 +153,83 @@
             transition: all 0.3s ease;
         }
 
-        .flip-card:hover .icon-box {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+        .feature-card {
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 18px;
+            background: rgba(255,255,255,0.9);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.10);
         }
 
         /* Footer */
         footer {
-            background: linear-gradient(to bottom, var(--dark-bg), #000);
+            background: linear-gradient(to bottom, #1a1a1a, #000);
             border-top: 1px solid var(--glass-border);
             color: var(--text-muted);
             padding: 3rem 0;
             font-size: 0.9rem;
         }
 
-        /* Page Header Carousel */
-        .page-header-carousel {
+        .page-hero {
             position: relative;
-            height: 60vh;
-            min-height: 400px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            margin-bottom: 0;
-        }
-
-        .page-header-carousel .carousel {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-        }
-
-        .page-header-carousel .carousel-item {
-            height: 60vh;
-            min-height: 400px;
-        }
-
-        .page-header-carousel .carousel-item img {
-            object-fit: cover;
-            height: 100%;
-            width: 100%;
-            filter: brightness(0.5);
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-        
-        .header-content h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            padding: 170px 0 90px;
+            background-size: cover;
+            background-position: center;
             color: #ffffff;
-            font-weight: 700;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            overflow: hidden;
         }
 
-        .header-content .lead {
-             color: #f8f9fa;
-             font-size: 1.5rem;
-             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(900px 600px at 10% 15%, rgba(31, 137, 194, 0.35), rgba(0, 0, 0, 0) 60%),
+                linear-gradient(135deg, rgba(2, 6, 23, 0.70), rgba(2, 6, 23, 0.40));
+        }
+
+        .page-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 0.95rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.10);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+        }
+
+        .page-hero h1 {
+            color: #ffffff;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .page-hero .lead {
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+        }
+
+        @media (max-width: 991px) {
+            .page-hero {
+                padding: 140px 0 70px;
+            }
         }
     </style>
 </head>
@@ -255,41 +258,14 @@
     </nav>
 
     <!-- Page Header -->
-    <section class="page-header-carousel">
-        <div id="headerCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="assets/slider-1-BQ4Nm1p7.jpg" alt="Background 1">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/slider-3-Daz_ESCB.jpg" alt="Background 2">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/slider-4-8O9M_dkx.jpg" alt="Background 3">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/images/oillaw.webp" alt="Oil Law">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/images/factory.jpg" alt="Factory">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/images/windmill.jpg" alt="Windmill">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/images/gas.jpg" alt="Gas">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/images/chris-leboutillier-TUJud0AWAPI-unsplash.jpg" alt="Energy Landscape">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/images/energy.webp" alt="Energy">
-                </div>
+    <section class="page-hero" style="background-image: url('assets/images/oillaw.webp');">
+        <div class="container">
+            <div class="kicker mb-3">
+                <i class="fas fa-layer-group"></i>
+                <span>Practice Areas</span>
             </div>
-        </div>
-        <div class="header-content container">
-            <h1>Practice Areas</h1>
-            <p class="lead">Comprehensive Legal Solutions</p>
+            <h1 class="display-4 mb-3">Practice Areas</h1>
+            <p class="lead mb-0">Comprehensive Legal Solutions</p>
         </div>
     </section>
 
@@ -316,73 +292,53 @@
             <div class="row g-4">
                 <!-- Card 1 -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fas fa-briefcase icon-box"></i>
-                                <h4>Corporate Advisory</h4>
-                                <p class="text-muted mt-2 small">Governance & Transactions</p>
-                            </div>
-                            <div class="flip-card-back">
-                                <h4>Corporate Advisory</h4>
-                                <p>Expert guidance on corporate governance, mergers, and commercial transactions. We ensure your business operates on a solid legal foundation.</p>
-                                <button class="btn btn-sm btn-outline-light mt-3">Learn More</button>
-                            </div>
+                    <div class="feature-card p-4">
+                        <div class="icon-box" style="width: 72px; height: 72px; font-size: 2rem;">
+                            <i class="fas fa-briefcase"></i>
                         </div>
+                        <h4 class="mb-2">Corporate Advisory</h4>
+                        <p class="text-muted small mb-3">Governance & Transactions</p>
+                        <p class="text-muted mb-4">Expert guidance on corporate governance, mergers, and commercial transactions. We ensure your business operates on a solid legal foundation.</p>
+                        <a href="contact.html" class="btn btn-sm btn-outline-primary mt-auto">Discuss</a>
                     </div>
                 </div>
 
                 <!-- Card 2 -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fas fa-landmark icon-box"></i>
-                                <h4>Public Policy</h4>
-                                <p class="text-muted mt-2 small">Regulatory Landscape</p>
-                            </div>
-                            <div class="flip-card-back">
-                                <h4>Public Policy</h4>
-                                <p>Navigating complex regulatory landscapes and shaping public policy strategies to advocate for your interests effectively.</p>
-                                <button class="btn btn-sm btn-outline-light mt-3">Learn More</button>
-                            </div>
+                    <div class="feature-card p-4">
+                        <div class="icon-box" style="width: 72px; height: 72px; font-size: 2rem;">
+                            <i class="fas fa-landmark"></i>
                         </div>
+                        <h4 class="mb-2">Public Policy</h4>
+                        <p class="text-muted small mb-3">Regulatory Landscape</p>
+                        <p class="text-muted mb-4">Navigating complex regulatory landscapes and shaping public policy strategies to advocate for your interests effectively.</p>
+                        <a href="contact.html" class="btn btn-sm btn-outline-primary mt-auto">Discuss</a>
                     </div>
                 </div>
 
                 <!-- Card 3 -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fas fa-bolt icon-box"></i>
-                                <h4>Energy Law</h4>
-                                <p class="text-muted mt-2 small">Renewables & Resources</p>
-                            </div>
-                            <div class="flip-card-back">
-                                <h4>Energy Law</h4>
-                                <p>Specialized counsel for the energy sector, including renewables and traditional resources. We understand the power dynamics of the industry.</p>
-                                <button class="btn btn-sm btn-outline-light mt-3">Learn More</button>
-                            </div>
+                    <div class="feature-card p-4">
+                        <div class="icon-box" style="width: 72px; height: 72px; font-size: 2rem;">
+                            <i class="fas fa-bolt"></i>
                         </div>
+                        <h4 class="mb-2">Energy Law</h4>
+                        <p class="text-muted small mb-3">Renewables & Resources</p>
+                        <p class="text-muted mb-4">Specialized counsel for the energy sector, including renewables and traditional resources. We understand the power dynamics of the industry.</p>
+                        <a href="contact.html" class="btn btn-sm btn-outline-primary mt-auto">Discuss</a>
                     </div>
                 </div>
 
                 <!-- Card 4 -->
                 <div class="col-md-6 col-lg-3">
-                    <div class="flip-card">
-                        <div class="flip-card-inner">
-                            <div class="flip-card-front">
-                                <i class="fas fa-balance-scale icon-box"></i>
-                                <h4>Complex Disputes</h4>
-                                <p class="text-muted mt-2 small">Resolution & Litigation</p>
-                            </div>
-                            <div class="flip-card-back">
-                                <h4>Complex Disputes</h4>
-                                <p>Strategic resolution of high-stakes commercial and energy-related disputes. We protect your interests when it matters most.</p>
-                                <button class="btn btn-sm btn-outline-light mt-3">Learn More</button>
-                            </div>
+                    <div class="feature-card p-4">
+                        <div class="icon-box" style="width: 72px; height: 72px; font-size: 2rem;">
+                            <i class="fas fa-balance-scale"></i>
                         </div>
+                        <h4 class="mb-2">Complex Disputes</h4>
+                        <p class="text-muted small mb-3">Resolution & Litigation</p>
+                        <p class="text-muted mb-4">Strategic resolution of high-stakes commercial and energy-related disputes. We protect your interests when it matters most.</p>
+                        <a href="contact.html" class="btn btn-sm btn-outline-primary mt-auto">Discuss</a>
                     </div>
                 </div>
             </div>
