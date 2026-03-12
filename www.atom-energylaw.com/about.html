@@ -86,6 +86,67 @@
             width: 100%;
         }
 
+        @media (max-width: 991px) {
+            .nav-reveal {
+                margin-top: 14px;
+                border-radius: 18px;
+                border: 1px solid rgba(15, 23, 42, 0.08);
+                background: rgba(255, 255, 255, 0.92);
+                backdrop-filter: blur(12px);
+                -webkit-backdrop-filter: blur(12px);
+                overflow: hidden;
+                clip-path: inset(0 0 100% 0 round 18px);
+                opacity: 0;
+                transform: translateY(-8px) scale(0.98);
+                transition: clip-path 420ms cubic-bezier(0.16, 1, 0.3, 1), opacity 240ms ease, transform 320ms ease;
+            }
+
+            .nav-reveal.show,
+            .nav-reveal.is-opening {
+                clip-path: inset(0 0 0 0 round 18px);
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+
+            .nav-reveal.is-closing {
+                clip-path: inset(0 0 100% 0 round 18px);
+                opacity: 0;
+                transform: translateY(-8px) scale(0.98);
+            }
+
+            .nav-reveal .navbar-nav {
+                padding: 12px;
+            }
+
+            .nav-reveal .nav-link {
+                padding: 0.85rem 0.95rem;
+                border-radius: 14px;
+            }
+
+            .nav-reveal .nav-link::after {
+                display: none;
+            }
+
+            .nav-reveal .nav-link:hover {
+                background: rgba(15, 23, 42, 0.06);
+            }
+
+            .nav-reveal .nav-item {
+                opacity: 0;
+                transform: translateY(-10px);
+                filter: blur(8px);
+                transition: opacity 260ms ease, transform 340ms ease, filter 340ms ease;
+                transition-delay: var(--item-delay, 0ms);
+            }
+
+            .nav-reveal.show .nav-item,
+            .nav-reveal.is-opening .nav-item {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
         .btn-primary {
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             border-color: transparent;
@@ -232,7 +293,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(0,0,0,0.1);">
                 <span class="fa fa-bars" style="color: #333;"></span>
             </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-end nav-reveal" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
@@ -300,5 +361,38 @@
 
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (() => {
+            const nav = document.getElementById('navbarNav');
+            if (!nav) return;
+
+            const items = Array.from(nav.querySelectorAll('.nav-item'));
+            const applyDelays = (startMs) => {
+                items.forEach((item, index) => {
+                    item.style.setProperty('--item-delay', `${startMs + index * 60}ms`);
+                });
+            };
+
+            nav.addEventListener('show.bs.collapse', () => {
+                nav.classList.add('is-opening');
+                nav.classList.remove('is-closing');
+                applyDelays(90);
+            });
+
+            nav.addEventListener('shown.bs.collapse', () => {
+                nav.classList.remove('is-opening');
+            });
+
+            nav.addEventListener('hide.bs.collapse', () => {
+                nav.classList.add('is-closing');
+                nav.classList.remove('is-opening');
+                items.forEach((item) => item.style.setProperty('--item-delay', '0ms'));
+            });
+
+            nav.addEventListener('hidden.bs.collapse', () => {
+                nav.classList.remove('is-closing');
+            });
+        })();
+    </script>
 </body>
 </html>
