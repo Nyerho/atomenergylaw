@@ -411,6 +411,85 @@
             color: rgba(15, 23, 42, 0.62);
         }
 
+        .industry-gallery-section {
+            position: relative;
+            padding: 60px 0 20px;
+            background: #ffffff;
+        }
+
+        .gallery-tiles {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-tile {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            min-height: 180px;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .gallery-tile:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+        }
+
+        .gallery-tile::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(2, 6, 23, 0.0), rgba(2, 6, 23, 0.35));
+        }
+
+        .gallery-caption {
+            position: absolute;
+            left: 16px;
+            bottom: 12px;
+            z-index: 1;
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 0.01em;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+        }
+
+        .industry-banner {
+            position: relative;
+            height: 360px;
+            background: #0b1220;
+            overflow: hidden;
+        }
+
+        .industry-banner video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(0.95) contrast(1.02);
+        }
+
+        .industry-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(900px 600px at 12% 20%, rgba(31, 137, 194, 0.35), rgba(0,0,0,0) 60%),
+                linear-gradient(120deg, rgba(2, 6, 23, 0.60), rgba(2, 6, 23, 0.35));
+        }
+
+        .industry-banner .container {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
+        }
+
         .nav-hub-section {
             position: relative;
             padding: 95px 0;
@@ -941,7 +1020,7 @@
             position: relative;
             padding: 95px 0;
             background:
-                linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.94)),
+                linear-gradient(180deg, rgba(255,255,255,0.64), rgba(255,255,255,0.64)),
                 radial-gradient(900px 620px at 12% 14%, rgba(31, 137, 194, 0.10), rgba(255, 255, 255, 0) 60%),
                 radial-gradient(850px 600px at 90% 60%, rgba(250, 204, 21, 0.10), rgba(255, 255, 255, 0) 55%),
                 url('assets/PixVerse_Image_Effect_prompt_oil wells .jpg');
@@ -1150,6 +1229,37 @@
         </div>
     </section>
 
+    <section class="industry-gallery-section">
+        <div class="container">
+            <div class="row mb-3">
+                <div class="col-lg-12 d-flex align-items-baseline justify-content-between">
+                    <div>
+                        <span class="text-primary fw-bold text-uppercase">In Pictures</span>
+                        <h3 class="h2 mb-0">Energy in Focus</h3>
+                    </div>
+                    <a href="sectors.html" class="btn btn-outline-primary">Explore Sectors</a>
+                </div>
+            </div>
+            <div class="gallery-tiles">
+                <div class="col-12 col-md-5" style="grid-column: span 5;">
+                    <div class="gallery-tile reveal-on-scroll" style="background-image: url('assets/PixVerse_Image_Effect_prompt_oil rigs .jpg');">
+                        <div class="gallery-caption">Offshore Rigs</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4" style="grid-column: span 4;">
+                    <div class="gallery-tile reveal-on-scroll" style="background-image: url('assets/PixVerse_Image_Effect_prompt_oil wells .jpg');">
+                        <div class="gallery-caption">Oil Wells</div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3" style="grid-column: span 3;">
+                    <div class="gallery-tile reveal-on-scroll" style="background-image: url('assets/PixVerse_Image_Effect_prompt_mining sites .jpg');">
+                        <div class="gallery-caption">Mining Sites</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="nav-hub-section">
         <div class="container">
             <div class="row align-items-end g-4 mb-5">
@@ -1314,6 +1424,20 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="industry-banner">
+        <video autoplay muted loop playsinline preload="metadata">
+            <source src="assets/PixVerse_V5.6_Image_Text_360P_mining_sites.mp4" type="video/mp4">
+        </video>
+        <div class="container">
+            <div>
+                <span class="text-warning fw-bold text-uppercase">Perspective</span>
+                <h2 class="display-6 mb-2" style="color:#fff;">Built for the Energy Value Chain</h2>
+                <p class="text-light mb-3">From offshore rigs to renewable transition, we bring sector-aware legal clarity.</p>
+                <a class="btn btn-primary" href="sectors.html">See Our Sectors</a>
             </div>
         </div>
     </section>
@@ -1625,7 +1749,7 @@
     </script>
     <script>
         (() => {
-            const selectors = ['.nav-hub-group', '.nav-hub-card', '.metric-card', '.hover-card', '.news-card', '.lawyer-card'];
+            const selectors = ['.nav-hub-group', '.nav-hub-card', '.metric-card', '.hover-card', '.news-card', '.lawyer-card', '.gallery-tile', '.industry-banner'];
             const cardSelector = selectors.join(', ');
             const sections = Array.from(document.querySelectorAll('section'));
             const targets = new Set();
