@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "name": "atomenergylaw",
+  "public": true,
+  "builds": [
+    { "src": "www.atom-energylaw.com/**/*.html", "use": "@vercel/static" },
+    { "src": "www.atom-energylaw.com/assets/**", "use": "@vercel/static" }
+  ],
+  "routes": [
+    { "src": "/", "dest": "www.atom-energylaw.com/index.html" },
+    { "src": "/about", "dest": "www.atom-energylaw.com/about.html" },
+    { "src": "/practice", "dest": "www.atom-energylaw.com/practice.html" },
+    { "src": "/services", "dest": "www.atom-energylaw.com/services.html" },
+    { "src": "/sectors", "dest": "www.atom-energylaw.com/sectors.html" },
+    { "src": "/contact", "dest": "www.atom-energylaw.com/contact.html" },
+    { "src": "/assets/(.*)", "dest": "www.atom-energylaw.com/assets/$1" }
+  ]
+}
