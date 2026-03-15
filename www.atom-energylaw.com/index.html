@@ -257,6 +257,30 @@
             z-index: 0;
         }
 
+        .hero-slideshow {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .hero-slide {
+            position: absolute;
+            inset: -20px;
+            opacity: 0;
+            transform: scale(1.03);
+            transition: opacity 1.15s ease, transform 7s ease;
+            background-size: cover;
+            background-position: center;
+            filter: saturate(0.95) contrast(1.02);
+            will-change: opacity, transform;
+        }
+
+        .hero-slide.is-active {
+            opacity: 1;
+            transform: scale(1);
+        }
+
         .hero-overlay {
             position: absolute;
             inset: 0;
@@ -280,11 +304,22 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             max-width: 720px;
+            transition: opacity 520ms ease, transform 520ms ease;
+        }
+
+        .hero-text-panel.is-switching {
+            opacity: 0.08;
+            transform: translateY(10px);
         }
 
         @media (prefers-reduced-motion: reduce) {
             .hero-video {
                 display: none;
+            }
+
+            .hero-slide {
+                transition: none;
+                transform: none;
             }
         }
 
@@ -1177,21 +1212,22 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
-            <source src="assets/lawfirm.mp4" type="video/mp4">
-        </video>
+        <div class="hero-slideshow" aria-hidden="true">
+            <div class="hero-slide is-active" style="background-image: url('assets/slider-1-BQ4Nm1p7.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/slider-2-CQvBGt7B.jpeg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/slider-3-Daz_ESCB.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/slider-4-8O9M_dkx.jpg');"></div>
+        </div>
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="container hero-content">
             <div class="row">
                 <div class="col-lg-9">
-                    <div class="hero-text-panel">
+                    <div class="hero-text-panel" id="heroTextPanel">
                         <div class="hero-kicker">
-                            <span>Energy • Natural Resources • Policy</span>
+                            <span id="heroKickerText">Energy • Natural Resources • Policy</span>
                         </div>
-                        <h1 class="display-4 hero-title mb-0">Premier Energy Law Advisory</h1>
-                        <p class="lead hero-lead mb-0">
-                            Exclusive Tier 1 legal and strategic advisory services across the energy and natural resources value chain.
-                        </p>
+                        <h1 class="display-4 hero-title mb-0" id="heroTitleText">Premier Energy Law Advisory</h1>
+                        <p class="lead hero-lead mb-0" id="heroLeadText">Exclusive Tier 1 legal and strategic advisory services across the energy and natural resources value chain.</p>
                     </div>
                 </div>
             </div>
@@ -1788,6 +1824,64 @@
             );
 
             targets.forEach((el) => observer.observe(el));
+        })();
+    </script>
+    <script>
+        (() => {
+            const slides = Array.from(document.querySelectorAll('.hero-slide'));
+            const panel = document.getElementById('heroTextPanel');
+            const kicker = document.getElementById('heroKickerText');
+            const title = document.getElementById('heroTitleText');
+            const lead = document.getElementById('heroLeadText');
+
+            if (!slides.length || !panel || !kicker || !title || !lead) return;
+
+            const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            if (reduceMotion) return;
+
+            const copy = [
+                {
+                    kicker: 'Energy • Natural Resources • Policy',
+                    title: 'Premier Energy Law Advisory',
+                    lead: 'Exclusive Tier 1 legal and strategic advisory services across the energy and natural resources value chain.'
+                },
+                {
+                    kicker: 'Transactions • Strategy • Risk',
+                    title: 'Deal-Ready Commercial Support',
+                    lead: 'We support high-value transactions, project structuring, negotiations, and contract strategy for complex assets.'
+                },
+                {
+                    kicker: 'Regulatory • Compliance • Policy',
+                    title: 'Clarity in Complex Regulation',
+                    lead: 'We translate evolving rules into practical pathways for operators, investors, and stakeholders across the sector.'
+                },
+                {
+                    kicker: 'Disputes • Claims • Resolution',
+                    title: 'Protection When Stakes Are High',
+                    lead: 'We help clients manage disputes and claims with sector-aware strategy that protects value and continuity.'
+                }
+            ];
+
+            let index = 0;
+            const durationMs = 6200;
+            const switchMs = 480;
+
+            const apply = (nextIndex) => {
+                slides.forEach((el, i) => el.classList.toggle('is-active', i === nextIndex));
+                const next = copy[nextIndex] || copy[0];
+                panel.classList.add('is-switching');
+                window.setTimeout(() => {
+                    kicker.textContent = next.kicker;
+                    title.textContent = next.title;
+                    lead.textContent = next.lead;
+                    panel.classList.remove('is-switching');
+                }, switchMs);
+            };
+
+            window.setInterval(() => {
+                index = (index + 1) % slides.length;
+                apply(index);
+            }, durationMs);
         })();
     </script>
 </body>
