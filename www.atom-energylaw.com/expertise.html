@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Atom-Energylaw — Our Expertise" />
+    <meta name="description" content="Our expertise across Oil & Gas, Power & Renewables, Mining & Extractives, and Maritime & Shipping." />
+    <title>Our Expertise | Atom-Energylaw</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>document.documentElement.classList.add('js');</script>
+    <style>
+        :root {
+            --primary-color: #1f89c2;
+            --secondary-color: #166a96;
+            --accent-gold: #facc15;
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --text-light: #333333;
+            --text-muted: #666666;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.64), rgba(255,255,255,0.64)),
+                radial-gradient(900px 620px at 12% 14%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(850px 600px at 90% 60%, rgba(250, 204, 21, 0.08), rgba(255, 255, 255, 0) 55%),
+                url('assets/PixVerse_Image_Effect_prompt_oil wells .jpg');
+            background-size: cover, auto, auto, cover;
+            background-position: center, center, center, center;
+            background-attachment: scroll, scroll, scroll, scroll;
+            color: var(--text-light);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: #1a1a1a;
+        }
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .navbar-brand img {
+            height: 50px;
+        }
+        .nav-link {
+            color: #555 !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .page-hero {
+            position: relative;
+            padding: 170px 0 90px;
+            color: #ffffff;
+            overflow: hidden;
+            background-image: var(--hero-bg, url('assets/PixVerse_Image_Effect_prompt_oil rigs .jpg'));
+            background-size: cover;
+            background-position: center;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(900px 600px at 10% 15%, rgba(31, 137, 194, 0.35), rgba(0, 0, 0, 0) 60%),
+                linear-gradient(135deg, rgba(2, 6, 23, 0.76), rgba(2, 6, 23, 0.44));
+        }
+        .page-hero .container {
+            position: relative;
+            z-index: 1;
+        }
+        .page-hero .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.55rem 0.95rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: rgba(255, 255, 255, 0.10);
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+        }
+        .page-hero h1 {
+            color: #ffffff;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+        .page-hero .lead {
+            color: rgba(255, 255, 255, 0.92);
+            max-width: 900px;
+        }
+        @media (max-width: 991px) {
+            .page-hero {
+                padding: 140px 0 70px;
+            }
+        }
+        .content-section {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.92);
+        }
+        .content-card {
+            border-radius: 22px;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+        }
+        .content-title {
+            font-weight: 800;
+            letter-spacing: -0.01em;
+        }
+        .content-lead {
+            color: rgba(15, 23, 42, 0.68);
+            font-weight: 600;
+        }
+        .content-list {
+            margin: 0;
+            padding-left: 1.1rem;
+            color: rgba(15, 23, 42, 0.82);
+            font-weight: 500;
+            display: grid;
+            gap: 10px;
+        }
+        .expertise-grid {
+            padding: 95px 0;
+            background:
+                radial-gradient(900px 620px at 18% 18%, rgba(31, 137, 194, 0.10), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(900px 620px at 88% 70%, rgba(250, 204, 21, 0.10), rgba(255, 255, 255, 0) 55%),
+                linear-gradient(180deg, #ffffff 0%, #f7fbff 60%, #ffffff 100%);
+        }
+        .hover-card {
+            border-radius: 18px;
+            border: 1px solid rgba(15, 23, 42, 0.06) !important;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .hover-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12) !important;
+        }
+        .icon-box {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            background: rgba(31, 137, 194, 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+        .expertise-card {
+            overflow: hidden;
+            background: transparent;
+            border-color: rgba(255, 255, 255, 0.18) !important;
+        }
+        .expertise-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: var(--expertise-bg);
+            background-size: cover;
+            background-position: center;
+            transform: scale(1.03);
+            transition: transform 0.6s ease;
+        }
+        .expertise-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(2, 6, 23, 0.18), rgba(2, 6, 23, 0.80));
+        }
+        .expertise-card:hover::before {
+            transform: scale(1.07);
+        }
+        .expertise-card .card-body {
+            position: relative;
+            z-index: 1;
+        }
+        .expertise-card .icon-box {
+            background: rgba(255, 255, 255, 0.14);
+            color: rgba(255, 255, 255, 0.95);
+        }
+        .expertise-card h4 {
+            color: #ffffff;
+        }
+        .expertise-card p {
+            color: rgba(255, 255, 255, 0.82) !important;
+        }
+        .expertise-card a {
+            color: rgba(255, 255, 255, 0.92) !important;
+        }
+        .expertise-card a:hover {
+            color: var(--accent-gold) !important;
+        }
+        .expertise-card.is-active {
+            box-shadow: 0 26px 70px rgba(15, 23, 42, 0.22) !important;
+            transform: translateY(-7px);
+        }
+        .expertise-card--oil {
+            --expertise-bg: url('assets/PixVerse_Image_Effect_prompt_oil rigs .jpg');
+        }
+        .expertise-card--power {
+            --expertise-bg: url('assets/images/windmill.jpg');
+        }
+        .expertise-card--mining {
+            --expertise-bg: url('assets/PixVerse_Image_Effect_prompt_mining sites .jpg');
+        }
+        .expertise-card--maritime {
+            --expertise-bg: url('assets/images/chris-leboutillier-TUJud0AWAPI-unsplash.jpg');
+        }
+        footer {
+            background: linear-gradient(to bottom, #1a1a1a, #000);
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/Atom logo final-I7OGcKSj.png" alt="Atom-Energylaw">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(0,0,0,0.1);">
+                <span class="fa fa-bars" style="color: #333;"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Who we are</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="expertise.html">Our Expertise</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="page-hero" id="topHero">
+        <div class="container">
+            <div class="kicker mb-3">
+                <i class="fas fa-layer-group"></i>
+                <span>Our Expertise</span>
+            </div>
+            <h1 class="display-4 mb-3" id="sectorHeroTitle">Oil &amp; Gas</h1>
+            <p class="lead mb-0" id="sectorHeroLead">Partner-led advisory across upstream, midstream, and downstream projects.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <div class="content-card p-5 h-100">
+                        <h2 class="h2 content-title mb-3" id="sectorTitle">Oil &amp; Gas</h2>
+                        <p class="content-lead mb-4" id="sectorIntro">We provide sector-aware legal clarity where regulatory complexity meets high-value execution.</p>
+                        <div id="sectorBody" class="text-muted" style="line-height: 1.8;"></div>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="content-card p-5 h-100">
+                        <h3 class="h4 mb-3">Services</h3>
+                        <ul class="content-list" id="sectorServices"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="expertise-grid">
+        <div class="container">
+            <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-end mb-5">
+                <div>
+                    <span class="text-primary fw-bold text-uppercase">Explore</span>
+                    <h2 class="display-6 mb-2">Other Sectors</h2>
+                    <p class="text-muted mb-0" style="max-width: 760px;">We focus exclusively on four key sectors where legal clarity meets operational complexity.</p>
+                </div>
+            </div>
+
+            <div class="row g-4" id="otherCards">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--oil" data-sector="oil-gas">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <h4 class="h5 mb-3">Oil &amp; Gas</h4>
+                            <p class="small text-muted mb-4">Advisory for upstream, midstream, and downstream operations.</p>
+                            <a href="expertise.html#oil-gas" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--power" data-sector="power-renewables">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h4 class="h5 mb-3">Power &amp; Renewables</h4>
+                            <p class="small text-muted mb-4">Legal support across generation, grid, and renewables.</p>
+                            <a href="expertise.html#power-renewables" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--mining" data-sector="mining-extractives">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="fas fa-gem"></i>
+                            </div>
+                            <h4 class="h5 mb-3">Mining &amp; Extractives</h4>
+                            <p class="small text-muted mb-4">Support for licensing, investment, and operations.</p>
+                            <a href="expertise.html#mining-extractives" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--maritime" data-sector="maritime-shipping">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="fas fa-ship"></i>
+                            </div>
+                            <h4 class="h5 mb-3">Maritime &amp; Shipping</h4>
+                            <p class="small text-muted mb-4">Advisory across shipping, ports, and disputes.</p>
+                            <a href="expertise.html#maritime-shipping" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container text-center">
+            <img src="assets/Atom logo final-I7OGcKSj.png" alt="Logo" style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+            <div class="mb-4">
+                <p class="mb-1 text-light"><i class="fas fa-phone me-2"></i>+234 906 049 0067</p>
+                <p class="mb-1 text-light"><i class="fas fa-envelope me-2"></i>advisory@atom-energylaw.com</p>
+                <p class="mb-1 text-light"><i class="fas fa-map-marker-alt me-2"></i>No. 32 Obi Okosi Street, Gwarinpa-FCT</p>
+            </div>
+            <p class="text-muted small">&copy; 2024 Atom Energy Law Advisory. All rights reserved.</p>
+            <div class="mt-3">
+                <a href="#" class="text-muted me-3"><i class="fab fa-linkedin fa-lg"></i></a>
+                <a href="#" class="text-muted me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="#" class="text-muted"><i class="fab fa-facebook fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        (() => {
+            const sectors = {
+                'oil-gas': {
+                    title: 'Oil & Gas',
+                    heroLead: 'Partner-led advisory across upstream, midstream, and downstream projects.',
+                    heroBg: "url('assets/PixVerse_Image_Effect_prompt_oil rigs .jpg')",
+                    intro: 'We work with operators, investors, and stakeholders to deliver commercially sound legal guidance across the oil and gas value chain.',
+                    body: [
+                        'From licensing rounds and gas commercialisation to pipeline regulation and downstream compliance, our team supports transactions, operations, and dispute readiness across complex assets.',
+                        'We focus on practical, execution-ready advice that aligns regulatory requirements with commercial objectives.'
+                    ],
+                    services: [
+                        'Licensing strategy, bid support, and regulatory engagement',
+                        'Gas commercialisation, processing, and pipeline arrangements',
+                        'Joint ventures, farm-ins/farm-outs, and commercial documentation',
+                        'Midstream/downstream compliance, operations support, and disputes'
+                    ]
+                },
+                'power-renewables': {
+                    title: 'Power & Renewables',
+                    heroLead: 'Legal clarity across generation, transmission, distribution, and renewables.',
+                    heroBg: "url('assets/images/windmill.jpg')",
+                    intro: 'We support power projects with legal structuring that improves bankability, compliance, and stakeholder alignment.',
+                    body: [
+                        'Our work spans grid and off-grid developments, embedded generation, and renewables, with a focus on approvals, contracts, and operational risk.',
+                        'We help clients translate evolving policy and regulatory expectations into practical project pathways.'
+                    ],
+                    services: [
+                        'Project development support and regulatory approvals',
+                        'Power purchase arrangements, grid/off-grid structures, and embedded generation',
+                        'Renewables frameworks, energy transition strategy, and risk allocation',
+                        'Operations support, compliance programs, and disputes strategy'
+                    ]
+                },
+                'mining-extractives': {
+                    title: 'Mining & Extractives',
+                    heroLead: 'Commercial and regulatory support for solid minerals and extractive projects.',
+                    heroBg: "url('assets/PixVerse_Image_Effect_prompt_mining sites .jpg')",
+                    intro: 'We advise operators and investors navigating licensing, governance, community engagement, and execution risk in mining projects.',
+                    body: [
+                        'Our approach balances legal compliance with commercial delivery—supporting investment structures, documentation, and dispute readiness.',
+                        'We help clients manage stakeholder expectations and operational complexity through disciplined risk frameworks.'
+                    ],
+                    services: [
+                        'Mineral title strategy, licensing, and compliance',
+                        'Investment structuring, joint ventures, and project documentation',
+                        'Community/stakeholder engagement and ESG risk management',
+                        'Dispute readiness, claims strategy, and regulatory engagement'
+                    ]
+                },
+                'maritime-shipping': {
+                    title: 'Maritime & Shipping',
+                    heroLead: 'Sector-aware advisory across shipping, ports, logistics, and marine disputes.',
+                    heroBg: "url('assets/images/chris-leboutillier-TUJud0AWAPI-unsplash.jpg')",
+                    intro: 'We support maritime-facing operations and energy supply chains through contracts, compliance, and dispute strategy.',
+                    body: [
+                        'Our maritime work includes vessel registration, cabotage, port operations, logistics, and marine dispute resolution with a practical, risk-aware approach.',
+                        'We help clients align operational realities with regulatory obligations and commercial outcomes.'
+                    ],
+                    services: [
+                        'Vessel registration, cabotage, and maritime regulatory compliance',
+                        'Port operations, logistics contracts, and risk allocation',
+                        'Claims strategy, incident response, and dispute resolution',
+                        'Transaction support for maritime-facing assets and services'
+                    ]
+                }
+            };
+
+            const normalize = (value) => (value || '').replace(/^#/, '').trim();
+            const fallbackKey = 'oil-gas';
+            const apply = (key) => {
+                const data = sectors[key] || sectors[fallbackKey];
+                const hero = document.getElementById('topHero');
+                const heroTitle = document.getElementById('sectorHeroTitle');
+                const heroLead = document.getElementById('sectorHeroLead');
+                const title = document.getElementById('sectorTitle');
+                const intro = document.getElementById('sectorIntro');
+                const body = document.getElementById('sectorBody');
+                const services = document.getElementById('sectorServices');
+
+                if (hero) hero.style.setProperty('--hero-bg', data.heroBg);
+                if (heroTitle) heroTitle.textContent = data.title;
+                if (heroLead) heroLead.textContent = data.heroLead;
+                if (title) title.textContent = data.title;
+                if (intro) intro.textContent = data.intro;
+
+                if (body) {
+                    body.innerHTML = '';
+                    data.body.forEach((paragraph) => {
+                        const p = document.createElement('p');
+                        p.className = 'mb-3';
+                        p.textContent = paragraph;
+                        body.appendChild(p);
+                    });
+                }
+
+                if (services) {
+                    services.innerHTML = '';
+                    data.services.forEach((item) => {
+                        const li = document.createElement('li');
+                        li.textContent = item;
+                        services.appendChild(li);
+                    });
+                }
+
+                const cards = Array.from(document.querySelectorAll('.expertise-card[data-sector]'));
+                cards.forEach((card) => card.classList.toggle('is-active', card.getAttribute('data-sector') === key));
+            };
+
+            const initialKey = normalize(window.location.hash) || fallbackKey;
+            apply(initialKey);
+            window.addEventListener('hashchange', () => apply(normalize(window.location.hash) || fallbackKey));
+        })();
+    </script>
+</body>
+</html>
