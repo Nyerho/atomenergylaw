@@ -30,24 +30,10 @@
             --text-muted: #666666; /* Gray Text */
         }
 
-        @font-face {
-            font-family: 'Century Gothic';
-            src: url('centurygothic.ttf') format('truetype');
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Century Gothic';
-            src: url('centurygothic_bold.ttf') format('truetype');
-            font-weight: 700;
-            font-style: normal;
-            font-display: swap;
-        }
-
         body {
-            font-family: 'Century Gothic', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            line-height: 1.75;
             margin: 0;
             background:
                 linear-gradient(180deg, rgba(255,255,255,0.64), rgba(255,255,255,0.64)),
@@ -62,8 +48,14 @@
             min-height: 100vh;
         }
 
+        p {
+            margin-bottom: 1.25rem;
+        }
+
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Century Gothic', sans-serif;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
             color: #1a1a1a;
         }
 
@@ -1275,6 +1267,126 @@
             color: var(--accent-gold) !important;
         }
 
+        .glance-section {
+            position: relative;
+            padding: 110px 0;
+            overflow: hidden;
+            background:
+                radial-gradient(900px 620px at 14% 18%, rgba(250, 204, 21, 0.18), rgba(0, 0, 0, 0) 55%),
+                radial-gradient(900px 620px at 78% 55%, rgba(31, 137, 194, 0.36), rgba(0, 0, 0, 0) 60%),
+                linear-gradient(135deg, #06294f, #021223);
+            color: rgba(255, 255, 255, 0.86);
+        }
+
+        .glance-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.08) 1px, rgba(0, 0, 0, 0) 1px),
+                linear-gradient(45deg, rgba(255, 255, 255, 0.06) 1px, rgba(0, 0, 0, 0) 1px);
+            background-size: 64px 64px;
+            opacity: 0.16;
+            pointer-events: none;
+        }
+
+        .glance-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .glance-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.55rem 0.95rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            background: rgba(255, 255, 255, 0.10);
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-size: 0.78rem;
+        }
+
+        .glance-section .text-muted {
+            color: rgba(255, 255, 255, 0.74) !important;
+        }
+
+        .glance-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .glance-list li {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.86);
+        }
+
+        .glance-list i {
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: rgba(250, 204, 21, 0.16);
+            color: var(--accent-gold);
+        }
+
+        .glance-tile {
+            height: 100%;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 18px 45px rgba(2, 6, 23, 0.26);
+            padding: 22px 22px;
+            text-decoration: none;
+            color: rgba(255, 255, 255, 0.9);
+            transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .glance-tile:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 26px 70px rgba(2, 6, 23, 0.36);
+            border-color: rgba(250, 204, 21, 0.26);
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .glance-tile-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .glance-tile-title {
+            margin: 0;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #ffffff;
+            font-size: clamp(1.45rem, 2.8vw, 2.15rem);
+        }
+
+        .glance-tile-subtitle {
+            margin: 0;
+            color: rgba(255, 255, 255, 0.74);
+            font-weight: 600;
+        }
+
         .practice-groups-section {
             padding: 95px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.10);
@@ -1603,64 +1715,53 @@
         </div>
     </section>
 
-    <!-- Expertise Overview Section -->
-    <section id="expertise" class="section-padding bg-light" style="padding: 100px 0;">
+    <section id="expertise" class="glance-section">
         <div class="container">
-            <div class="text-center mb-5">
-                <span class="text-primary fw-bold text-uppercase">What We Do</span>
-                <h2 class="display-5 mb-3">Our Expertise</h2>
-                <p class="lead text-muted mx-auto" style="max-width: 860px;">We offer a full suite of legal and strategic advisory services spanning the entire energy value chain.</p>
-            </div>
-
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--oil">
-                        <div class="card-body p-4 text-center">
-                            <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
-                                <i class="fas fa-handshake"></i>
-                            </div>
-                            <h4 class="h5 mb-3">Deal Advisory</h4>
-                            <p class="small text-muted mb-4">Corporate, commercial, and transaction advisory tailored to energy operations.</p>
-                            <a href="expertise.html#deal-advisory" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
-                        </div>
+            <div class="row g-5 align-items-start">
+                <div class="col-lg-4">
+                    <div class="glance-kicker mb-3">
+                        <i class="fas fa-compass"></i>
+                        <span>Our Expertise</span>
                     </div>
+                    <h2 class="display-6 mb-3" style="color:#fff;">Focused sector expertise</h2>
+                    <p class="text-muted mb-4">We focus exclusively on four key sectors where legal clarity meets operational complexity.</p>
+                    <ul class="glance-list mb-4">
+                        <li><i class="fas fa-oil-well" aria-hidden="true"></i><span>Oil &amp; Gas</span></li>
+                        <li><i class="fas fa-bolt" aria-hidden="true"></i><span>Power &amp; Renewables</span></li>
+                        <li><i class="fas fa-mountain" aria-hidden="true"></i><span>Mining &amp; Extractives</span></li>
+                        <li><i class="fas fa-ship" aria-hidden="true"></i><span>Maritime &amp; Shipping</span></li>
+                    </ul>
+                    <a href="expertise.html" class="btn btn-outline-light">Explore Our Expertise</a>
                 </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--power">
-                        <div class="card-body p-4 text-center">
-                            <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
-                                <i class="fas fa-diagram-project"></i>
-                            </div>
-                            <h4 class="h5 mb-3">Project Structuring</h4>
-                            <p class="small text-muted mb-4">Project structuring, transaction support, and execution-ready documentation.</p>
-                            <a href="expertise.html#project-structuring" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                <div class="col-lg-8">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <a class="glance-tile reveal-on-scroll" style="--reveal-delay: 0ms;" href="expertise.html">
+                                <div class="glance-tile-icon" aria-hidden="true"><i class="fas fa-oil-well"></i></div>
+                                <h3 class="glance-tile-title">Oil &amp; Gas</h3>
+                                <p class="glance-tile-subtitle">Sector-aware advisory across transactions, regulation, and disputes.</p>
+                            </a>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--mining">
-                        <div class="card-body p-4 text-center">
-                            <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <h4 class="h5 mb-3">Regulatory Compliance</h4>
-                            <p class="small text-muted mb-4">Regulatory consulting, licensing support, and compliance program design.</p>
-                            <a href="expertise.html#regulatory-compliance" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                        <div class="col-md-6">
+                            <a class="glance-tile reveal-on-scroll" style="--reveal-delay: 90ms;" href="expertise.html">
+                                <div class="glance-tile-icon" aria-hidden="true"><i class="fas fa-bolt"></i></div>
+                                <h3 class="glance-tile-title">Power &amp; Renewables</h3>
+                                <p class="glance-tile-subtitle">Project structuring, compliance support, and contracting guidance.</p>
+                            </a>
                         </div>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--maritime">
-                        <div class="card-body p-4 text-center">
-                            <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
-                                <i class="fas fa-gavel"></i>
-                            </div>
-                            <h4 class="h5 mb-3">Dispute Resolution</h4>
-                            <p class="small text-muted mb-4">Disputes strategy and resolution support across complex projects.</p>
-                            <a href="expertise.html#disputes-resolution" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                        <div class="col-md-6">
+                            <a class="glance-tile reveal-on-scroll" style="--reveal-delay: 160ms;" href="expertise.html">
+                                <div class="glance-tile-icon" aria-hidden="true"><i class="fas fa-mountain"></i></div>
+                                <h3 class="glance-tile-title">Mining &amp; Extractives</h3>
+                                <p class="glance-tile-subtitle">Licensing, regulatory navigation, and risk strategy.</p>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="glance-tile reveal-on-scroll" style="--reveal-delay: 240ms;" href="expertise.html">
+                                <div class="glance-tile-icon" aria-hidden="true"><i class="fas fa-ship"></i></div>
+                                <h3 class="glance-tile-title">Maritime &amp; Shipping</h3>
+                                <p class="glance-tile-subtitle">Operational advisory and dispute support for marine activities.</p>
+                            </a>
                         </div>
                     </div>
                 </div>

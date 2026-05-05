@@ -26,24 +26,10 @@
             --text-muted: #666666; /* Gray Text */
         }
 
-        @font-face {
-            font-family: 'Century Gothic';
-            src: url('centurygothic.ttf') format('truetype');
-            font-weight: 400;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Century Gothic';
-            src: url('centurygothic_bold.ttf') format('truetype');
-            font-weight: 700;
-            font-style: normal;
-            font-display: swap;
-        }
-
         body {
-            font-family: 'Century Gothic', sans-serif;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            line-height: 1.75;
             background:
                 linear-gradient(180deg, rgba(255,255,255,0.64), rgba(255,255,255,0.64)),
                 radial-gradient(900px 620px at 12% 14%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 60%),
@@ -58,8 +44,14 @@
             min-height: 100vh;
         }
 
+        p {
+            margin-bottom: 1.25rem;
+        }
+
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Century Gothic', sans-serif;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
             color: #1a1a1a;
         }
 
