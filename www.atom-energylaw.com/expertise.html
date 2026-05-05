@@ -22,9 +22,6 @@
             --text-light: #333333;
             --text-muted: #666666;
         }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
         @font-face {
             font-family: 'Century Gothic';
             src: url('centurygothic.ttf') format('truetype');
@@ -40,17 +37,13 @@
             font-style: normal;
             font-display: swap;
         }
-
-            background:
+        body {
             font-family: 'Century Gothic', sans-serif;
+            margin: 0;
+            background:
                 radial-gradient(900px 620px at 12% 14%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 60%),
                 radial-gradient(850px 600px at 90% 60%, rgba(250, 204, 21, 0.08), rgba(255, 255, 255, 0) 55%),
-                url('assets/PixVerse_Image_Effect_prompt_oil wells .jpg');
-                radial-gradient(850px 600px at 90% 60%, rgba(250, 204, 21, 0.08), rgba(255, 255, 255, 0) 55%),
-                url('assets/PixVerse_Image_Effect_prompt_oil wells .jpg');
-            background-size: cover, auto, auto, cover;
-            background-position: center, center, center, center;
-            background-attachment: scroll, scroll, scroll, scroll;
+                linear-gradient(180deg, #ffffff 0%, #f7fbff 60%, #ffffff 100%);
             color: var(--text-light);
             overflow-x: hidden;
             min-height: 100vh;
@@ -378,8 +371,62 @@
                 <i class="fas fa-layer-group"></i>
                 <span>Our Expertise</span>
             </div>
-            <h1 class="display-4 mb-3">Practice Groups</h1>
-            <p class="lead mb-0">We offer a full suite of legal and strategic advisory services spanning the entire energy value chain.</p>
+            <h1 class="display-4 mb-3">Our Expertise</h1>
+            <p class="lead mb-0">We focus exclusively on four key sectors where legal clarity meets operational complexity.</p>
+        </div>
+    </section>
+
+    <section class="expertise-grid" id="expertise">
+        <div class="container">
+            <div class="row justify-content-center mb-5">
+                <div class="col-lg-9 text-center">
+                    <span class="text-primary fw-bold text-uppercase">Focus Sectors</span>
+                    <h2 class="display-6 mt-2 mb-3">Where We Work Best</h2>
+                    <p class="text-muted mb-0">We focus exclusively on four key sectors where legal clarity meets operational complexity:</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--oil">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-box mx-auto"><i class="fas fa-oil-well"></i></div>
+                            <h4 class="mt-4 mb-3">Oil &amp; Gas</h4>
+                            <p class="text-muted mb-4">Transactions, regulation, and dispute support across upstream, midstream, and downstream operations.</p>
+                            <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--power">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-box mx-auto"><i class="fas fa-bolt"></i></div>
+                            <h4 class="mt-4 mb-3">Power &amp; Renewables</h4>
+                            <p class="text-muted mb-4">Project structuring, permits, contracting, and regulatory navigation for power and renewables.</p>
+                            <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--mining">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-box mx-auto"><i class="fas fa-mountain"></i></div>
+                            <h4 class="mt-4 mb-3">Mining &amp; Extractives</h4>
+                            <p class="text-muted mb-4">Licensing, compliance, stakeholder issues, and disputes for mineral and extractive projects.</p>
+                            <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--maritime">
+                        <div class="card-body p-4 text-center">
+                            <div class="icon-box mx-auto"><i class="fas fa-ship"></i></div>
+                            <h4 class="mt-4 mb-3">Maritime &amp; Shipping</h4>
+                            <p class="text-muted mb-4">Advisory on marine operations, contracting, compliance, and dispute support.</p>
+                            <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us <i class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
