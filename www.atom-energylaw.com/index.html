@@ -30,8 +30,24 @@
             --text-muted: #666666; /* Gray Text */
         }
 
+        @font-face {
+            font-family: 'Century Gothic';
+            src: url('centurygothic.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Century Gothic';
+            src: url('centurygothic_bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Century Gothic', sans-serif;
             margin: 0;
             background:
                 linear-gradient(180deg, rgba(255,255,255,0.64), rgba(255,255,255,0.64)),
@@ -47,7 +63,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Century Gothic', sans-serif;
             color: #1a1a1a;
         }
 
@@ -1242,17 +1258,163 @@
             --expertise-bg: url('assets/images/chris-leboutillier-TUJud0AWAPI-unsplash.jpg');
         }
 
+        /* Testimonials */
+        .testimonials-section {
+            padding: 110px 0;
+            background: rgba(255, 255, 255, 0.78);
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .testimonial-card {
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+            height: 100%;
+            transition: transform 240ms ease, box-shadow 240ms ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 28px 60px rgba(15, 23, 42, 0.12);
+        }
+
+        .testimonial-quote {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: rgba(15, 23, 42, 0.78);
+        }
+
+        .testimonial-meta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 26px;
+        }
+
+        .testimonial-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(31, 137, 194, 0.12);
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        /* Contact (Homepage) */
+        .contact-home-section {
+            padding: 110px 0;
+        }
+
+        .contact-home-panel {
+            border-radius: 26px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 22px 60px rgba(15, 23, 42, 0.1);
+        }
+
         /* Footer */
-        footer {
-            background: linear-gradient(to bottom, #1a1a1a, #000);
-            border-top: 1px solid var(--glass-border);
-            color: var(--text-muted);
-            padding: 3rem 0;
-            font-size: 0.9rem;
+        .site-footer {
+            background: radial-gradient(900px 520px at 18% 20%, rgba(31, 137, 194, 0.28), rgba(0, 0, 0, 0) 60%),
+                radial-gradient(900px 520px at 78% 55%, rgba(250, 204, 21, 0.18), rgba(0, 0, 0, 0) 55%),
+                linear-gradient(135deg, #06294f, #021223);
+            color: rgba(255, 255, 255, 0.82);
+            padding: 110px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.08) 1px, rgba(0, 0, 0, 0) 1px),
+                linear-gradient(45deg, rgba(255, 255, 255, 0.06) 1px, rgba(0, 0, 0, 0) 1px);
+            background-size: 64px 64px;
+            opacity: 0.22;
+            pointer-events: none;
+        }
+
+        .site-footer .footer-title {
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 18px;
+        }
+
+        .site-footer .footer-links {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .site-footer .footer-links a {
+            color: rgba(255, 255, 255, 0.78);
+            text-decoration: none;
+            transition: color 200ms ease;
+        }
+
+        .site-footer .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .site-footer .footer-social {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .site-footer .footer-social a {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.92);
+            text-decoration: none;
+            transition: transform 200ms ease, background 200ms ease, color 200ms ease;
+        }
+
+        .site-footer .footer-social a:hover {
+            transform: translateY(-2px);
+            background: rgba(250, 204, 21, 0.18);
+            color: var(--accent-gold);
+        }
+
+        .site-footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            margin-top: 70px;
+            padding-top: 22px;
+        }
+
+        .site-footer .footer-legal {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .site-footer .footer-legal a {
+            color: rgba(255, 255, 255, 0.78);
+            text-decoration: none;
+        }
+
+        .site-footer .footer-legal a:hover {
+            color: var(--accent-gold);
         }
     </style>
 </head>
 <body id="top">
+
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg fixed-top glass-nav navbar-landing">
@@ -1303,7 +1465,7 @@
                 <div class="col-lg-5">
                     <span class="text-primary fw-bold text-uppercase">Start Here</span>
                     <h2 class="display-6 mb-3">Discover More</h2>
-                    <p class="text-muted mb-4">Explore our firm, capabilities, and the sectors we advise across.</p>
+                    <p class="text-muted mb-4">Explore our firm, capabilities, and the expertise we deliver across the energy value chain.</p>
                     <div class="d-flex flex-wrap gap-3">
                         <a href="#firm-overview" class="btn btn-primary btn-lg">Discover More</a>
                         <a href="contact.html" class="btn btn-outline-primary btn-lg">Contact Us</a>
@@ -1343,7 +1505,7 @@
                         <span class="text-primary fw-bold text-uppercase">In Pictures</span>
                         <h3 class="h2 mb-0">Energy in Focus</h3>
                     </div>
-                    <a href="about.html#sectors" class="btn btn-outline-primary">Explore Sectors</a>
+                    <a href="expertise.html" class="btn btn-outline-primary">Explore Expertise</a>
                 </div>
             </div>
             <div class="gallery-tiles">
@@ -1477,25 +1639,25 @@
                         </a>
                     </div>
                     <div class="col-lg-6">
-                        <a href="about.html#sectors" class="nav-hub-card nav-hub-card--feature nav-hub-card--bg-sectors">
+                        <a href="expertise.html" class="nav-hub-card nav-hub-card--feature nav-hub-card--bg-sectors">
                             <div class="nav-hub-card-body">
                                 <div class="nav-hub-card-head">
                                     <div class="nav-hub-card-kicker">
                                         <i class="fas fa-industry"></i>
-                                        <span>Our Sectors</span>
+                                        <span>Our Expertise</span>
                                     </div>
                                     <span class="nav-hub-card-cta">Read more <i class="fas fa-arrow-right"></i></span>
                                 </div>
-                                <p class="mb-0">Sector-specific experience across the full energy value chain—matched to the realities of regulation, operations, and investment.</p>
+                                <p class="mb-0">A full suite of legal and strategic advisory services spanning the entire energy value chain.</p>
                                 <div class="nav-hub-pills">
-                                    <span class="nav-hub-pill"><i class="fas fa-industry"></i><span>Oil &amp; Gas</span></span>
-                                    <span class="nav-hub-pill"><i class="fas fa-bolt"></i><span>Power</span></span>
-                                    <span class="nav-hub-pill"><i class="fas fa-gem"></i><span>Mining</span></span>
-                                    <span class="nav-hub-pill"><i class="fas fa-ship"></i><span>Maritime</span></span>
+                                    <span class="nav-hub-pill"><i class="fas fa-handshake"></i><span>Deal Advisory</span></span>
+                                    <span class="nav-hub-pill"><i class="fas fa-diagram-project"></i><span>Projects</span></span>
+                                    <span class="nav-hub-pill"><i class="fas fa-shield-alt"></i><span>Compliance</span></span>
+                                    <span class="nav-hub-pill"><i class="fas fa-gavel"></i><span>Disputes</span></span>
                                 </div>
                                 <ul class="nav-hub-list">
-                                    <li><i class="fas fa-check"></i><span>Investment &amp; infrastructure support</span></li>
-                                    <li><i class="fas fa-check"></i><span>Regulatory navigation</span></li>
+                                    <li><i class="fas fa-check"></i><span>Transaction and project support</span></li>
+                                    <li><i class="fas fa-check"></i><span>Regulatory and policy advisory</span></li>
                                 </ul>
                             </div>
                         </a>
@@ -1543,7 +1705,7 @@
                 <span class="text-warning fw-bold text-uppercase">Perspective</span>
                 <h2 class="display-6 mb-2" style="color:#fff;">Built for the Energy Value Chain</h2>
                 <p class="text-light mb-3">From offshore rigs to renewable transition, we bring sector-aware legal clarity.</p>
-                <a class="btn btn-primary" href="about.html#sectors">See Our Sectors</a>
+                <a class="btn btn-primary" href="expertise.html">Explore Our Expertise</a>
             </div>
         </div>
     </section>
@@ -1565,7 +1727,7 @@
                     <span class="text-primary fw-bold text-uppercase mb-2 d-block">Who We Are</span>
                     <h2 class="display-5 mb-4">Firm Overview</h2>
                     <p class="lead text-muted mb-4">We are a boutique energy law advisory firm offering exclusive tier 1 legal, and strategic advisory services to clients across the energy and natural resources value chain.</p>
-                    <p class="mb-4">We work at the intersection of law, regulation, and commercial operations, supporting government bodies, private sector entities, infrastructure investors, and project developers operating across the oil and gas, power, mining, and maritime sectors. Our value lies in our sector-specific insight, transactional fluency, and policy awareness, allowing us to provide not just legal advice, but commercially sound guidance tailored to Nigeria’s evolving energy landscape.</p>
+                    <p class="mb-4">We work at the intersection of law, regulation, and commercial operations, supporting government bodies, private sector entities, infrastructure investors, and project developers operating across oil and gas, power, mining, and maritime segments. Our value lies in our industry-specific insight, transactional fluency, and policy awareness, allowing us to provide not just legal advice, but commercially sound guidance tailored to Nigeria’s evolving energy landscape.</p>
 
                     <div class="row g-3 mb-4">
                         <div class="col-sm-6">
@@ -1678,69 +1840,65 @@
             <div class="text-center mb-5">
                 <span class="text-primary fw-bold text-uppercase">What We Do</span>
                 <h2 class="display-5 mb-3">Our Expertise</h2>
-                <p class="lead text-muted mx-auto" style="max-width: 860px;">We focus exclusively on four key sectors where legal clarity meets operational complexity:</p>
+                <p class="lead text-muted mx-auto" style="max-width: 860px;">We offer a full suite of legal and strategic advisory services spanning the entire energy value chain.</p>
             </div>
 
             <div class="row g-4">
-                <!-- Oil & Gas -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--oil">
                         <div class="card-body p-4 text-center">
                             <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
-                                <i class="fas fa-industry"></i>
+                                <i class="fas fa-handshake"></i>
                             </div>
-                            <h4 class="h5 mb-3">Oil & Gas</h4>
-                            <p class="small text-muted mb-4">Comprehensive advisory for upstream, midstream, and downstream operations.</p>
-                            <a href="expertise.html#oil-gas" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                            <h4 class="h5 mb-3">Deal Advisory</h4>
+                            <p class="small text-muted mb-4">Corporate, commercial, and transaction advisory tailored to energy operations.</p>
+                            <a href="expertise.html#deal-advisory" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Power & Renewables -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--power">
                         <div class="card-body p-4 text-center">
                             <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
-                                <i class="fas fa-bolt"></i>
+                                <i class="fas fa-diagram-project"></i>
                             </div>
-                            <h4 class="h5 mb-3">Power &amp; Renewables</h4>
-                            <p class="small text-muted mb-4">Project support across generation, transmission, distribution, and renewables.</p>
-                            <a href="expertise.html#power-renewables" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                            <h4 class="h5 mb-3">Project Structuring</h4>
+                            <p class="small text-muted mb-4">Project structuring, transaction support, and execution-ready documentation.</p>
+                            <a href="expertise.html#project-structuring" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Mining & Extractives -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--mining">
                         <div class="card-body p-4 text-center">
                             <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
-                                <i class="fas fa-gem"></i>
+                                <i class="fas fa-shield-alt"></i>
                             </div>
-                            <h4 class="h5 mb-3">Mining &amp; Extractives</h4>
-                            <p class="small text-muted mb-4">Legal support for solid minerals, quarrying, and critical resource development.</p>
-                            <a href="expertise.html#mining-extractives" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                            <h4 class="h5 mb-3">Regulatory Compliance</h4>
+                            <p class="small text-muted mb-4">Regulatory consulting, licensing support, and compliance program design.</p>
+                            <a href="expertise.html#regulatory-compliance" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Maritime & Shipping -->
                 <div class="col-md-6 col-lg-3">
                     <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--maritime">
                         <div class="card-body p-4 text-center">
                             <div class="icon-box mx-auto mb-3" style="width: 60px; height: 60px; font-size: 1.5rem;">
-                                <i class="fas fa-ship"></i>
+                                <i class="fas fa-gavel"></i>
                             </div>
-                            <h4 class="h5 mb-3">Maritime &amp; Shipping</h4>
-                            <p class="small text-muted mb-4">Advisory on vessel registration, logistics, and marine dispute resolution.</p>
-                            <a href="expertise.html#maritime-shipping" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
+                            <h4 class="h5 mb-3">Dispute Resolution</h4>
+                            <p class="small text-muted mb-4">Disputes strategy and resolution support across complex projects.</p>
+                            <a href="expertise.html#disputes-resolution" class="text-primary fw-bold text-decoration-none small stretched-link">Explore <i class="fas fa-arrow-right ms-1"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
             
             <div class="text-center mt-5">
-                 <a href="about.html#practice" class="btn btn-primary px-4 py-2">View All Practice Areas</a>
+                 <a href="expertise.html#practice-groups" class="btn btn-primary px-4 py-2">View All Practice Groups</a>
             </div>
         </div>
     </section>
@@ -1754,7 +1912,7 @@
                     <h2 class="display-5 mb-2">Latest Updates</h2>
                     <p class="text-muted mb-0" style="max-width: 720px;">Awards, recognitions, announcements, and firm updates.</p>
                 </div>
-                <a href="contact.html" class="btn btn-outline-primary mt-3 mt-lg-0">Share an Update</a>
+                <a href="services.html" class="btn btn-outline-primary mt-3 mt-lg-0">Visit Knowledge Hub</a>
             </div>
 
             <div class="row g-4">
@@ -1797,20 +1955,154 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <img src="assets/Atom logo final-I7OGcKSj.png" alt="Logo" style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1);">
-            <div class="mb-4">
-                <p class="mb-1 text-light"><i class="fas fa-phone me-2"></i>+234 906 049 0067</p>
-                <p class="mb-1 text-light"><i class="fas fa-envelope me-2"></i>advisory@atom-energylaw.com</p>
-                <p class="mb-1 text-light"><i class="fas fa-map-marker-alt me-2"></i>No. 32 Obi Okosi Street, Gwarinpa-FCT</p>
+    <section class="testimonials-section" id="testimonials">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold text-uppercase">Testimonials</span>
+                <h2 class="display-5 mb-2">Trusted by Clients</h2>
+                <p class="text-muted mx-auto mb-0" style="max-width: 820px;">A few words from clients and partners who value clarity, responsiveness, and execution-ready counsel.</p>
             </div>
-            <p class="text-muted small">&copy; 2024 Atom Energy Law Advisory. All rights reserved.</p>
-            <div class="mt-3">
-                <a href="#" class="text-muted me-3"><i class="fab fa-linkedin fa-lg"></i></a>
-                <a href="#" class="text-muted me-3"><i class="fab fa-twitter fa-lg"></i></a>
-                <a href="#" class="text-muted"><i class="fab fa-facebook fa-lg"></i></a>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="testimonial-card p-4 p-lg-5">
+                        <div class="testimonial-quote">“Clear, commercially grounded advice. The team helped us structure and close a sensitive transaction with speed and confidence.”</div>
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar" aria-hidden="true">CP</div>
+                            <div>
+                                <div class="fw-bold" style="color: rgba(15,23,42,0.9);">Client Partner</div>
+                                <div class="text-muted small">Energy &amp; Infrastructure</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card p-4 p-lg-5">
+                        <div class="testimonial-quote">“Strong regulatory insight and practical support. We got clear options, not theory—and it made execution easier.”</div>
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar" aria-hidden="true">RG</div>
+                            <div>
+                                <div class="fw-bold" style="color: rgba(15,23,42,0.9);">Regulatory Lead</div>
+                                <div class="text-muted small">Project Development</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card p-4 p-lg-5">
+                        <div class="testimonial-quote">“Responsive, discreet, and precise. Their dispute readiness work strengthened our position and reduced risk.”</div>
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar" aria-hidden="true">GC</div>
+                            <div>
+                                <div class="fw-bold" style="color: rgba(15,23,42,0.9);">General Counsel</div>
+                                <div class="text-muted small">Energy Company</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-home-section" id="contact-home">
+        <div class="container">
+            <div class="contact-home-panel p-4 p-lg-5">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <span class="text-primary fw-bold text-uppercase">Contact Us</span>
+                        <h2 class="display-5 mb-3">Let’s Discuss Your Matter</h2>
+                        <p class="text-muted mb-4">Share your objective and we’ll respond with a clear next step. All conversations are treated as confidential.</p>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-phone me-3 text-info"></i>
+                            <span>+234 906 049 0067</span>
+                        </div>
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="fas fa-envelope me-3 text-info"></i>
+                            <span>advisory@atom-energylaw.com</span>
+                        </div>
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-map-marker-alt me-3 text-info"></i>
+                            <span>No. 32 Obi Okosi Street, Gwarinpa-FCT</span>
+                        </div>
+                        <div class="mt-4 d-flex flex-wrap gap-3">
+                            <a href="contact.html" class="btn btn-primary btn-lg">Open Contact Page</a>
+                            <a href="services.html" class="btn btn-outline-primary btn-lg">Knowledge Hub</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="First Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" placeholder="Last Name">
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" class="form-control" placeholder="Email Address">
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-glow w-100">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container position-relative">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Capabilities</h5>
+                    <ul class="footer-links">
+                        <li><a href="expertise.html#deal-advisory">Deal Advisory</a></li>
+                        <li><a href="expertise.html#project-structuring">Project Structuring</a></li>
+                        <li><a href="expertise.html#regulatory-compliance">Regulatory Compliance</a></li>
+                        <li><a href="expertise.html#policy-legislative">Policy &amp; Legislative Advisory</a></li>
+                        <li><a href="expertise.html#disputes-resolution">Dispute Resolution</a></li>
+                        <li><a href="expertise.html#tax-advisory">Tax Advisory</a></li>
+                        <li><a href="expertise.html#general-counsel">General Counsel Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Knowledge Hub</a></li>
+                        <li><a href="services.html#news">News &amp; Updates</a></li>
+                        <li><a href="services.html#articles">Articles</a></li>
+                        <li><a href="services.html#insights">Insights</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Social</h5>
+                    <div class="footer-social">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="mt-4">
+                        <div class="text-white fw-bold mb-2">Contact</div>
+                        <div class="small" style="color: rgba(255,255,255,0.78);">
+                            <div class="mb-1"><i class="fas fa-phone me-2"></i>+234 906 049 0067</div>
+                            <div class="mb-1"><i class="fas fa-envelope me-2"></i>advisory@atom-energylaw.com</div>
+                            <div><i class="fas fa-map-marker-alt me-2"></i>No. 32 Obi Okosi Street, Gwarinpa-FCT</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <span style="opacity: 0.5;">|</span>
+                    <a href="#">Anti-Bribery and Corruption Statement</a>
+                </div>
+                <div class="small" style="color: rgba(255,255,255,0.72);">All rights reserved. © 2026 ATOM ENERGY LAW ADVISORY</div>
             </div>
         </div>
     </footer>
@@ -1920,7 +2212,7 @@
                 },
                 {
                     title: 'CLARITY IN COMPLEX REGULATION',
-                    lead: 'We translate evolving rules into practical pathways for operators, investors and stakeholders across the sectors.'
+                    lead: 'We translate evolving rules into practical pathways for operators, investors and stakeholders across the value chain.'
                 },
                 {
                     title: 'PROTECTION WHEN STAKES ARE HIGH',

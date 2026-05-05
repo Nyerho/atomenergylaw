@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Atom-Energylaw — Resources" />
-    <meta name="description" content="Expert legal counsel across the energy value chain: Advisory, Compliance, Policy, Disputes, and General Counsel Support." />
-    <title>Resources | Atom-Energylaw</title>
+    <meta name="title" content="Atom-Energylaw — Knowledge Hub" />
+    <meta name="description" content="Knowledge Hub: news, updates, and articles published by Atom-Energylaw." />
+    <title>Knowledge Hub | Atom-Energylaw</title>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -26,11 +26,28 @@
             --text-muted: #666666; /* Gray Text */
         }
 
+        @font-face {
+            font-family: 'Century Gothic';
+            src: url('centurygothic.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Century Gothic';
+            src: url('centurygothic_bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Century Gothic', sans-serif;
             background:
                 linear-gradient(180deg, rgba(255,255,255,0.64), rgba(255,255,255,0.64)),
                 radial-gradient(900px 620px at 12% 14%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(850px 600px at 90% 60%, rgba(250, 204, 21, 0.08), rgba(255, 255, 255, 0) 55%),
                 radial-gradient(850px 600px at 90% 60%, rgba(250, 204, 21, 0.08), rgba(255, 255, 255, 0) 55%),
                 url('assets/PixVerse_Image_Effect_prompt_oil wells .jpg');
             background-size: cover, auto, auto, cover;
@@ -42,7 +59,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Century Gothic', sans-serif;
             color: #1a1a1a;
         }
 
@@ -245,12 +262,99 @@
         }
 
         /* Footer */
-        footer {
-            background: linear-gradient(to bottom, #1a1a1a, #000);
-            border-top: 1px solid var(--glass-border);
-            color: var(--text-muted);
-            padding: 3rem 0;
-            font-size: 0.9rem;
+        .site-footer {
+            background: radial-gradient(900px 520px at 18% 20%, rgba(31, 137, 194, 0.28), rgba(0, 0, 0, 0) 60%),
+                radial-gradient(900px 520px at 78% 55%, rgba(250, 204, 21, 0.18), rgba(0, 0, 0, 0) 55%),
+                linear-gradient(135deg, #06294f, #021223);
+            color: rgba(255, 255, 255, 0.82);
+            padding: 110px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.08) 1px, rgba(0, 0, 0, 0) 1px),
+                linear-gradient(45deg, rgba(255, 255, 255, 0.06) 1px, rgba(0, 0, 0, 0) 1px);
+            background-size: 64px 64px;
+            opacity: 0.22;
+            pointer-events: none;
+        }
+
+        .site-footer .footer-title {
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 18px;
+        }
+
+        .site-footer .footer-links {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .site-footer .footer-links a {
+            color: rgba(255, 255, 255, 0.78);
+            text-decoration: none;
+            transition: color 200ms ease;
+        }
+
+        .site-footer .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .site-footer .footer-social {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .site-footer .footer-social a {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.92);
+            text-decoration: none;
+            transition: transform 200ms ease, background 200ms ease, color 200ms ease;
+        }
+
+        .site-footer .footer-social a:hover {
+            transform: translateY(-2px);
+            background: rgba(250, 204, 21, 0.18);
+            color: var(--accent-gold);
+        }
+
+        .site-footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            margin-top: 70px;
+            padding-top: 22px;
+        }
+
+        .site-footer .footer-legal {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .site-footer .footer-legal a {
+            color: rgba(255, 255, 255, 0.78);
+            text-decoration: none;
+        }
+
+        .site-footer .footer-legal a:hover {
+            color: var(--accent-gold);
         }
 
         .page-hero {
@@ -337,105 +441,188 @@
                 <i class="fas fa-briefcase"></i>
                 <span>Resources</span>
             </div>
-            <h1 class="display-4 mb-3">Resources</h1>
-            <p class="lead mb-0">Expert Legal Counsel Across the Energy Value Chain</p>
+            <h1 class="display-4 mb-3">Knowledge Hub</h1>
+            <p class="lead mb-0">News, updates, and articles published by the team.</p>
         </div>
     </section>
 
-    <!-- Industrial Expertise Section -->
     <section class="section-padding bg-light" style="padding: 100px 0;">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <img src="assets/images/gas.jpg" class="img-fluid rounded-4 shadow-lg" alt="Industrial Expertise">
+                    <img src="assets/images/gas.jpg" class="img-fluid rounded-4 shadow-lg" alt="Knowledge Hub">
                 </div>
                 <div class="col-lg-6 ps-lg-5">
-                    <h2 class="display-5 mb-4">Driving Industrial Growth</h2>
-                    <p class="lead text-muted mb-4">Supporting the infrastructure that powers nations.</p>
-                    <p>From gas commercialisation projects to large-scale industrial developments, our legal expertise ensures your projects are built on solid ground. We understand the technical and commercial drivers of the industry.</p>
-                    <a href="contact.html" class="btn btn-primary mt-3">Consult with Us</a>
+                    <h2 class="display-5 mb-4">Knowledge Hub</h2>
+                    <p class="lead text-muted mb-4">A home for firm news, legal updates, and practical insights.</p>
+                    <p>Use this section to publish news and updates, short articles, and commentary from time to time. Each entry can be expanded into a dedicated page as the library grows.</p>
+                    <div class="d-flex flex-wrap gap-3 mt-4">
+                        <a href="#news" class="btn btn-primary">News &amp; Updates</a>
+                        <a href="#articles" class="btn btn-outline-primary">Articles</a>
+                        <a href="#insights" class="btn btn-outline-primary">Insights</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Our Services Section -->
-    <section id="services" class="services-section">
+    <section id="news" class="services-section">
         <div class="container">
-            <div class="row g-4 justify-content-center">
-                <!-- Service 1 -->
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold text-uppercase">News</span>
+                <h2 class="display-5 mb-2">News &amp; Updates</h2>
+                <p class="text-muted mx-auto mb-0" style="max-width: 820px;">Firm announcements, recognitions, and timely updates.</p>
+            </div>
+            <div class="row g-4">
                 <div class="col-lg-4 col-md-6">
                     <div class="feature-card p-4">
                         <div class="icon-box mx-auto mb-4" style="width: 72px; height: 72px; font-size: 2rem;">
-                            <i class="fas fa-handshake"></i>
+                            <i class="fas fa-bullhorn"></i>
                         </div>
-                        <h4 class="text-center mb-3">Deal & Transaction Advisory</h4>
-                        <p class="text-muted mb-4">Structuring, negotiation, and execution of complex deals—from joint ventures and production sharing agreements to asset acquisitions and EPC contracts.</p>
-                        <a href="contact.html" class="btn btn-outline-primary mt-auto">Consult with Us</a>
+                        <h4 class="text-center mb-3">Announcement</h4>
+                        <p class="text-muted mb-4">Post firm announcements and key milestones here. Replace this placeholder with your first update.</p>
+                        <a href="contact.html" class="btn btn-outline-primary mt-auto">Share a Note</a>
                     </div>
                 </div>
-                <!-- Service 2 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="feature-card p-4">
                         <div class="icon-box mx-auto mb-4" style="width: 72px; height: 72px; font-size: 2rem;">
-                            <i class="fas fa-shield-alt"></i>
+                            <i class="fas fa-award"></i>
                         </div>
-                        <h4 class="text-center mb-3">Regulatory Compliance</h4>
-                        <p class="text-muted mb-4">End-to-end support in securing and maintaining licences, permits, and regulatory approvals. We help clients stay ahead of evolving rules.</p>
-                        <a href="contact.html" class="btn btn-outline-primary mt-auto">Consult with Us</a>
+                        <h4 class="text-center mb-3">Recognition</h4>
+                        <p class="text-muted mb-4">Highlight awards, rankings, and notable mentions as they happen.</p>
+                        <a href="#articles" class="btn btn-outline-primary mt-auto">Read Articles</a>
                     </div>
                 </div>
-                <!-- Service 3 -->
                 <div class="col-lg-4 col-md-6">
                     <div class="feature-card p-4">
                         <div class="icon-box mx-auto mb-4" style="width: 72px; height: 72px; font-size: 2rem;">
-                            <i class="fas fa-gavel"></i>
+                            <i class="fas fa-scale-balanced"></i>
                         </div>
-                        <h4 class="text-center mb-3">Policy & Legislative Advisory</h4>
-                        <p class="text-muted mb-4">We support public and private sector clients in shaping, interpreting, and implementing laws, regulations, and policies impacting the energy ecosystem.</p>
-                        <a href="contact.html" class="btn btn-outline-primary mt-auto">Consult with Us</a>
-                    </div>
-                </div>
-                <!-- Service 4 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card p-4">
-                        <div class="icon-box mx-auto mb-4" style="width: 72px; height: 72px; font-size: 2rem;">
-                            <i class="fas fa-balance-scale-right"></i>
-                        </div>
-                        <h4 class="text-center mb-3">Dispute Resolution</h4>
-                        <p class="text-muted mb-4">We help clients resolve disputes efficiently—through litigation, arbitration, or alternative dispute resolution—especially in high-stakes energy contexts.</p>
-                        <a href="contact.html" class="btn btn-outline-primary mt-auto">Consult with Us</a>
-                    </div>
-                </div>
-                <!-- Service 5 -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="feature-card p-4">
-                        <div class="icon-box mx-auto mb-4" style="width: 72px; height: 72px; font-size: 2rem;">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h4 class="text-center mb-3">General Counsel Support</h4>
-                        <p class="text-muted mb-4">Retainer services for energy companies without full in-house legal teams, offering embedded advisory tailored to your operations.</p>
-                        <a href="contact.html" class="btn btn-outline-primary mt-auto">Consult with Us</a>
+                        <h4 class="text-center mb-3">Legal Update</h4>
+                        <p class="text-muted mb-4">Share short updates on regulatory changes and practical takeaways for stakeholders.</p>
+                        <a href="#insights" class="btn btn-outline-primary mt-auto">View Insights</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <img src="assets/Atom logo final-I7OGcKSj.png" alt="Logo" style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1);">
-            <div class="mb-4">
-                <p class="mb-1 text-light"><i class="fas fa-phone me-2"></i>+234 906 049 0067</p>
-                <p class="mb-1 text-light"><i class="fas fa-envelope me-2"></i>advisory@atom-energylaw.com</p>
-                <p class="mb-1 text-light"><i class="fas fa-map-marker-alt me-2"></i>No. 32 Obi Okosi Street, Gwarinpa-FCT</p>
+    <section id="articles" class="section-padding bg-light" style="padding: 100px 0;">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold text-uppercase">Articles</span>
+                <h2 class="display-5 mb-2">Articles</h2>
+                <p class="text-muted mx-auto mb-0" style="max-width: 820px;">Short pieces and practical guidance posted from time to time.</p>
             </div>
-            <p class="text-muted small">&copy; 2024 Atom Energy Law Advisory. All rights reserved.</p>
-            <div class="mt-3">
-                <a href="#" class="text-muted me-3"><i class="fab fa-linkedin fa-lg"></i></a>
-                <a href="#" class="text-muted me-3"><i class="fab fa-twitter fa-lg"></i></a>
-                <a href="#" class="text-muted"><i class="fab fa-facebook fa-lg"></i></a>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card p-4">
+                        <div class="icon-box mx-auto mb-4" style="width: 72px; height: 72px; font-size: 2rem;">
+                            <i class="fas fa-newspaper"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Coming Soon</h4>
+                        <p class="text-muted mb-4">Publish your first article here. This card can link to a dedicated article page when ready.</p>
+                        <a href="contact.html" class="btn btn-outline-primary mt-auto">Suggest a Topic</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card p-4">
+                        <div class="icon-box mx-auto mb-4" style="width: 72px; height: 72px; font-size: 2rem;">
+                            <i class="fas fa-pen-nib"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Commentary</h4>
+                        <p class="text-muted mb-4">Add commentary on market developments, policy direction, and regulatory implementation.</p>
+                        <a href="#insights" class="btn btn-outline-primary mt-auto">View Insights</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card p-4">
+                        <div class="icon-box mx-auto mb-4" style="width: 72px; height: 72px; font-size: 2rem;">
+                            <i class="fas fa-file-lines"></i>
+                        </div>
+                        <h4 class="text-center mb-3">Templates</h4>
+                        <p class="text-muted mb-4">Optional: share checklists, frameworks, and templates as downloadable resources.</p>
+                        <a href="contact.html" class="btn btn-outline-primary mt-auto">Request Access</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="insights" class="services-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold text-uppercase">Insights</span>
+                <h2 class="display-5 mb-2">Insights</h2>
+                <p class="text-muted mx-auto mb-0" style="max-width: 820px;">Brief updates and practical takeaways for clients, partners, and stakeholders.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="feature-card p-4">
+                        <h4 class="mb-2">Monthly Roundup</h4>
+                        <p class="text-muted mb-0">Summarize key developments and what they mean for transactions, compliance, and operations.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="feature-card p-4">
+                        <h4 class="mb-2">Regulatory Checklist</h4>
+                        <p class="text-muted mb-0">Maintain a simple checklist of common approvals and timelines (tailored by matter type).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container position-relative">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Capabilities</h5>
+                    <ul class="footer-links">
+                        <li><a href="expertise.html#deal-advisory">Deal Advisory</a></li>
+                        <li><a href="expertise.html#project-structuring">Project Structuring</a></li>
+                        <li><a href="expertise.html#regulatory-compliance">Regulatory Compliance</a></li>
+                        <li><a href="expertise.html#policy-legislative">Policy &amp; Legislative Advisory</a></li>
+                        <li><a href="expertise.html#disputes-resolution">Dispute Resolution</a></li>
+                        <li><a href="expertise.html#tax-advisory">Tax Advisory</a></li>
+                        <li><a href="expertise.html#general-counsel">General Counsel Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="#news">News &amp; Updates</a></li>
+                        <li><a href="#articles">Articles</a></li>
+                        <li><a href="#insights">Insights</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Social</h5>
+                    <div class="footer-social">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="mt-4">
+                        <div class="text-white fw-bold mb-2">Contact</div>
+                        <div class="small" style="color: rgba(255,255,255,0.78);">
+                            <div class="mb-1"><i class="fas fa-phone me-2"></i>+234 906 049 0067</div>
+                            <div class="mb-1"><i class="fas fa-envelope me-2"></i>advisory@atom-energylaw.com</div>
+                            <div><i class="fas fa-map-marker-alt me-2"></i>No. 32 Obi Okosi Street, Gwarinpa-FCT</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <span style="opacity: 0.5;">|</span>
+                    <a href="#">Anti-Bribery and Corruption Statement</a>
+                </div>
+                <div class="small" style="color: rgba(255,255,255,0.72);">All rights reserved. © 2026 ATOM ENERGY LAW ADVISORY</div>
             </div>
         </div>
     </footer>

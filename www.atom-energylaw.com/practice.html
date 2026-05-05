@@ -28,11 +28,28 @@
             --text-muted: #666666; /* Gray Text */
         }
 
+        @font-face {
+            font-family: 'Century Gothic';
+            src: url('centurygothic.ttf') format('truetype');
+            font-weight: 400;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Century Gothic';
+            src: url('centurygothic_bold.ttf') format('truetype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Century Gothic', sans-serif;
             background:
                 linear-gradient(180deg, rgba(255,255,255,0.64), rgba(255,255,255,0.64)),
                 radial-gradient(900px 620px at 12% 14%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(850px 600px at 90% 60%, rgba(250, 204, 21, 0.08), rgba(255, 255, 255, 0) 55%),
                 radial-gradient(850px 600px at 90% 60%, rgba(250, 204, 21, 0.08), rgba(255, 255, 255, 0) 55%),
                 url('assets/PixVerse_Image_Effect_prompt_oil wells .jpg');
             background-size: cover, auto, auto, cover;
@@ -44,7 +61,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Century Gothic', sans-serif;
             color: #1a1a1a;
         }
 
@@ -240,12 +257,99 @@
         }
 
         /* Footer */
-        footer {
-            background: linear-gradient(to bottom, #1a1a1a, #000);
-            border-top: 1px solid var(--glass-border);
-            color: var(--text-muted);
-            padding: 3rem 0;
-            font-size: 0.9rem;
+        .site-footer {
+            background: radial-gradient(900px 520px at 18% 20%, rgba(31, 137, 194, 0.28), rgba(0, 0, 0, 0) 60%),
+                radial-gradient(900px 520px at 78% 55%, rgba(250, 204, 21, 0.18), rgba(0, 0, 0, 0) 55%),
+                linear-gradient(135deg, #06294f, #021223);
+            color: rgba(255, 255, 255, 0.82);
+            padding: 110px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(135deg, rgba(255, 255, 255, 0.08) 1px, rgba(0, 0, 0, 0) 1px),
+                linear-gradient(45deg, rgba(255, 255, 255, 0.06) 1px, rgba(0, 0, 0, 0) 1px);
+            background-size: 64px 64px;
+            opacity: 0.22;
+            pointer-events: none;
+        }
+
+        .site-footer .footer-title {
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 18px;
+        }
+
+        .site-footer .footer-links {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .site-footer .footer-links a {
+            color: rgba(255, 255, 255, 0.78);
+            text-decoration: none;
+            transition: color 200ms ease;
+        }
+
+        .site-footer .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .site-footer .footer-social {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .site-footer .footer-social a {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.92);
+            text-decoration: none;
+            transition: transform 200ms ease, background 200ms ease, color 200ms ease;
+        }
+
+        .site-footer .footer-social a:hover {
+            transform: translateY(-2px);
+            background: rgba(250, 204, 21, 0.18);
+            color: var(--accent-gold);
+        }
+
+        .site-footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            margin-top: 70px;
+            padding-top: 22px;
+        }
+
+        .site-footer .footer-legal {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .site-footer .footer-legal a {
+            color: rgba(255, 255, 255, 0.78);
+            text-decoration: none;
+        }
+
+        .site-footer .footer-legal a:hover {
+            color: var(--accent-gold);
         }
 
         .page-hero {
@@ -427,20 +531,55 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <img src="assets/Atom logo final-I7OGcKSj.png" alt="Logo" style="height: 40px; margin-bottom: 20px; filter: brightness(0) invert(1);">
-            <div class="mb-4">
-                <p class="mb-1 text-light"><i class="fas fa-phone me-2"></i>+234 906 049 0067</p>
-                <p class="mb-1 text-light"><i class="fas fa-envelope me-2"></i>advisory@atom-energylaw.com</p>
-                <p class="mb-1 text-light"><i class="fas fa-map-marker-alt me-2"></i>No. 32 Obi Okosi Street, Gwarinpa-FCT</p>
+    <footer class="site-footer">
+        <div class="container position-relative">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Capabilities</h5>
+                    <ul class="footer-links">
+                        <li><a href="expertise.html#deal-advisory">Deal Advisory</a></li>
+                        <li><a href="expertise.html#project-structuring">Project Structuring</a></li>
+                        <li><a href="expertise.html#regulatory-compliance">Regulatory Compliance</a></li>
+                        <li><a href="expertise.html#policy-legislative">Policy &amp; Legislative Advisory</a></li>
+                        <li><a href="expertise.html#disputes-resolution">Dispute Resolution</a></li>
+                        <li><a href="expertise.html#tax-advisory">Tax Advisory</a></li>
+                        <li><a href="expertise.html#general-counsel">General Counsel Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Resources</h5>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Knowledge Hub</a></li>
+                        <li><a href="services.html#news">News &amp; Updates</a></li>
+                        <li><a href="services.html#articles">Articles</a></li>
+                        <li><a href="services.html#insights">Insights</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Social</h5>
+                    <div class="footer-social">
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="mt-4">
+                        <div class="text-white fw-bold mb-2">Contact</div>
+                        <div class="small" style="color: rgba(255,255,255,0.78);">
+                            <div class="mb-1"><i class="fas fa-phone me-2"></i>+234 906 049 0067</div>
+                            <div class="mb-1"><i class="fas fa-envelope me-2"></i>advisory@atom-energylaw.com</div>
+                            <div><i class="fas fa-map-marker-alt me-2"></i>No. 32 Obi Okosi Street, Gwarinpa-FCT</div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p class="text-muted small">&copy; 2024 Atom Energy Law Advisory. All rights reserved.</p>
-            <div class="mt-3">
-                <a href="#" class="text-muted me-3"><i class="fab fa-linkedin fa-lg"></i></a>
-                <a href="#" class="text-muted me-3"><i class="fab fa-twitter fa-lg"></i></a>
-                <a href="#" class="text-muted"><i class="fab fa-facebook fa-lg"></i></a>
+            <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <span style="opacity: 0.5;">|</span>
+                    <a href="#">Anti-Bribery and Corruption Statement</a>
+                </div>
+                <div class="small" style="color: rgba(255,255,255,0.72);">All rights reserved. © 2026 ATOM ENERGY LAW ADVISORY</div>
             </div>
         </div>
     </footer>
