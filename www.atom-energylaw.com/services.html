@@ -52,7 +52,7 @@
                 url('assets/PixVerse_Image_Effect_prompt_oil wells .jpg');
             background-size: cover, auto, auto, cover;
             background-position: center, center, center, center;
-            background-attachment: scroll, scroll, scroll, fixed;
+            background-attachment: scroll, scroll, scroll, scroll;
             color: var(--text-light);
             overflow-x: hidden;
             min-height: 100vh;
@@ -65,7 +65,6 @@
 
         .navbar {
             background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--glass-border);
             padding: 1rem 0;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
@@ -116,8 +115,6 @@
                 border-radius: 18px;
                 border: 1px solid rgba(15, 23, 42, 0.08);
                 background: rgba(255, 255, 255, 0.92);
-                backdrop-filter: blur(12px);
-                -webkit-backdrop-filter: blur(12px);
                 overflow: hidden;
                 clip-path: inset(0 0 100% 0 round 18px);
                 opacity: 0;
@@ -158,8 +155,7 @@
             .nav-reveal .nav-item {
                 opacity: 0;
                 transform: translateY(-10px);
-                filter: blur(8px);
-                transition: opacity 260ms ease, transform 340ms ease, filter 340ms ease;
+                transition: opacity 260ms ease, transform 340ms ease;
                 transition-delay: var(--item-delay, 0ms);
             }
 
@@ -167,7 +163,6 @@
             .nav-reveal.is-opening .nav-item {
                 opacity: 1;
                 transform: translateY(0);
-                filter: blur(0);
             }
         }
 
@@ -211,8 +206,6 @@
 
         .glass-panel {
             background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             border-radius: 15px;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -228,7 +221,7 @@
                 url('assets/PixVerse_Image_Effect_prompt_oil mining sites .jpg');
             background-size: cover, auto, auto, cover;
             background-position: center, center, center, center;
-            background-attachment: scroll, scroll, scroll, fixed;
+            background-attachment: scroll, scroll, scroll, scroll;
         }
 
         .icon-box {
