@@ -1254,6 +1254,68 @@
             --expertise-bg: url('assets/images/chris-leboutillier-TUJud0AWAPI-unsplash.jpg');
         }
 
+        .practice-groups-section {
+            padding: 95px 0;
+            background: rgba(255, 255, 255, 0.92);
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .practice-groups-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: grid;
+            gap: 14px;
+        }
+
+        .practice-item {
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 18px;
+            padding: 16px 18px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+            transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+        }
+
+        .practice-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.10);
+            border-color: rgba(31, 137, 194, 0.22);
+        }
+
+        .practice-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(31, 137, 194, 0.10);
+            color: var(--primary-color);
+            flex: 0 0 auto;
+        }
+
+        .practice-item a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+            flex: 1 1 auto;
+        }
+
+        .practice-title {
+            margin: 0;
+            font-weight: 800;
+            color: rgba(15, 23, 42, 0.92);
+        }
+
+        .practice-desc {
+            margin: 4px 0 0;
+            color: rgba(15, 23, 42, 0.65);
+        }
+
         /* Testimonials */
         .testimonials-section {
             padding: 110px 0;
@@ -1583,9 +1645,73 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="text-center mt-5">
-                 <a href="expertise.html#practice-groups" class="btn btn-primary px-4 py-2">View All Practice Groups</a>
+        </div>
+    </section>
+
+    <section class="practice-groups-section" id="practice-groups">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold text-uppercase">Practice Groups</span>
+                <h2 class="display-5 mb-2">What We Do</h2>
+                <p class="text-muted mx-auto mb-0" style="max-width: 860px;">A full suite of legal and strategic advisory services spanning the entire energy value chain.</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <ul class="practice-groups-list">
+                        <li class="practice-item">
+                            <div class="practice-icon" aria-hidden="true"><i class="fas fa-handshake"></i></div>
+                            <a href="expertise.html#deal-advisory">
+                                <h3 class="h5 practice-title">Deal Advisory / Corporate and Commercial Advisory</h3>
+                                <p class="practice-desc">Transaction structuring, negotiation support, corporate governance, and commercial documentation.</p>
+                            </a>
+                        </li>
+                        <li class="practice-item">
+                            <div class="practice-icon" aria-hidden="true"><i class="fas fa-diagram-project"></i></div>
+                            <a href="expertise.html#project-structuring">
+                                <h3 class="h5 practice-title">Project Structuring and Transaction Support</h3>
+                                <p class="practice-desc">Project development support, risk allocation, closing coordination, and execution-ready documentation.</p>
+                            </a>
+                        </li>
+                        <li class="practice-item">
+                            <div class="practice-icon" aria-hidden="true"><i class="fas fa-shield-alt"></i></div>
+                            <a href="expertise.html#regulatory-compliance">
+                                <h3 class="h5 practice-title">Regulatory Consulting and Compliance</h3>
+                                <p class="practice-desc">Regulatory mapping, licensing and approvals support, compliance programs, and ongoing advisory.</p>
+                            </a>
+                        </li>
+                        <li class="practice-item">
+                            <div class="practice-icon" aria-hidden="true"><i class="fas fa-landmark"></i></div>
+                            <a href="expertise.html#policy-legislative">
+                                <h3 class="h5 practice-title">Policy and Legislative Advisory</h3>
+                                <p class="practice-desc">Policy analysis, legislative engagement, and advisory on governance frameworks impacting the energy market.</p>
+                            </a>
+                        </li>
+                        <li class="practice-item">
+                            <div class="practice-icon" aria-hidden="true"><i class="fas fa-gavel"></i></div>
+                            <a href="expertise.html#disputes-resolution">
+                                <h3 class="h5 practice-title">Disputes Resolution</h3>
+                                <p class="practice-desc">Negotiation and settlement strategy, arbitration/litigation support, and dispute readiness advisory.</p>
+                            </a>
+                        </li>
+                        <li class="practice-item">
+                            <div class="practice-icon" aria-hidden="true"><i class="fas fa-file-invoice-dollar"></i></div>
+                            <a href="expertise.html#tax-advisory">
+                                <h3 class="h5 practice-title">Tax Advisory</h3>
+                                <p class="practice-desc">Tax structuring support, compliance advisory, risk management, and dispute support.</p>
+                            </a>
+                        </li>
+                        <li class="practice-item">
+                            <div class="practice-icon" aria-hidden="true"><i class="fas fa-user-tie"></i></div>
+                            <a href="expertise.html#general-counsel">
+                                <h3 class="h5 practice-title">General Counsel Support &amp; Company Secretarial</h3>
+                                <p class="practice-desc">Embedded legal support for operations, board and governance workflows, and company secretarial support.</p>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="text-center mt-5">
+                        <a href="expertise.html#practice-groups" class="btn btn-primary px-4 py-2">View All Practice Groups</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1831,7 +1957,7 @@
     </script>
     <script>
         (() => {
-            const selectors = ['.nav-hub-group', '.nav-hub-card', '.metric-card', '.hover-card', '.news-card', '.lawyer-card', '.gallery-tile', '.industry-banner'];
+            const selectors = ['.nav-hub-group', '.nav-hub-card', '.metric-card', '.hover-card', '.news-card', '.lawyer-card', '.gallery-tile', '.industry-banner', '.practice-item'];
             const cardSelector = selectors.join(', ');
             const sections = Array.from(document.querySelectorAll('section'));
             const targets = new Set();
