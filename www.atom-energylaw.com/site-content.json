@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "site": {
+    "contact": {
+      "phone": "+234 906 049 0067",
+      "email": "advisory@atom-energylaw.com",
+      "address": "No. 32 Obi Okosi Street, Gwarinpa-FCT"
+    },
+    "social": {
+      "linkedin": "#",
+      "instagram": "#",
+      "twitter": "#",
+      "youtube": "#"
+    }
+  },
+  "home": {
+    "latestUpdates": [
+      {
+        "type": "Award",
+        "icon": "fa-award",
+        "year": "2026",
+        "title": "Tier 1 recognition for sector-focused advisory",
+        "summary": "A snapshot of recent recognition for our energy and natural resources practice across regulatory, transactional, and dispute work.",
+        "url": "about.html"
+      },
+      {
+        "type": "Announcement",
+        "icon": "fa-bullhorn",
+        "year": "2026",
+        "title": "New advisory support for energy transition projects",
+        "summary": "Expanded support for renewables, embedded generation, and infrastructure investment—aligned with evolving market and policy frameworks.",
+        "url": "services.html"
+      },
+      {
+        "type": "Shoutout",
+        "icon": "fa-star",
+        "year": "2026",
+        "title": "Client success in a high-stakes regulatory engagement",
+        "summary": "Celebrating a major milestone for a client operating across the energy value chain—supported through strategy, compliance, and policy engagement.",
+        "url": "contact.html"
+      }
+    ],
+    "testimonials": [
+      {
+        "quote": "Clear guidance, fast turnaround, and strong commercial judgement. We felt supported throughout a complex transaction.",
+        "name": "Client",
+        "role": "Project Developer"
+      },
+      {
+        "quote": "They helped us navigate regulatory issues with confidence. Practical, responsive, and deeply sector-aware.",
+        "name": "Client",
+        "role": "Investor"
+      },
+      {
+        "quote": "Responsive, discreet, and precise. Their dispute readiness work strengthened our position and reduced risk.",
+        "name": "General Counsel",
+        "role": "Energy Company"
+      }
+    ]
+  },
+  "knowledgeHub": {
+    "news": [
+      {
+        "type": "Announcement",
+        "icon": "fa-bullhorn",
+        "title": "Announcement",
+        "summary": "Post firm announcements and key milestones here. Replace this placeholder with your first update.",
+        "url": "contact.html"
+      },
+      {
+        "type": "Recognition",
+        "icon": "fa-award",
+        "title": "Recognition",
+        "summary": "Highlight awards, rankings, and notable mentions as they happen.",
+        "url": "#articles"
+      },
+      {
+        "type": "Legal Update",
+        "icon": "fa-scale-balanced",
+        "title": "Legal Update",
+        "summary": "Share short updates on regulatory changes and practical takeaways for stakeholders.",
+        "url": "#insights"
+      }
+    ],
+    "articles": [
+      {
+        "tag": "Article",
+        "icon": "fa-newspaper",
+        "title": "Coming Soon",
+        "summary": "Publish your first article here. This card can link to a dedicated article page when ready.",
+        "url": "contact.html"
+      },
+      {
+        "tag": "Commentary",
+        "icon": "fa-pen-nib",
+        "title": "Commentary",
+        "summary": "Add commentary on market developments, policy direction, and regulatory implementation.",
+        "url": "#insights"
+      },
+      {
+        "tag": "Templates",
+        "icon": "fa-file-lines",
+        "title": "Templates",
+        "summary": "Optional: share checklists, frameworks, and templates as downloadable resources.",
+        "url": "contact.html"
+      }
+    ]
+  }
+}
+
