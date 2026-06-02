@@ -16,7 +16,7 @@
         :root {
             --primary-color: #1f89c2;
             --secondary-color: #166a96;
-            --accent-gold: #facc15;
+            --accent-blue: #1f89c2;
             --glass-bg: rgba(255, 255, 255, 0.9);
             --glass-border: rgba(0, 0, 0, 0.1);
             --text-light: #333333;
@@ -29,7 +29,7 @@
             margin: 0;
             background:
                 radial-gradient(900px 620px at 12% 14%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 60%),
-                radial-gradient(850px 600px at 90% 60%, rgba(250, 204, 21, 0.08), rgba(255, 255, 255, 0) 55%),
+                radial-gradient(850px 600px at 90% 60%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 55%),
                 linear-gradient(180deg, #ffffff 0%, #f7fbff 60%, #ffffff 100%);
             color: var(--text-light);
             overflow-x: hidden;
@@ -155,7 +155,7 @@
             padding: 95px 0;
             background:
                 radial-gradient(900px 620px at 18% 18%, rgba(31, 137, 194, 0.10), rgba(255, 255, 255, 0) 60%),
-                radial-gradient(900px 620px at 88% 70%, rgba(250, 204, 21, 0.10), rgba(255, 255, 255, 0) 55%),
+                radial-gradient(900px 620px at 88% 70%, rgba(31, 137, 194, 0.10), rgba(255, 255, 255, 0) 55%),
                 linear-gradient(180deg, #ffffff 0%, #f7fbff 60%, #ffffff 100%);
         }
         .hover-card {
@@ -184,6 +184,7 @@
             overflow: hidden;
             background: transparent;
             border-color: rgba(255, 255, 255, 0.18) !important;
+            cursor: pointer;
         }
         .expertise-card::before {
             content: '';
@@ -222,7 +223,7 @@
             color: rgba(255, 255, 255, 0.92) !important;
         }
         .expertise-card a:hover {
-            color: var(--accent-gold) !important;
+            color: var(--accent-blue) !important;
         }
         .expertise-card.is-active {
             box-shadow: 0 26px 70px rgba(15, 23, 42, 0.22) !important;
@@ -242,7 +243,7 @@
         }
         .site-footer {
             background: radial-gradient(900px 520px at 18% 20%, rgba(31, 137, 194, 0.28), rgba(0, 0, 0, 0) 60%),
-                radial-gradient(900px 520px at 78% 55%, rgba(250, 204, 21, 0.18), rgba(0, 0, 0, 0) 55%),
+                radial-gradient(900px 520px at 78% 55%, rgba(31, 137, 194, 0.18), rgba(0, 0, 0, 0) 55%),
                 linear-gradient(135deg, #06294f, #021223);
             color: rgba(255, 255, 255, 0.82);
             padding: 110px 0 50px;
@@ -284,7 +285,7 @@
         }
 
         .site-footer .footer-links a:hover {
-            color: var(--accent-gold);
+            color: var(--accent-blue);
         }
 
         .site-footer .footer-social {
@@ -309,8 +310,8 @@
 
         .site-footer .footer-social a:hover {
             transform: translateY(-2px);
-            background: rgba(250, 204, 21, 0.18);
-            color: var(--accent-gold);
+            background: rgba(31, 137, 194, 0.18);
+            color: var(--accent-blue);
         }
 
         .site-footer .footer-bottom {
@@ -332,7 +333,7 @@
         }
 
         .site-footer .footer-legal a:hover {
-            color: var(--accent-gold);
+            color: var(--accent-blue);
         }
     </style>
 </head>
@@ -379,42 +380,54 @@
             </div>
             <div class="row g-4">
                 <div class="col-md-6 col-lg-3" id="oil-gas">
-                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--oil">
+                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--oil" role="link" tabindex="0" data-href="expertise-sector.html?sector=oil-gas" aria-label="Oil and Gas">
                         <div class="card-body p-4 text-center">
                             <div class="icon-box mx-auto"><i class="fas fa-oil-well"></i></div>
                             <h4 class="mt-4 mb-3">Oil &amp; Gas</h4>
                             <p class="text-muted mb-4">Transactions, regulation, and dispute support across upstream, midstream, and downstream operations.</p>
-                            <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us <i class="fas fa-arrow-right ms-2"></i></a>
+                            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                                <a href="expertise-sector.html?sector=oil-gas" class="btn btn-outline-light btn-sm">View details <i class="fas fa-arrow-right ms-2"></i></a>
+                                <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" id="power-renewables">
-                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--power">
+                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--power" role="link" tabindex="0" data-href="expertise-sector.html?sector=power-renewables" aria-label="Power and Renewables">
                         <div class="card-body p-4 text-center">
                             <div class="icon-box mx-auto"><i class="fas fa-bolt"></i></div>
                             <h4 class="mt-4 mb-3">Power &amp; Renewables</h4>
                             <p class="text-muted mb-4">Project structuring, permits, contracting, and regulatory navigation for power and renewables.</p>
-                            <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us <i class="fas fa-arrow-right ms-2"></i></a>
+                            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                                <a href="expertise-sector.html?sector=power-renewables" class="btn btn-outline-light btn-sm">View details <i class="fas fa-arrow-right ms-2"></i></a>
+                                <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" id="mining-extractives">
-                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--mining">
+                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--mining" role="link" tabindex="0" data-href="expertise-sector.html?sector=mining-extractives" aria-label="Mining and Extractives">
                         <div class="card-body p-4 text-center">
                             <div class="icon-box mx-auto"><i class="fas fa-mountain"></i></div>
                             <h4 class="mt-4 mb-3">Mining &amp; Extractives</h4>
                             <p class="text-muted mb-4">Licensing, compliance, stakeholder issues, and disputes for mineral and extractive projects.</p>
-                            <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us <i class="fas fa-arrow-right ms-2"></i></a>
+                            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                                <a href="expertise-sector.html?sector=mining-extractives" class="btn btn-outline-light btn-sm">View details <i class="fas fa-arrow-right ms-2"></i></a>
+                                <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us</a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" id="maritime-shipping">
-                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--maritime">
+                    <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--maritime" role="link" tabindex="0" data-href="expertise-sector.html?sector=maritime-shipping" aria-label="Maritime and Shipping">
                         <div class="card-body p-4 text-center">
                             <div class="icon-box mx-auto"><i class="fas fa-ship"></i></div>
                             <h4 class="mt-4 mb-3">Maritime &amp; Shipping</h4>
                             <p class="text-muted mb-4">Advisory on marine operations, contracting, compliance, and dispute support.</p>
-                            <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us <i class="fas fa-arrow-right ms-2"></i></a>
+                            <div class="d-flex justify-content-center gap-2 flex-wrap">
+                                <a href="expertise-sector.html?sector=maritime-shipping" class="btn btn-outline-light btn-sm">View details <i class="fas fa-arrow-right ms-2"></i></a>
+                                <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -539,5 +552,28 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/site-content-loader.js" defer></script>
+    <script>
+        (() => {
+            const cards = Array.from(document.querySelectorAll('.expertise-card[data-href]'));
+            const go = (href) => {
+                if (!href) return;
+                window.location.href = href;
+            };
+
+            cards.forEach((card) => {
+                const href = card.getAttribute('data-href');
+                card.addEventListener('click', (e) => {
+                    const target = e.target;
+                    if (target instanceof HTMLElement && target.closest('a, button')) return;
+                    go(href);
+                });
+                card.addEventListener('keydown', (e) => {
+                    if (e.key !== 'Enter' && e.key !== ' ') return;
+                    e.preventDefault();
+                    go(href);
+                });
+            });
+        })();
+    </script>
 </body>
 </html>
