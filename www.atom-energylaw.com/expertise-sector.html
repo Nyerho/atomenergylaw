@@ -20,8 +20,8 @@
         }
         body {
             font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            line-height: 1.75;
+            font-size: 15px;
+            line-height: 1.82;
             margin: 0;
             background:
                 radial-gradient(900px 620px at 12% 14%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 60%),
@@ -50,7 +50,7 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            font-size: 0.9rem;
+            font-size: 0.82rem;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -215,18 +215,20 @@
         .expertise-card .icon-box {
             background: rgba(255, 255, 255, 0.14);
             color: rgba(255, 255, 255, 0.95);
+            animation: expertiseIconFloat 3.8s ease-in-out infinite;
         }
         .expertise-card h4 {
             color: #ffffff;
+            margin-bottom: 0;
+            font-size: 1.12rem;
         }
-        .expertise-card p {
-            color: rgba(255, 255, 255, 0.82) !important;
-        }
-        .expertise-card a {
-            color: rgba(255, 255, 255, 0.92) !important;
-        }
-        .expertise-card a:hover {
-            color: var(--accent-blue) !important;
+        @keyframes expertiseIconFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-7px) scale(1.04);
+            }
         }
         .expertise-card--oil {
             --expertise-bg: url('assets/PixVerse_Image_Effect_prompt_oil rigs .jpg');
@@ -314,7 +316,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img src="assets/Atom logo final-I7OGcKSj.png" alt="Atom-Energylaw">
@@ -328,7 +330,7 @@
                     <li class="nav-item"><a class="nav-link" href="about.html">Who we are</a></li>
                     <li class="nav-item"><a class="nav-link active" href="expertise.html">Our Expertise</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html">Resources</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
         </div>
@@ -446,7 +448,7 @@
                     lead: 'Transactions, regulation, and dispute support across upstream, midstream, and downstream operations.',
                     heroBg: "url('assets/PixVerse_Image_Effect_prompt_oil rigs .jpg')",
                     cardClass: 'expertise-card--oil',
-                    icon: 'fa-oil-well',
+                    icon: 'fa-oil-can',
                     heading: 'Oil & Gas Advisory',
                     body: [
                         'We help clients operate confidently across the oil and gas value chain, translating complex regulatory requirements into practical steps and deal-ready documentation.',
@@ -466,7 +468,7 @@
                     lead: 'Project structuring, permits, contracting, and regulatory navigation for power and renewables.',
                     heroBg: "url('assets/images/windmill.jpg')",
                     cardClass: 'expertise-card--power',
-                    icon: 'fa-bolt',
+                    icon: 'fa-solar-panel',
                     heading: 'Power & Renewables Advisory',
                     body: [
                         'We support developers, investors, and operators through the full lifecycle of power and renewable projects, from feasibility to contracting, financing, and operations.',
@@ -486,7 +488,7 @@
                     lead: 'Licensing, compliance, stakeholder issues, and disputes for mineral and extractive projects.',
                     heroBg: "url('assets/PixVerse_Image_Effect_prompt_mining sites .jpg')",
                     cardClass: 'expertise-card--mining',
-                    icon: 'fa-mountain',
+                    icon: 'fa-gem',
                     heading: 'Mining & Extractives Advisory',
                     body: [
                         'We advise clients on legal and commercial issues that shape mining and extractive projects, with a focus on licensing, compliance, and operational continuity.',
@@ -506,7 +508,7 @@
                     lead: 'Advisory on marine operations, contracting, compliance, and dispute support.',
                     heroBg: "url('assets/images/chris-leboutillier-TUJud0AWAPI-unsplash.jpg')",
                     cardClass: 'expertise-card--maritime',
-                    icon: 'fa-ship',
+                    icon: 'fa-anchor',
                     heading: 'Maritime & Shipping Advisory',
                     body: [
                         'We provide legal support for maritime operations that intersect with energy and natural resources, including logistics, port operations, and marine contracting.',
@@ -549,9 +551,7 @@
                         <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card ${item.cardClass}" role="link" tabindex="0" data-href="expertise-sector.html?sector=${id}" aria-label="${item.title}">
                             <div class="card-body p-4 text-center">
                                 <div class="icon-box mx-auto"><i class="fas ${item.icon}"></i></div>
-                                <h4 class="mt-4 mb-3">${item.title}</h4>
-                                <p class="text-muted mb-4">${item.lead}</p>
-                                <a href="expertise-sector.html?sector=${id}" class="btn btn-outline-light btn-sm">View details <i class="fas fa-arrow-right ms-2"></i></a>
+                                <h4 class="mt-4">${item.title}</h4>
                             </div>
                         </div>
                     </div>

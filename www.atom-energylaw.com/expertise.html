@@ -24,8 +24,8 @@
         }
         body {
             font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            line-height: 1.75;
+            font-size: 15px;
+            line-height: 1.82;
             margin: 0;
             background:
                 radial-gradient(900px 620px at 12% 14%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 60%),
@@ -57,7 +57,7 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            font-size: 0.9rem;
+            font-size: 0.82rem;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -212,18 +212,20 @@
         .expertise-card .icon-box {
             background: rgba(255, 255, 255, 0.14);
             color: rgba(255, 255, 255, 0.95);
+            animation: expertiseIconFloat 3.8s ease-in-out infinite;
         }
         .expertise-card h4 {
             color: #ffffff;
+            margin-bottom: 0;
+            font-size: 1.12rem;
         }
-        .expertise-card p {
-            color: rgba(255, 255, 255, 0.82) !important;
-        }
-        .expertise-card a {
-            color: rgba(255, 255, 255, 0.92) !important;
-        }
-        .expertise-card a:hover {
-            color: var(--accent-blue) !important;
+        @keyframes expertiseIconFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-7px) scale(1.04);
+            }
         }
         .expertise-card.is-active {
             box-shadow: 0 26px 70px rgba(15, 23, 42, 0.22) !important;
@@ -338,7 +340,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top">
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img src="assets/Atom logo final-I7OGcKSj.png" alt="Atom-Energylaw">
@@ -352,7 +354,7 @@
                     <li class="nav-item"><a class="nav-link" href="about.html">Who we are</a></li>
                     <li class="nav-item"><a class="nav-link active" href="expertise.html">Our Expertise</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html">Resources</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
         </div>
@@ -382,52 +384,32 @@
                 <div class="col-md-6 col-lg-3" id="oil-gas">
                     <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--oil" role="link" tabindex="0" data-href="expertise-sector.html?sector=oil-gas" aria-label="Oil and Gas">
                         <div class="card-body p-4 text-center">
-                            <div class="icon-box mx-auto"><i class="fas fa-oil-well"></i></div>
-                            <h4 class="mt-4 mb-3">Oil &amp; Gas</h4>
-                            <p class="text-muted mb-4">Transactions, regulation, and dispute support across upstream, midstream, and downstream operations.</p>
-                            <div class="d-flex justify-content-center gap-2 flex-wrap">
-                                <a href="expertise-sector.html?sector=oil-gas" class="btn btn-outline-light btn-sm">View details <i class="fas fa-arrow-right ms-2"></i></a>
-                                <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us</a>
-                            </div>
+                            <div class="icon-box mx-auto"><i class="fas fa-oil-can"></i></div>
+                            <h4 class="mt-4">Oil &amp; Gas</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" id="power-renewables">
                     <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--power" role="link" tabindex="0" data-href="expertise-sector.html?sector=power-renewables" aria-label="Power and Renewables">
                         <div class="card-body p-4 text-center">
-                            <div class="icon-box mx-auto"><i class="fas fa-bolt"></i></div>
-                            <h4 class="mt-4 mb-3">Power &amp; Renewables</h4>
-                            <p class="text-muted mb-4">Project structuring, permits, contracting, and regulatory navigation for power and renewables.</p>
-                            <div class="d-flex justify-content-center gap-2 flex-wrap">
-                                <a href="expertise-sector.html?sector=power-renewables" class="btn btn-outline-light btn-sm">View details <i class="fas fa-arrow-right ms-2"></i></a>
-                                <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us</a>
-                            </div>
+                            <div class="icon-box mx-auto"><i class="fas fa-solar-panel"></i></div>
+                            <h4 class="mt-4">Power &amp; Renewables</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" id="mining-extractives">
                     <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--mining" role="link" tabindex="0" data-href="expertise-sector.html?sector=mining-extractives" aria-label="Mining and Extractives">
                         <div class="card-body p-4 text-center">
-                            <div class="icon-box mx-auto"><i class="fas fa-mountain"></i></div>
-                            <h4 class="mt-4 mb-3">Mining &amp; Extractives</h4>
-                            <p class="text-muted mb-4">Licensing, compliance, stakeholder issues, and disputes for mineral and extractive projects.</p>
-                            <div class="d-flex justify-content-center gap-2 flex-wrap">
-                                <a href="expertise-sector.html?sector=mining-extractives" class="btn btn-outline-light btn-sm">View details <i class="fas fa-arrow-right ms-2"></i></a>
-                                <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us</a>
-                            </div>
+                            <div class="icon-box mx-auto"><i class="fas fa-gem"></i></div>
+                            <h4 class="mt-4">Mining &amp; Extractives</h4>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-3" id="maritime-shipping">
                     <div class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--maritime" role="link" tabindex="0" data-href="expertise-sector.html?sector=maritime-shipping" aria-label="Maritime and Shipping">
                         <div class="card-body p-4 text-center">
-                            <div class="icon-box mx-auto"><i class="fas fa-ship"></i></div>
-                            <h4 class="mt-4 mb-3">Maritime &amp; Shipping</h4>
-                            <p class="text-muted mb-4">Advisory on marine operations, contracting, compliance, and dispute support.</p>
-                            <div class="d-flex justify-content-center gap-2 flex-wrap">
-                                <a href="expertise-sector.html?sector=maritime-shipping" class="btn btn-outline-light btn-sm">View details <i class="fas fa-arrow-right ms-2"></i></a>
-                                <a href="contact.html" class="btn btn-outline-light btn-sm">Engage us</a>
-                            </div>
+                            <div class="icon-box mx-auto"><i class="fas fa-anchor"></i></div>
+                            <h4 class="mt-4">Maritime &amp; Shipping</h4>
                         </div>
                     </div>
                 </div>

@@ -32,8 +32,8 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            font-size: 16px;
-            line-height: 1.75;
+            font-size: 15px;
+            line-height: 1.82;
             margin: 0;
             background:
                 linear-gradient(180deg, rgba(255,255,255,0.64), rgba(255,255,255,0.64)),
@@ -81,7 +81,7 @@
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.06em;
-            font-size: 0.9rem;
+            font-size: 0.82rem;
             transition: all 0.3s ease;
             position: relative;
         }
@@ -1146,6 +1146,27 @@
                 linear-gradient(180deg, #ffffff 0%, #f7fbff 55%, #ffffff 100%);
         }
 
+        .about-copy {
+            max-width: 620px;
+        }
+
+        .about-kicker {
+            font-size: 0.72rem;
+            letter-spacing: 0.22em;
+        }
+
+        .about-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1.6rem;
+            color: #0f2b63;
+        }
+
+        .about-copy p {
+            font-size: 0.98rem;
+            line-height: 1.95;
+            color: rgba(15, 23, 42, 0.76);
+        }
+
         .about-img-container {
             position: relative;
         }
@@ -1176,6 +1197,7 @@
             overflow: hidden;
             background: transparent;
             border-color: rgba(255, 255, 255, 0.18) !important;
+            cursor: pointer;
         }
 
         .expertise-card::before {
@@ -1208,22 +1230,22 @@
         .expertise-card .icon-box {
             background: rgba(255, 255, 255, 0.14);
             color: rgba(255, 255, 255, 0.95);
+            animation: expertiseIconFloat 3.8s ease-in-out infinite;
         }
 
         .expertise-card h4 {
             color: #ffffff;
+            margin-bottom: 0;
+            font-size: 1.15rem;
         }
 
-        .expertise-card p {
-            color: rgba(255, 255, 255, 0.82) !important;
-        }
-
-        .expertise-card a {
-            color: rgba(255, 255, 255, 0.92) !important;
-        }
-
-        .expertise-card a:hover {
-            color: var(--accent-blue) !important;
+        @keyframes expertiseIconFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-7px) scale(1.04);
+            }
         }
 
         .expertise-card--oil {
@@ -1427,13 +1449,7 @@
             gap: 14px;
             align-items: flex-start;
             box-shadow: 0 18px 40px rgba(2, 6, 23, 0.25);
-            transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
-        }
-
-        .practice-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 26px 70px rgba(2, 6, 23, 0.35);
-            border-color: rgba(31, 137, 194, 0.28);
+            transition: box-shadow 240ms ease, border-color 240ms ease;
         }
 
         .practice-icon {
@@ -1448,22 +1464,10 @@
             flex: 0 0 auto;
         }
 
-        .practice-item a {
-            color: inherit;
-            text-decoration: none;
-            display: block;
-            flex: 1 1 auto;
-        }
-
         .practice-title {
             margin: 0;
             font-weight: 800;
             color: rgba(255, 255, 255, 0.92);
-        }
-
-        .practice-desc {
-            margin: 4px 0 0;
-            color: rgba(255, 255, 255, 0.74);
         }
 
         /* Testimonials */
@@ -1489,7 +1493,7 @@
 
         .testimonial-quote {
             font-size: 1.05rem;
-            line-height: 1.75;
+            line-height: 1.82;
             color: rgba(15, 23, 42, 0.78);
         }
 
@@ -1625,7 +1629,7 @@
 
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top glass-nav navbar-landing">
+    <nav class="navbar navbar-expand-lg glass-nav navbar-landing">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <img src="assets/Atom logo final-I7OGcKSj.png" alt="Atom-Energylaw">
@@ -1636,8 +1640,8 @@
             <div class="collapse navbar-collapse justify-content-end nav-reveal" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#firm-overview">About Us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#expertise">Our Expertise</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Who we are</a></li>
+                    <li class="nav-item"><a class="nav-link" href="expertise.html">Our Expertise</a></li>
                     <li class="nav-item"><a class="nav-link" href="services.html">Resources</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                 </ul>
@@ -1680,53 +1684,13 @@
                     </div>
                 </div>
                 <div class="col-lg-6 ps-lg-5">
-                    <span class="text-primary fw-bold text-uppercase mb-2 d-block">Who We Are</span>
+                    <div class="about-copy">
+                    <span class="text-primary fw-semibold text-uppercase mb-2 d-block about-kicker">The Firm</span>
+                    <h2 class="about-title">Who We Are</h2>
                     <p class="lead text-muted mb-4">We are a boutique energy law advisory firm offering exclusive tier 1 legal, and strategic advisory services to clients across the energy and natural resources value chain.</p>
                     <p class="mb-4">We work at the intersection of law, regulation, and commercial operations, supporting government bodies, private sector entities, infrastructure investors, and project developers operating across oil and gas, power, mining, and maritime segments. Our value lies in our industry-specific insight, transactional fluency, and policy awareness, allowing us to provide not just legal advice, but commercially sound guidance tailored to Nigeria’s evolving energy landscape.</p>
-
-                    <div class="row g-3 mb-4">
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <span>Tier 1 Legal Advisory</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <span>Strategic Consulting</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <span>Regulatory Compliance</span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-primary me-2"></i>
-                                <span>Dispute Resolution</span>
-                            </div>
-                        </div>
                     </div>
-
-                    <a href="about.html" class="btn btn-outline-primary mt-2">Learn More About Us</a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="industry-banner">
-        <video muted loop playsinline preload="none" poster="assets/ideaenergy.jpg">
-            <source src="assets/PixVerse_V5.6_Image_Text_360P_oil_rigs.mp4" type="video/mp4">
-        </video>
-        <div class="container">
-            <div>
-                <span class="text-warning fw-bold text-uppercase">Perspective</span>
-                <h2 class="display-6 mb-2" style="color:#fff;">Built for the Energy Value Chain</h2>
-                <p class="text-light mb-3">From offshore rigs to renewable transition, we bring sector-aware legal clarity.</p>
-                <a class="btn btn-primary" href="expertise.html">Explore Our Expertise</a>
             </div>
         </div>
     </section>
@@ -1738,55 +1702,41 @@
                     <i class="fas fa-compass"></i>
                     <span>Our Expertise</span>
                 </div>
-                <h2 class="display-5 mb-3" style="color:#fff;">Focused sector expertise</h2>
-                <p class="text-muted mb-0">We focus exclusively on four key sectors where legal clarity meets operational complexity:</p>
             </div>
 
             <div class="row g-4 justify-content-center">
                 <div class="col-md-6 col-lg-3">
-                    <a href="expertise.html#oil-gas" class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--oil text-decoration-none">
+                    <a href="expertise-sector.html?sector=oil-gas" class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--oil text-decoration-none">
                         <div class="card-body p-4 text-center d-flex flex-column">
-                            <div class="icon-box mx-auto"><i class="fas fa-oil-well"></i></div>
-                            <h4 class="mt-4 mb-3">Oil &amp; Gas</h4>
-                            <p class="mb-4">Transactions, regulation, and dispute support across upstream, midstream, and downstream operations.</p>
-                            <span class="btn btn-outline-light btn-sm mt-auto align-self-center">Explore <i class="fas fa-arrow-right ms-2"></i></span>
+                            <div class="icon-box mx-auto"><i class="fas fa-oil-can"></i></div>
+                            <h4 class="mt-4">Oil &amp; Gas</h4>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <a href="expertise.html#power-renewables" class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--power text-decoration-none">
+                    <a href="expertise-sector.html?sector=power-renewables" class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--power text-decoration-none">
                         <div class="card-body p-4 text-center d-flex flex-column">
-                            <div class="icon-box mx-auto"><i class="fas fa-bolt"></i></div>
-                            <h4 class="mt-4 mb-3">Power &amp; Renewables</h4>
-                            <p class="mb-4">Project structuring, permits, contracting, and regulatory navigation for power and renewables.</p>
-                            <span class="btn btn-outline-light btn-sm mt-auto align-self-center">Explore <i class="fas fa-arrow-right ms-2"></i></span>
+                            <div class="icon-box mx-auto"><i class="fas fa-solar-panel"></i></div>
+                            <h4 class="mt-4">Power &amp; Renewables</h4>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <a href="expertise.html#mining-extractives" class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--mining text-decoration-none">
+                    <a href="expertise-sector.html?sector=mining-extractives" class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--mining text-decoration-none">
                         <div class="card-body p-4 text-center d-flex flex-column">
-                            <div class="icon-box mx-auto"><i class="fas fa-mountain"></i></div>
-                            <h4 class="mt-4 mb-3">Mining &amp; Extractives</h4>
-                            <p class="mb-4">Licensing, compliance, stakeholder issues, and disputes for mineral and extractive projects.</p>
-                            <span class="btn btn-outline-light btn-sm mt-auto align-self-center">Explore <i class="fas fa-arrow-right ms-2"></i></span>
+                            <div class="icon-box mx-auto"><i class="fas fa-gem"></i></div>
+                            <h4 class="mt-4">Mining &amp; Extractives</h4>
                         </div>
                     </a>
                 </div>
                 <div class="col-md-6 col-lg-3">
-                    <a href="expertise.html#maritime-shipping" class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--maritime text-decoration-none">
+                    <a href="expertise-sector.html?sector=maritime-shipping" class="card h-100 border-0 shadow-sm hover-card position-relative expertise-card expertise-card--maritime text-decoration-none">
                         <div class="card-body p-4 text-center d-flex flex-column">
-                            <div class="icon-box mx-auto"><i class="fas fa-ship"></i></div>
-                            <h4 class="mt-4 mb-3">Maritime &amp; Shipping</h4>
-                            <p class="mb-4">Advisory on marine operations, contracting, compliance, and dispute support.</p>
-                            <span class="btn btn-outline-light btn-sm mt-auto align-self-center">Explore <i class="fas fa-arrow-right ms-2"></i></span>
+                            <div class="icon-box mx-auto"><i class="fas fa-anchor"></i></div>
+                            <h4 class="mt-4">Maritime &amp; Shipping</h4>
                         </div>
                     </a>
                 </div>
-            </div>
-
-            <div class="text-center mt-5">
-                <a href="expertise.html" class="btn btn-outline-light">Explore Our Expertise</a>
             </div>
         </div>
     </section>
@@ -1803,57 +1753,47 @@
                     <ul class="practice-groups-list">
                         <li class="practice-item">
                             <div class="practice-icon" aria-hidden="true"><i class="fas fa-handshake"></i></div>
-                            <a href="expertise.html#deal-advisory">
+                            <div>
                                 <h3 class="h5 practice-title">Deal Advisory / Corporate and Commercial Advisory</h3>
-                                <p class="practice-desc">Transaction structuring, negotiation support, corporate governance, and commercial documentation.</p>
-                            </a>
+                            </div>
                         </li>
                         <li class="practice-item">
                             <div class="practice-icon" aria-hidden="true"><i class="fas fa-diagram-project"></i></div>
-                            <a href="expertise.html#project-structuring">
+                            <div>
                                 <h3 class="h5 practice-title">Project Structuring and Transaction Support</h3>
-                                <p class="practice-desc">Project development support, risk allocation, closing coordination, and execution-ready documentation.</p>
-                            </a>
+                            </div>
                         </li>
                         <li class="practice-item">
                             <div class="practice-icon" aria-hidden="true"><i class="fas fa-shield-alt"></i></div>
-                            <a href="expertise.html#regulatory-compliance">
+                            <div>
                                 <h3 class="h5 practice-title">Regulatory Consulting and Compliance</h3>
-                                <p class="practice-desc">Regulatory mapping, licensing and approvals support, compliance programs, and ongoing advisory.</p>
-                            </a>
+                            </div>
                         </li>
                         <li class="practice-item">
                             <div class="practice-icon" aria-hidden="true"><i class="fas fa-landmark"></i></div>
-                            <a href="expertise.html#policy-legislative">
+                            <div>
                                 <h3 class="h5 practice-title">Policy and Legislative Advisory</h3>
-                                <p class="practice-desc">Policy analysis, legislative engagement, and advisory on governance frameworks impacting the energy market.</p>
-                            </a>
+                            </div>
                         </li>
                         <li class="practice-item">
                             <div class="practice-icon" aria-hidden="true"><i class="fas fa-gavel"></i></div>
-                            <a href="expertise.html#disputes-resolution">
+                            <div>
                                 <h3 class="h5 practice-title">Disputes Resolution</h3>
-                                <p class="practice-desc">Negotiation and settlement strategy, arbitration/litigation support, and dispute readiness advisory.</p>
-                            </a>
+                            </div>
                         </li>
                         <li class="practice-item">
                             <div class="practice-icon" aria-hidden="true"><i class="fas fa-file-invoice-dollar"></i></div>
-                            <a href="expertise.html#tax-advisory">
+                            <div>
                                 <h3 class="h5 practice-title">Tax Advisory</h3>
-                                <p class="practice-desc">Tax structuring support, compliance advisory, risk management, and dispute support.</p>
-                            </a>
+                            </div>
                         </li>
                         <li class="practice-item">
                             <div class="practice-icon" aria-hidden="true"><i class="fas fa-user-tie"></i></div>
-                            <a href="expertise.html#general-counsel">
+                            <div>
                                 <h3 class="h5 practice-title">General Counsel Support &amp; Company Secretarial</h3>
-                                <p class="practice-desc">Embedded legal support for operations, board and governance workflows, and company secretarial support.</p>
-                            </a>
+                            </div>
                         </li>
                     </ul>
-                    <div class="text-center mt-5">
-                        <a href="expertise.html#practice-groups" class="btn btn-primary px-4 py-2">View All Practice Groups</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -2103,7 +2043,7 @@
     </script>
     <script>
         (() => {
-            const selectors = ['.nav-hub-group', '.nav-hub-card', '.metric-card', '.hover-card', '.news-card', '.lawyer-card', '.gallery-tile', '.industry-banner', '.practice-item'];
+            const selectors = ['.nav-hub-group', '.nav-hub-card', '.metric-card', '.hover-card', '.news-card', '.lawyer-card', '.gallery-tile', '.practice-item'];
             const cardSelector = selectors.join(', ');
             const sections = Array.from(document.querySelectorAll('section'));
             const targets = new Set();
@@ -2135,54 +2075,6 @@
             );
 
             targets.forEach((el) => observer.observe(el));
-        })();
-    </script>
-    <script>
-        (() => {
-            const banner = document.querySelector('.industry-banner');
-            const video = banner ? banner.querySelector('video') : null;
-            if (!video) return;
-
-            const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            const canAutoplay = !reduceMotion && window.innerWidth >= 768;
-
-            const playSafe = async () => {
-                if (!canAutoplay) return;
-                try {
-                    await video.play();
-                } catch (_) {
-                }
-            };
-
-            const pauseSafe = () => {
-                try {
-                    video.pause();
-                } catch (_) {
-                }
-            };
-
-            pauseSafe();
-
-            if (!('IntersectionObserver' in window)) {
-                playSafe();
-                return;
-            }
-
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach((entry) => {
-                        if (document.hidden) return pauseSafe();
-                        if (entry.isIntersecting) return playSafe();
-                        pauseSafe();
-                    });
-                },
-                { threshold: 0.25 }
-            );
-
-            observer.observe(video);
-            document.addEventListener('visibilitychange', () => {
-                if (document.hidden) pauseSafe();
-            });
         })();
     </script>
     <script>
