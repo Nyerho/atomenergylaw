@@ -7,55 +7,74 @@
     <meta name="description" content="Sector detail page for Atom-Energylaw expertise." />
     <title>Sector | Atom-Energylaw</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #1f89c2;
-            --secondary-color: #166a96;
-            --accent-blue: #1f89c2;
+            --primary-color: #1593d1;
+            --secondary-color: #0f6f9e;
+            --accent-blue: #1593d1;
             --glass-border: rgba(0, 0, 0, 0.1);
             --text-light: #333333;
             --text-muted: #666666;
         }
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 15px;
             line-height: 1.82;
             margin: 0;
             background:
-                radial-gradient(900px 620px at 12% 14%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 60%),
-                radial-gradient(850px 600px at 90% 60%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 55%),
+                radial-gradient(900px 620px at 12% 14%, rgba(21, 147, 209, 0.08), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(850px 600px at 90% 60%, rgba(21, 147, 209, 0.08), rgba(255, 255, 255, 0) 55%),
                 linear-gradient(180deg, #ffffff 0%, #f7fbff 60%, #ffffff 100%);
             color: var(--text-light);
             min-height: 100vh;
         }
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             letter-spacing: -0.02em;
             color: #1a1a1a;
         }
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: linear-gradient(135deg, rgba(21, 147, 209, 0.98), rgba(22, 106, 150, 0.98));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+            padding: 0.9rem 0;
+            box-shadow: 0 12px 34px rgba(6, 28, 63, 0.18);
         }
         .navbar-brand img {
             height: 50px;
         }
+
+        .navbar-nav {
+            align-items: center;
+            gap: 1.15rem;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.35) !important;
+            box-shadow: none !important;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.14rem rgba(255, 255, 255, 0.18) !important;
+        }
+
+        .navbar-toggler-icon {
+            filter: brightness(0) invert(1);
+        }
         .nav-link {
-            color: #555 !important;
+            color: rgba(255, 255, 255, 0.9) !important;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            font-size: 0.74rem;
+            padding: 0.35rem 0.1rem !important;
             transition: all 0.3s ease;
             position: relative;
         }
         .nav-link:hover, .nav-link.active {
-            color: var(--primary-color) !important;
+            color: #ffffff !important;
         }
         .page-hero {
             position: relative;
@@ -63,8 +82,8 @@
             overflow: hidden;
             color: #ffffff;
             background:
-                radial-gradient(900px 620px at 18% 18%, rgba(31, 137, 194, 0.18), rgba(255, 255, 255, 0) 60%),
-                radial-gradient(900px 620px at 88% 70%, rgba(31, 137, 194, 0.12), rgba(255, 255, 255, 0) 55%),
+                radial-gradient(900px 620px at 18% 18%, rgba(21, 147, 209, 0.18), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(900px 620px at 88% 70%, rgba(21, 147, 209, 0.12), rgba(255, 255, 255, 0) 55%),
                 linear-gradient(180deg, #061c3f 0%, #041329 100%);
         }
         .page-hero::before {
@@ -137,13 +156,13 @@
             border-radius: 999px;
             font-weight: 600;
             letter-spacing: 0.02em;
-            box-shadow: 0 14px 30px rgba(31, 137, 194, 0.25);
+            box-shadow: 0 14px 30px rgba(21, 147, 209, 0.25);
             transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
         }
         .btn-primary:hover {
             background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
             transform: translateY(-1px);
-            box-shadow: 0 18px 38px rgba(31, 137, 194, 0.3);
+            box-shadow: 0 18px 38px rgba(21, 147, 209, 0.3);
         }
         .btn-outline-primary {
             border-radius: 999px;
@@ -152,12 +171,12 @@
             letter-spacing: 0.02em;
         }
         .btn-outline-primary {
-            border-color: rgba(31, 137, 194, 0.45);
+            border-color: rgba(21, 147, 209, 0.45);
             color: var(--primary-color);
         }
         .btn-outline-primary:hover {
-            background: rgba(31, 137, 194, 0.08);
-            border-color: rgba(31, 137, 194, 0.7);
+            background: rgba(21, 147, 209, 0.08);
+            border-color: rgba(21, 147, 209, 0.7);
             color: var(--primary-color);
             transform: translateY(-1px);
         }
@@ -174,7 +193,7 @@
             font-size: 3rem;
             margin-bottom: 1.5rem;
             color: var(--primary-color);
-            background: rgba(31, 137, 194, 0.1);
+            background: rgba(21, 147, 209, 0.1);
             width: 80px;
             height: 80px;
             display: flex;
@@ -188,6 +207,7 @@
             background: transparent;
             border-color: rgba(255, 255, 255, 0.18) !important;
             cursor: pointer;
+            min-height: 340px;
         }
         .expertise-card::before {
             content: '';
@@ -211,16 +231,27 @@
         .expertise-card .card-body {
             position: relative;
             z-index: 1;
+            min-height: 340px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 1rem;
+            padding: 2rem !important;
         }
         .expertise-card .icon-box {
             background: rgba(255, 255, 255, 0.14);
             color: rgba(255, 255, 255, 0.95);
             animation: expertiseIconFloat 3.8s ease-in-out infinite;
+            margin-inline: 0 !important;
+            margin-bottom: 0;
         }
         .expertise-card h4 {
             color: #ffffff;
             margin-bottom: 0;
-            font-size: 1.12rem;
+            margin-top: 0 !important;
+            font-size: 1.22rem;
+            max-width: 11ch;
+            text-align: left;
         }
         @keyframes expertiseIconFloat {
             0%, 100% {
@@ -237,14 +268,14 @@
             --expertise-bg: url('assets/images/windmill.jpg');
         }
         .expertise-card--mining {
-            --expertise-bg: url('assets/PixVerse_Image_Effect_prompt_mining sites .jpg');
+            --expertise-bg: url('assets/mining.jpg');
         }
         .expertise-card--maritime {
-            --expertise-bg: url('assets/images/chris-leboutillier-TUJud0AWAPI-unsplash.jpg');
+            --expertise-bg: url('assets/maritime.jpg');
         }
         .site-footer {
-            background: radial-gradient(900px 520px at 18% 20%, rgba(31, 137, 194, 0.28), rgba(0, 0, 0, 0) 60%),
-                radial-gradient(900px 520px at 78% 55%, rgba(31, 137, 194, 0.18), rgba(0, 0, 0, 0) 55%),
+            background: radial-gradient(900px 520px at 18% 20%, rgba(21, 147, 209, 0.28), rgba(0, 0, 0, 0) 60%),
+                radial-gradient(900px 520px at 78% 55%, rgba(21, 147, 209, 0.18), rgba(0, 0, 0, 0) 55%),
                 linear-gradient(135deg, #06294f, #021223);
             color: rgba(255, 255, 255, 0.82);
             padding: 110px 0 50px;
@@ -298,7 +329,7 @@
         }
         .site-footer .footer-social a:hover {
             transform: translateY(-2px);
-            background: rgba(31, 137, 194, 0.16);
+            background: rgba(21, 147, 209, 0.16);
             color: var(--accent-blue);
         }
         .site-footer .footer-bottom {
@@ -321,8 +352,8 @@
             <a class="navbar-brand" href="index.html">
                 <img src="assets/Atom logo final-I7OGcKSj.png" alt="Atom-Energylaw">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(0,0,0,0.1);">
-                <span class="fa fa-bars" style="color: #333;"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(255,255,255,0.35);">
+                <span class="fa fa-bars" style="color: #ffffff;"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
@@ -445,82 +476,86 @@
             const sectors = {
                 'oil-gas': {
                     title: 'Oil & Gas',
-                    lead: 'Transactions, regulation, and dispute support across upstream, midstream, and downstream operations.',
+                    lead: 'Strategic legal and regulatory advisory across the upstream, midstream, and downstream petroleum value chain.',
                     heroBg: "url('assets/PixVerse_Image_Effect_prompt_oil rigs .jpg')",
                     cardClass: 'expertise-card--oil',
                     icon: 'fa-oil-can',
                     heading: 'Oil & Gas Advisory',
                     body: [
-                        'We help clients operate confidently across the oil and gas value chain, translating complex regulatory requirements into practical steps and deal-ready documentation.',
-                        'Our support is tailored to transaction timelines, operational realities, and the risk profile of each asset and counterpart.'
+                        'The oil and gas sector remains central to economic development, industrial growth, and energy security across major economies. At Atom Energy Law Advisory, we provide strategic legal and regulatory advisory services to participants across the upstream, midstream, and downstream petroleum value chain, including indigenous and international oil companies, investors, financiers, service providers, and energy-focused institutions.',
+                        'The evolving global energy landscape, combined with significant reforms within the Nigerian petroleum industry, continues to reshape investment structures, operational priorities, and regulatory expectations. Our team combines strong sector knowledge with commercial awareness to help clients navigate these changes effectively while identifying opportunities for growth, investment, and long-term sustainability.',
+                        'We advise clients on petroleum asset acquisitions and divestments, project development initiatives, gas commercialization projects, infrastructure arrangements, financing transactions, and sector-specific compliance obligations. We also support clients in understanding and complying with the Petroleum Industry Act, local content requirements, environmental obligations, and broader energy transition considerations.'
                     ],
                     focus: [
-                        'Farm-ins, asset acquisitions, divestments, and joint venture arrangements',
-                        'Regulatory strategy, licensing support, and compliance frameworks',
-                        'Contracts: EPC, offtake, logistics, services, and operations agreements',
-                        'Local content, governance, and stakeholder alignment',
-                        'Risk allocation, claims management, and dispute preparedness',
-                        'Negotiation support and dispute resolution strategy'
+                        'Petroleum asset acquisitions and divestments',
+                        'Gas commercialization and infrastructure projects',
+                        'Sector financing and transaction support',
+                        'Petroleum Industry Act compliance',
+                        'Local content and environmental obligations',
+                        'Energy transition and regulatory strategy'
                     ]
                 },
                 'power-renewables': {
                     title: 'Power & Renewables',
-                    lead: 'Project structuring, permits, contracting, and regulatory navigation for power and renewables.',
+                    lead: 'Legal, regulatory, and commercial support across conventional and renewable energy projects.',
                     heroBg: "url('assets/images/windmill.jpg')",
                     cardClass: 'expertise-card--power',
                     icon: 'fa-solar-panel',
                     heading: 'Power & Renewables Advisory',
                     body: [
-                        'We support developers, investors, and operators through the full lifecycle of power and renewable projects, from feasibility to contracting, financing, and operations.',
-                        'Our work focuses on making projects bankable, compliant, and execution-ready.'
+                        'The transition toward cleaner and more sustainable energy systems continues to create new opportunities across the power and infrastructure sectors. Our Power and Renewables Practice advises developers, utilities, investors, lenders, independent power producers, and public sector institutions on the legal, regulatory, and commercial issues arising from conventional and renewable energy projects.',
+                        'We support clients across the full lifecycle of energy projects, from project structuring and financing to regulatory compliance, commercial contracting, and operational support. Our experience spans thermal power, solar, wind, hydroelectric, battery storage, and hybrid energy projects, as well as broader energy transition and sustainability initiatives.',
+                        'As regulatory frameworks and market structures continue to evolve, we help clients navigate licensing requirements, investment considerations, financing arrangements, and sector-specific risks. Our approach is focused on delivering commercially practical and forward-looking solutions that support long-term project viability and sustainable energy development.'
                     ],
                     focus: [
-                        'Project development structuring and transaction support',
-                        'Permitting, approvals, and regulatory engagement',
-                        'Power sector contracting (PPAs, EPC, O&amp;M, supply agreements)',
-                        'Risk allocation, lender requirements, and documentation readiness',
-                        'Dispute prevention strategy and issue resolution',
-                        'Energy market governance and policy advisory'
+                        'Project structuring and financing',
+                        'Licensing and regulatory compliance',
+                        'Commercial contracting and operational support',
+                        'Thermal, solar, wind, hydro, storage, and hybrid projects',
+                        'Energy transition and sustainability initiatives',
+                        'Investment, financing, and sector-risk advisory'
                     ]
                 },
                 'mining-extractives': {
                     title: 'Mining & Extractives',
-                    lead: 'Licensing, compliance, stakeholder issues, and disputes for mineral and extractive projects.',
-                    heroBg: "url('assets/PixVerse_Image_Effect_prompt_mining sites .jpg')",
+                    lead: 'Comprehensive legal and strategic advisory for mining, natural resources, and extractive industry stakeholders.',
+                    heroBg: "url('assets/mining.jpg')",
                     cardClass: 'expertise-card--mining',
                     icon: 'fa-gem',
                     heading: 'Mining & Extractives Advisory',
                     body: [
-                        'We advise clients on legal and commercial issues that shape mining and extractive projects, with a focus on licensing, compliance, and operational continuity.',
-                        'Our approach balances regulatory precision with stakeholder, community, and commercial realities.'
+                        'The mining and extractives sector continues to attract growing investment interest as governments and private sector stakeholders seek to diversify resource economies and strengthen industrial development. Our Mining and Extractives Practice provides comprehensive legal and strategic advisory services to stakeholders operating across the mining, natural resources, and extractive industries sectors.',
+                        'We advise exploration companies, mining operators, investors, financiers, developers, and public sector institutions on the legal and commercial considerations associated with resource development projects. Our team supports clients throughout the mining lifecycle, including exploration, licensing, project development, operations, commercialization, and project exit.',
+                        'We assist clients in navigating regulatory frameworks, securing permits and approvals, structuring investment arrangements, managing stakeholder relationships, and addressing environmental and social governance obligations. By combining regulatory insight with commercial practicality, we help clients pursue legally compliant, operationally efficient, and commercially viable projects.'
                     ],
                     focus: [
-                        'Licensing strategy, title due diligence, and compliance programs',
-                        'Project structuring, contracts, and transaction support',
-                        'Regulatory engagement and reporting readiness',
-                        'Stakeholder management and community-related risks',
-                        'Operational disputes, claims management, and resolution strategy',
-                        'Governance and internal controls for extractive operations'
+                        'Exploration, licensing, and project development',
+                        'Operations, commercialization, and project exit',
+                        'Permits, approvals, and regulatory navigation',
+                        'Investment structuring and commercial support',
+                        'Stakeholder management and ESG obligations',
+                        'Commercially viable and compliant project execution'
                     ]
                 },
                 'maritime-shipping': {
                     title: 'Maritime & Shipping',
-                    lead: 'Advisory on marine operations, contracting, compliance, and dispute support.',
-                    heroBg: "url('assets/images/chris-leboutillier-TUJud0AWAPI-unsplash.jpg')",
+                    lead: 'Commercially focused legal solutions for shipping, logistics, offshore support, and marine services.',
+                    heroBg: "url('assets/maritime.jpg')",
                     cardClass: 'expertise-card--maritime',
                     icon: 'fa-anchor',
                     heading: 'Maritime & Shipping Advisory',
                     body: [
-                        'We provide legal support for maritime operations that intersect with energy and natural resources, including logistics, port operations, and marine contracting.',
-                        'Our work helps clients manage regulatory exposure and resolve operational issues quickly and commercially.'
+                        'The maritime and shipping sector plays a critical role in global trade, offshore energy operations, logistics, and cross-border commerce. Our Maritime and Shipping Practice provides commercially focused legal solutions to clients operating within the shipping, logistics, offshore support, and marine services industries.',
+                        'We advise ship owners, charterers, terminal operators, offshore contractors, insurers, cargo interests, financiers, and logistics providers on a broad range of maritime and admiralty matters. With the strong connection between maritime activities and the energy industry, our practice is particularly well positioned to support offshore oil and gas projects, marine logistics arrangements, offshore vessel operations, and energy-related shipping transactions.',
+                        'Our team combines technical legal expertise with practical commercial understanding to help clients manage operational risk, maintain regulatory compliance, and resolve disputes efficiently. We regularly advise on vessel acquisitions, marine finance, shipping contracts, cargo disputes, and maritime regulatory issues, while also representing clients in contentious proceedings involving admiralty claims, vessel arrests, insurance disputes, and arbitration matters.'
                     ],
                     focus: [
-                        'Marine contracting and commercial documentation',
-                        'Port, cabotage, and regulatory compliance advisory',
-                        'Logistics, chartering support, and operational risk management',
-                        'Claims strategy, incident response, and dispute readiness',
-                        'Counterparty risk, governance, and compliance workflows',
-                        'Dispute resolution strategy and settlement support'
+                        'Marine and offshore energy operations',
+                        'Ship owners, charterers, terminals, and logistics providers',
+                        'Vessel acquisitions, marine finance, and shipping contracts',
+                        'Cargo disputes and maritime regulatory matters',
+                        'Admiralty claims, vessel arrests, and insurance disputes',
+                        'Arbitration and contentious maritime proceedings'
                     ]
                 }
             };

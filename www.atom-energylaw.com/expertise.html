@@ -9,27 +9,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>document.documentElement.classList.add('js');</script>
     <style>
         :root {
-            --primary-color: #1f89c2;
-            --secondary-color: #166a96;
-            --accent-blue: #1f89c2;
+            --primary-color: #1593d1;
+            --secondary-color: #0f6f9e;
+            --accent-blue: #1593d1;
             --glass-bg: rgba(255, 255, 255, 0.9);
             --glass-border: rgba(0, 0, 0, 0.1);
             --text-light: #333333;
             --text-muted: #666666;
         }
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 15px;
             line-height: 1.82;
             margin: 0;
             background:
-                radial-gradient(900px 620px at 12% 14%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 60%),
-                radial-gradient(850px 600px at 90% 60%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 55%),
+                radial-gradient(900px 620px at 12% 14%, rgba(21, 147, 209, 0.08), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(850px 600px at 90% 60%, rgba(21, 147, 209, 0.08), rgba(255, 255, 255, 0) 55%),
                 linear-gradient(180deg, #ffffff 0%, #f7fbff 60%, #ffffff 100%);
             color: var(--text-light);
             overflow-x: hidden;
@@ -37,32 +37,52 @@
         }
         p {
             margin-bottom: 1.25rem;
+            font-weight: 400;
         }
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             letter-spacing: -0.02em;
         }
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: linear-gradient(135deg, rgba(21, 147, 209, 0.98), rgba(22, 106, 150, 0.98));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+            padding: 0.9rem 0;
+            box-shadow: 0 12px 34px rgba(6, 28, 63, 0.18);
         }
         .navbar-brand img {
             height: 50px;
         }
+
+        .navbar-nav {
+            align-items: center;
+            gap: 1.15rem;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.35) !important;
+            box-shadow: none !important;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.14rem rgba(255, 255, 255, 0.18) !important;
+        }
+
+        .navbar-toggler-icon {
+            filter: brightness(0) invert(1);
+        }
         .nav-link {
-            color: #555 !important;
+            color: rgba(255, 255, 255, 0.9) !important;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            font-size: 0.74rem;
+            padding: 0.35rem 0.1rem !important;
             transition: all 0.3s ease;
             position: relative;
         }
         .nav-link:hover, .nav-link.active {
-            color: var(--primary-color) !important;
+            color: #ffffff !important;
         }
         .nav-link::after {
             content: '';
@@ -71,7 +91,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: var(--primary-color);
+            background-color: rgba(255, 255, 255, 0.95);
             transition: width 0.3s ease;
         }
         .nav-link:hover::after {
@@ -91,7 +111,7 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(900px 600px at 10% 15%, rgba(31, 137, 194, 0.35), rgba(0, 0, 0, 0) 60%),
+                radial-gradient(900px 600px at 10% 15%, rgba(21, 147, 209, 0.35), rgba(0, 0, 0, 0) 60%),
                 linear-gradient(135deg, rgba(2, 6, 23, 0.76), rgba(2, 6, 23, 0.44));
         }
         .page-hero .container {
@@ -106,7 +126,7 @@
             border-radius: 999px;
             border: 1px solid rgba(255, 255, 255, 0.25);
             background: rgba(255, 255, 255, 0.10);
-            font-weight: 600;
+            font-weight: 500;
             letter-spacing: 0.04em;
             text-transform: uppercase;
             font-size: 0.75rem;
@@ -154,8 +174,8 @@
         .expertise-grid {
             padding: 95px 0;
             background:
-                radial-gradient(900px 620px at 18% 18%, rgba(31, 137, 194, 0.10), rgba(255, 255, 255, 0) 60%),
-                radial-gradient(900px 620px at 88% 70%, rgba(31, 137, 194, 0.10), rgba(255, 255, 255, 0) 55%),
+                radial-gradient(900px 620px at 18% 18%, rgba(21, 147, 209, 0.10), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(900px 620px at 88% 70%, rgba(21, 147, 209, 0.10), rgba(255, 255, 255, 0) 55%),
                 linear-gradient(180deg, #ffffff 0%, #f7fbff 60%, #ffffff 100%);
         }
         .hover-card {
@@ -171,7 +191,7 @@
             font-size: 3rem;
             margin-bottom: 1.5rem;
             color: var(--primary-color);
-            background: rgba(31, 137, 194, 0.1);
+            background: rgba(21, 147, 209, 0.1);
             width: 80px;
             height: 80px;
             display: flex;
@@ -185,6 +205,7 @@
             background: transparent;
             border-color: rgba(255, 255, 255, 0.18) !important;
             cursor: pointer;
+            min-height: 360px;
         }
         .expertise-card::before {
             content: '';
@@ -208,16 +229,27 @@
         .expertise-card .card-body {
             position: relative;
             z-index: 1;
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 1rem;
+            padding: 2rem !important;
         }
         .expertise-card .icon-box {
             background: rgba(255, 255, 255, 0.14);
             color: rgba(255, 255, 255, 0.95);
             animation: expertiseIconFloat 3.8s ease-in-out infinite;
+            margin-inline: 0 !important;
+            margin-bottom: 0;
         }
         .expertise-card h4 {
             color: #ffffff;
             margin-bottom: 0;
-            font-size: 1.12rem;
+            margin-top: 0 !important;
+            font-size: 1.22rem;
+            max-width: 11ch;
+            text-align: left;
         }
         @keyframes expertiseIconFloat {
             0%, 100% {
@@ -238,14 +270,14 @@
             --expertise-bg: url('assets/images/windmill.jpg');
         }
         .expertise-card--mining {
-            --expertise-bg: url('assets/PixVerse_Image_Effect_prompt_mining sites .jpg');
+            --expertise-bg: url('assets/mining.jpg');
         }
         .expertise-card--maritime {
-            --expertise-bg: url('assets/images/chris-leboutillier-TUJud0AWAPI-unsplash.jpg');
+            --expertise-bg: url('assets/maritime.jpg');
         }
         .site-footer {
-            background: radial-gradient(900px 520px at 18% 20%, rgba(31, 137, 194, 0.28), rgba(0, 0, 0, 0) 60%),
-                radial-gradient(900px 520px at 78% 55%, rgba(31, 137, 194, 0.18), rgba(0, 0, 0, 0) 55%),
+            background: radial-gradient(900px 520px at 18% 20%, rgba(21, 147, 209, 0.28), rgba(0, 0, 0, 0) 60%),
+                radial-gradient(900px 520px at 78% 55%, rgba(21, 147, 209, 0.18), rgba(0, 0, 0, 0) 55%),
                 linear-gradient(135deg, #06294f, #021223);
             color: rgba(255, 255, 255, 0.82);
             padding: 110px 0 50px;
@@ -312,7 +344,7 @@
 
         .site-footer .footer-social a:hover {
             transform: translateY(-2px);
-            background: rgba(31, 137, 194, 0.18);
+            background: rgba(21, 147, 209, 0.18);
             color: var(--accent-blue);
         }
 
@@ -345,8 +377,8 @@
             <a class="navbar-brand" href="index.html">
                 <img src="assets/Atom logo final-I7OGcKSj.png" alt="Atom-Energylaw">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(0,0,0,0.1);">
-                <span class="fa fa-bars" style="color: #333;"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(255,255,255,0.35);">
+                <span class="fa fa-bars" style="color: #ffffff;"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav">
@@ -429,6 +461,10 @@
                                 <h3 class="h5 mb-2">Deal Advisory / Corporate and Commercial Advisory</h3>
                                 <p class="mb-0">Transaction structuring, negotiation support, corporate governance, and commercial documentation.</p>
                             </div>
+                            <div class="mb-4" id="general-counsel">
+                                <h3 class="h5 mb-2">General Counsel Support &amp; Company Secretarial</h3>
+                                <p class="mb-0">Embedded legal support for operations, board and governance workflows, and company secretarial support.</p>
+                            </div>
                             <div class="mb-4" id="project-structuring">
                                 <h3 class="h5 mb-2">Project Structuring and Transaction Support</h3>
                                 <p class="mb-0">Project development support, risk allocation, closing coordination, and execution-ready documentation.</p>
@@ -449,10 +485,6 @@
                                 <h3 class="h5 mb-2">Tax Advisory</h3>
                                 <p class="mb-0">Tax structuring support, compliance advisory, risk management, and dispute support.</p>
                             </div>
-                            <div class="mb-0" id="general-counsel">
-                                <h3 class="h5 mb-2">General Counsel Support &amp; Company Secretarial</h3>
-                                <p class="mb-0">Embedded legal support for operations, board and governance workflows, and company secretarial support.</p>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -461,12 +493,12 @@
                         <h3 class="h4 mb-3">Quick Links</h3>
                         <ul class="content-list">
                             <li><a class="text-decoration-none" href="#deal-advisory">Deal Advisory / Corporate and Commercial Advisory</a></li>
+                            <li><a class="text-decoration-none" href="#general-counsel">General Counsel Support &amp; Company Secretarial</a></li>
                             <li><a class="text-decoration-none" href="#project-structuring">Project Structuring and Transaction Support</a></li>
                             <li><a class="text-decoration-none" href="#regulatory-compliance">Regulatory Consulting and Compliance</a></li>
                             <li><a class="text-decoration-none" href="#policy-legislative">Policy and Legislative Advisory</a></li>
                             <li><a class="text-decoration-none" href="#disputes-resolution">Disputes Resolution</a></li>
                             <li><a class="text-decoration-none" href="#tax-advisory">Tax Advisory</a></li>
-                            <li><a class="text-decoration-none" href="#general-counsel">General Counsel Support &amp; Company Secretarial</a></li>
                         </ul>
                         <div class="mt-4">
                             <a href="contact.html" class="btn btn-primary w-100">Contact Us</a>

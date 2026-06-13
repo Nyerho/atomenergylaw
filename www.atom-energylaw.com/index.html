@@ -12,16 +12,16 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>document.documentElement.classList.add('js');</script>
     
     <style>
         :root {
-            --primary-color: #1f89c2; /* Logo Blue */
-            --secondary-color: #166a96; /* Logo Dark Blue */
-            --accent-blue: #1f89c2; /* Brand Blue Accent */
+            --primary-color: #1593d1; /* Logo Blue */
+            --secondary-color: #0f6f9e; /* Logo Dark Blue */
+            --accent-blue: #1593d1; /* Brand Blue Accent */
             --dark-bg: #ffffff; /* White Background */
             --dark-bg-2: #f8f9fa; /* Light Gray */
             --glass-bg: rgba(255, 255, 255, 0.9); /* White Glass */
@@ -31,14 +31,14 @@
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             font-size: 15px;
             line-height: 1.82;
             margin: 0;
             background:
                 linear-gradient(180deg, rgba(255,255,255,0.64), rgba(255,255,255,0.64)),
-                radial-gradient(900px 620px at 12% 14%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 60%),
-                radial-gradient(850px 600px at 90% 60%, rgba(31, 137, 194, 0.08), rgba(255, 255, 255, 0) 55%),
+                radial-gradient(900px 620px at 12% 14%, rgba(21, 147, 209, 0.08), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(850px 600px at 90% 60%, rgba(21, 147, 209, 0.08), rgba(255, 255, 255, 0) 55%),
                 url('assets/PixVerse_Image_Effect_prompt_oil wells .jpg');
             background-size: cover, auto, auto, cover;
             background-position: center, center, center, center;
@@ -50,25 +50,26 @@
 
         p {
             margin-bottom: 1.25rem;
+            font-weight: 400;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 600;
             letter-spacing: -0.02em;
             color: #1a1a1a;
         }
 
         .navbar {
-            background: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid var(--glass-border);
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            background: linear-gradient(135deg, rgba(21, 147, 209, 0.98), rgba(22, 106, 150, 0.98));
+            border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+            padding: 0.9rem 0;
+            box-shadow: 0 12px 34px rgba(6, 28, 63, 0.18);
         }
 
         .navbar-brand {
             font-weight: 700;
-            color: #1a1a1a !important;
+            color: #ffffff !important;
             font-size: 1.5rem;
         }
 
@@ -76,18 +77,37 @@
             height: 50px;
         }
 
+        .navbar-nav {
+            align-items: center;
+            gap: 1.15rem;
+        }
+
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.35) !important;
+            box-shadow: none !important;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 0.14rem rgba(255, 255, 255, 0.18) !important;
+        }
+
+        .navbar-toggler-icon {
+            filter: brightness(0) invert(1);
+        }
+
         .nav-link {
-            color: #555 !important;
+            color: rgba(255, 255, 255, 0.9) !important;
             font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.06em;
-            font-size: 0.82rem;
+            letter-spacing: 0.08em;
+            font-size: 0.74rem;
+            padding: 0.35rem 0.1rem !important;
             transition: all 0.3s ease;
             position: relative;
         }
 
         .nav-link:hover, .nav-link.active {
-            color: var(--primary-color) !important;
+            color: #ffffff !important;
         }
 
         .nav-link::after {
@@ -97,7 +117,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: var(--primary-color);
+            background-color: rgba(255, 255, 255, 0.95);
             transition: width 0.3s ease;
         }
 
@@ -106,9 +126,9 @@
         }
 
         .navbar-landing {
-            background: transparent;
-            border-bottom: 1px solid rgba(255,255,255,0.14);
-            box-shadow: none;
+            background: linear-gradient(135deg, rgba(21, 147, 209, 0.98), rgba(22, 106, 150, 0.98));
+            border-bottom: 1px solid rgba(255,255,255,0.16);
+            box-shadow: 0 12px 34px rgba(6, 28, 63, 0.18);
         }
 
         .navbar-landing .navbar-brand img {
@@ -121,19 +141,19 @@
 
         .navbar-landing .nav-link:hover,
         .navbar-landing .nav-link.active {
-            color: var(--accent-blue) !important;
+            color: #ffffff !important;
         }
 
         .navbar-landing .nav-link::after {
-            background-color: var(--accent-blue);
+            background-color: rgba(255, 255, 255, 0.95);
         }
 
         @media (max-width: 991px) {
             .nav-reveal {
                 margin-top: 14px;
                 border-radius: 18px;
-                border: 1px solid rgba(15, 23, 42, 0.08);
-                background: rgba(255, 255, 255, 0.92);
+                border: 1px solid rgba(255, 255, 255, 0.16);
+                background: linear-gradient(180deg, rgba(22, 106, 150, 0.98), rgba(12, 72, 105, 0.98));
                 overflow: hidden;
                 clip-path: inset(0 0 100% 0 round 18px);
                 opacity: 0;
@@ -155,7 +175,7 @@
             }
 
             .navbar-landing .nav-reveal {
-                background: rgba(6, 28, 63, 0.86);
+                background: linear-gradient(180deg, rgba(22, 106, 150, 0.98), rgba(12, 72, 105, 0.98));
                 border-color: rgba(255, 255, 255, 0.14);
             }
 
@@ -173,11 +193,11 @@
             }
 
             .nav-reveal .nav-link:hover {
-                background: rgba(15, 23, 42, 0.06);
+                background: rgba(255, 255, 255, 0.10);
             }
 
             .navbar-landing .nav-reveal .nav-link:hover {
-                background: rgba(255, 255, 255, 0.08);
+                background: rgba(255, 255, 255, 0.12);
             }
 
             .nav-reveal .nav-item {
@@ -202,14 +222,14 @@
             border-radius: 999px;
             font-weight: 600;
             letter-spacing: 0.02em;
-            box-shadow: 0 14px 30px rgba(31, 137, 194, 0.25);
+            box-shadow: 0 14px 30px rgba(21, 147, 209, 0.25);
             transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
         }
 
         .btn-primary:hover {
             background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
             transform: translateY(-1px);
-            box-shadow: 0 18px 38px rgba(31, 137, 194, 0.3);
+            box-shadow: 0 18px 38px rgba(21, 147, 209, 0.3);
         }
 
         .btn-outline-primary,
@@ -221,13 +241,13 @@
         }
 
         .btn-outline-primary {
-            border-color: rgba(31, 137, 194, 0.45);
+            border-color: rgba(21, 147, 209, 0.45);
             color: var(--primary-color);
         }
 
         .btn-outline-primary:hover {
-            background: rgba(31, 137, 194, 0.08);
-            border-color: rgba(31, 137, 194, 0.7);
+            background: rgba(21, 147, 209, 0.08);
+            border-color: rgba(21, 147, 209, 0.7);
             color: var(--primary-color);
             transform: translateY(-1px);
         }
@@ -248,8 +268,8 @@
             align-items: center;
             overflow: hidden;
             background:
-                radial-gradient(800px 520px at 20% 20%, rgba(31, 137, 194, 0.22), rgba(6, 28, 63, 0) 60%),
-                radial-gradient(700px 520px at 80% 70%, rgba(31, 137, 194, 0.14), rgba(6, 28, 63, 0) 55%),
+                radial-gradient(800px 520px at 20% 20%, rgba(21, 147, 209, 0.22), rgba(6, 28, 63, 0) 60%),
+                radial-gradient(700px 520px at 80% 70%, rgba(21, 147, 209, 0.14), rgba(6, 28, 63, 0) 55%),
                 linear-gradient(180deg, #061c3f 0%, #041329 100%);
         }
 
@@ -345,11 +365,13 @@
             letter-spacing: -0.02em;
             line-height: 1.1;
             color: #ffffff;
+            font-size: clamp(2.25rem, 3.8vw, 3.55rem);
+            white-space: nowrap;
         }
 
         .hero-lead {
             color: rgba(255, 255, 255, 0.86);
-            font-weight: 500;
+            font-weight: 400;
         }
 
         .metric-card {
@@ -410,14 +432,14 @@
         }
 
         .hero-section .btn-primary {
-            background: linear-gradient(135deg, var(--accent-blue), #166a96);
+            background: linear-gradient(135deg, var(--accent-blue), #0f6f9e);
             color: #061c3f;
-            box-shadow: 0 18px 40px rgba(31, 137, 194, 0.18);
+            box-shadow: 0 18px 40px rgba(21, 147, 209, 0.18);
         }
 
         .hero-section .btn-primary:hover {
-            background: linear-gradient(135deg, #166a96, var(--accent-blue));
-            box-shadow: 0 22px 48px rgba(31, 137, 194, 0.22);
+            background: linear-gradient(135deg, #0f6f9e, var(--accent-blue));
+            box-shadow: 0 22px 48px rgba(21, 147, 209, 0.22);
         }
 
         @media (max-width: 991px) {
@@ -428,6 +450,11 @@
 
             .hero-text-panel {
                 width: 100%;
+            }
+
+            .hero-title {
+                white-space: normal;
+                font-size: clamp(2rem, 7vw, 3rem);
             }
         }
 
@@ -518,7 +545,7 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(900px 600px at 12% 20%, rgba(31, 137, 194, 0.35), rgba(0,0,0,0) 60%),
+                radial-gradient(900px 600px at 12% 20%, rgba(21, 147, 209, 0.35), rgba(0,0,0,0) 60%),
                 linear-gradient(120deg, rgba(2, 6, 23, 0.60), rgba(2, 6, 23, 0.35));
         }
 
@@ -534,8 +561,8 @@
             position: relative;
             padding: 95px 0;
             background:
-                radial-gradient(900px 640px at 12% 10%, rgba(31, 137, 194, 0.12), rgba(255, 255, 255, 0) 60%),
-                radial-gradient(900px 640px at 92% 62%, rgba(31, 137, 194, 0.10), rgba(255, 255, 255, 0) 55%),
+                radial-gradient(900px 640px at 12% 10%, rgba(21, 147, 209, 0.12), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(900px 640px at 92% 62%, rgba(21, 147, 209, 0.10), rgba(255, 255, 255, 0) 55%),
                 linear-gradient(180deg, #ffffff 0%, #f7fbff 55%, #ffffff 100%);
         }
 
@@ -545,8 +572,8 @@
             inset: -120px -80px;
             pointer-events: none;
             background:
-                radial-gradient(520px 360px at 18% 26%, rgba(31, 137, 194, 0.18), rgba(255, 255, 255, 0) 60%),
-                radial-gradient(520px 360px at 86% 64%, rgba(31, 137, 194, 0.14), rgba(255, 255, 255, 0) 60%);
+                radial-gradient(520px 360px at 18% 26%, rgba(21, 147, 209, 0.18), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(520px 360px at 86% 64%, rgba(21, 147, 209, 0.14), rgba(255, 255, 255, 0) 60%);
             opacity: 0.42;
             transform: translate3d(0, 0, 0);
         }
@@ -565,13 +592,13 @@
 
         .nav-hub-group--capabilities {
             background:
-                radial-gradient(700px 420px at 18% 20%, rgba(31, 137, 194, 0.12), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(700px 420px at 18% 20%, rgba(21, 147, 209, 0.12), rgba(255, 255, 255, 0) 60%),
                 rgba(255, 255, 255, 0.82);
         }
 
         .nav-hub-group--connect {
             background:
-                radial-gradient(700px 420px at 85% 20%, rgba(31, 137, 194, 0.14), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(700px 420px at 85% 20%, rgba(21, 147, 209, 0.14), rgba(255, 255, 255, 0) 60%),
                 rgba(255, 255, 255, 0.82);
         }
 
@@ -637,7 +664,7 @@
 
         .nav-hub-card:focus-visible {
             outline: none;
-            box-shadow: 0 0 0 4px rgba(31, 137, 194, 0.22), 0 24px 60px rgba(15, 23, 42, 0.14);
+            box-shadow: 0 0 0 4px rgba(21, 147, 209, 0.22), 0 24px 60px rgba(15, 23, 42, 0.14);
         }
 
         .nav-hub-card-body {
@@ -663,23 +690,23 @@
 
         .nav-hub-card-media--practice {
             background:
-                radial-gradient(600px 360px at 20% 20%, rgba(31, 137, 194, 0.12), rgba(255,255,255,0) 60%),
+                radial-gradient(600px 360px at 20% 20%, rgba(21, 147, 209, 0.12), rgba(255,255,255,0) 60%),
                 linear-gradient(180deg, #f5fbff, #ffffff);
         }
 
         .nav-hub-card-media--practice i {
-            background: rgba(31, 137, 194, 0.12);
+            background: rgba(21, 147, 209, 0.12);
             color: var(--primary-color);
         }
 
         .nav-hub-card-media--services {
             background:
-                radial-gradient(600px 360px at 80% 20%, rgba(31, 137, 194, 0.16), rgba(255,255,255,0) 60%),
+                radial-gradient(600px 360px at 80% 20%, rgba(21, 147, 209, 0.16), rgba(255,255,255,0) 60%),
                 linear-gradient(180deg, #fffdf5, #ffffff);
         }
 
         .nav-hub-card-media--services i {
-            background: rgba(31, 137, 194, 0.16);
+            background: rgba(21, 147, 209, 0.16);
             color: #9a7b00;
         }
 
@@ -696,23 +723,23 @@
 
         .nav-hub-card-media--home {
             background:
-                radial-gradient(600px 360px at 20% 20%, rgba(31, 137, 194, 0.10), rgba(255,255,255,0) 60%),
+                radial-gradient(600px 360px at 20% 20%, rgba(21, 147, 209, 0.10), rgba(255,255,255,0) 60%),
                 linear-gradient(180deg, #f6fbff, #ffffff);
         }
 
         .nav-hub-card-media--home i {
-            background: rgba(31, 137, 194, 0.10);
+            background: rgba(21, 147, 209, 0.10);
             color: var(--primary-color);
         }
 
         .nav-hub-card-media--contact {
             background:
-                radial-gradient(600px 360px at 80% 20%, rgba(31, 137, 194, 0.16), rgba(255,255,255,0) 60%),
+                radial-gradient(600px 360px at 80% 20%, rgba(21, 147, 209, 0.16), rgba(255,255,255,0) 60%),
                 linear-gradient(180deg, #fffdf5, #ffffff);
         }
 
         .nav-hub-card-media--contact i {
-            background: rgba(31, 137, 194, 0.16);
+            background: rgba(21, 147, 209, 0.16);
             color: #9a7b00;
         }
 
@@ -740,7 +767,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: rgba(31, 137, 194, 0.10);
+            background: rgba(21, 147, 209, 0.10);
             color: var(--primary-color);
             transition: transform 480ms cubic-bezier(0.16, 1, 0.3, 1), background-color 240ms ease;
         }
@@ -798,7 +825,7 @@
             color: #ffffff;
             background:
                 linear-gradient(120deg, rgba(6, 28, 63, 0.92), rgba(6, 28, 63, 0.55)),
-                url('assets/images/chris-leboutillier-TUJud0AWAPI-unsplash.jpg');
+                url('assets/maritime.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -826,7 +853,7 @@
         }
 
         .nav-hub-card--feature .nav-hub-list li i {
-            color: rgba(31, 137, 194, 0.95);
+            color: rgba(21, 147, 209, 0.95);
         }
 
         .nav-hub-card--bg-practice {
@@ -872,7 +899,7 @@
         .nav-hub-card--bg-lawyers {
             background:
                 linear-gradient(120deg, rgba(6, 28, 63, 0.92), rgba(6, 28, 63, 0.55)),
-                url('assets/images/chris-leboutillier-TUJud0AWAPI-unsplash.jpg');
+                url('assets/maritime.jpg');
             background-size: cover;
             background-position: center;
         }
@@ -903,8 +930,8 @@
         }
 
         .nav-hub-pill-link:hover {
-            background: rgba(31, 137, 194, 0.08);
-            border-color: rgba(31, 137, 194, 0.22);
+            background: rgba(21, 147, 209, 0.08);
+            border-color: rgba(21, 147, 209, 0.22);
             color: rgba(15, 23, 42, 0.86);
         }
 
@@ -1007,8 +1034,8 @@
             position: relative;
             padding: 95px 0;
             background:
-                radial-gradient(900px 620px at 18% 18%, rgba(31, 137, 194, 0.10), rgba(255, 255, 255, 0) 60%),
-                radial-gradient(900px 620px at 88% 70%, rgba(31, 137, 194, 0.10), rgba(255, 255, 255, 0) 55%),
+                radial-gradient(900px 620px at 18% 18%, rgba(21, 147, 209, 0.10), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(900px 620px at 88% 70%, rgba(21, 147, 209, 0.10), rgba(255, 255, 255, 0) 55%),
                 linear-gradient(180deg, #ffffff 0%, #f7fbff 60%, #ffffff 100%);
         }
 
@@ -1037,8 +1064,8 @@
             letter-spacing: 0.02em;
             color: #ffffff;
             background:
-                radial-gradient(500px 260px at 30% 30%, rgba(31, 137, 194, 0.20), rgba(255, 255, 255, 0) 60%),
-                linear-gradient(135deg, rgba(31, 137, 194, 0.98), rgba(22, 106, 150, 0.92));
+                radial-gradient(500px 260px at 30% 30%, rgba(21, 147, 209, 0.20), rgba(255, 255, 255, 0) 60%),
+                linear-gradient(135deg, rgba(21, 147, 209, 0.98), rgba(22, 106, 150, 0.92));
         }
 
         .lawyer-role {
@@ -1063,8 +1090,8 @@
             position: relative;
             padding: 95px 0;
             background:
-                radial-gradient(900px 640px at 12% 10%, rgba(31, 137, 194, 0.12), rgba(255, 255, 255, 0) 60%),
-                radial-gradient(900px 640px at 92% 62%, rgba(31, 137, 194, 0.10), rgba(255, 255, 255, 0) 55%),
+                radial-gradient(900px 640px at 12% 10%, rgba(21, 147, 209, 0.12), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(900px 640px at 92% 62%, rgba(21, 147, 209, 0.10), rgba(255, 255, 255, 0) 55%),
                 linear-gradient(180deg, #ffffff 0%, #f7fbff 55%, #ffffff 100%);
         }
 
@@ -1097,8 +1124,8 @@
             gap: 8px;
             padding: 0.4rem 0.75rem;
             border-radius: 999px;
-            border: 1px solid rgba(31, 137, 194, 0.22);
-            background: rgba(31, 137, 194, 0.10);
+            border: 1px solid rgba(21, 147, 209, 0.22);
+            background: rgba(21, 147, 209, 0.10);
             color: var(--secondary-color);
             font-weight: 600;
             letter-spacing: 0.01em;
@@ -1127,7 +1154,7 @@
             font-size: 3rem;
             margin-bottom: 1.5rem;
             color: var(--primary-color);
-            background: rgba(31, 137, 194, 0.1);
+            background: rgba(21, 147, 209, 0.1);
             width: 80px;
             height: 80px;
             display: flex;
@@ -1142,7 +1169,7 @@
             position: relative;
             padding: 100px 0;
             background:
-                radial-gradient(900px 600px at 10% 20%, rgba(31, 137, 194, 0.12), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(900px 600px at 10% 20%, rgba(21, 147, 209, 0.12), rgba(255, 255, 255, 0) 60%),
                 linear-gradient(180deg, #ffffff 0%, #f7fbff 55%, #ffffff 100%);
         }
 
@@ -1193,6 +1220,7 @@
             background: transparent;
             border-color: rgba(255, 255, 255, 0.18) !important;
             cursor: pointer;
+            min-height: 360px;
         }
 
         .expertise-card::before {
@@ -1220,18 +1248,29 @@
         .expertise-card .card-body {
             position: relative;
             z-index: 1;
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 1rem;
+            padding: 2rem !important;
         }
 
         .expertise-card .icon-box {
             background: rgba(255, 255, 255, 0.14);
             color: rgba(255, 255, 255, 0.95);
             animation: expertiseIconFloat 3.8s ease-in-out infinite;
+            margin-inline: 0 !important;
+            margin-bottom: 0;
         }
 
         .expertise-card h4 {
             color: #ffffff;
             margin-bottom: 0;
-            font-size: 1.15rem;
+            margin-top: 0 !important;
+            font-size: 1.25rem;
+            max-width: 11ch;
+            text-align: left;
         }
 
         @keyframes expertiseIconFloat {
@@ -1252,17 +1291,17 @@
         }
 
         .expertise-card--mining {
-            --expertise-bg: url('assets/PixVerse_Image_Effect_prompt_mining sites .jpg');
+            --expertise-bg: url('assets/mining.jpg');
         }
 
         .expertise-card--maritime {
-            --expertise-bg: url('assets/images/chris-leboutillier-TUJud0AWAPI-unsplash.jpg');
+            --expertise-bg: url('assets/maritime.jpg');
         }
 
         .section-blue {
             background:
-                radial-gradient(900px 520px at 18% 20%, rgba(31, 137, 194, 0.18), rgba(0, 0, 0, 0) 55%),
-                radial-gradient(900px 520px at 78% 55%, rgba(31, 137, 194, 0.35), rgba(0, 0, 0, 0) 60%),
+                radial-gradient(900px 520px at 18% 20%, rgba(21, 147, 209, 0.18), rgba(0, 0, 0, 0) 55%),
+                radial-gradient(900px 520px at 78% 55%, rgba(21, 147, 209, 0.35), rgba(0, 0, 0, 0) 60%),
                 linear-gradient(135deg, #06294f, #021223);
             color: rgba(255, 255, 255, 0.88);
         }
@@ -1289,8 +1328,8 @@
             padding: 110px 0;
             overflow: hidden;
             background:
-                radial-gradient(900px 620px at 14% 18%, rgba(31, 137, 194, 0.18), rgba(0, 0, 0, 0) 55%),
-                radial-gradient(900px 620px at 78% 55%, rgba(31, 137, 194, 0.36), rgba(0, 0, 0, 0) 60%),
+                radial-gradient(900px 620px at 14% 18%, rgba(21, 147, 209, 0.18), rgba(0, 0, 0, 0) 55%),
+                radial-gradient(900px 620px at 78% 55%, rgba(21, 147, 209, 0.36), rgba(0, 0, 0, 0) 60%),
                 linear-gradient(135deg, #06294f, #021223);
             color: rgba(255, 255, 255, 0.86);
         }
@@ -1352,7 +1391,7 @@
         .glance-mini-card:hover {
             transform: translateY(-4px);
             box-shadow: 0 26px 70px rgba(2, 6, 23, 0.32);
-            border-color: rgba(31, 137, 194, 0.24);
+            border-color: rgba(21, 147, 209, 0.24);
             color: rgba(255, 255, 255, 0.96);
         }
 
@@ -1363,7 +1402,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: rgba(31, 137, 194, 0.16);
+            background: rgba(21, 147, 209, 0.16);
             color: var(--accent-blue);
             flex: 0 0 auto;
         }
@@ -1393,7 +1432,7 @@
         .glance-tile:hover {
             transform: translateY(-6px);
             box-shadow: 0 26px 70px rgba(2, 6, 23, 0.36);
-            border-color: rgba(31, 137, 194, 0.26);
+            border-color: rgba(21, 147, 209, 0.26);
             color: rgba(255, 255, 255, 0.95);
         }
 
@@ -1427,42 +1466,94 @@
             border-top: 1px solid rgba(255, 255, 255, 0.10);
         }
 
-        .practice-groups-list {
-            list-style: none;
-            padding-left: 0;
-            margin: 0;
-            display: grid;
-            gap: 14px;
+        .practice-carousel {
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .practice-carousel .carousel-inner {
+            overflow: visible;
+        }
+
+        .practice-carousel .carousel-item {
+            transition: transform 0.7s ease, opacity 0.7s ease;
         }
 
         .practice-item {
             border: 1px solid rgba(255, 255, 255, 0.14);
             background: rgba(255, 255, 255, 0.08);
-            border-radius: 18px;
-            padding: 16px 18px;
+            border-radius: 24px;
+            padding: 42px 38px;
             display: flex;
-            gap: 14px;
-            align-items: flex-start;
+            flex-direction: column;
+            gap: 1.25rem;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
             box-shadow: 0 18px 40px rgba(2, 6, 23, 0.25);
             transition: box-shadow 240ms ease, border-color 240ms ease;
+            min-height: 300px;
         }
 
         .practice-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
+            width: 82px;
+            height: 82px;
+            border-radius: 24px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: rgba(31, 137, 194, 0.16);
-            color: var(--accent-blue);
+            background: rgba(21, 147, 209, 0.16);
+            color: #8bd8ff;
             flex: 0 0 auto;
+            font-size: 1.65rem;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+
+        .practice-copy {
+            display: grid;
+            gap: 0.75rem;
+            justify-items: center;
         }
 
         .practice-title {
             margin: 0;
             font-weight: 800;
             color: rgba(255, 255, 255, 0.92);
+            max-width: 22ch;
+        }
+
+        .practice-description {
+            margin: 0;
+            max-width: 54ch;
+            color: rgba(255, 255, 255, 0.74);
+            font-size: 0.98rem;
+        }
+
+        .practice-carousel-status {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .practice-carousel-status span {
+            width: 36px;
+            height: 4px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .practice-carousel-status span.is-active {
+            background: #8bd8ff;
+            transform: scaleX(1.12);
+        }
+
+        @media (max-width: 767px) {
+            .practice-item {
+                padding: 34px 24px;
+                min-height: 320px;
+            }
         }
 
         /* Testimonials */
@@ -1506,27 +1597,80 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            background: rgba(31, 137, 194, 0.12);
+            background: rgba(21, 147, 209, 0.12);
             color: var(--primary-color);
             font-weight: 700;
         }
 
-        /* Contact (Homepage) */
-        .contact-home-section {
-            padding: 110px 0;
+        .contact-cta-strip {
+            padding: 80px 0 30px;
+            background: #ffffff;
         }
 
-        .contact-home-panel {
+        .contact-cta-box {
+            border-radius: 24px;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            background: linear-gradient(135deg, rgba(6, 28, 63, 0.96), rgba(10, 68, 104, 0.94));
+            color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 22px 60px rgba(15, 23, 42, 0.14);
+        }
+
+        .email-list-modal .modal-content {
+            border: 0;
             border-radius: 26px;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-            background: rgba(255, 255, 255, 0.92);
-            box-shadow: 0 22px 60px rgba(15, 23, 42, 0.1);
+            overflow: hidden;
+            box-shadow: 0 28px 80px rgba(15, 23, 42, 0.28);
+        }
+
+        .email-list-panel {
+            position: relative;
+            padding: 2.25rem;
+            background:
+                radial-gradient(700px 360px at 15% 10%, rgba(21, 147, 209, 0.22), rgba(0, 0, 0, 0) 58%),
+                linear-gradient(135deg, #061c3f, #0b4c73);
+            color: rgba(255, 255, 255, 0.92);
+        }
+
+        .email-list-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            padding: 0.45rem 0.8rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 0.76rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .email-list-note {
+            color: rgba(255, 255, 255, 0.72);
+            font-size: 0.92rem;
+        }
+
+        .email-list-panel .form-control {
+            border-radius: 999px;
+            min-height: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            background: rgba(255, 255, 255, 0.96);
+        }
+
+        .email-list-panel .btn-close {
+            filter: invert(1);
+            opacity: 0.86;
+        }
+
+        .email-list-success {
+            color: #8bd8ff;
+            min-height: 1.25rem;
         }
 
         /* Footer */
         .site-footer {
-            background: radial-gradient(900px 520px at 18% 20%, rgba(31, 137, 194, 0.28), rgba(0, 0, 0, 0) 60%),
-                radial-gradient(900px 520px at 78% 55%, rgba(31, 137, 194, 0.18), rgba(0, 0, 0, 0) 55%),
+            background: radial-gradient(900px 520px at 18% 20%, rgba(21, 147, 209, 0.28), rgba(0, 0, 0, 0) 60%),
+                radial-gradient(900px 520px at 78% 55%, rgba(21, 147, 209, 0.18), rgba(0, 0, 0, 0) 55%),
                 linear-gradient(135deg, #06294f, #021223);
             color: rgba(255, 255, 255, 0.82);
             padding: 110px 0 50px;
@@ -1593,7 +1737,7 @@
 
         .site-footer .footer-social a:hover {
             transform: translateY(-2px);
-            background: rgba(31, 137, 194, 0.18);
+            background: rgba(21, 147, 209, 0.18);
             color: var(--accent-blue);
         }
 
@@ -1629,7 +1773,7 @@
             <a class="navbar-brand" href="index.html">
                 <img src="assets/Atom logo final-I7OGcKSj.png" alt="Atom-Energylaw">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(0,0,0,0.1);">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(255,255,255,0.35);">
                 <span class="fa fa-bars" style="color: rgba(255,255,255,0.92);"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end nav-reveal" id="navbarNav">
@@ -1649,8 +1793,8 @@
         <div class="hero-slideshow" aria-hidden="true">
             <div class="hero-slide is-active" style="background-image: url('assets/bulb.jpg');"></div>
             <div class="hero-slide" data-bg="assets/ideaenergy.jpg"></div>
-            <div class="hero-slide" data-bg="assets/PixVerse_Image_Effect_prompt_oil wells .jpg"></div>
-            <div class="hero-slide" data-bg="assets/PixVerse_Image_Effect_prompt_oil mining sites .jpg"></div>
+            <div class="hero-slide" data-bg="assets/heroslide3.jpg"></div>
+            <div class="hero-slide" data-bg="assets/heroslide4.jpg"></div>
         </div>
         <div class="hero-overlay" aria-hidden="true"></div>
         <div class="container hero-content">
@@ -1739,55 +1883,87 @@
         <div class="container">
             <div class="text-center mb-5">
                 <span class="text-primary fw-bold text-uppercase">Practice Groups</span>
-                <h2 class="display-5 mb-2">What We Do</h2>
+                <h2 class="display-5 mb-2">Practice Groups</h2>
                 <p class="text-muted mx-auto mb-0" style="max-width: 860px;">A full suite of legal and strategic advisory services spanning the entire energy value chain.</p>
             </div>
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <ul class="practice-groups-list">
-                        <li class="practice-item">
-                            <div class="practice-icon" aria-hidden="true"><i class="fas fa-handshake"></i></div>
-                            <div>
-                                <h3 class="h5 practice-title">Deal Advisory / Corporate and Commercial Advisory</h3>
+                    <div id="practiceGroupsCarousel" class="carousel slide practice-carousel" data-bs-ride="carousel" data-bs-interval="4200" data-bs-pause="false">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <article class="practice-item">
+                                    <div class="practice-icon" aria-hidden="true"><i class="fas fa-handshake"></i></div>
+                                    <div class="practice-copy">
+                                        <h3 class="h5 practice-title">Deal Advisory / Corporate and Commercial Advisory</h3>
+                                        <p class="practice-description">Deals, contracts, and corporate strategy for complex energy transactions.</p>
+                                    </div>
+                                </article>
                             </div>
-                        </li>
-                        <li class="practice-item">
-                            <div class="practice-icon" aria-hidden="true"><i class="fas fa-diagram-project"></i></div>
-                            <div>
-                                <h3 class="h5 practice-title">Project Structuring and Transaction Support</h3>
+                            <div class="carousel-item">
+                                <article class="practice-item">
+                                    <div class="practice-icon" aria-hidden="true"><i class="fas fa-user-tie"></i></div>
+                                    <div class="practice-copy">
+                                        <h3 class="h5 practice-title">General Counsel Support &amp; Company Secretarial</h3>
+                                        <p class="practice-description">Embedded legal and secretarial support for boards, governance, and day-to-day decisions.</p>
+                                    </div>
+                                </article>
                             </div>
-                        </li>
-                        <li class="practice-item">
-                            <div class="practice-icon" aria-hidden="true"><i class="fas fa-shield-alt"></i></div>
-                            <div>
-                                <h3 class="h5 practice-title">Regulatory Consulting and Compliance</h3>
+                            <div class="carousel-item">
+                                <article class="practice-item">
+                                    <div class="practice-icon" aria-hidden="true"><i class="fas fa-diagram-project"></i></div>
+                                    <div class="practice-copy">
+                                        <h3 class="h5 practice-title">Project Structuring and Transaction Support</h3>
+                                        <p class="practice-description">Project structuring, risk allocation, and documentation from development through close.</p>
+                                    </div>
+                                </article>
                             </div>
-                        </li>
-                        <li class="practice-item">
-                            <div class="practice-icon" aria-hidden="true"><i class="fas fa-landmark"></i></div>
-                            <div>
-                                <h3 class="h5 practice-title">Policy and Legislative Advisory</h3>
+                            <div class="carousel-item">
+                                <article class="practice-item">
+                                    <div class="practice-icon" aria-hidden="true"><i class="fas fa-shield-alt"></i></div>
+                                    <div class="practice-copy">
+                                        <h3 class="h5 practice-title">Regulatory Consulting and Compliance</h3>
+                                        <p class="practice-description">Licensing, compliance, and regulator-facing support across evolving market rules.</p>
+                                    </div>
+                                </article>
                             </div>
-                        </li>
-                        <li class="practice-item">
-                            <div class="practice-icon" aria-hidden="true"><i class="fas fa-gavel"></i></div>
-                            <div>
-                                <h3 class="h5 practice-title">Disputes Resolution</h3>
+                            <div class="carousel-item">
+                                <article class="practice-item">
+                                    <div class="practice-icon" aria-hidden="true"><i class="fas fa-landmark"></i></div>
+                                    <div class="practice-copy">
+                                        <h3 class="h5 practice-title">Policy and Legislative Advisory</h3>
+                                        <p class="practice-description">Policy, legislative, and market-governance advice shaped by sector realities.</p>
+                                    </div>
+                                </article>
                             </div>
-                        </li>
-                        <li class="practice-item">
-                            <div class="practice-icon" aria-hidden="true"><i class="fas fa-file-invoice-dollar"></i></div>
-                            <div>
-                                <h3 class="h5 practice-title">Tax Advisory</h3>
+                            <div class="carousel-item">
+                                <article class="practice-item">
+                                    <div class="practice-icon" aria-hidden="true"><i class="fas fa-gavel"></i></div>
+                                    <div class="practice-copy">
+                                        <h3 class="h5 practice-title">Disputes Resolution</h3>
+                                        <p class="practice-description">Dispute prevention, claims handling, and resolution strategy when stakes are high.</p>
+                                    </div>
+                                </article>
                             </div>
-                        </li>
-                        <li class="practice-item">
-                            <div class="practice-icon" aria-hidden="true"><i class="fas fa-user-tie"></i></div>
-                            <div>
-                                <h3 class="h5 practice-title">General Counsel Support &amp; Company Secretarial</h3>
+                            <div class="carousel-item">
+                                <article class="practice-item">
+                                    <div class="practice-icon" aria-hidden="true"><i class="fas fa-file-invoice-dollar"></i></div>
+                                    <div class="practice-copy">
+                                        <h3 class="h5 practice-title">Tax Advisory</h3>
+                                        <p class="practice-description">Tax structuring, compliance, and dispute support across the value chain.</p>
+                                    </div>
+                                </article>
                             </div>
-                        </li>
-                    </ul>
+                        </div>
+                    </div>
+                    <div class="practice-carousel-status" id="practiceCarouselStatus" aria-hidden="true">
+                        <span class="is-active"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1893,56 +2069,51 @@
         </div>
     </section>
 
-    <section class="contact-home-section" id="contact-home">
+    <section class="contact-cta-strip" id="contact-home">
         <div class="container">
-            <div class="contact-home-panel p-4 p-lg-5">
-                <div class="row align-items-center g-5">
-                    <div class="col-lg-6">
-                        <span class="text-primary fw-bold text-uppercase">Contact Us</span>
-                        <h2 class="display-5 mb-3">Let’s Discuss Your Matter</h2>
-                        <p class="text-muted mb-4">Share your objective and we’ll respond with a clear next step. All conversations are treated as confidential.</p>
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fas fa-phone me-3 text-info"></i>
-                            <span data-site="phone">+234 906 049 0067</span>
-                        </div>
-                        <div class="d-flex align-items-center mb-3">
-                            <i class="fas fa-envelope me-3 text-info"></i>
-                            <span data-site="email">advisory@atom-energylaw.com</span>
-                        </div>
-                        <div class="d-flex align-items-center">
-                            <i class="fas fa-map-marker-alt me-3 text-info"></i>
-                            <span data-site="address">No. 32 Obi Okosi Street, Gwarinpa-FCT</span>
-                        </div>
-                        <div class="mt-4 d-flex flex-wrap gap-3">
-                            <a href="contact.html" class="btn btn-primary btn-lg">Open Contact Page</a>
-                            <a href="services.html" class="btn btn-outline-primary btn-lg">Knowledge Hub</a>
-                        </div>
+            <div class="contact-cta-box p-4 p-lg-5">
+                <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
+                    <div>
+                        <span class="text-uppercase fw-bold" style="letter-spacing: 0.1em; color: rgba(139,216,255,0.92);">Contact Us</span>
+                        <h2 class="display-6 mt-2 mb-2 text-white">Ready to discuss your matter?</h2>
+                        <p class="mb-0" style="color: rgba(255,255,255,0.76); max-width: 700px;">Use the dedicated contact page for a direct conversation with the firm.</p>
                     </div>
-                    <div class="col-lg-6">
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="First Name">
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" placeholder="Last Name">
-                                </div>
-                                <div class="col-12">
-                                    <input type="email" class="form-control" placeholder="Email Address">
-                                </div>
-                                <div class="col-12">
-                                    <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-glow w-100">Send Message</button>
-                                </div>
-                            </div>
-                        </form>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="modal fade email-list-modal" id="emailListModal" tabindex="-1" aria-labelledby="emailListModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="email-list-panel">
+                    <button type="button" class="btn-close position-absolute top-0 end-0 m-3" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="email-list-kicker mb-3">
+                        <i class="fas fa-envelope-open-text"></i>
+                        <span>Email List</span>
+                    </div>
+                    <h2 class="h3 mb-3 text-white" id="emailListModalLabel">Join Our Updates List</h2>
+                    <p class="mb-4" style="color: rgba(255,255,255,0.78);">Get occasional firm news, insights, and sector updates from Atom Energy Law Advisory.</p>
+                    <form id="emailListForm" class="row g-3">
+                        <div class="col-12">
+                            <input type="email" class="form-control" id="emailListInput" placeholder="Enter your email address" autocomplete="email" required>
+                        </div>
+                        <div class="col-12 d-flex flex-column flex-sm-row gap-3">
+                            <button type="submit" class="btn btn-primary flex-fill">Join Email List</button>
+                            <button type="button" class="btn btn-outline-dark flex-fill" data-bs-dismiss="modal">Maybe Later</button>
+                        </div>
+                        <div class="col-12">
+                            <div class="email-list-success small" id="emailListSuccess" aria-live="polite"></div>
+                            <div class="email-list-note">Submitting opens your email client with a pre-filled signup request to the firm.</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <footer class="site-footer">
         <div class="container position-relative">
@@ -2134,6 +2305,60 @@
                 index = (index + 1) % slides.length;
                 apply(index);
             }, durationMs);
+        })();
+    </script>
+    <script>
+        (() => {
+            const carouselEl = document.getElementById('practiceGroupsCarousel');
+            const markers = Array.from(document.querySelectorAll('#practiceCarouselStatus span'));
+            if (!carouselEl || !markers.length || !window.bootstrap?.Carousel) return;
+
+            const updateMarkers = (activeIndex) => {
+                markers.forEach((marker, index) => {
+                    marker.classList.toggle('is-active', index === activeIndex);
+                });
+            };
+
+            updateMarkers(0);
+            carouselEl.addEventListener('slid.bs.carousel', (event) => {
+                updateMarkers(event.to ?? 0);
+            });
+        })();
+    </script>
+    <script>
+        (() => {
+            const modalEl = document.getElementById('emailListModal');
+            const form = document.getElementById('emailListForm');
+            const input = document.getElementById('emailListInput');
+            const success = document.getElementById('emailListSuccess');
+            if (!modalEl || !form || !input || !success || !window.bootstrap?.Modal) return;
+
+            const modal = new bootstrap.Modal(modalEl);
+            const storageKey = 'atom-energylaw-email-list-dismissed';
+            const hasDismissed = window.localStorage.getItem(storageKey) === 'true';
+
+            if (!hasDismissed) {
+                window.setTimeout(() => modal.show(), 1800);
+            }
+
+            const markDismissed = () => window.localStorage.setItem(storageKey, 'true');
+
+            modalEl.addEventListener('hidden.bs.modal', markDismissed);
+
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                if (!form.reportValidity()) return;
+
+                const email = input.value.trim();
+                const subject = encodeURIComponent('Email List Signup');
+                const body = encodeURIComponent(`Please add this email to the Atom Energy Law Advisory updates list:\n\n${email}`);
+                success.textContent = 'Opening your email client to complete the signup request.';
+                markDismissed();
+                window.setTimeout(() => {
+                    window.location.href = `mailto:advisory@atom-energylaw.com?subject=${subject}&body=${body}`;
+                    modal.hide();
+                }, 250);
+            });
         })();
     </script>
 </body>
