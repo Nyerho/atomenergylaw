@@ -104,20 +104,24 @@
         }
 
         .navbar {
-            background: linear-gradient(135deg, rgba(21, 147, 209, 0.98), rgba(22, 106, 150, 0.98));
-            border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
             padding: 0.9rem 0;
-            box-shadow: 0 12px 34px rgba(6, 28, 63, 0.18);
+            box-shadow: 0 12px 34px rgba(6, 28, 63, 0.10);
         }
 
         .navbar-brand {
             font-weight: 700;
-            color: #ffffff !important;
+            color: #1a1a1a !important;
             font-size: 1.5rem;
+            padding: 0.2rem 0.65rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.96);
         }
 
         .navbar-brand img {
             height: 50px;
+            filter: none;
         }
 
         .navbar-nav {
@@ -126,7 +130,7 @@
         }
 
         .navbar-toggler {
-            border-color: rgba(255, 255, 255, 0.35) !important;
+            border-color: rgba(15, 23, 42, 0.18) !important;
             box-shadow: none !important;
         }
 
@@ -139,7 +143,7 @@
         }
 
         .nav-link {
-            color: rgba(255, 255, 255, 0.9) !important;
+            color: rgba(15, 23, 42, 0.82) !important;
             font-weight: 500;
             text-transform: uppercase;
             letter-spacing: 0.08em;
@@ -150,7 +154,7 @@
         }
 
         .nav-link:hover, .nav-link.active {
-            color: #ffffff !important;
+            color: #1593d1 !important;
         }
 
         .nav-link::after {
@@ -160,7 +164,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: #1593d1;
             transition: width 0.3s ease;
         }
 
@@ -173,7 +177,7 @@
                 margin-top: 14px;
                 border-radius: 18px;
                 border: 1px solid rgba(255, 255, 255, 0.16);
-                background: linear-gradient(180deg, rgba(22, 106, 150, 0.98), rgba(12, 72, 105, 0.98));
+                background: rgba(255, 255, 255, 0.98);
                 overflow: hidden;
                 clip-path: inset(0 0 100% 0 round 18px);
                 opacity: 0;
@@ -601,7 +605,7 @@
         }
     </style>
 </head>
-<body>
+<body data-page-key="contact">
 
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg glass-nav">
@@ -609,15 +613,15 @@
             <a class="navbar-brand" href="index.html">
                 <img src="assets/Atom logo final-I7OGcKSj.png" alt="Atom-Energylaw">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(255,255,255,0.35);">
-                <span class="fa fa-bars" style="color: #ffffff;"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(15,23,42,0.18);">
+                <span class="fa fa-bars" style="color: #0f172a;"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end nav-reveal" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">Who we are</a></li>
                     <li class="nav-item"><a class="nav-link" href="expertise.html">Our Expertise</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Knowledge Hub</a></li>
                     <li class="nav-item"><a class="nav-link active" href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
@@ -625,14 +629,14 @@
     </nav>
 
     <!-- Page Header -->
-    <section class="page-hero" style="background-image: url('assets/PixVerse_Image_Effect_prompt_oil rigs .jpg');">
+    <section class="page-hero" style="background-image: url('assets/slider-1-BQ4Nm1p7.jpg');">
         <div class="container">
             <div class="kicker mb-3">
                 <i class="fas fa-envelope-open-text"></i>
-                <span>Contact</span>
+                <span>Get In Touch</span>
             </div>
             <h1 class="display-4 mb-3">Contact Us</h1>
-            <p class="lead mb-0">Get in Touch with Us</p>
+            <p class="lead mb-0">Speak with our team about your advisory needs.</p>
         </div>
     </section>
 
@@ -654,7 +658,7 @@
                         </div>
                         <div class="d-flex align-items-center">
                             <i class="fas fa-map-marker-alt me-3 text-info"></i>
-                            <span data-site="address">No. 32 Obi Okosi Street, Gwarinpa-FCT</span>
+                            <span data-site="address">Plot C104, Peachvile Platinum, Jabi-Airport Road, Abuja.</span>
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -699,6 +703,27 @@
         </div>
     </section>
 
+    <section class="section-padding" style="padding: 0 0 95px;">
+        <div class="container">
+            <div class="glass-panel p-4 p-lg-5">
+                <div class="row align-items-center g-4">
+                    <div class="col-lg-7">
+                        <span class="text-primary fw-bold text-uppercase">Mailing List</span>
+                        <h2 class="mt-2 mb-2">Join Our Email List</h2>
+                        <p class="text-muted mb-0">Receive occasional firm news, legal updates, and practical sector insights from Atom Energy Law Advisory.</p>
+                    </div>
+                    <div class="col-lg-5">
+                        <form class="d-flex flex-column flex-sm-row gap-2" data-email-list-form>
+                            <input type="email" class="form-control" data-email-list-input placeholder="Email address" autocomplete="email" required>
+                            <button type="submit" class="btn btn-primary">Join</button>
+                        </form>
+                        <div class="small mt-2 text-muted" data-email-list-success></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer class="site-footer">
         <div class="container position-relative">
             <div class="row g-5">
@@ -711,32 +736,40 @@
                         <li><a href="expertise.html#policy-legislative">Policy &amp; Legislative Advisory</a></li>
                         <li><a href="expertise.html#disputes-resolution">Dispute Resolution</a></li>
                         <li><a href="expertise.html#tax-advisory">Tax Advisory</a></li>
-                        <li><a href="expertise.html#general-counsel">General Counsel Support</a></li>
+                        <li><a href="expertise.html#general-counsel">General Counsel and Company Secretariat Support</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <h5 class="footer-title">Resources</h5>
+                    <h5 class="footer-title">Knowledge Hub</h5>
                     <ul class="footer-links">
-                        <li><a href="services.html">Knowledge Hub</a></li>
-                        <li><a href="services.html#news">News &amp; Updates</a></li>
-                        <li><a href="services.html#articles">Articles</a></li>
-                        <li><a href="services.html#insights">Insights</a></li>
+                        <li><a href="services.html">Knowledge Hub Home</a></li>
+                        <li><a href="news-updates.html">News &amp; Updates</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="insights-resources.html">Insights &amp; Resources</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
                     <h5 class="footer-title">Social</h5>
                     <div class="footer-social">
-                        <a href="#" data-social="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" data-social="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" data-social="twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" data-social="youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/company/atom-energy-law-advisory/" target="_blank" rel="noopener noreferrer" data-social="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/atomenergylaw?igsh=Zmg5emJxdzFmeW8z" target="_blank" rel="noopener noreferrer" data-social="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@atomenergylawadvisory?si=VWPskopzJdfvKg_x" target="_blank" rel="noopener noreferrer" data-social="youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="mt-4">
+                        <div class="text-white fw-bold mb-2">Join Our Email List</div>
+                        <p class="small mb-3" style="color: rgba(255,255,255,0.72);">Get occasional firm updates, alerts, and sector insights.</p>
+                        <form class="d-flex flex-column flex-sm-row gap-2" data-email-list-form>
+                            <input type="email" class="form-control footer-signup-input" data-email-list-input placeholder="Email address" autocomplete="email" required>
+                            <button class="btn btn-primary" type="submit">Join</button>
+                        </form>
+                        <div class="small mt-2" data-email-list-success style="color: rgba(255,255,255,0.72);"></div>
                     </div>
                     <div class="mt-4">
                         <div class="text-white fw-bold mb-2">Contact</div>
                         <div class="small" style="color: rgba(255,255,255,0.78);">
                             <div class="mb-1"><i class="fas fa-phone me-2"></i><span data-site="phone">+234 906 049 0067</span></div>
                             <div class="mb-1"><i class="fas fa-envelope me-2"></i><span data-site="email">advisory@atom-energylaw.com</span></div>
-                            <div><i class="fas fa-map-marker-alt me-2"></i><span data-site="address">No. 32 Obi Okosi Street, Gwarinpa-FCT</span></div>
+                            <div><i class="fas fa-map-marker-alt me-2"></i><span data-site="address">Plot C104, Peachvile Platinum, Jabi-Airport Road, Abuja.</span></div>
                         </div>
                     </div>
                 </div>
@@ -746,8 +779,7 @@
                     <a href="#">Privacy Policy</a>
                     <span style="opacity: 0.5;">|</span>
                     <a href="#">Anti-Bribery and Corruption Statement</a>
-                    <span style="opacity: 0.5;">|</span>
-                    <a href="admin.html">Admin</a>
+                    <a href="admin.html" aria-label="Admin" title="Admin"><i class="fas fa-lock"></i></a>
                 </div>
                 <div class="small" style="color: rgba(255,255,255,0.72);">All rights reserved. © 2026 ATOM ENERGY LAW ADVISORY</div>
             </div>

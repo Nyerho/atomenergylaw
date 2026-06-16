@@ -4,137 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex,nofollow">
-    <meta name="title" content="Atom-Energylaw — Admin" />
-    <meta name="description" content="Admin panel for updating Knowledge Hub content." />
     <title>Admin | Atom-Energylaw</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary-color: #1593d1;
-            --secondary-color: #0f6f9e;
-            --accent-blue: #1593d1;
-            --glass-border: rgba(0, 0, 0, 0.1);
-            --text-light: #333333;
-            --text-muted: #666666;
-        }
-
         body {
             font-family: 'Montserrat', sans-serif;
             font-size: 14px;
-            line-height: 1.4;
-            background:
-                radial-gradient(900px 620px at 12% 14%, rgba(21, 147, 209, 0.08), rgba(255, 255, 255, 0) 60%),
-                radial-gradient(850px 600px at 90% 60%, rgba(21, 147, 209, 0.08), rgba(255, 255, 255, 0) 55%),
-                linear-gradient(180deg, #ffffff 0%, #f7fbff 60%, #ffffff 100%);
-            color: var(--text-light);
+            line-height: 1.45;
+            background: linear-gradient(180deg, #ffffff 0%, #f7fbff 60%, #ffffff 100%);
+            color: #1a1a1a;
             min-height: 100vh;
         }
-
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Marcellus', serif;
             font-weight: 400;
-            letter-spacing: 0;
-            line-height: 1.34;
-            color: #1a1a1a;
-        }
-
-        h1 {
-            font-size: clamp(2.3rem, 4vw, 3.4rem);
-            line-height: 1.16;
-        }
-
-        h2 {
-            font-size: clamp(1.95rem, 3vw, 2.45rem);
-            line-height: 1.28;
-        }
-
-        h3 {
-            font-size: clamp(1.5rem, 2.2vw, 1.9rem);
-            line-height: 1.3;
-        }
-
-        h4 {
-            font-size: clamp(1.28rem, 1.7vw, 1.58rem);
             line-height: 1.34;
         }
-
-        h5 {
-            font-size: 1.08rem;
-            line-height: 1.4;
-        }
-
-        h6 {
-            font-size: 0.96rem;
-            line-height: 1.45;
-        }
-
-        .display-4 {
-            font-size: clamp(2.55rem, 4.5vw, 3.9rem);
-            line-height: 1.12;
-        }
-
-        .display-5 {
-            font-size: clamp(2.1rem, 3.2vw, 2.95rem);
-            line-height: 1.18;
-        }
-
-        .display-6 {
-            font-size: clamp(1.8rem, 2.5vw, 2.3rem);
-            line-height: 1.24;
-        }
-
         .navbar {
-            background: linear-gradient(135deg, rgba(21, 147, 209, 0.98), rgba(22, 106, 150, 0.98));
-            border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+            background: linear-gradient(135deg, rgba(21,147,209,0.98), rgba(22,106,150,0.98));
             padding: 0.9rem 0;
-            box-shadow: 0 12px 34px rgba(6, 28, 63, 0.18);
+            box-shadow: 0 12px 34px rgba(6,28,63,0.18);
         }
-
-        .nav-link {
-            color: #555 !important;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            font-size: 0.82rem;
-        }
-
         .panel {
             border-radius: 18px;
-            border: 1px solid rgba(15, 23, 42, 0.08);
-            background: rgba(255, 255, 255, 0.92);
-            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+            border: 1px solid rgba(15,23,42,0.08);
+            background: rgba(255,255,255,0.96);
+            box-shadow: 0 18px 45px rgba(15,23,42,0.08);
         }
-
         .item-card {
             border-radius: 16px;
-            border: 1px solid rgba(15, 23, 42, 0.08);
-            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(15,23,42,0.08);
+            background: #ffffff;
             padding: 16px;
         }
-
         .item-actions {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
         }
-
         .mono {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
             font-size: 0.92rem;
+        }
+        .toggle-grid {
+            display: grid;
+            gap: 12px;
+        }
+        .toggle-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 12px 14px;
+            border-radius: 14px;
+            background: rgba(248, 250, 252, 0.9);
+            border: 1px solid rgba(15, 23, 42, 0.06);
+        }
+        .toggle-label {
+            font-weight: 600;
+        }
+        .toggle-help {
+            color: #64748b;
+            font-size: 0.88rem;
         }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html" style="color: #1a1a1a; text-decoration: none;">
-                Atom-Energylaw Admin
-            </a>
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="fw-bold text-decoration-none" href="index.html" style="color:#fff;">Atom-Energylaw Admin</a>
             <div class="d-flex gap-3 align-items-center">
-                <a class="nav-link p-0" href="services.html">Knowledge Hub</a>
-                <a class="nav-link p-0" href="index.html">Home</a>
+                <a class="text-white text-decoration-none small" href="services.html">Knowledge Hub</a>
+                <a class="text-white text-decoration-none small" href="index.html">Home</a>
             </div>
         </div>
     </nav>
@@ -143,88 +86,132 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-lg-4">
-                    <div class="panel p-4">
+                    <div class="panel p-4 mb-4">
                         <h2 class="h4 mb-3">Load / Save</h2>
-                        <div class="mb-3">
-                            <div class="small text-muted mb-2">Source file:</div>
-                            <div class="mono" id="sourcePath">site-content.json</div>
-                        </div>
+                        <div class="small text-muted mb-2">Source file</div>
+                        <div class="mono mb-3">site-content.json</div>
                         <div class="d-grid gap-2">
-                            <button class="btn btn-primary" id="btnReload" type="button"><i class="fas fa-rotate me-2"></i>Reload from site-content.json</button>
-                            <button class="btn btn-outline-primary" id="btnDownload" type="button"><i class="fas fa-download me-2"></i>Download site-content.json</button>
-                            <button class="btn btn-outline-secondary" id="btnCopy" type="button"><i class="fas fa-copy me-2"></i>Copy JSON</button>
+                            <button class="btn btn-primary" id="btnReload" type="button">Reload</button>
+                            <button class="btn btn-outline-primary" id="btnDownload" type="button">Download JSON</button>
+                            <button class="btn btn-outline-secondary" id="btnCopy" type="button">Copy JSON</button>
                         </div>
                         <hr class="my-4">
                         <div class="mb-2 fw-bold">Import JSON</div>
                         <input class="form-control" id="importFile" type="file" accept="application/json">
-                        <div class="small text-muted mt-2">Import edits a draft in this browser. Use Download to publish.</div>
+                        <div class="small text-muted mt-2">Import edits the browser draft. Download the JSON when you are ready to publish.</div>
                     </div>
 
-                    <div class="panel p-4 mt-4">
+                    <div class="panel p-4 mb-4">
                         <h2 class="h4 mb-3">Site Details</h2>
-                        <div class="mb-3">
-                            <label class="form-label">Phone</label>
-                            <input class="form-control" id="contactPhone" type="text" placeholder="+234 ...">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Email</label>
-                            <input class="form-control" id="contactEmail" type="email" placeholder="name@domain.com">
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label">Address</label>
-                            <textarea class="form-control" id="contactAddress" rows="2" placeholder="Office address"></textarea>
-                        </div>
-                        <div class="row g-3">
-                            <div class="col-6">
-                                <label class="form-label">LinkedIn</label>
-                                <input class="form-control" id="socialLinkedIn" type="url" placeholder="https://...">
-                            </div>
-                            <div class="col-6">
-                                <label class="form-label">Instagram</label>
-                                <input class="form-control" id="socialInstagram" type="url" placeholder="https://...">
-                            </div>
-                            <div class="col-6">
-                                <label class="form-label">Twitter</label>
-                                <input class="form-control" id="socialTwitter" type="url" placeholder="https://...">
-                            </div>
-                            <div class="col-6">
-                                <label class="form-label">YouTube</label>
-                                <input class="form-control" id="socialYouTube" type="url" placeholder="https://...">
-                            </div>
-                        </div>
+                        <div class="mb-3"><label class="form-label">Phone</label><input class="form-control" id="contactPhone"></div>
+                        <div class="mb-3"><label class="form-label">Email</label><input class="form-control" id="contactEmail"></div>
+                        <div class="mb-3"><label class="form-label">Address</label><textarea class="form-control" rows="2" id="contactAddress"></textarea></div>
+                        <div class="mb-3"><label class="form-label">LinkedIn</label><input class="form-control" id="socialLinkedIn"></div>
+                        <div class="mb-3"><label class="form-label">Instagram</label><input class="form-control" id="socialInstagram"></div>
+                        <div class="mb-0"><label class="form-label">YouTube</label><input class="form-control" id="socialYouTube"></div>
+                    </div>
+
+                    <div class="panel p-4 mb-4">
+                        <h2 class="h4 mb-3">Page Visibility</h2>
+                        <p class="small text-muted mb-3">Turn a page off to hide its nav/footer links and replace direct visits with a temporary hidden notice.</p>
+                        <div class="toggle-grid" id="pageVisibilityList"></div>
+                    </div>
+
+                    <div class="panel p-4 mb-4">
+                        <h2 class="h4 mb-3">Section Visibility</h2>
+                        <p class="small text-muted mb-3">Turn sections off to hide them from the live site until you enable them again.</p>
+                        <div class="toggle-grid" id="sectionVisibilityList"></div>
+                    </div>
+
+                    <div class="panel p-4">
+                        <h2 class="h4 mb-3">Knowledge Hub Intro</h2>
+                        <div class="mb-3"><label class="form-label">Kicker</label><input class="form-control" id="hubIntroKicker"></div>
+                        <div class="mb-3"><label class="form-label">Hero Title</label><input class="form-control" id="hubIntroHeroTitle"></div>
+                        <div class="mb-3"><label class="form-label">Hero Lead</label><textarea class="form-control" rows="2" id="hubIntroHeroLead"></textarea></div>
+                        <div class="mb-3"><label class="form-label">Section Title</label><input class="form-control" id="hubIntroSectionTitle"></div>
+                        <div class="mb-3"><label class="form-label">Section Lead</label><textarea class="form-control" rows="2" id="hubIntroSectionLead"></textarea></div>
+                        <div class="mb-3"><label class="form-label">Section Body</label><textarea class="form-control" rows="4" id="hubIntroSectionBody"></textarea></div>
+                        <div class="mb-0"><label class="form-label">Intro Image URL</label><input class="form-control mono" id="hubIntroImage"></div>
                     </div>
                 </div>
 
                 <div class="col-lg-8">
-                    <div class="panel p-4">
-                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-3">
-                            <div>
-                                <h2 class="h4 mb-0">News &amp; Updates</h2>
-                                <div class="small text-muted">Shows on the homepage (first 3) and Knowledge Hub.</div>
+                    <div class="panel p-4 mb-4">
+                        <h2 class="h4 mb-3">Knowledge Hub Landing Cards</h2>
+                        <div class="small text-muted mb-3">These are the three cards shown on the Knowledge Hub home page.</div>
+                        <div class="d-grid gap-3" id="hubCardsList"></div>
+                    </div>
+
+                    <div class="panel p-4 mb-4">
+                        <h2 class="h4 mb-3">Subpage Headings</h2>
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <h3 class="h6">News &amp; Updates</h3>
+                                <input class="form-control mb-2" id="newsPageKicker" placeholder="Kicker">
+                                <input class="form-control mb-2" id="newsPageTitle" placeholder="Title">
+                                <textarea class="form-control mb-2" rows="2" id="newsPageLead" placeholder="Lead"></textarea>
+                                <input class="form-control mb-2" id="newsPageSectionTitle" placeholder="Section title">
+                                <textarea class="form-control" rows="2" id="newsPageSectionLead" placeholder="Section lead"></textarea>
                             </div>
-                            <button class="btn btn-outline-primary" id="addNews" type="button"><i class="fas fa-plus me-2"></i>Add News</button>
+                            <div class="col-md-4">
+                                <h3 class="h6">Articles</h3>
+                                <input class="form-control mb-2" id="articlesPageKicker" placeholder="Kicker">
+                                <input class="form-control mb-2" id="articlesPageTitle" placeholder="Title">
+                                <textarea class="form-control mb-2" rows="2" id="articlesPageLead" placeholder="Lead"></textarea>
+                                <input class="form-control mb-2" id="articlesPageSectionTitle" placeholder="Section title">
+                                <textarea class="form-control" rows="2" id="articlesPageSectionLead" placeholder="Section lead"></textarea>
+                            </div>
+                            <div class="col-md-4">
+                                <h3 class="h6">Insights &amp; Resources</h3>
+                                <input class="form-control mb-2" id="resourcesPageKicker" placeholder="Kicker">
+                                <input class="form-control mb-2" id="resourcesPageTitle" placeholder="Title">
+                                <textarea class="form-control mb-2" rows="2" id="resourcesPageLead" placeholder="Lead"></textarea>
+                                <input class="form-control mb-2" id="resourcesPageSectionTitle" placeholder="Section title">
+                                <textarea class="form-control" rows="2" id="resourcesPageSectionLead" placeholder="Section lead"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel p-4 mb-4">
+                        <div class="d-flex justify-content-between align-items-center gap-2 mb-3">
+                            <div>
+                                <h2 class="h4 mb-0">News &amp; Updates Items</h2>
+                                <div class="small text-muted">Shows on the homepage and the News &amp; Updates page.</div>
+                            </div>
+                            <button class="btn btn-outline-primary" id="addNews" type="button">Add News Item</button>
                         </div>
                         <div class="d-grid gap-3" id="newsList"></div>
                     </div>
 
-                    <div class="panel p-4 mt-4">
-                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-3">
+                    <div class="panel p-4 mb-4">
+                        <div class="d-flex justify-content-between align-items-center gap-2 mb-3">
                             <div>
-                                <h2 class="h4 mb-0">Articles</h2>
-                                <div class="small text-muted">Shows on the Knowledge Hub.</div>
+                                <h2 class="h4 mb-0">Article Items</h2>
+                                <div class="small text-muted">Add images here when an article needs photo content.</div>
                             </div>
-                            <button class="btn btn-outline-primary" id="addArticle" type="button"><i class="fas fa-plus me-2"></i>Add Article</button>
+                            <button class="btn btn-outline-primary" id="addArticle" type="button">Add Article</button>
                         </div>
                         <div class="d-grid gap-3" id="articlesList"></div>
                     </div>
 
-                    <div class="panel p-4 mt-4">
-                        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center gap-2 mb-3">
+                    <div class="panel p-4 mb-4">
+                        <div class="d-flex justify-content-between align-items-center gap-2 mb-3">
                             <div>
-                                <h2 class="h4 mb-0">Testimonials</h2>
+                                <h2 class="h4 mb-0">Insights &amp; Resources Items</h2>
+                                <div class="small text-muted">Use this section for bills, trackers, resource notes, and practical guides.</div>
+                            </div>
+                            <button class="btn btn-outline-primary" id="addResource" type="button">Add Resource</button>
+                        </div>
+                        <div class="d-grid gap-3" id="resourcesList"></div>
+                    </div>
+
+                    <div class="panel p-4">
+                        <div class="d-flex justify-content-between align-items-center gap-2 mb-3">
+                            <div>
+                                <h2 class="h4 mb-0">Homepage Testimonials</h2>
                                 <div class="small text-muted">Shows on the homepage.</div>
                             </div>
-                            <button class="btn btn-outline-primary" id="addTestimonial" type="button"><i class="fas fa-plus me-2"></i>Add Testimonial</button>
+                            <button class="btn btn-outline-primary" id="addTestimonial" type="button">Add Testimonial</button>
                         </div>
                         <div class="d-grid gap-3" id="testimonialsList"></div>
                     </div>
@@ -233,19 +220,61 @@
         </div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        const ADMIN_PASSWORD = 'atomadmin';
+        const ADMIN_PASSWORD = 'admin123';
+        const el = (id) => document.getElementById(id);
+
+        const pageToggleConfig = [
+            ['home', 'Homepage', 'Controls the main landing page.'],
+            ['about', 'About Page', 'Controls the who we are page.'],
+            ['expertise', 'Expertise Pages', 'Controls the expertise listing and sector detail pages.'],
+            ['practice', 'Practice Page', 'Controls the practice page.'],
+            ['sectors', 'Sectors Page', 'Controls the sectors page.'],
+            ['contact', 'Contact Page', 'Controls the contact page.'],
+            ['knowledgeHub', 'Knowledge Hub Home', 'Controls the Knowledge Hub intro page.'],
+            ['newsUpdates', 'News & Updates', 'Controls the News & Updates subpage.'],
+            ['articles', 'Articles', 'Controls the Articles subpage.'],
+            ['insightsResources', 'Insights & Resources', 'Controls the Insights & Resources subpage.']
+        ];
+
+        const sectionToggleConfig = [
+            ['homeOverview', 'Homepage Overview', 'The overview/about block on the homepage.'],
+            ['homeExpertise', 'Homepage Expertise', 'The expertise card block on the homepage.'],
+            ['homePracticeGroups', 'Homepage Practice Groups', 'The practice groups carousel section.'],
+            ['homeNews', 'Homepage News', 'The homepage news and updates section.'],
+            ['homeTestimonials', 'Homepage Testimonials', 'The testimonials strip on the homepage.'],
+            ['homeContactCta', 'Homepage Contact CTA', 'The homepage call-to-action strip.'],
+            ['hubIntro', 'Hub Intro Section', 'The introductory split section on the Knowledge Hub home page.'],
+            ['hubSections', 'Hub Section Cards', 'The section-card area on the Knowledge Hub home page.']
+        ];
 
         const defaultContent = () => ({
-            version: 1,
-            site: { contact: { phone: '', email: '', address: '' }, social: { linkedin: '#', instagram: '#', twitter: '#', youtube: '#' } },
-            home: { latestUpdates: [], testimonials: [] },
-            knowledgeHub: { news: [], articles: [] }
+            version: 2,
+            site: {
+                contact: { phone: '', email: '', address: '' },
+                social: { linkedin: '#', instagram: '#', youtube: '#' }
+            },
+            visibility: {
+                pages: Object.fromEntries(pageToggleConfig.map(([key]) => [key, true])),
+                sections: Object.fromEntries(sectionToggleConfig.map(([key]) => [key, true]))
+            },
+            home: { testimonials: [] },
+            knowledgeHub: {
+                intro: {
+                    kicker: '', heroTitle: '', heroLead: '', sectionTitle: '', sectionLead: '', sectionBody: '', image: '', cards: []
+                },
+                pages: {
+                    news: { kicker: '', title: '', lead: '', sectionTitle: '', sectionLead: '' },
+                    articles: { kicker: '', title: '', lead: '', sectionTitle: '', sectionLead: '' },
+                    resources: { kicker: '', title: '', lead: '', sectionTitle: '', sectionLead: '' }
+                },
+                news: [],
+                articles: [],
+                resources: []
+            }
         });
 
         const state = { content: defaultContent() };
-
         const escapeJson = (value) => JSON.stringify(value, null, 2);
 
         const fetchContent = async () => {
@@ -256,276 +285,253 @@
             return response.json();
         };
 
-        const updateField = (path, value) => {
-            const parts = path.split('.');
-            let ref = state.content;
-            for (let i = 0; i < parts.length - 1; i += 1) {
-                const key = parts[i];
-                ref[key] = ref[key] ?? {};
-                ref = ref[key];
-            }
-            ref[parts[parts.length - 1]] = value;
+        const mergeDefaults = (content) => {
+            const merged = defaultContent();
+            merged.version = content.version ?? merged.version;
+            merged.site = {
+                ...merged.site,
+                ...content.site,
+                contact: { ...merged.site.contact, ...(content.site?.contact || {}) },
+                social: { ...merged.site.social, ...(content.site?.social || {}) }
+            };
+            merged.visibility = {
+                pages: { ...merged.visibility.pages, ...(content.visibility?.pages || {}) },
+                sections: { ...merged.visibility.sections, ...(content.visibility?.sections || {}) }
+            };
+            merged.home = {
+                ...merged.home,
+                ...content.home,
+                testimonials: Array.isArray(content.home?.testimonials) ? content.home.testimonials : merged.home.testimonials
+            };
+            merged.knowledgeHub = {
+                ...merged.knowledgeHub,
+                ...content.knowledgeHub,
+                intro: { ...merged.knowledgeHub.intro, ...(content.knowledgeHub?.intro || {}) },
+                pages: {
+                    news: { ...merged.knowledgeHub.pages.news, ...(content.knowledgeHub?.pages?.news || {}) },
+                    articles: { ...merged.knowledgeHub.pages.articles, ...(content.knowledgeHub?.pages?.articles || {}) },
+                    resources: { ...merged.knowledgeHub.pages.resources, ...(content.knowledgeHub?.pages?.resources || {}) }
+                },
+                news: Array.isArray(content.knowledgeHub?.news) ? content.knowledgeHub.news : merged.knowledgeHub.news,
+                articles: Array.isArray(content.knowledgeHub?.articles) ? content.knowledgeHub.articles : merged.knowledgeHub.articles,
+                resources: Array.isArray(content.knowledgeHub?.resources) ? content.knowledgeHub.resources : merged.knowledgeHub.resources
+            };
+            return merged;
         };
 
         const moveItem = (list, index, direction) => {
             const next = index + direction;
             if (next < 0 || next >= list.length) return;
-            const tmp = list[index];
+            const temp = list[index];
             list[index] = list[next];
-            list[next] = tmp;
+            list[next] = temp;
         };
 
-        const el = (id) => document.getElementById(id);
+        const bindSimpleFields = () => {
+            [
+                ['contactPhone', ['site', 'contact', 'phone']],
+                ['contactEmail', ['site', 'contact', 'email']],
+                ['contactAddress', ['site', 'contact', 'address']],
+                ['socialLinkedIn', ['site', 'social', 'linkedin']],
+                ['socialInstagram', ['site', 'social', 'instagram']],
+                ['socialYouTube', ['site', 'social', 'youtube']],
+                ['hubIntroKicker', ['knowledgeHub', 'intro', 'kicker']],
+                ['hubIntroHeroTitle', ['knowledgeHub', 'intro', 'heroTitle']],
+                ['hubIntroHeroLead', ['knowledgeHub', 'intro', 'heroLead']],
+                ['hubIntroSectionTitle', ['knowledgeHub', 'intro', 'sectionTitle']],
+                ['hubIntroSectionLead', ['knowledgeHub', 'intro', 'sectionLead']],
+                ['hubIntroSectionBody', ['knowledgeHub', 'intro', 'sectionBody']],
+                ['hubIntroImage', ['knowledgeHub', 'intro', 'image']],
+                ['newsPageKicker', ['knowledgeHub', 'pages', 'news', 'kicker']],
+                ['newsPageTitle', ['knowledgeHub', 'pages', 'news', 'title']],
+                ['newsPageLead', ['knowledgeHub', 'pages', 'news', 'lead']],
+                ['newsPageSectionTitle', ['knowledgeHub', 'pages', 'news', 'sectionTitle']],
+                ['newsPageSectionLead', ['knowledgeHub', 'pages', 'news', 'sectionLead']],
+                ['articlesPageKicker', ['knowledgeHub', 'pages', 'articles', 'kicker']],
+                ['articlesPageTitle', ['knowledgeHub', 'pages', 'articles', 'title']],
+                ['articlesPageLead', ['knowledgeHub', 'pages', 'articles', 'lead']],
+                ['articlesPageSectionTitle', ['knowledgeHub', 'pages', 'articles', 'sectionTitle']],
+                ['articlesPageSectionLead', ['knowledgeHub', 'pages', 'articles', 'sectionLead']],
+                ['resourcesPageKicker', ['knowledgeHub', 'pages', 'resources', 'kicker']],
+                ['resourcesPageTitle', ['knowledgeHub', 'pages', 'resources', 'title']],
+                ['resourcesPageLead', ['knowledgeHub', 'pages', 'resources', 'lead']],
+                ['resourcesPageSectionTitle', ['knowledgeHub', 'pages', 'resources', 'sectionTitle']],
+                ['resourcesPageSectionLead', ['knowledgeHub', 'pages', 'resources', 'sectionLead']]
+            ].forEach(([id, path]) => {
+                el(id).addEventListener('input', (event) => {
+                    let ref = state.content;
+                    for (let index = 0; index < path.length - 1; index += 1) ref = ref[path[index]];
+                    ref[path[path.length - 1]] = event.target.value;
+                });
+            });
+        };
 
-        const renderNews = () => {
-            const container = el('newsList');
+        const fillSimpleFields = () => {
+            el('contactPhone').value = state.content.site.contact.phone || '';
+            el('contactEmail').value = state.content.site.contact.email || '';
+            el('contactAddress').value = state.content.site.contact.address || '';
+            el('socialLinkedIn').value = state.content.site.social.linkedin || '';
+            el('socialInstagram').value = state.content.site.social.instagram || '';
+            el('socialYouTube').value = state.content.site.social.youtube || '';
+
+            el('hubIntroKicker').value = state.content.knowledgeHub.intro.kicker || '';
+            el('hubIntroHeroTitle').value = state.content.knowledgeHub.intro.heroTitle || '';
+            el('hubIntroHeroLead').value = state.content.knowledgeHub.intro.heroLead || '';
+            el('hubIntroSectionTitle').value = state.content.knowledgeHub.intro.sectionTitle || '';
+            el('hubIntroSectionLead').value = state.content.knowledgeHub.intro.sectionLead || '';
+            el('hubIntroSectionBody').value = state.content.knowledgeHub.intro.sectionBody || '';
+            el('hubIntroImage').value = state.content.knowledgeHub.intro.image || '';
+
+            ['news', 'articles', 'resources'].forEach((page) => {
+                el(page + 'PageKicker').value = state.content.knowledgeHub.pages[page].kicker || '';
+                el(page + 'PageTitle').value = state.content.knowledgeHub.pages[page].title || '';
+                el(page + 'PageLead').value = state.content.knowledgeHub.pages[page].lead || '';
+                el(page + 'PageSectionTitle').value = state.content.knowledgeHub.pages[page].sectionTitle || '';
+                el(page + 'PageSectionLead').value = state.content.knowledgeHub.pages[page].sectionLead || '';
+            });
+        };
+
+        const renderVisibilityToggles = () => {
+            const render = (containerId, config, branch) => {
+                const container = el(containerId);
+                container.innerHTML = '';
+                config.forEach(([key, label, help]) => {
+                    const checked = state.content.visibility[branch][key] !== false;
+                    const item = document.createElement('label');
+                    item.className = 'toggle-item';
+                    item.innerHTML = `
+                        <div>
+                            <div class="toggle-label">${label}</div>
+                            <div class="toggle-help">${help}</div>
+                        </div>
+                        <div class="form-check form-switch m-0">
+                            <input class="form-check-input" type="checkbox" data-branch="${branch}" data-key="${key}" ${checked ? 'checked' : ''}>
+                        </div>
+                    `;
+                    item.querySelector('input').addEventListener('change', (event) => {
+                        state.content.visibility[branch][key] = event.target.checked;
+                    });
+                    container.appendChild(item);
+                });
+            };
+            render('pageVisibilityList', pageToggleConfig, 'pages');
+            render('sectionVisibilityList', sectionToggleConfig, 'sections');
+        };
+
+        const renderHubCards = () => {
+            const cards = state.content.knowledgeHub.intro.cards;
+            while (cards.length < 3) {
+                cards.push({ icon: 'fa-book-open', title: '', summary: '', button: '', url: '' });
+            }
+            const container = el('hubCardsList');
             container.innerHTML = '';
+            cards.slice(0, 3).forEach((card, index) => {
+                const node = document.createElement('div');
+                node.className = 'item-card';
+                node.innerHTML = `
+                    <div class="fw-bold mb-3">Card ${index + 1}</div>
+                    <div class="row g-3">
+                        <div class="col-md-6"><label class="form-label">Icon</label><input class="form-control mono" data-field="icon" value="${card.icon || ''}"></div>
+                        <div class="col-md-6"><label class="form-label">Button</label><input class="form-control" data-field="button" value="${card.button || ''}"></div>
+                        <div class="col-12"><label class="form-label">Title</label><input class="form-control" data-field="title" value="${card.title || ''}"></div>
+                        <div class="col-12"><label class="form-label">Summary</label><textarea class="form-control" rows="2" data-field="summary">${card.summary || ''}</textarea></div>
+                        <div class="col-12"><label class="form-label">URL</label><input class="form-control mono" data-field="url" value="${card.url || ''}"></div>
+                    </div>
+                `;
+                node.addEventListener('input', (event) => {
+                    const field = event.target.getAttribute('data-field');
+                    if (!field) return;
+                    state.content.knowledgeHub.intro.cards[index][field] = event.target.value;
+                });
+                container.appendChild(node);
+            });
+        };
 
-            state.content.home.latestUpdates.forEach((item, index) => {
+        const collectionConfigs = {
+            news: {
+                listId: 'newsList',
+                array: () => state.content.knowledgeHub.news,
+                fields: [['type', 'Type'], ['icon', 'Icon class'], ['year', 'Year'], ['url', 'URL'], ['image', 'Image URL'], ['title', 'Title'], ['summary', 'Summary', 'textarea']],
+                label: 'News item'
+            },
+            articles: {
+                listId: 'articlesList',
+                array: () => state.content.knowledgeHub.articles,
+                fields: [['tag', 'Tag'], ['icon', 'Icon class'], ['url', 'URL'], ['image', 'Image URL'], ['title', 'Title'], ['summary', 'Summary', 'textarea']],
+                label: 'Article'
+            },
+            resources: {
+                listId: 'resourcesList',
+                array: () => state.content.knowledgeHub.resources,
+                fields: [['tag', 'Tag'], ['icon', 'Icon class'], ['url', 'URL'], ['image', 'Image URL'], ['title', 'Title'], ['summary', 'Summary', 'textarea']],
+                label: 'Resource'
+            },
+            testimonials: {
+                listId: 'testimonialsList',
+                array: () => state.content.home.testimonials,
+                fields: [['quote', 'Quote', 'textarea'], ['name', 'Name'], ['role', 'Role / Company']],
+                label: 'Testimonial'
+            }
+        };
+
+        const renderCollection = (key) => {
+            const config = collectionConfigs[key];
+            const list = config.array();
+            const container = el(config.listId);
+            container.innerHTML = '';
+            list.forEach((item, index) => {
                 const card = document.createElement('div');
                 card.className = 'item-card';
+                const fieldsMarkup = config.fields.map(([field, label, type]) => {
+                    if (type === 'textarea') {
+                        return `<div class="col-12"><label class="form-label">${label}</label><textarea class="form-control" rows="3" data-field="${field}">${item[field] || ''}</textarea></div>`;
+                    }
+                    return `<div class="${field === 'title' ? 'col-12' : 'col-md-6'}"><label class="form-label">${label}</label><input class="form-control ${field === 'icon' || field === 'url' || field === 'image' ? 'mono' : ''}" data-field="${field}" value="${item[field] || ''}"></div>`;
+                }).join('');
+
                 card.innerHTML = `
                     <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
-                        <div class="fw-bold">News ${index + 1}</div>
+                        <div class="fw-bold">${config.label} ${index + 1}</div>
                         <div class="item-actions">
                             <button class="btn btn-sm btn-outline-secondary" type="button" data-action="up"><i class="fas fa-arrow-up"></i></button>
                             <button class="btn btn-sm btn-outline-secondary" type="button" data-action="down"><i class="fas fa-arrow-down"></i></button>
                             <button class="btn btn-sm btn-outline-danger" type="button" data-action="delete"><i class="fas fa-trash"></i></button>
                         </div>
                     </div>
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <label class="form-label">Type (badge)</label>
-                            <input class="form-control" type="text" data-field="type" value="${item.type ?? ''}">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Icon (Font Awesome class)</label>
-                            <input class="form-control mono" type="text" data-field="icon" value="${item.icon ?? ''}" placeholder="fa-bullhorn">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Year</label>
-                            <input class="form-control" type="text" data-field="year" value="${item.year ?? ''}" placeholder="2026">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">URL</label>
-                            <input class="form-control mono" type="text" data-field="url" value="${item.url ?? ''}" placeholder="services.html">
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label">Title</label>
-                            <input class="form-control" type="text" data-field="title" value="${item.title ?? ''}">
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label">Summary</label>
-                            <textarea class="form-control" rows="2" data-field="summary">${item.summary ?? ''}</textarea>
-                        </div>
-                    </div>
+                    <div class="row g-3">${fieldsMarkup}</div>
                 `;
-
                 card.addEventListener('input', (event) => {
-                    const target = event.target;
-                    if (!(target instanceof HTMLElement)) return;
-                    const field = target.getAttribute('data-field');
+                    const field = event.target.getAttribute('data-field');
                     if (!field) return;
-                    const value = target instanceof HTMLTextAreaElement || target instanceof HTMLInputElement ? target.value : '';
-                    state.content.home.latestUpdates[index][field] = value;
+                    list[index][field] = event.target.value;
                 });
-
                 card.addEventListener('click', (event) => {
-                    const target = event.target;
-                    if (!(target instanceof HTMLElement)) return;
-                    const button = target.closest('button');
+                    const button = event.target.closest('button');
                     if (!button) return;
                     const action = button.getAttribute('data-action');
-                    if (!action) return;
                     if (action === 'delete') {
-                        state.content.home.latestUpdates.splice(index, 1);
+                        list.splice(index, 1);
                         renderAll();
-                        return;
-                    }
-                    if (action === 'up') {
-                        moveItem(state.content.home.latestUpdates, index, -1);
+                    } else if (action === 'up') {
+                        moveItem(list, index, -1);
                         renderAll();
-                        return;
-                    }
-                    if (action === 'down') {
-                        moveItem(state.content.home.latestUpdates, index, 1);
+                    } else if (action === 'down') {
+                        moveItem(list, index, 1);
                         renderAll();
                     }
                 });
-
                 container.appendChild(card);
             });
-        };
-
-        const renderArticles = () => {
-            const container = el('articlesList');
-            container.innerHTML = '';
-
-            state.content.knowledgeHub.articles.forEach((item, index) => {
-                const card = document.createElement('div');
-                card.className = 'item-card';
-                card.innerHTML = `
-                    <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
-                        <div class="fw-bold">Article ${index + 1}</div>
-                        <div class="item-actions">
-                            <button class="btn btn-sm btn-outline-secondary" type="button" data-action="up"><i class="fas fa-arrow-up"></i></button>
-                            <button class="btn btn-sm btn-outline-secondary" type="button" data-action="down"><i class="fas fa-arrow-down"></i></button>
-                            <button class="btn btn-sm btn-outline-danger" type="button" data-action="delete"><i class="fas fa-trash"></i></button>
-                        </div>
-                    </div>
-                    <div class="row g-3">
-                        <div class="col-md-6">
-                            <label class="form-label">Tag</label>
-                            <input class="form-control" type="text" data-field="tag" value="${item.tag ?? ''}" placeholder="Article">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Icon (Font Awesome class)</label>
-                            <input class="form-control mono" type="text" data-field="icon" value="${item.icon ?? ''}" placeholder="fa-newspaper">
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label">Title</label>
-                            <input class="form-control" type="text" data-field="title" value="${item.title ?? ''}">
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label">Summary</label>
-                            <textarea class="form-control" rows="2" data-field="summary">${item.summary ?? ''}</textarea>
-                        </div>
-                        <div class="col-12">
-                            <label class="form-label">URL</label>
-                            <input class="form-control mono" type="text" data-field="url" value="${item.url ?? ''}" placeholder="services.html">
-                        </div>
-                    </div>
-                `;
-
-                card.addEventListener('input', (event) => {
-                    const target = event.target;
-                    if (!(target instanceof HTMLElement)) return;
-                    const field = target.getAttribute('data-field');
-                    if (!field) return;
-                    const value = target instanceof HTMLTextAreaElement || target instanceof HTMLInputElement ? target.value : '';
-                    state.content.knowledgeHub.articles[index][field] = value;
-                });
-
-                card.addEventListener('click', (event) => {
-                    const target = event.target;
-                    if (!(target instanceof HTMLElement)) return;
-                    const button = target.closest('button');
-                    if (!button) return;
-                    const action = button.getAttribute('data-action');
-                    if (!action) return;
-                    if (action === 'delete') {
-                        state.content.knowledgeHub.articles.splice(index, 1);
-                        renderAll();
-                        return;
-                    }
-                    if (action === 'up') {
-                        moveItem(state.content.knowledgeHub.articles, index, -1);
-                        renderAll();
-                        return;
-                    }
-                    if (action === 'down') {
-                        moveItem(state.content.knowledgeHub.articles, index, 1);
-                        renderAll();
-                    }
-                });
-
-                container.appendChild(card);
-            });
-        };
-
-        const renderTestimonials = () => {
-            const container = el('testimonialsList');
-            container.innerHTML = '';
-
-            state.content.home.testimonials.forEach((item, index) => {
-                const card = document.createElement('div');
-                card.className = 'item-card';
-                card.innerHTML = `
-                    <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
-                        <div class="fw-bold">Testimonial ${index + 1}</div>
-                        <div class="item-actions">
-                            <button class="btn btn-sm btn-outline-secondary" type="button" data-action="up"><i class="fas fa-arrow-up"></i></button>
-                            <button class="btn btn-sm btn-outline-secondary" type="button" data-action="down"><i class="fas fa-arrow-down"></i></button>
-                            <button class="btn btn-sm btn-outline-danger" type="button" data-action="delete"><i class="fas fa-trash"></i></button>
-                        </div>
-                    </div>
-                    <div class="row g-3">
-                        <div class="col-12">
-                            <label class="form-label">Quote</label>
-                            <textarea class="form-control" rows="2" data-field="quote">${item.quote ?? ''}</textarea>
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Name</label>
-                            <input class="form-control" type="text" data-field="name" value="${item.name ?? ''}">
-                        </div>
-                        <div class="col-md-6">
-                            <label class="form-label">Role / Company</label>
-                            <input class="form-control" type="text" data-field="role" value="${item.role ?? ''}">
-                        </div>
-                    </div>
-                `;
-
-                card.addEventListener('input', (event) => {
-                    const target = event.target;
-                    if (!(target instanceof HTMLElement)) return;
-                    const field = target.getAttribute('data-field');
-                    if (!field) return;
-                    const value = target instanceof HTMLTextAreaElement || target instanceof HTMLInputElement ? target.value : '';
-                    state.content.home.testimonials[index][field] = value;
-                });
-
-                card.addEventListener('click', (event) => {
-                    const target = event.target;
-                    if (!(target instanceof HTMLElement)) return;
-                    const button = target.closest('button');
-                    if (!button) return;
-                    const action = button.getAttribute('data-action');
-                    if (!action) return;
-                    if (action === 'delete') {
-                        state.content.home.testimonials.splice(index, 1);
-                        renderAll();
-                        return;
-                    }
-                    if (action === 'up') {
-                        moveItem(state.content.home.testimonials, index, -1);
-                        renderAll();
-                        return;
-                    }
-                    if (action === 'down') {
-                        moveItem(state.content.home.testimonials, index, 1);
-                        renderAll();
-                    }
-                });
-
-                container.appendChild(card);
-            });
-        };
-
-        const renderSiteDetails = () => {
-            el('contactPhone').value = state.content.site?.contact?.phone ?? '';
-            el('contactEmail').value = state.content.site?.contact?.email ?? '';
-            el('contactAddress').value = state.content.site?.contact?.address ?? '';
-            el('socialLinkedIn').value = state.content.site?.social?.linkedin ?? '';
-            el('socialInstagram').value = state.content.site?.social?.instagram ?? '';
-            el('socialTwitter').value = state.content.site?.social?.twitter ?? '';
-            el('socialYouTube').value = state.content.site?.social?.youtube ?? '';
-        };
-
-        const bindSiteDetails = () => {
-            el('contactPhone').addEventListener('input', (e) => updateField('site.contact.phone', e.target.value));
-            el('contactEmail').addEventListener('input', (e) => updateField('site.contact.email', e.target.value));
-            el('contactAddress').addEventListener('input', (e) => updateField('site.contact.address', e.target.value));
-            el('socialLinkedIn').addEventListener('input', (e) => updateField('site.social.linkedin', e.target.value));
-            el('socialInstagram').addEventListener('input', (e) => updateField('site.social.instagram', e.target.value));
-            el('socialTwitter').addEventListener('input', (e) => updateField('site.social.twitter', e.target.value));
-            el('socialYouTube').addEventListener('input', (e) => updateField('site.social.youtube', e.target.value));
         };
 
         const renderAll = () => {
-            renderSiteDetails();
-            renderNews();
-            renderArticles();
-            renderTestimonials();
+            fillSimpleFields();
+            renderVisibilityToggles();
+            renderHubCards();
+            renderCollection('news');
+            renderCollection('articles');
+            renderCollection('resources');
+            renderCollection('testimonials');
         };
 
         const downloadJson = () => {
@@ -540,14 +546,9 @@
             URL.revokeObjectURL(url);
         };
 
-        const copyJson = async () => {
-            await navigator.clipboard.writeText(escapeJson(state.content));
-        };
-
         const requirePassword = () => {
             const sessionKey = 'atomAdminAuthed';
             if (sessionStorage.getItem(sessionKey) === '1') return true;
-
             for (let attempt = 0; attempt < 3; attempt += 1) {
                 const value = window.prompt('Enter admin password:');
                 if (value === null) break;
@@ -557,47 +558,44 @@
                 }
                 window.alert('Incorrect password.');
             }
-
             window.location.href = 'index.html';
             return false;
         };
 
         const init = async () => {
             if (!requirePassword()) return;
-            bindSiteDetails();
+            bindSimpleFields();
             el('btnReload').addEventListener('click', async () => {
-                const content = await fetchContent();
-                state.content = { ...defaultContent(), ...content };
+                state.content = mergeDefaults(await fetchContent());
                 renderAll();
             });
             el('btnDownload').addEventListener('click', downloadJson);
-            el('btnCopy').addEventListener('click', copyJson);
-
+            el('btnCopy').addEventListener('click', async () => navigator.clipboard.writeText(escapeJson(state.content)));
             el('addNews').addEventListener('click', () => {
-                state.content.home.latestUpdates.push({ type: 'Update', icon: 'fa-bullhorn', year: String(new Date().getFullYear()), title: '', summary: '', url: 'services.html' });
+                state.content.knowledgeHub.news.push({ type: 'Update', icon: 'fa-bullhorn', year: String(new Date().getFullYear()), url: 'news-updates.html', image: '', title: '', summary: '' });
                 renderAll();
             });
             el('addArticle').addEventListener('click', () => {
-                state.content.knowledgeHub.articles.push({ tag: 'Article', icon: 'fa-newspaper', title: '', summary: '', url: 'services.html' });
+                state.content.knowledgeHub.articles.push({ tag: 'Article', icon: 'fa-newspaper', url: 'articles.html', image: '', title: '', summary: '' });
+                renderAll();
+            });
+            el('addResource').addEventListener('click', () => {
+                state.content.knowledgeHub.resources.push({ tag: 'Resource', icon: 'fa-book-open', url: 'insights-resources.html', image: '', title: '', summary: '' });
                 renderAll();
             });
             el('addTestimonial').addEventListener('click', () => {
                 state.content.home.testimonials.push({ quote: '', name: 'Client', role: '' });
                 renderAll();
             });
-
-            el('importFile').addEventListener('change', async (e) => {
-                const file = e.target.files && e.target.files[0];
+            el('importFile').addEventListener('change', async (event) => {
+                const file = event.target.files && event.target.files[0];
                 if (!file) return;
-                const text = await file.text();
-                const content = JSON.parse(text);
-                state.content = { ...defaultContent(), ...content };
-                e.target.value = '';
+                state.content = mergeDefaults(JSON.parse(await file.text()));
+                event.target.value = '';
                 renderAll();
             });
 
-            const content = await fetchContent();
-            state.content = { ...defaultContent(), ...content };
+            state.content = mergeDefaults(await fetchContent());
             renderAll();
         };
 

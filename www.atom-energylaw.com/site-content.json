@@ -1,45 +1,18 @@
 {
-  "version": 1,
+  "version": 2,
   "site": {
     "contact": {
       "phone": "+234 906 049 0067",
       "email": "advisory@atom-energylaw.com",
-      "address": "No. 32 Obi Okosi Street, Gwarinpa-FCT"
+      "address": "Plot C104, Peachvile Platinum, Jabi-Airport Road, Abuja."
     },
     "social": {
-      "linkedin": "#",
-      "instagram": "#",
-      "twitter": "#",
-      "youtube": "#"
+      "linkedin": "https://www.linkedin.com/company/atom-energy-law-advisory/",
+      "instagram": "https://www.instagram.com/atomenergylaw?igsh=Zmg5emJxdzFmeW8z",
+      "youtube": "https://youtube.com/@atomenergylawadvisory?si=VWPskopzJdfvKg_x"
     }
   },
   "home": {
-    "latestUpdates": [
-      {
-        "type": "Award",
-        "icon": "fa-award",
-        "year": "2026",
-        "title": "Tier 1 recognition for sector-focused advisory",
-        "summary": "A snapshot of recent recognition for our energy and natural resources practice across regulatory, transactional, and dispute work.",
-        "url": "about.html"
-      },
-      {
-        "type": "Announcement",
-        "icon": "fa-bullhorn",
-        "year": "2026",
-        "title": "New advisory support for energy transition projects",
-        "summary": "Expanded support for renewables, embedded generation, and infrastructure investment—aligned with evolving market and policy frameworks.",
-        "url": "services.html"
-      },
-      {
-        "type": "Shoutout",
-        "icon": "fa-star",
-        "year": "2026",
-        "title": "Client success in a high-stakes regulatory engagement",
-        "summary": "Celebrating a major milestone for a client operating across the energy value chain—supported through strategy, compliance, and policy engagement.",
-        "url": "contact.html"
-      }
-    ],
     "testimonials": [
       {
         "quote": "Clear guidance, fast turnaround, and strong commercial judgement. We felt supported throughout a complex transaction.",
@@ -59,52 +32,165 @@
     ]
   },
   "knowledgeHub": {
+    "intro": {
+      "kicker": "Sector Intelligence",
+      "heroTitle": "Knowledge Hub",
+      "heroLead": "A central library for news, articles, bills, updates, and practical sector resources.",
+      "sectionTitle": "A focused hub for sector intelligence",
+      "sectionLead": "Use this space to direct visitors to current thinking, developments, and practical reference materials.",
+      "sectionBody": "The Knowledge Hub gives Atom Energy Law Advisory a single place to publish timely updates, deeper commentary, and practical materials relevant to oil, gas, power, mining, shipping, and the broader energy transition.",
+      "image": "assets/images/energy.webp",
+      "cards": [
+        {
+          "icon": "fa-bullhorn",
+          "title": "News & Updates",
+          "summary": "Firm announcements, regulatory developments, and key sector updates.",
+          "button": "Open News & Updates",
+          "url": "news-updates.html"
+        },
+        {
+          "icon": "fa-newspaper",
+          "title": "Articles",
+          "summary": "Longer-form commentary, explainers, and thought leadership pieces with supporting images.",
+          "button": "Open Articles",
+          "url": "articles.html"
+        },
+        {
+          "icon": "fa-scale-balanced",
+          "title": "Insights & Resources",
+          "summary": "Bills, policy materials, reference notes, and practical resources curated by the admin.",
+          "button": "Open Insights & Resources",
+          "url": "insights-resources.html"
+        }
+      ]
+    },
+    "pages": {
+      "news": {
+        "kicker": "Latest Briefings",
+        "title": "News & Updates",
+        "lead": "Track announcements, market developments, and practical updates relevant to the energy and natural resources sectors.",
+        "sectionTitle": "Latest sector and firm updates",
+        "sectionLead": "Use these cards for announcements, short developments, and timely commentary."
+      },
+      "articles": {
+        "kicker": "Thought Leadership",
+        "title": "Articles",
+        "lead": "Publish longer-form analysis, client notes, and commercially focused commentary with supporting imagery.",
+        "sectionTitle": "Featured articles",
+        "sectionLead": "Each article card can carry an image, summary, and a link to the full piece or destination page."
+      },
+      "resources": {
+        "kicker": "Bills and Resources",
+        "title": "Insights & Resources",
+        "lead": "Share bills, policy notes, trackers, guidance materials, and practical resources especially relevant to oil, gas, and energy stakeholders.",
+        "sectionTitle": "Bills, insights, and practical resources",
+        "sectionLead": "Populate this page with current legislative items, explainers, and useful reference materials from the admin panel."
+      }
+    },
     "news": [
       {
         "type": "Announcement",
         "icon": "fa-bullhorn",
-        "title": "Announcement",
-        "summary": "Post firm announcements and key milestones here. Replace this placeholder with your first update.",
-        "url": "contact.html"
+        "year": "2026",
+        "title": "New advisory support for energy transition projects",
+        "summary": "Expanded support for renewables, embedded generation, and infrastructure investment aligned with evolving market and policy frameworks.",
+        "url": "contact.html",
+        "image": "assets/heroslide3.jpg"
       },
       {
-        "type": "Recognition",
-        "icon": "fa-award",
-        "title": "Recognition",
-        "summary": "Highlight awards, rankings, and notable mentions as they happen.",
-        "url": "#articles"
-      },
-      {
-        "type": "Legal Update",
+        "type": "Update",
         "icon": "fa-scale-balanced",
-        "title": "Legal Update",
-        "summary": "Share short updates on regulatory changes and practical takeaways for stakeholders.",
-        "url": "#insights"
+        "year": "2026",
+        "title": "Monitoring petroleum and power regulatory developments",
+        "summary": "Short updates and practical takeaways on licensing, compliance, and market reforms affecting sector participants.",
+        "url": "news-updates.html",
+        "image": "assets/heroslide4.jpg"
+      },
+      {
+        "type": "Shoutout",
+        "icon": "fa-star",
+        "year": "2026",
+        "title": "Client success in a high-stakes regulatory engagement",
+        "summary": "Celebrating a major milestone for a client operating across the energy value chain, supported through strategy, compliance, and policy engagement.",
+        "url": "contact.html",
+        "image": "assets/mining.jpg"
       }
     ],
     "articles": [
       {
         "tag": "Article",
         "icon": "fa-newspaper",
-        "title": "Coming Soon",
-        "summary": "Publish your first article here. This card can link to a dedicated article page when ready.",
-        "url": "contact.html"
+        "title": "Structuring value in Nigeria's evolving energy market",
+        "summary": "A practical look at risk allocation, documentation priorities, and execution strategy across complex energy transactions.",
+        "url": "articles.html",
+        "image": "assets/heroslide3.jpg"
       },
       {
         "tag": "Commentary",
         "icon": "fa-pen-nib",
-        "title": "Commentary",
-        "summary": "Add commentary on market developments, policy direction, and regulatory implementation.",
-        "url": "#insights"
+        "title": "Regulatory clarity and investment confidence",
+        "summary": "How disciplined regulatory analysis can improve investor readiness, project certainty, and commercial timing.",
+        "url": "articles.html",
+        "image": "assets/heroslide4.jpg"
       },
       {
-        "tag": "Templates",
+        "tag": "Insight",
         "icon": "fa-file-lines",
-        "title": "Templates",
-        "summary": "Optional: share checklists, frameworks, and templates as downloadable resources.",
-        "url": "contact.html"
+        "title": "Operational legal support for energy businesses",
+        "summary": "A concise note on how ongoing legal support strengthens governance, contracting, and compliance for operators.",
+        "url": "articles.html",
+        "image": "assets/maritime.jpg"
+      }
+    ],
+    "resources": [
+      {
+        "tag": "Bill Tracker",
+        "icon": "fa-landmark",
+        "title": "Energy and petroleum bills tracker",
+        "summary": "Use this card area to publish short notes on pending bills, draft regulations, and legislative developments relevant to oil, gas, and power stakeholders.",
+        "url": "insights-resources.html",
+        "image": "assets/mining.jpg"
+      },
+      {
+        "tag": "Resource Note",
+        "icon": "fa-book-open",
+        "title": "Practical compliance reference",
+        "summary": "Publish checklists, process notes, and reference materials that help clients interpret and implement sector obligations.",
+        "url": "insights-resources.html",
+        "image": "assets/maritime.jpg"
+      },
+      {
+        "tag": "Insight",
+        "icon": "fa-lightbulb",
+        "title": "Policy and reform watch",
+        "summary": "Summarize what policy shifts mean for investment, operations, commercial documentation, and long-term planning.",
+        "url": "insights-resources.html",
+        "image": "assets/heroslide4.jpg"
       }
     ]
+  },
+  "visibility": {
+    "pages": {
+      "home": true,
+      "about": true,
+      "expertise": true,
+      "practice": true,
+      "sectors": true,
+      "contact": true,
+      "knowledgeHub": true,
+      "newsUpdates": true,
+      "articles": true,
+      "insightsResources": true
+    },
+    "sections": {
+      "homeOverview": true,
+      "homeExpertise": true,
+      "homePracticeGroups": true,
+      "homeNews": true,
+      "homeTestimonials": true,
+      "homeContactCta": true,
+      "hubIntro": true,
+      "hubSections": true
+    }
   }
 }
-

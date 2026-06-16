@@ -174,13 +174,22 @@
         }
 
         .navbar-landing {
-            background: linear-gradient(135deg, rgba(21, 147, 209, 0.98), rgba(22, 106, 150, 0.98));
+            background: radial-gradient(900px 520px at 18% 20%, rgba(21, 147, 209, 0.22), rgba(0, 0, 0, 0) 60%),
+                radial-gradient(900px 520px at 78% 55%, rgba(21, 147, 209, 0.14), rgba(0, 0, 0, 0) 55%),
+                linear-gradient(135deg, #06294f, #021223);
             border-bottom: 1px solid rgba(255,255,255,0.16);
             box-shadow: 0 12px 34px rgba(6, 28, 63, 0.18);
         }
 
+        .navbar-landing .navbar-brand {
+            padding: 0.35rem 0.8rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 10px 24px rgba(2, 6, 23, 0.18);
+        }
+
         .navbar-landing .navbar-brand img {
-            filter: brightness(0) invert(1);
+            filter: none;
         }
 
         .navbar-landing .nav-link {
@@ -223,7 +232,7 @@
             }
 
             .navbar-landing .nav-reveal {
-                background: linear-gradient(180deg, rgba(22, 106, 150, 0.98), rgba(12, 72, 105, 0.98));
+                background: linear-gradient(180deg, rgba(6, 41, 79, 0.98), rgba(2, 18, 35, 0.98));
                 border-color: rgba(255, 255, 255, 0.14);
             }
 
@@ -413,9 +422,9 @@
             letter-spacing: 0;
             line-height: 1.16;
             color: #ffffff;
-            font-size: clamp(1.85rem, 2.9vw, 3.1rem);
-            max-width: 12ch;
-            white-space: normal;
+            font-size: clamp(1.75rem, 2.7vw, 2.95rem);
+            max-width: 14ch;
+            white-space: pre-line;
         }
 
         .hero-lead {
@@ -1718,6 +1727,14 @@
             opacity: 0.86;
         }
 
+        .email-list-trigger {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 1040;
+            box-shadow: 0 18px 40px rgba(2, 6, 23, 0.28);
+        }
+
         .email-list-success {
             color: #8bd8ff;
             min-height: 1.25rem;
@@ -1820,7 +1837,7 @@
         }
     </style>
 </head>
-<body id="top">
+<body id="top" data-page-key="home">
 
 
     <!-- Navbar -->
@@ -1837,7 +1854,7 @@
                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">Who we are</a></li>
                     <li class="nav-item"><a class="nav-link" href="expertise.html">Our Expertise</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Resources</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Knowledge Hub</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
                 </ul>
             </div>
@@ -1857,7 +1874,8 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="hero-text-panel" id="heroTextPanel">
-                        <h1 class="display-4 hero-title mb-0" id="heroTitleText">PREMIER ENERGY LAW ADVISORY</h1>
+                        <h1 class="display-4 hero-title mb-0" id="heroTitleText">PREMIER ENERGY LAW
+ADVISORY</h1>
                         <p class="lead hero-lead mb-0" id="heroLeadText">Exclusive Tier 1 legal and strategic services across the energy and natural resources value chain.</p>
                     </div>
                 </div>
@@ -1866,7 +1884,7 @@
     </section>
 
     <!-- Firm Overview Section -->
-    <section id="firm-overview" class="about-section">
+    <section id="firm-overview" class="about-section" data-visibility-section="homeOverview">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0">
@@ -1889,7 +1907,7 @@
         </div>
     </section>
 
-    <section id="expertise" class="glance-section">
+    <section id="expertise" class="glance-section" data-visibility-section="homeExpertise">
         <div class="container">
             <div class="text-center mb-5">
                 <div class="glance-kicker mb-3 d-inline-flex">
@@ -1935,10 +1953,10 @@
         </div>
     </section>
 
-    <section class="practice-groups-section section-blue" id="practice-groups">
+    <section class="practice-groups-section section-blue" id="practice-groups" data-visibility-section="homePracticeGroups">
         <div class="container">
             <div class="text-center mb-5">
-                <span class="text-primary fw-bold text-uppercase">Practice Groups</span>
+                <span class="text-primary fw-bold text-uppercase">Capabilities</span>
                 <h2 class="display-5 mb-2">Practice Groups</h2>
                 <p class="text-muted mx-auto mb-0" style="max-width: 860px;">A full suite of legal and strategic advisory services spanning the entire energy value chain.</p>
             </div>
@@ -1959,7 +1977,7 @@
                                 <article class="practice-item">
                                     <div class="practice-icon" aria-hidden="true"><i class="fas fa-user-tie"></i></div>
                                     <div class="practice-copy">
-                                        <h3 class="h5 practice-title">General Counsel Support &amp; Company Secretarial</h3>
+                                        <h3 class="h5 practice-title">General Counsel and Company Secretariat Support</h3>
                                         <p class="practice-description">Embedded legal and secretarial support for boards, governance, and day-to-day decisions.</p>
                                     </div>
                                 </article>
@@ -2026,7 +2044,7 @@
     </section>
 
     <!-- News & Updates Section -->
-    <section id="news" class="news-section">
+    <section id="news" class="news-section" data-visibility-section="homeNews">
         <div class="container">
             <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-end mb-5">
                 <div>
@@ -2065,7 +2083,7 @@
         </div>
     </section>
 
-    <section class="testimonials-section section-blue" id="testimonials">
+    <section class="testimonials-section section-blue" id="testimonials" data-visibility-section="homeTestimonials">
         <div class="container">
             <div class="text-center mb-5">
                 <span class="text-primary fw-bold text-uppercase">Testimonials</span>
@@ -2113,7 +2131,7 @@
         </div>
     </section>
 
-    <section class="contact-cta-strip" id="contact-home">
+    <section class="contact-cta-strip" id="contact-home" data-visibility-section="homeContactCta">
         <div class="container">
             <div class="contact-cta-box p-4 p-lg-5">
                 <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center gap-4">
@@ -2159,6 +2177,8 @@
         </div>
     </div>
 
+    <button type="button" class="btn btn-primary email-list-trigger" data-bs-toggle="modal" data-bs-target="#emailListModal">Join Email List</button>
+
     <footer class="site-footer">
         <div class="container position-relative">
             <div class="row g-5">
@@ -2171,32 +2191,40 @@
                         <li><a href="expertise.html#policy-legislative">Policy &amp; Legislative Advisory</a></li>
                         <li><a href="expertise.html#disputes-resolution">Dispute Resolution</a></li>
                         <li><a href="expertise.html#tax-advisory">Tax Advisory</a></li>
-                        <li><a href="expertise.html#general-counsel">General Counsel Support</a></li>
+                        <li><a href="expertise.html#general-counsel">General Counsel and Company Secretariat Support</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
-                    <h5 class="footer-title">Resources</h5>
+                    <h5 class="footer-title">Knowledge Hub</h5>
                     <ul class="footer-links">
-                        <li><a href="services.html">Knowledge Hub</a></li>
-                        <li><a href="services.html#news">News &amp; Updates</a></li>
-                        <li><a href="services.html#articles">Articles</a></li>
-                        <li><a href="services.html#insights">Insights</a></li>
+                        <li><a href="services.html">Knowledge Hub Home</a></li>
+                        <li><a href="news-updates.html">News &amp; Updates</a></li>
+                        <li><a href="articles.html">Articles</a></li>
+                        <li><a href="insights-resources.html">Insights &amp; Resources</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
                     <h5 class="footer-title">Social</h5>
                     <div class="footer-social">
-                        <a href="#" data-social="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" data-social="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" data-social="twitter" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" data-social="youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/company/atom-energy-law-advisory/" target="_blank" rel="noopener noreferrer" data-social="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/atomenergylaw?igsh=Zmg5emJxdzFmeW8z" target="_blank" rel="noopener noreferrer" data-social="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@atomenergylawadvisory?si=VWPskopzJdfvKg_x" target="_blank" rel="noopener noreferrer" data-social="youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="mt-4">
+                        <div class="text-white fw-bold mb-2">Join Our Email List</div>
+                        <p class="small mb-3" style="color: rgba(255,255,255,0.72);">Get occasional firm updates, alerts, and sector insights.</p>
+                        <form class="d-flex flex-column flex-sm-row gap-2" data-email-list-form>
+                            <input type="email" class="form-control footer-signup-input" data-email-list-input placeholder="Email address" autocomplete="email" required>
+                            <button class="btn btn-primary" type="submit">Join</button>
+                        </form>
+                        <div class="small mt-2" data-email-list-success style="color: rgba(255,255,255,0.72);"></div>
                     </div>
                     <div class="mt-4">
                         <div class="text-white fw-bold mb-2">Contact</div>
                         <div class="small" style="color: rgba(255,255,255,0.78);">
                             <div class="mb-1"><i class="fas fa-phone me-2"></i><span data-site="phone">+234 906 049 0067</span></div>
                             <div class="mb-1"><i class="fas fa-envelope me-2"></i><span data-site="email">advisory@atom-energylaw.com</span></div>
-                            <div><i class="fas fa-map-marker-alt me-2"></i><span data-site="address">No. 32 Obi Okosi Street, Gwarinpa-FCT</span></div>
+                            <div><i class="fas fa-map-marker-alt me-2"></i><span data-site="address">Plot C104, Peachvile Platinum, Jabi-Airport Road, Abuja.</span></div>
                         </div>
                     </div>
                 </div>
@@ -2206,8 +2234,7 @@
                     <a href="#">Privacy Policy</a>
                     <span style="opacity: 0.5;">|</span>
                     <a href="#">Anti-Bribery and Corruption Statement</a>
-                    <span style="opacity: 0.5;">|</span>
-                    <a href="admin.html">Admin</a>
+                    <a href="admin.html" aria-label="Admin" title="Admin"><i class="fas fa-lock"></i></a>
                 </div>
                 <div class="small" style="color: rgba(255,255,255,0.72);">All rights reserved. © 2026 ATOM ENERGY LAW ADVISORY</div>
             </div>
@@ -2311,19 +2338,19 @@
 
             const copy = [
                 {
-                    title: 'PREMIER ENERGY LAW ADVISORY',
+                    title: 'PREMIER ENERGY LAW\nADVISORY',
                     lead: 'Exclusive Tier 1 legal and strategic services across the energy and natural resources value chain.'
                 },
                 {
-                    title: 'DEAL-READY COMMERCIAL SUPPORT',
+                    title: 'DEAL-READY\nCOMMERCIAL SUPPORT',
                     lead: 'We support high value transactions, project structuring, negotiations, and contract strategy for complex assets.'
                 },
                 {
-                    title: 'CLARITY IN COMPLEX REGULATION',
+                    title: 'CLARITY IN\nCOMPLEX REGULATION',
                     lead: 'We translate evolving rules into practical pathways for operators, investors and stakeholders across the value chain.'
                 },
                 {
-                    title: 'PROTECTION WHEN STAKES ARE HIGH',
+                    title: 'PROTECTION WHEN\nSTAKES ARE HIGH',
                     lead: 'We help clients manage disputes and claims with sector-aware strategy that protects value and continuity.'
                 }
             ];
@@ -2378,14 +2405,14 @@
             if (!modalEl || !form || !input || !success || !window.bootstrap?.Modal) return;
 
             const modal = new bootstrap.Modal(modalEl);
-            const storageKey = 'atom-energylaw-email-list-dismissed';
-            const hasDismissed = window.localStorage.getItem(storageKey) === 'true';
+            const storageKey = 'atom-energylaw-email-list-session-v2';
+            const hasDismissed = window.sessionStorage.getItem(storageKey) === 'true';
 
             if (!hasDismissed) {
                 window.setTimeout(() => modal.show(), 1800);
             }
 
-            const markDismissed = () => window.localStorage.setItem(storageKey, 'true');
+            const markDismissed = () => window.sessionStorage.setItem(storageKey, 'true');
 
             modalEl.addEventListener('hidden.bs.modal', markDismissed);
 

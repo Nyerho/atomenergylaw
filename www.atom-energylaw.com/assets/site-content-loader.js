@@ -1,4 +1,42 @@
 (() => {
+    const defaultVisibility = {
+        pages: {
+            home: true,
+            about: true,
+            expertise: true,
+            practice: true,
+            sectors: true,
+            contact: true,
+            knowledgeHub: true,
+            newsUpdates: true,
+            articles: true,
+            insightsResources: true
+        },
+        sections: {
+            homeOverview: true,
+            homeExpertise: true,
+            homePracticeGroups: true,
+            homeNews: true,
+            homeTestimonials: true,
+            homeContactCta: true,
+            hubIntro: true,
+            hubSections: true
+        }
+    };
+
+    const pageHrefMap = {
+        home: ['index.html', './', '/'],
+        about: ['about.html'],
+        expertise: ['expertise.html', 'expertise-sector.html'],
+        practice: ['practice.html'],
+        sectors: ['sectors.html'],
+        contact: ['contact.html'],
+        knowledgeHub: ['services.html'],
+        newsUpdates: ['news-updates.html'],
+        articles: ['articles.html'],
+        insightsResources: ['insights-resources.html']
+    };
+
     const safeParseUrl = (value) => {
         if (typeof value !== 'string') return null;
         const trimmed = value.trim();
@@ -19,6 +57,19 @@
         const href = safeParseUrl(value) || '#';
         elements.forEach((el) => {
             el.setAttribute('href', href);
+            if (href !== '#') {
+                el.setAttribute('target', '_blank');
+                el.setAttribute('rel', 'noopener noreferrer');
+            }
+        });
+    };
+
+    const setImage = (selector, value, alt) => {
+        const src = safeParseUrl(value);
+        if (!src) return;
+        document.querySelectorAll(selector).forEach((img) => {
+            img.setAttribute('src', src);
+            if (alt) img.setAttribute('alt', alt);
         });
     };
 
@@ -32,11 +83,73 @@
             .replaceAll("'", '&#39;');
     };
 
-    const renderHomeNews = (container, items) => {
-        if (!container) return;
-        if (!Array.isArray(items) || items.length === 0) return;
+    const mergeVisibility = (content) => ({
+        pages: { ...defaultVisibility.pages, ...(content?.visibility?.pages || {}) },
+        sections: { ...defaultVisibility.sections, ...(content?.visibility?.sections || {}) }
+    });
 
-        const slice = items.slice(0, 3);
+    const isVisible = (visibility, type, key) => visibility?.[type]?.[key] !== false;
+
+    const hideElement = (el) => {
+        if (!el) return;
+        el.hidden = true;
+        el.setAttribute('aria-hidden', 'true');
+        if (el.classList.contains('d-flex')) {
+            el.style.display = 'none';
+        }
+    };
+
+    const applySectionVisibility = (visibility) => {
+        document.querySelectorAll('[data-visibility-section]').forEach((el) => {
+            const key = el.getAttribute('data-visibility-section');
+            if (!isVisible(visibility, 'sections', key)) hideElement(el);
+        });
+    };
+
+    const hideLinksForPage = (pageKey) => {
+        const hrefs = pageHrefMap[pageKey] || [];
+        document.querySelectorAll('a[href]').forEach((link) => {
+            const href = link.getAttribute('href') || '';
+            if (!hrefs.some((candidate) => href === candidate)) return;
+            const wrapper = link.closest('.nav-item, li, .col-lg-4, .col-md-6, .col-lg-6');
+            hideElement(wrapper || link);
+        });
+    };
+
+    const applyNavigationVisibility = (visibility) => {
+        Object.keys(defaultVisibility.pages).forEach((pageKey) => {
+            if (!isVisible(visibility, 'pages', pageKey)) {
+                hideLinksForPage(pageKey);
+            }
+        });
+    };
+
+    const renderUnavailablePage = () => {
+        document.body.innerHTML = `
+            <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px;background:linear-gradient(135deg,#06294f,#021223);font-family:Montserrat,sans-serif;">
+                <div style="max-width:640px;width:100%;background:rgba(255,255,255,0.96);border-radius:24px;padding:40px 32px;box-shadow:0 24px 60px rgba(2,6,23,0.28);text-align:center;">
+                    <div style="width:72px;height:72px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(21,147,209,0.12);color:#1593d1;font-size:28px;margin-bottom:18px;">
+                        <span style="font-weight:700;">i</span>
+                    </div>
+                    <h1 style="font-family:Marcellus,serif;font-weight:400;font-size:clamp(2rem,4vw,2.8rem);margin:0 0 12px;color:#1a1a1a;">Temporarily Hidden</h1>
+                    <p style="font-size:15px;line-height:1.8;color:#4b5563;margin:0 0 24px;">This page is currently hidden from the website and will reappear when the admin enables it again.</p>
+                    <a href="index.html" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 24px;border-radius:999px;background:linear-gradient(135deg,#1593d1,#0f6f9e);color:#ffffff;text-decoration:none;font-weight:600;">Return Home</a>
+                </div>
+            </div>
+        `;
+    };
+
+    const applyPageVisibility = (visibility) => {
+        const pageKey = document.body?.dataset?.pageKey;
+        if (!pageKey) return true;
+        if (isVisible(visibility, 'pages', pageKey)) return true;
+        renderUnavailablePage();
+        return false;
+    };
+
+    const renderHomeNews = (container, items) => {
+        if (!container || !Array.isArray(items) || items.length === 0) return;
+        const slice = items.slice(0, 2);
         container.innerHTML = slice
             .map((item) => {
                 const icon = escapeHtml(item.icon || 'fa-bullhorn');
@@ -45,9 +158,8 @@
                 const title = escapeHtml(item.title || '');
                 const summary = escapeHtml(item.summary || '');
                 const url = escapeHtml(item.url || 'services.html');
-
                 return `
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="news-card p-4">
                             <div class="news-meta mb-3">
                                 <span class="news-badge"><i class="fas ${icon}"></i><span>${type}</span></span>
@@ -63,28 +175,58 @@
             .join('');
     };
 
-    const renderHubCards = (container, items) => {
-        if (!container) return;
-        if (!Array.isArray(items) || items.length === 0) return;
-
+    const renderArticleLikeCards = (container, items, emptyLabel = 'Read more') => {
+        if (!container || !Array.isArray(items) || items.length === 0) return;
         container.innerHTML = items
             .map((item) => {
-                const icon = escapeHtml(item.icon || 'fa-newspaper');
+                const image = safeParseUrl(item.image);
+                const icon = escapeHtml(item.icon || 'fa-file-lines');
+                const tag = escapeHtml(item.tag || item.type || 'Item');
                 const title = escapeHtml(item.title || '');
                 const summary = escapeHtml(item.summary || '');
-                const type = escapeHtml(item.type || item.tag || '');
                 const url = escapeHtml(item.url || '#');
-                const cta = type ? type : 'Read more';
-
+                const cta = escapeHtml(item.button || tag || emptyLabel);
+                const media = image
+                    ? `<img src="${escapeHtml(image)}" alt="${title}" class="img-fluid rounded-4 mb-4 w-100" style="height: 220px; object-fit: cover;">`
+                    : `<div class="icon-box mx-auto mb-4" style="width: 72px; height: 72px; font-size: 2rem;"><i class="fas ${icon}"></i></div>`;
                 return `
                     <div class="col-lg-4 col-md-6">
-                        <div class="feature-card p-4">
-                            <div class="icon-box mx-auto mb-4" style="width: 72px; height: 72px; font-size: 2rem;">
-                                <i class="fas ${icon}"></i>
-                            </div>
-                            <h4 class="text-center mb-3">${title}</h4>
+                        <div class="feature-card p-4 h-100">
+                            ${media}
+                            <div class="text-primary fw-bold text-uppercase small mb-2">${tag}</div>
+                            <h4 class="mb-3">${title}</h4>
                             <p class="text-muted mb-4">${summary}</p>
-                            <a href="${url}" class="btn btn-outline-primary mt-auto">${cta}</a>
+                            <a href="${url}" class="btn btn-outline-primary mt-auto align-self-start">${cta}</a>
+                        </div>
+                    </div>
+                `;
+            })
+            .join('');
+    };
+
+    const renderKnowledgeHubCards = (container, items, visibility) => {
+        if (!container || !Array.isArray(items) || items.length === 0) return;
+        const filtered = items.filter((item) => {
+            const url = item?.url || '';
+            if (url === 'news-updates.html') return isVisible(visibility, 'pages', 'newsUpdates');
+            if (url === 'articles.html') return isVisible(visibility, 'pages', 'articles');
+            if (url === 'insights-resources.html') return isVisible(visibility, 'pages', 'insightsResources');
+            return true;
+        });
+        container.innerHTML = filtered
+            .map((item) => {
+                const icon = escapeHtml(item.icon || 'fa-book-open');
+                const title = escapeHtml(item.title || '');
+                const summary = escapeHtml(item.summary || '');
+                const button = escapeHtml(item.button || 'Open');
+                const url = escapeHtml(item.url || 'services.html');
+                return `
+                    <div class="col-lg-4 col-md-6">
+                        <div class="feature-card p-4 h-100">
+                            <div class="icon-box mb-4" style="width: 72px; height: 72px; font-size: 2rem;"><i class="fas ${icon}"></i></div>
+                            <h3 class="h4 mb-3">${title}</h3>
+                            <p class="text-muted mb-4">${summary}</p>
+                            <a href="${url}" class="btn btn-outline-primary mt-auto align-self-start">${button}</a>
                         </div>
                     </div>
                 `;
@@ -93,21 +235,18 @@
     };
 
     const renderTestimonials = (container, items) => {
-        if (!container) return;
-        if (!Array.isArray(items) || items.length === 0) return;
-
+        if (!container || !Array.isArray(items) || items.length === 0) return;
         container.innerHTML = items
             .slice(0, 3)
             .map((item) => {
                 const quote = escapeHtml(item.quote || '');
                 const name = escapeHtml(item.name || '');
                 const role = escapeHtml(item.role || '');
-                const avatar = escapeHtml((name || 'CL').split(' ').map((w) => w[0]).slice(0, 2).join('').toUpperCase());
-
+                const avatar = escapeHtml((name || 'CL').split(' ').map((word) => word[0]).slice(0, 2).join('').toUpperCase());
                 return `
                     <div class="col-lg-4">
                         <div class="testimonial-card p-4 p-lg-5">
-                            <div class="testimonial-quote">“${quote}”</div>
+                            <div class="testimonial-quote">${quote}</div>
                             <div class="testimonial-meta">
                                 <div class="testimonial-avatar" aria-hidden="true">${avatar}</div>
                                 <div>
@@ -122,25 +261,79 @@
             .join('');
     };
 
-    const applyContent = (content) => {
-        const phone = content?.site?.contact?.phone;
-        const email = content?.site?.contact?.email;
-        const address = content?.site?.contact?.address;
+    const bindMailingListForms = (content) => {
+        const destination = content?.site?.contact?.email || 'advisory@atom-energylaw.com';
+        document.querySelectorAll('[data-email-list-form]').forEach((form) => {
+            if (form.dataset.bound === 'true') return;
+            form.dataset.bound = 'true';
+            form.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const input = form.querySelector('[data-email-list-input]');
+                const success = form.querySelector('[data-email-list-success]');
+                if (!(input instanceof HTMLInputElement)) return;
+                if (!form.reportValidity()) return;
+                const email = input.value.trim();
+                const subject = encodeURIComponent('Email List Signup');
+                const body = encodeURIComponent(`Please add this email to the Atom Energy Law Advisory updates list:
 
-        setText(byData('site', 'phone'), phone);
-        setText(byData('site', 'email'), email);
-        setText(byData('site', 'address'), address);
+${email}`);
+                if (success) {
+                    success.textContent = 'Opening your email client to complete the signup request.';
+                }
+                window.setTimeout(() => {
+                    window.location.href = `mailto:${destination}?subject=${subject}&body=${body}`;
+                }, 180);
+            });
+        });
+    };
+
+    const applyKnowledgeHubIntro = (hub, visibility) => {
+        const intro = hub?.intro || {};
+        Object.entries(intro).forEach(([key, value]) => {
+            if (key === 'cards' || key === 'image') return;
+            setText(byData('hub-intro', key), value);
+        });
+        setImage('[data-hub-intro-image]', intro.image, intro.sectionTitle || intro.heroTitle || 'Knowledge Hub');
+        renderKnowledgeHubCards(document.getElementById('knowledgeHubNavCards'), intro.cards || [], visibility);
+    };
+
+    const applyKnowledgeHubPage = (hub) => {
+        const key = document.body?.dataset?.hubPageKey;
+        if (!key) return;
+        const page = hub?.pages?.[key] || {};
+        Object.entries(page).forEach(([field, value]) => {
+            setText(byData('hub-page-field', field), value);
+        });
+        const container = document.getElementById('hubPageContainer');
+        if (!container) return;
+        if (key === 'news') {
+            renderArticleLikeCards(container, hub?.news || [], 'Read more');
+        } else if (key === 'articles') {
+            renderArticleLikeCards(container, hub?.articles || [], 'Read article');
+        } else if (key === 'resources') {
+            renderArticleLikeCards(container, hub?.resources || [], 'Open resource');
+        }
+    };
+
+    const applyContent = (content) => {
+        const visibility = mergeVisibility(content);
+        applyNavigationVisibility(visibility);
+        if (!applyPageVisibility(visibility)) return;
+        applySectionVisibility(visibility);
+
+        setText(byData('site', 'phone'), content?.site?.contact?.phone);
+        setText(byData('site', 'email'), content?.site?.contact?.email);
+        setText(byData('site', 'address'), content?.site?.contact?.address);
 
         setHref(byData('social', 'linkedin'), content?.site?.social?.linkedin);
         setHref(byData('social', 'instagram'), content?.site?.social?.instagram);
-        setHref(byData('social', 'twitter'), content?.site?.social?.twitter);
         setHref(byData('social', 'youtube'), content?.site?.social?.youtube);
 
-        const updates = content?.home?.latestUpdates || content?.knowledgeHub?.news;
-        renderHomeNews(document.getElementById('homeNewsContainer'), updates);
-        renderHubCards(document.getElementById('hubNewsContainer'), updates);
-        renderHubCards(document.getElementById('hubArticlesContainer'), content?.knowledgeHub?.articles);
-        renderTestimonials(document.getElementById('homeTestimonialsContainer'), content?.home?.testimonials);
+        renderHomeNews(document.getElementById('homeNewsContainer'), content?.knowledgeHub?.news || []);
+        renderTestimonials(document.getElementById('homeTestimonialsContainer'), content?.home?.testimonials || []);
+        applyKnowledgeHubIntro(content?.knowledgeHub, visibility);
+        applyKnowledgeHubPage(content?.knowledgeHub);
+        bindMailingListForms(content);
     };
 
     const fetchJson = async () => {
