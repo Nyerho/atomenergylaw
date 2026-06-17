@@ -1,55 +1,591 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="title" content="Atom-Energylaw  Insights & Resources" /><meta name="description" content="Knowledge Hub insights, bills, and practical resources from Atom-Energylaw." /><title>Insights & Resources | Atom-Energylaw</title><link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<style>
-:root { --primary-color:#1593d1; --secondary-color:#0f6f9e; --accent-blue:#1593d1; --text-light:#333; --glass-bg:rgba(255,255,255,0.92); --glass-border:rgba(0,0,0,0.08); }
-body { font-family:'Montserrat',sans-serif; font-size:14px; line-height:1.4; background:linear-gradient(180deg, rgba(255,255,255,0.66), rgba(255,255,255,0.66)), radial-gradient(900px 620px at 12% 14%, rgba(21,147,209,0.08), rgba(255,255,255,0) 60%), radial-gradient(850px 600px at 90% 60%, rgba(21,147,209,0.08), rgba(255,255,255,0) 55%), url('assets/PixVerse_Image_Effect_prompt_oil wells .jpg'); background-size:cover,auto,auto,cover; color:var(--text-light); overflow-x:hidden; min-height:100vh; }
-p { margin-bottom:1.25rem; font-size:14px; line-height:26.6px; font-weight:400; }
-h1,h2,h3,h4,h5,h6 { font-family:'Marcellus',serif; font-weight:400; line-height:1.34; color:#1a1a1a; margin-top:0; }
-h1 { font-size:clamp(2.3rem,4vw,3.4rem); line-height:1.16; } h2 { font-size:clamp(1.95rem,3vw,2.45rem); line-height:1.28; } h3 { font-size:clamp(1.5rem,2.2vw,1.9rem); line-height:1.3; }
-.display-4 { font-size:clamp(2.55rem,4.5vw,3.9rem); line-height:1.12; } .display-5 { font-size:clamp(2.1rem,3.2vw,2.95rem); line-height:1.18; }
-.navbar { background: rgba(255,255,255,0.96); border-bottom:1px solid rgba(15,23,42,0.08); padding:0.9rem 0; box-shadow:0 12px 34px rgba(6,28,63,0.10);} .navbar-brand{padding:0.2rem 0.65rem; border-radius:999px; background:rgba(255,255,255,0.96);} .navbar-brand img{height:50px; filter:none;} .navbar-nav{align-items:center; gap:1.15rem;} .nav-link{color:rgba(15,23,42,0.82)!important; font-weight:500; text-transform:uppercase; letter-spacing:0.08em; font-size:0.74rem; padding:0.35rem 0.1rem!important; position:relative;} .nav-link:hover,.nav-link.active{color:#1593d1!important;} .nav-link::after{content:''; position:absolute; width:0; height:2px; bottom:0; left:0; background-color:#1593d1; transition:width .3s ease;} .nav-link:hover::after,.nav-link.active::after{width:100%;}
-.page-hero{position:relative; padding:170px 0 95px; background-size:cover; background-position:center; color:#fff; overflow:hidden;} .page-hero::before{content:''; position:absolute; inset:0; background:radial-gradient(900px 600px at 10% 15%, rgba(21,147,209,0.35), rgba(0,0,0,0) 60%), linear-gradient(135deg, rgba(2,6,23,0.76), rgba(2,6,23,0.46));} .page-hero .container,.site-footer .container{position:relative; z-index:1;} .page-hero .kicker{display:inline-flex; align-items:center; gap:.5rem; padding:.55rem .95rem; border-radius:999px; border:1px solid rgba(255,255,255,0.25); background:rgba(255,255,255,0.10); font-weight:500; letter-spacing:0.04em; text-transform:uppercase; font-size:.75rem;} .page-hero h1,.page-hero p{color:#fff;} .page-hero .lead{color:rgba(255,255,255,0.9); max-width:860px;}
-.section-padding{padding:100px 0;} .glass-panel{background:var(--glass-bg); border:1px solid var(--glass-border); border-radius:24px; box-shadow:0 18px 45px rgba(15,23,42,0.08);} .hub-copy-panel{padding:2rem 2.5rem;} .feature-card{border:1px solid rgba(0,0,0,0.08); border-radius:20px; background:rgba(255,255,255,0.94); box-shadow:0 10px 30px rgba(0,0,0,0.06); display:flex; flex-direction:column; height:100%; transition:transform .25s ease, box-shadow .25s ease;} .feature-card:hover{transform:translateY(-5px); box-shadow:0 18px 45px rgba(0,0,0,0.1);} .icon-box{font-size:3rem; color:var(--primary-color); background:rgba(21,147,209,0.1); width:80px; height:80px; display:flex; align-items:center; justify-content:center; border-radius:50%;}
-.btn-primary{background:linear-gradient(135deg, var(--primary-color), var(--secondary-color)); border-color:transparent; color:#fff; padding:12px 28px; border-radius:999px; font-weight:600; letter-spacing:0.02em;} .btn-outline-primary{border-radius:999px; padding:12px 28px; font-weight:600; letter-spacing:0.02em; border-color:rgba(21,147,209,0.45); color:var(--primary-color);} .btn-outline-primary:hover{background:rgba(21,147,209,0.08); color:var(--primary-color);} 
-.site-footer{background:radial-gradient(900px 520px at 18% 20%, rgba(21,147,209,0.28), rgba(0,0,0,0) 60%), radial-gradient(900px 520px at 78% 55%, rgba(21,147,209,0.18), rgba(0,0,0,0) 55%), linear-gradient(135deg, #06294f, #021223); color:rgba(255,255,255,0.82); padding:110px 0 50px; position:relative; overflow:hidden;} .site-footer::before{content:''; position:absolute; inset:0; background-image:linear-gradient(135deg, rgba(255,255,255,0.08) 1px, rgba(0,0,0,0) 1px), linear-gradient(45deg, rgba(255,255,255,0.06) 1px, rgba(0,0,0,0) 1px); background-size:64px 64px; opacity:0.22; pointer-events:none;} .footer-title{color:#fff; font-weight:700; margin-bottom:18px;} .footer-links{list-style:none; padding-left:0; margin:0; display:grid; gap:10px;} .footer-links a,.footer-legal a{color:rgba(255,255,255,0.78); text-decoration:none;} .footer-social{display:flex; gap:12px; flex-wrap:wrap; margin-top:18px;} .footer-social a{width:42px; height:42px; border-radius:10px; display:inline-flex; align-items:center; justify-content:center; background:rgba(255,255,255,0.12); color:rgba(255,255,255,0.92); text-decoration:none;} .footer-bottom{border-top:1px solid rgba(255,255,255,0.12); margin-top:70px; padding-top:22px;} .footer-legal{display:flex; gap:10px; flex-wrap:wrap; align-items:center;} .footer-signup-input{background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.16); color:#fff; border-radius:999px; padding:12px 16px;} .footer-signup-input::placeholder{color:rgba(255,255,255,0.6);} .footer-signup-input:focus{background:rgba(255,255,255,0.12); border-color:rgba(139,216,255,0.5); color:#fff; box-shadow:0 0 0 0.15rem rgba(139,216,255,0.18);} 
-@media (max-width: 991px){ .page-hero{padding:145px 0 80px;} .hub-copy-panel{padding:1.5rem;} .nav-reveal{background:rgba(255,255,255,0.98); margin-top:14px; border-radius:18px; padding:12px;} .nav-link::after{display:none;} }
-</style>
-</head><body data-hub-page-key="resources" data-page-key="insightsResources"><nav class="navbar navbar-expand-lg"><div class="container"><a class="navbar-brand" href="index.html"><img src="assets/Atom logo final-I7OGcKSj.png" alt="Atom-Energylaw"></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(15,23,42,0.18);"><span class="fa fa-bars" style="color: #0f172a;"></span></button><div class="collapse navbar-collapse justify-content-end nav-reveal" id="navbarNav"><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="index.html">Home</a></li><li class="nav-item"><a class="nav-link" href="about.html">Who we are</a></li><li class="nav-item"><a class="nav-link" href="expertise.html">Our Expertise</a></li><li class="nav-item"><a class="nav-link active" href="services.html">Knowledge Hub</a></li><li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li></ul></div></div></nav><section class="page-hero" style="background-image: url('assets/mining.jpg');"><div class="container"><div class="kicker mb-3"><i class="fas fa-scale-balanced"></i><span data-hub-page-field="kicker">Bills and Resources</span></div><h1 class="display-4 mb-3"><span data-hub-page-field="title">Insights &amp; Resources</span></h1><p class="lead mb-0"><span data-hub-page-field="lead">Share bills, policy notes, trackers, guidance materials, and practical resources especially relevant to oil, gas, and energy stakeholders.</span></p></div></section><section class="section-padding bg-light"><div class="container"><div class="text-center mb-5"><span class="text-primary fw-bold text-uppercase" data-hub-page-field="kicker">Bills and Resources</span><h2 class="display-5 mb-2" data-hub-page-field="sectionTitle">Bills, insights, and practical resources</h2><p class="text-muted mx-auto mb-0" style="max-width: 820px;" data-hub-page-field="sectionLead">Populate this page with current legislative items, explainers, and useful reference materials from the admin panel.</p></div><div class="row g-4" id="hubPageContainer"></div></div></section>
-<footer class="site-footer">
-  <div class="container position-relative">
-    <div class="row g-5">
-      <div class="col-lg-4">
-        <h5 class="footer-title">Capabilities</h5>
-        <ul class="footer-links">
-          <li><a href="expertise.html#deal-advisory">Deal Advisory</a></li>
-          <li><a href="expertise.html#project-structuring">Project Structuring</a></li>
-          <li><a href="expertise.html#regulatory-compliance">Regulatory Compliance</a></li>
-          <li><a href="expertise.html#policy-legislative">Policy &amp; Legislative Advisory</a></li>
-          <li><a href="expertise.html#disputes-resolution">Dispute Resolution</a></li>
-          <li><a href="expertise.html#tax-advisory">Tax Advisory</a></li>
-          <li><a href="expertise.html#general-counsel">General Counsel and Company Secretariat Support</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-4">
-        <h5 class="footer-title">Knowledge Hub</h5>
-        <ul class="footer-links">
-          <li><a href="services.html">Knowledge Hub Home</a></li>
-          <li><a href="news-updates.html">News &amp; Updates</a></li>
-          <li><a href="articles.html">Articles</a></li>
-          <li><a href="insights-resources.html">Insights &amp; Resources</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-4">
-        <h5 class="footer-title">Social</h5>
-        <div class="footer-social">
-          <a href="https://www.linkedin.com/company/atom-energy-law-advisory/" target="_blank" rel="noopener noreferrer" data-social="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://www.instagram.com/atomenergylaw?igsh=Zmg5emJxdzFmeW8z" target="_blank" rel="noopener noreferrer" data-social="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://youtube.com/@atomenergylawadvisory?si=VWPskopzJdfvKg_x" target="_blank" rel="noopener noreferrer" data-social="youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Atom-Energylaw Resource Center" />
+    <meta name="description" content="Bills, laws, regulations, and practical legal resources from Atom-Energylaw." />
+    <title>Resource Center | Atom-Energylaw</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1593d1;
+            --secondary-color: #0f6f9e;
+            --accent-blue: #1593d1;
+            --text-light: #333333;
+            --glass-bg: rgba(255, 255, 255, 0.92);
+            --glass-border: rgba(0, 0, 0, 0.08);
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            line-height: 1.4;
+            background:
+                linear-gradient(180deg, rgba(255,255,255,0.66), rgba(255,255,255,0.66)),
+                radial-gradient(900px 620px at 12% 14%, rgba(21,147,209,0.08), rgba(255,255,255,0) 60%),
+                radial-gradient(850px 600px at 90% 60%, rgba(21,147,209,0.08), rgba(255,255,255,0) 55%),
+                url('assets/PixVerse_Image_Effect_prompt_oil wells .jpg');
+            background-size: cover, auto, auto, cover;
+            color: var(--text-light);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 14px;
+            line-height: 26.6px;
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Marcellus', serif;
+            font-weight: 400;
+            line-height: 1.34;
+            color: #1a1a1a;
+            margin-top: 0;
+        }
+
+        .display-4 {
+            font-size: clamp(2.55rem, 4.5vw, 3.9rem);
+            line-height: 1.12;
+        }
+
+        .display-5 {
+            font-size: clamp(2.1rem, 3.2vw, 2.95rem);
+            line-height: 1.18;
+        }
+
+        .navbar {
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+            padding: 0.9rem 0;
+            box-shadow: 0 12px 34px rgba(6, 28, 63, 0.10);
+        }
+
+        .navbar-brand {
+            padding: 0.2rem 0.65rem;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.96);
+        }
+
+        .navbar-brand img {
+            height: 50px;
+            filter: none;
+        }
+
+        .navbar-nav {
+            align-items: center;
+            gap: 1.15rem;
+        }
+
+        .nav-link {
+            color: rgba(15, 23, 42, 0.82) !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.74rem;
+            padding: 0.35rem 0.1rem !important;
+            position: relative;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #1593d1 !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #1593d1;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .page-hero {
+            position: relative;
+            padding: 170px 0 95px;
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(900px 600px at 10% 15%, rgba(21,147,209,0.35), rgba(0,0,0,0) 60%),
+                linear-gradient(135deg, rgba(2,6,23,0.76), rgba(2,6,23,0.46));
+        }
+
+        .page-hero .container,
+        .site-footer .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-hero .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 0.95rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.10);
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+        }
+
+        .page-hero h1,
+        .page-hero p {
+            color: #ffffff;
+        }
+
+        .page-hero .lead {
+            color: rgba(255,255,255,0.9);
+            max-width: 860px;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        .resource-toolbar {
+            border-radius: 22px;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            background: rgba(255, 255, 255, 0.94);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+            padding: 1.4rem;
+            margin-bottom: 2rem;
+        }
+
+        .resource-card {
+            width: 100%;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.96);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            color: inherit;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.10);
+        }
+
+        .resource-card .resource-thumb {
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .resource-results-list .resource-card {
+            flex-direction: row;
+            align-items: stretch;
+            gap: 1.5rem;
+        }
+
+        .resource-results-list .resource-thumb {
+            width: 260px;
+            max-width: 35%;
+            height: auto;
+            margin-bottom: 0;
+            flex: 0 0 auto;
+        }
+
+        .resource-results-list .resource-card .icon-box {
+            margin: 1.5rem 0 1.5rem 1.5rem;
+        }
+
+        .resource-view-toggle .btn {
+            min-width: 110px;
+        }
+
+        .resource-empty {
+            border: 1px dashed rgba(15, 23, 42, 0.18);
+            border-radius: 22px;
+            background: rgba(255, 255, 255, 0.88);
+            padding: 2rem;
+            text-align: center;
+            color: rgba(15, 23, 42, 0.68);
+        }
+
+        .resource-modal .modal-content {
+            border: 0;
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: 0 28px 80px rgba(15, 23, 42, 0.28);
+        }
+
+        .resource-modal .modal-body {
+            padding: 2rem;
+        }
+
+        .resource-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.45rem 0.85rem;
+            border-radius: 999px;
+            background: rgba(21, 147, 209, 0.12);
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 0.82rem;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .icon-box {
+            font-size: 3rem;
+            color: var(--primary-color);
+            background: rgba(21,147,209,0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-color: transparent;
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+
+        .btn-outline-primary {
+            border-radius: 999px;
+            padding: 12px 28px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            border-color: rgba(21,147,209,0.45);
+            color: var(--primary-color);
+        }
+
+        .btn-outline-primary:hover {
+            background: rgba(21,147,209,0.08);
+            color: var(--primary-color);
+        }
+
+        .site-footer {
+            background:
+                radial-gradient(900px 520px at 18% 20%, rgba(21,147,209,0.28), rgba(0,0,0,0) 60%),
+                radial-gradient(900px 520px at 78% 55%, rgba(21,147,209,0.18), rgba(0,0,0,0) 55%),
+                linear-gradient(135deg, #06294f, #021223);
+            color: rgba(255,255,255,0.82);
+            padding: 110px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(135deg, rgba(255,255,255,0.08) 1px, rgba(0,0,0,0) 1px),
+                linear-gradient(45deg, rgba(255,255,255,0.06) 1px, rgba(0,0,0,0) 1px);
+            background-size: 64px 64px;
+            opacity: 0.22;
+            pointer-events: none;
+        }
+
+        .footer-title {
+            color: #ffffff;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .footer-links a,
+        .footer-legal a {
+            color: rgba(255,255,255,0.78);
+            text-decoration: none;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .footer-social a {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.12);
+            color: rgba(255,255,255,0.92);
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.12);
+            margin-top: 70px;
+            padding-top: 22px;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .footer-signup-input {
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.16);
+            color: #ffffff;
+            border-radius: 999px;
+            padding: 12px 16px;
+        }
+
+        .footer-signup-input::placeholder {
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-signup-input:focus {
+            background: rgba(255,255,255,0.12);
+            border-color: rgba(139,216,255,0.5);
+            color: #ffffff;
+            box-shadow: 0 0 0 0.15rem rgba(139,216,255,0.18);
+        }
+
+        @media (max-width: 991px) {
+            .page-hero {
+                padding: 145px 0 80px;
+            }
+
+            .nav-reveal {
+                background: rgba(255,255,255,0.98);
+                margin-top: 14px;
+                border-radius: 18px;
+                padding: 12px;
+            }
+
+            .nav-link::after {
+                display: none;
+            }
+
+            .resource-results-list .resource-card {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .resource-results-list .resource-thumb {
+                width: 100%;
+                max-width: 100%;
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body data-hub-page-key="resources" data-page-key="insightsResources">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img src="assets/Atom logo final-I7OGcKSj.png" alt="Atom-Energylaw"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(15,23,42,0.18);">
+                <span class="fa fa-bars" style="color: #0f172a;"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end nav-reveal" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Who we are</a></li>
+                    <li class="nav-item"><a class="nav-link" href="expertise.html">Our Expertise</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="services.html">Knowledge Hub</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="mt-4"><div class="text-white fw-bold mb-2">Join Our Email List</div><p class="small mb-3" style="color: rgba(255,255,255,0.72);">Get occasional firm updates, alerts, and sector insights.</p><form class="d-flex flex-column flex-sm-row gap-2" data-email-list-form><input type="email" class="form-control footer-signup-input" data-email-list-input placeholder="Email address" autocomplete="email" required><button class="btn btn-primary" type="submit">Join</button></form><div class="small mt-2" data-email-list-success style="color: rgba(255,255,255,0.72);"></div></div>
-        <div class="mt-4"><div class="text-white fw-bold mb-2">Contact</div><div class="small" style="color: rgba(255,255,255,0.78);"><div class="mb-1"><i class="fas fa-phone me-2"></i><span data-site="phone">+234 906 049 0067</span></div><div class="mb-1"><i class="fas fa-envelope me-2"></i><span data-site="email">advisory@atom-energylaw.com</span></div><div><i class="fas fa-map-marker-alt me-2"></i><span data-site="address">Plot C104, Peachvile Platinum, Jabi-Airport Road, Abuja.</span></div></div></div>
-      </div>
+    </nav>
+
+    <section class="page-hero" style="background-image: url('assets/mining.jpg');">
+        <div class="container">
+            <div class="kicker mb-3">
+                <i class="fas fa-scale-balanced"></i>
+                <span data-hub-page-field="kicker">Bills, Laws and Regulations</span>
+            </div>
+            <h1 class="display-4 mb-3"><span data-hub-page-field="title">Resource Center</span></h1>
+            <p class="lead mb-0"><span data-hub-page-field="lead">Browse bills, laws, regulations, trackers, and practical legal materials especially relevant to oil, gas, power, mining, and maritime stakeholders.</span></p>
+        </div>
+    </section>
+
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold text-uppercase" data-hub-page-field="kicker">Bills, Laws and Regulations</span>
+                <h2 class="display-5 mb-2" data-hub-page-field="sectionTitle">Bills, laws, regulations, and practical resources</h2>
+                <p class="text-muted mx-auto mb-0" style="max-width: 820px;" data-hub-page-field="sectionLead">Use the filters and search tools below to browse the library by category or locate a specific legal instrument.</p>
+            </div>
+
+            <div class="resource-toolbar">
+                <div class="row g-3 align-items-center">
+                    <div class="col-lg-5">
+                        <label class="form-label small text-uppercase fw-bold text-muted mb-1" for="resourceSearchInput">Search the library</label>
+                        <input type="search" class="form-control" id="resourceSearchInput" placeholder="Search for a bill, law, regulation, or PIA note">
+                    </div>
+                    <div class="col-lg-3">
+                        <label class="form-label small text-uppercase fw-bold text-muted mb-1" for="resourceCategoryFilter">Filter by category</label>
+                        <select class="form-select" id="resourceCategoryFilter">
+                            <option value="all">All Categories</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-label small text-uppercase fw-bold text-muted mb-1">Choose view</div>
+                        <div class="d-flex justify-content-lg-end gap-2 resource-view-toggle">
+                            <button type="button" class="btn btn-primary active" data-resource-view="grid">Grid View</button>
+                            <button type="button" class="btn btn-outline-primary" data-resource-view="list">List View</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="resource-empty" id="resourceEmptyState" hidden>
+                No resources match the current search or category filter.
+            </div>
+
+            <div class="row g-4 resource-results" id="hubPageContainer"></div>
+        </div>
+    </section>
+
+    <div class="modal fade resource-modal" id="resourceModal" tabindex="-1" aria-labelledby="resourceModalTitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="d-flex justify-content-between align-items-start gap-3 mb-4">
+                        <div>
+                            <div class="resource-chip mb-3"><i class="fas fa-folder-open"></i><span id="resourceModalCategory">Resource</span></div>
+                            <h2 class="h3 mb-0" id="resourceModalTitle">Resource</h2>
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <p class="text-muted mb-4" id="resourceModalSummary">Resource summary.</p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#" class="btn btn-primary" id="resourceModalView" target="_blank" rel="noopener noreferrer">View Resource</a>
+                        <button type="button" class="btn btn-outline-primary" id="resourceModalDownload">Download Summary</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3"><div class="footer-legal"><a href="#">Privacy Policy</a><span style="opacity: 0.5;">|</span><a href="#">Anti-Bribery and Corruption Statement</a><a href="admin.html" aria-label="Admin" title="Admin"><i class="fas fa-lock"></i></a></div><div class="small" style="color: rgba(255,255,255,0.72);">All rights reserved.  2026 ATOM ENERGY LAW ADVISORY</div></div>
-  </div>
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script><script src="assets/site-content-loader.js" defer></script><script> (() => { const nav = document.getElementById('navbarNav'); if (!nav) return; const items = Array.from(nav.querySelectorAll('.nav-item')); const applyDelays = (startMs) => { items.forEach((item, index) => item.style.setProperty('--item-delay', `${startMs + index * 60}ms`)); }; nav.addEventListener('show.bs.collapse', () => { nav.classList.add('is-opening'); nav.classList.remove('is-closing'); applyDelays(90); }); nav.addEventListener('shown.bs.collapse', () => nav.classList.remove('is-opening')); nav.addEventListener('hide.bs.collapse', () => { nav.classList.add('is-closing'); nav.classList.remove('is-opening'); items.forEach((item) => item.style.setProperty('--item-delay', '0ms')); }); nav.addEventListener('hidden.bs.collapse', () => nav.classList.remove('is-closing')); })(); </script></body></html>
+
+    <footer class="site-footer">
+        <div class="container position-relative">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Capabilities</h5>
+                    <ul class="footer-links">
+                        <li><a href="expertise.html#deal-advisory">Deal Advisory</a></li>
+                        <li><a href="expertise.html#project-structuring">Project Structuring</a></li>
+                        <li><a href="expertise.html#regulatory-compliance">Regulatory Compliance</a></li>
+                        <li><a href="expertise.html#policy-legislative">Policy &amp; Legislative Advisory</a></li>
+                        <li><a href="expertise.html#disputes-resolution">Dispute Resolution</a></li>
+                        <li><a href="expertise.html#tax-advisory">Tax Advisory</a></li>
+                        <li><a href="expertise.html#general-counsel">General Counsel and Company Secretariat Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Knowledge Hub</h5>
+                    <ul class="footer-links">
+                        <li><a href="news-updates.html">News &amp; Updates</a></li>
+                        <li><a href="articles.html">Articles &amp; Insights</a></li>
+                        <li><a href="insights-resources.html">Resource Center</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Social</h5>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/atom-energy-law-advisory/" target="_blank" rel="noopener noreferrer" data-social="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/atomenergylaw?igsh=Zmg5emJxdzFmeW8z" target="_blank" rel="noopener noreferrer" data-social="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@atomenergylawadvisory?si=VWPskopzJdfvKg_x" target="_blank" rel="noopener noreferrer" data-social="youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="mt-4">
+                        <div class="text-white fw-bold mb-2">Join Our Mailing List</div>
+                        <p class="small mb-3" style="color: rgba(255,255,255,0.72);">Get occasional firm updates, alerts, and sector insights.</p>
+                        <form class="d-flex flex-column flex-sm-row gap-2" data-email-list-form>
+                            <input type="email" class="form-control footer-signup-input" data-email-list-input placeholder="Email address" autocomplete="email" required>
+                            <button class="btn btn-primary" type="submit">Join</button>
+                        </form>
+                        <div class="small mt-2" data-email-list-success style="color: rgba(255,255,255,0.72);"></div>
+                    </div>
+                    <div class="mt-4">
+                        <div class="text-white fw-bold mb-2">Contact</div>
+                        <div class="small" style="color: rgba(255,255,255,0.78);">
+                            <div class="mb-1"><i class="fas fa-phone me-2"></i><span data-site="phone">+234 906 049 0067</span></div>
+                            <div class="mb-1"><i class="fas fa-envelope me-2"></i><span data-site="email">advisory@atom-energylaw.com</span></div>
+                            <div><i class="fas fa-map-marker-alt me-2"></i><span data-site="address">Plot C104, Peachvile Platinum, Jabi-Airport Road, Abuja.</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <span style="opacity: 0.5;">|</span>
+                    <a href="#">Anti-Bribery and Corruption Statement</a>
+                    <a href="admin.html" aria-label="Admin" title="Admin"><i class="fas fa-lock"></i></a>
+                </div>
+                <div class="small" style="color: rgba(255,255,255,0.72);">All rights reserved. © 2026 ATOM ENERGY LAW ADVISORY</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/site-content-loader.js" defer></script>
+    <script>
+        (() => {
+            const nav = document.getElementById('navbarNav');
+            if (!nav) return;
+            const items = Array.from(nav.querySelectorAll('.nav-item'));
+            const applyDelays = (startMs) => {
+                items.forEach((item, index) => item.style.setProperty('--item-delay', `${startMs + index * 60}ms`));
+            };
+            nav.addEventListener('show.bs.collapse', () => {
+                nav.classList.add('is-opening');
+                nav.classList.remove('is-closing');
+                applyDelays(90);
+            });
+            nav.addEventListener('shown.bs.collapse', () => nav.classList.remove('is-opening'));
+            nav.addEventListener('hide.bs.collapse', () => {
+                nav.classList.add('is-closing');
+                nav.classList.remove('is-opening');
+                items.forEach((item) => item.style.setProperty('--item-delay', '0ms'));
+            });
+            nav.addEventListener('hidden.bs.collapse', () => nav.classList.remove('is-closing'));
+        })();
+    </script>
+</body>
+</html>
+

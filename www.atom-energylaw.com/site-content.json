@@ -37,29 +37,29 @@
       "heroTitle": "Knowledge Hub",
       "heroLead": "A central library for news, articles, bills, updates, and practical sector resources.",
       "sectionTitle": "A focused hub for sector intelligence",
-      "sectionLead": "Use this space to direct visitors to current thinking, developments, and practical reference materials.",
-      "sectionBody": "The Knowledge Hub gives Atom Energy Law Advisory a single place to publish timely updates, deeper commentary, and practical materials relevant to oil, gas, power, mining, shipping, and the broader energy transition.",
+      "sectionLead": "Explore the latest market developments, commercially relevant commentary, and a dedicated library of legal reference materials.",
+      "sectionBody": "The Knowledge Hub brings together Atom Energy Law Advisory's latest updates, deeper articles and insights, and a dedicated Resource Center covering bills, laws, regulations, and practical reference materials for the energy and natural resources sectors.",
       "image": "assets/images/energy.webp",
       "cards": [
         {
           "icon": "fa-bullhorn",
-          "title": "News & Updates",
-          "summary": "Firm announcements, regulatory developments, and key sector updates.",
-          "button": "Open News & Updates",
+          "title": "Latest Updates",
+          "summary": "Firm announcements, regulatory developments, and current market updates.",
+          "button": "Open Latest Updates",
           "url": "news-updates.html"
         },
         {
           "icon": "fa-newspaper",
-          "title": "Articles",
-          "summary": "Longer-form commentary, explainers, and thought leadership pieces with supporting images.",
-          "button": "Open Articles",
+          "title": "Articles & Insights",
+          "summary": "Longer-form commentary, explainers, and insight-led analysis with supporting images.",
+          "button": "Open Articles & Insights",
           "url": "articles.html"
         },
         {
           "icon": "fa-scale-balanced",
-          "title": "Insights & Resources",
-          "summary": "Bills, policy materials, reference notes, and practical resources curated by the admin.",
-          "button": "Open Insights & Resources",
+          "title": "Resource Center",
+          "summary": "Bills, laws, regulations, and practical legal reference materials curated by the admin.",
+          "button": "Open Resource Center",
           "url": "insights-resources.html"
         }
       ]
@@ -67,24 +67,24 @@
     "pages": {
       "news": {
         "kicker": "Latest Briefings",
-        "title": "News & Updates",
+        "title": "Latest Updates",
         "lead": "Track announcements, market developments, and practical updates relevant to the energy and natural resources sectors.",
         "sectionTitle": "Latest sector and firm updates",
         "sectionLead": "Use these cards for announcements, short developments, and timely commentary."
       },
       "articles": {
         "kicker": "Thought Leadership",
-        "title": "Articles",
-        "lead": "Publish longer-form analysis, client notes, and commercially focused commentary with supporting imagery.",
-        "sectionTitle": "Featured articles",
-        "sectionLead": "Each article card can carry an image, summary, and a link to the full piece or destination page."
+        "title": "Articles & Insights",
+        "lead": "Publish longer-form analysis, client notes, and commercially focused insights with supporting imagery.",
+        "sectionTitle": "Featured articles and insights",
+        "sectionLead": "Each card can carry an image, summary, and a link to the full piece or destination page."
       },
       "resources": {
-        "kicker": "Bills and Resources",
-        "title": "Insights & Resources",
-        "lead": "Share bills, policy notes, trackers, guidance materials, and practical resources especially relevant to oil, gas, and energy stakeholders.",
-        "sectionTitle": "Bills, insights, and practical resources",
-        "sectionLead": "Populate this page with current legislative items, explainers, and useful reference materials from the admin panel."
+        "kicker": "Bills, Laws and Regulations",
+        "title": "Resource Center",
+        "lead": "Browse bills, laws, regulations, trackers, and practical legal materials especially relevant to oil, gas, power, mining, and maritime stakeholders.",
+        "sectionTitle": "Bills, laws, regulations, and practical resources",
+        "sectionLead": "Use the filters and search tools below to browse the library by category or locate a specific legal instrument."
       }
     },
     "news": [
@@ -144,27 +144,27 @@
     ],
     "resources": [
       {
-        "tag": "Bill Tracker",
+        "tag": "Bill",
         "icon": "fa-landmark",
-        "title": "Energy and petroleum bills tracker",
-        "summary": "Use this card area to publish short notes on pending bills, draft regulations, and legislative developments relevant to oil, gas, and power stakeholders.",
-        "url": "insights-resources.html",
+        "title": "Petroleum Industry Reform Bill Tracker",
+        "summary": "A practical snapshot of current petroleum-sector bill developments, major clauses, and the commercial issues stakeholders should monitor.",
+        "url": "",
         "image": "assets/mining.jpg"
       },
       {
-        "tag": "Resource Note",
+        "tag": "Law",
         "icon": "fa-book-open",
-        "title": "Practical compliance reference",
-        "summary": "Publish checklists, process notes, and reference materials that help clients interpret and implement sector obligations.",
-        "url": "insights-resources.html",
+        "title": "Petroleum Industry Act Reference Note",
+        "summary": "A practical summary of key provisions, compliance considerations, and implementation points under the Petroleum Industry Act.",
+        "url": "",
         "image": "assets/maritime.jpg"
       },
       {
-        "tag": "Insight",
+        "tag": "Regulation",
         "icon": "fa-lightbulb",
-        "title": "Policy and reform watch",
-        "summary": "Summarize what policy shifts mean for investment, operations, commercial documentation, and long-term planning.",
-        "url": "insights-resources.html",
+        "title": "Energy Market Regulation Watch",
+        "summary": "A curated note on current regulations, implementation trends, and what they mean for investment, operations, and project documentation.",
+        "url": "",
         "image": "assets/heroslide4.jpg"
       }
     ]

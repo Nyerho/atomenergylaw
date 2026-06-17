@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" content="Atom-Energylaw — Who we are" />
+    <meta name="title" content="Atom-Energylaw - Who we are" />
     <meta name="description" content="Providing strategic legal counsel in Corporate Advisory, Public Policy, Energy, and Complex Disputes." />
     <title>Who we are | Atom-Energylaw</title>
     <!-- Bootstrap CSS -->
@@ -483,6 +483,78 @@
             box-shadow: 0 18px 45px rgba(0,0,0,0.10);
         }
 
+        .capabilities-section {
+            padding: 100px 0;
+            background:
+                radial-gradient(900px 620px at 10% 20%, rgba(21, 147, 209, 0.08), rgba(255, 255, 255, 0) 60%),
+                linear-gradient(180deg, #ffffff 0%, #f7fbff 60%, #ffffff 100%);
+        }
+
+        .capability-carousel {
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .capability-slide {
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 24px;
+            padding: 42px 38px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+            min-height: 300px;
+        }
+
+        .capability-icon {
+            width: 82px;
+            height: 82px;
+            border-radius: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(21, 147, 209, 0.12);
+            color: var(--primary-color);
+            font-size: 1.65rem;
+            box-shadow: inset 0 0 0 1px rgba(21, 147, 209, 0.08);
+        }
+
+        .capability-title {
+            margin: 0;
+            color: #0f172a;
+        }
+
+        .capability-description {
+            margin: 0;
+            max-width: 54ch;
+            color: rgba(15, 23, 42, 0.68);
+            font-size: 0.98rem;
+        }
+
+        .capability-status {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .capability-status span {
+            width: 36px;
+            height: 4px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.16);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .capability-status span.is-active {
+            background: var(--primary-color);
+            transform: scaleX(1.12);
+        }
+
         .sectors-section {
             background:
                 linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.72)),
@@ -546,78 +618,83 @@
                 <div class="col-lg-6 ps-lg-5">
                     <h2 class="display-5 mb-4">Committed to Excellence in Legal Representation</h2>
                     <p class="text-muted mb-4">We are a boutique energy law advisory firm offering exclusive tier 1 legal, and strategic advisory services to clients across the energy and natural resources value chain.</p>
-                    <p class="mb-4">We work at the intersection of law, regulation, and commercial operations—supporting both government bodies, private sector entities, infrastructure investors, and project developers operating across the oil and gas, power, mining, and maritime sectors.</p>
-                    <p class="mb-4">Our value lies in our sector-specific insight, transactional fluency, and policy awareness—allowing us to provide not just legal advice, but commercially sound guidance tailored to Nigeria’s evolving energy landscape.</p>
+                    <p class="mb-4">We work at the intersection of law, regulation, and commercial operations, supporting both government bodies, private sector entities, infrastructure investors, and project developers operating across the oil and gas, power, mining, and maritime sectors.</p>
+                    <p class="mb-4">Our value lies in our sector-specific insight, transactional fluency, and policy awareness, allowing us to provide not just legal advice, but commercially sound guidance tailored to Nigeria's evolving energy landscape.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-padding bg-light" style="padding: 100px 0;">
+    <section id="capabilities" class="capabilities-section">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
-                    <img src="assets/images/oillaw.webp" class="img-fluid rounded-4 shadow-lg" alt="Oil Law Expertise">
-                </div>
-                <div class="col-lg-6 order-lg-1 pe-lg-5">
-                    <span class="text-primary fw-bold text-uppercase">Practice Areas</span>
-                    <h2 class="display-5 mb-4">Strategic Legal Precision</h2>
-                    <p class="lead text-muted mb-4">Navigating the complexities of energy law requires deep industry knowledge and legal acumen.</p>
-                    <p>Our team brings decades of experience in handling high-stakes transactions and regulatory matters. Whether it's upstream exploration or downstream distribution, we provide the legal framework for your success.</p>
-                    <a href="contact.html" class="btn btn-primary mt-3">Get in Touch</a>
-                </div>
+            <div class="text-center mb-5">
+                <span class="text-primary fw-bold text-uppercase">Capabilities</span>
+                <h2 class="display-5 mb-2">Our Core Capabilities</h2>
+                <p class="text-muted mx-auto mb-0" style="max-width: 780px;">A rotating snapshot of the legal and strategic services we deliver across the energy and natural resources value chain.</p>
             </div>
-        </div>
-    </section>
-
-    <section id="practice" class="section-padding" style="padding: 100px 0;">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card p-4">
-                        <div class="icon-box" style="width: 72px; height: 72px; font-size: 2rem;">
-                            <i class="fas fa-briefcase"></i>
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div id="aboutCapabilitiesCarousel" class="carousel slide capability-carousel" data-bs-ride="carousel" data-bs-interval="4200" data-bs-pause="false">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <article class="capability-slide">
+                                    <div class="capability-icon" aria-hidden="true"><i class="fas fa-handshake"></i></div>
+                                    <h3 class="h4 capability-title">Deal Advisory / Corporate and Commercial Advisory</h3>
+                                    <p class="capability-description">Deals, contracts, and corporate strategy for complex energy transactions.</p>
+                                </article>
+                            </div>
+                            <div class="carousel-item">
+                                <article class="capability-slide">
+                                    <div class="capability-icon" aria-hidden="true"><i class="fas fa-user-tie"></i></div>
+                                    <h3 class="h4 capability-title">General Counsel and Company Secretariat Support</h3>
+                                    <p class="capability-description">Embedded legal and secretarial support for boards, governance, and day-to-day decisions.</p>
+                                </article>
+                            </div>
+                            <div class="carousel-item">
+                                <article class="capability-slide">
+                                    <div class="capability-icon" aria-hidden="true"><i class="fas fa-diagram-project"></i></div>
+                                    <h3 class="h4 capability-title">Project Structuring and Transaction Support</h3>
+                                    <p class="capability-description">Project structuring, risk allocation, and documentation from development through close.</p>
+                                </article>
+                            </div>
+                            <div class="carousel-item">
+                                <article class="capability-slide">
+                                    <div class="capability-icon" aria-hidden="true"><i class="fas fa-shield-alt"></i></div>
+                                    <h3 class="h4 capability-title">Regulatory Consulting and Compliance</h3>
+                                    <p class="capability-description">Licensing, compliance, and regulator-facing support across evolving market rules.</p>
+                                </article>
+                            </div>
+                            <div class="carousel-item">
+                                <article class="capability-slide">
+                                    <div class="capability-icon" aria-hidden="true"><i class="fas fa-landmark"></i></div>
+                                    <h3 class="h4 capability-title">Policy and Legislative Advisory</h3>
+                                    <p class="capability-description">Policy, legislative, and market-governance advice shaped by sector realities.</p>
+                                </article>
+                            </div>
+                            <div class="carousel-item">
+                                <article class="capability-slide">
+                                    <div class="capability-icon" aria-hidden="true"><i class="fas fa-gavel"></i></div>
+                                    <h3 class="h4 capability-title">Disputes Resolution</h3>
+                                    <p class="capability-description">Dispute prevention, claims handling, and resolution strategy when stakes are high.</p>
+                                </article>
+                            </div>
+                            <div class="carousel-item">
+                                <article class="capability-slide">
+                                    <div class="capability-icon" aria-hidden="true"><i class="fas fa-file-invoice-dollar"></i></div>
+                                    <h3 class="h4 capability-title">Tax Advisory</h3>
+                                    <p class="capability-description">Tax structuring, compliance, and dispute support across the value chain.</p>
+                                </article>
+                            </div>
                         </div>
-                        <h4 class="mb-2">Corporate Advisory</h4>
-                        <p class="text-muted small mb-3">Governance & Transactions</p>
-                        <p class="text-muted mb-4">Expert guidance on corporate governance, mergers, and commercial transactions. We ensure your business operates on a solid legal foundation.</p>
-                        <a href="contact.html" class="btn btn-sm btn-outline-primary mt-auto">Discuss</a>
                     </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card p-4">
-                        <div class="icon-box" style="width: 72px; height: 72px; font-size: 2rem;">
-                            <i class="fas fa-landmark"></i>
-                        </div>
-                        <h4 class="mb-2">Public Policy</h4>
-                        <p class="text-muted small mb-3">Regulatory Landscape</p>
-                        <p class="text-muted mb-4">Navigating complex regulatory landscapes and shaping public policy strategies to advocate for your interests effectively.</p>
-                        <a href="contact.html" class="btn btn-sm btn-outline-primary mt-auto">Discuss</a>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card p-4">
-                        <div class="icon-box" style="width: 72px; height: 72px; font-size: 2rem;">
-                            <i class="fas fa-bolt"></i>
-                        </div>
-                        <h4 class="mb-2">Energy Law</h4>
-                        <p class="text-muted small mb-3">Renewables & Resources</p>
-                        <p class="text-muted mb-4">Specialized counsel for the energy sector, including renewables and traditional resources. We understand the power dynamics of the industry.</p>
-                        <a href="contact.html" class="btn btn-sm btn-outline-primary mt-auto">Discuss</a>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-3">
-                    <div class="feature-card p-4">
-                        <div class="icon-box" style="width: 72px; height: 72px; font-size: 2rem;">
-                            <i class="fas fa-balance-scale"></i>
-                        </div>
-                        <h4 class="mb-2">Complex Disputes</h4>
-                        <p class="text-muted small mb-3">Resolution & Litigation</p>
-                        <p class="text-muted mb-4">Strategic resolution of high-stakes commercial and energy-related disputes. We protect your interests when it matters most.</p>
-                        <a href="contact.html" class="btn btn-sm btn-outline-primary mt-auto">Discuss</a>
+                    <div class="capability-status" id="aboutCapabilityStatus" aria-hidden="true">
+                        <span class="is-active"></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
                 </div>
             </div>
@@ -642,21 +719,20 @@
                 <div class="col-lg-4">
                     <h5 class="footer-title">Knowledge Hub</h5>
                     <ul class="footer-links">
-                        <li><a href="services.html">Knowledge Hub Home</a></li>
-                        <li><a href="news-updates.html">News &amp; Updates</a></li>
-                        <li><a href="articles.html">Articles</a></li>
-                        <li><a href="insights-resources.html">Insights &amp; Resources</a></li>
+                        <li><a href="news-updates.html">Latest Updates</a></li>
+                        <li><a href="articles.html">Articles &amp; Insights</a></li>
+                        <li><a href="insights-resources.html">Resource Center</a></li>
                     </ul>
                 </div>
                 <div class="col-lg-4">
                     <h5 class="footer-title">Social</h5>
                     <div class="footer-social">
-                        <a href="https://www.linkedin.com/company/atom-energy-law-advisory/" target="_blank" rel="noopener noreferrer" data-social="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.linkedin.com/company/atom-energy-law-advisory/" target="_blank" rel="noopener noreferrer" data-social="linkedin" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                         <a href="https://www.instagram.com/atomenergylaw?igsh=Zmg5emJxdzFmeW8z" target="_blank" rel="noopener noreferrer" data-social="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                         <a href="https://youtube.com/@atomenergylawadvisory?si=VWPskopzJdfvKg_x" target="_blank" rel="noopener noreferrer" data-social="youtube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                     <div class="mt-4">
-                        <div class="text-white fw-bold mb-2">Join Our Email List</div>
+                        <div class="text-white fw-bold mb-2">Join Our Mailing List</div>
                         <p class="small mb-3" style="color: rgba(255,255,255,0.72);">Get occasional firm updates, alerts, and sector insights.</p>
                         <form class="d-flex flex-column flex-sm-row gap-2" data-email-list-form>
                             <input type="email" class="form-control footer-signup-input" data-email-list-input placeholder="Email address" autocomplete="email" required>
@@ -681,7 +757,7 @@
                     <a href="#">Anti-Bribery and Corruption Statement</a>
                     <a href="admin.html" aria-label="Admin" title="Admin"><i class="fas fa-lock"></i></a>
                 </div>
-                <div class="small" style="color: rgba(255,255,255,0.72);">All rights reserved. © 2026 ATOM ENERGY LAW ADVISORY</div>
+                <div class="small" style="color: rgba(255,255,255,0.72);">All rights reserved. (c) 2026 ATOM ENERGY LAW ADVISORY</div>
             </div>
         </div>
     </footer>
@@ -722,5 +798,25 @@
             });
         })();
     </script>
+    <script>
+        (() => {
+            const carouselEl = document.getElementById('aboutCapabilitiesCarousel');
+            const markers = Array.from(document.querySelectorAll('#aboutCapabilityStatus span'));
+            if (!carouselEl || !markers.length || !window.bootstrap?.Carousel) return;
+
+            const updateMarkers = (activeIndex) => {
+                markers.forEach((marker, index) => {
+                    marker.classList.toggle('is-active', index === activeIndex);
+                });
+            };
+
+            updateMarkers(0);
+            carouselEl.addEventListener('slid.bs.carousel', (event) => {
+                updateMarkers(event.to ?? 0);
+            });
+        })();
+    </script>
 </body>
 </html>
+
+

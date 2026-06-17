@@ -322,16 +322,16 @@
             ['practice', 'Practice Page', 'Controls the practice page.'],
             ['sectors', 'Sectors Page', 'Controls the sectors page.'],
             ['contact', 'Contact Page', 'Controls the contact page.'],
-            ['knowledgeHub', 'Knowledge Hub Home', 'Controls the Knowledge Hub intro page.'],
-            ['newsUpdates', 'News & Updates', 'Controls the News & Updates subpage.'],
-            ['articles', 'Articles', 'Controls the Articles subpage.'],
-            ['insightsResources', 'Insights & Resources', 'Controls the Insights & Resources subpage.']
+            ['knowledgeHub', 'Knowledge Hub Landing Page', 'Controls the Knowledge Hub intro page.'],
+            ['newsUpdates', 'Latest Updates', 'Controls the Latest Updates subpage.'],
+            ['articles', 'Articles & Insights', 'Controls the Articles & Insights subpage.'],
+            ['insightsResources', 'Resource Center', 'Controls the Resource Center subpage.']
         ];
 
         const sectionToggleConfig = [
             ['homeOverview', 'Homepage Overview', 'The overview/about block on the homepage.'],
             ['homeExpertise', 'Homepage Expertise', 'The expertise card block on the homepage.'],
-            ['homePracticeGroups', 'Homepage Practice Groups', 'The practice groups carousel section.'],
+            ['homePracticeGroups', 'Homepage Capabilities', 'The Capabilities carousel section.'],
             ['homeNews', 'Homepage News', 'The homepage news and updates section.'],
             ['homeTestimonials', 'Homepage Testimonials', 'The testimonials strip on the homepage.'],
             ['homeContactCta', 'Homepage Contact CTA', 'The homepage call-to-action strip.'],
@@ -398,8 +398,8 @@
                     },
                     {
                         id: 'newsPage',
-                        label: 'News & Updates Page',
-                        description: 'Headings and intro copy for the News & Updates page.',
+                        label: 'Latest Updates Page',
+                        description: 'Headings and intro copy for the Latest Updates page.',
                         type: 'object',
                         path: ['knowledgeHub', 'pages', 'news'],
                         fields: [
@@ -412,8 +412,8 @@
                     },
                     {
                         id: 'articlesPage',
-                        label: 'Articles Page',
-                        description: 'Headings and intro copy for the Articles page.',
+                        label: 'Articles & Insights Page',
+                        description: 'Headings and intro copy for the Articles & Insights page.',
                         type: 'object',
                         path: ['knowledgeHub', 'pages', 'articles'],
                         fields: [
@@ -426,8 +426,8 @@
                     },
                     {
                         id: 'resourcesPage',
-                        label: 'Insights & Resources Page',
-                        description: 'Headings and intro copy for the Insights & Resources page.',
+                        label: 'Resource Center Page',
+                        description: 'Headings and intro copy for the Resource Center page.',
                         type: 'object',
                         path: ['knowledgeHub', 'pages', 'resources'],
                         fields: [
@@ -446,7 +446,7 @@
                     {
                         id: 'newsItems',
                         label: 'News Items',
-                        description: 'Cards that show on the homepage and News & Updates page.',
+                        description: 'Cards that show on the homepage and Latest Updates page.',
                         type: 'array',
                         path: ['knowledgeHub', 'news'],
                         itemLabel: 'News Item',
@@ -1017,3 +1017,6 @@
     </script>
 </body>
 </html>
+
+
+

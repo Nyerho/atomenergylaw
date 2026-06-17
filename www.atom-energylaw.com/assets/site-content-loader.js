@@ -234,6 +234,151 @@
             .join('');
     };
 
+    const downloadTextFile = (filename, content) => {
+        const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+    };
+
+    const renderResourceLibrary = (container, items) => {
+        if (!container || !Array.isArray(items)) return;
+
+        const searchInput = document.getElementById('resourceSearchInput');
+        const categorySelect = document.getElementById('resourceCategoryFilter');
+        const emptyState = document.getElementById('resourceEmptyState');
+        const viewButtons = Array.from(document.querySelectorAll('[data-resource-view]'));
+        const modalEl = document.getElementById('resourceModal');
+        const modalTitle = document.getElementById('resourceModalTitle');
+        const modalCategory = document.getElementById('resourceModalCategory');
+        const modalSummary = document.getElementById('resourceModalSummary');
+        const modalView = document.getElementById('resourceModalView');
+        const modalDownload = document.getElementById('resourceModalDownload');
+        const modal = modalEl && window.bootstrap?.Modal ? new bootstrap.Modal(modalEl) : null;
+        const pageName = 'insights-resources.html';
+        const state = { query: '', category: 'all', view: 'grid' };
+
+        const normalize = (value) => String(value || '').trim();
+        const categories = Array.from(new Set(items.map((item) => normalize(item.tag)).filter(Boolean)));
+
+        if (categorySelect && categorySelect.dataset.bound !== 'true') {
+            categorySelect.innerHTML = '<option value="all">All Categories</option>' + categories
+                .map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`)
+                .join('');
+            categorySelect.dataset.bound = 'true';
+            categorySelect.addEventListener('change', () => {
+                state.category = categorySelect.value;
+                render();
+            });
+        }
+
+        if (searchInput && searchInput.dataset.bound !== 'true') {
+            searchInput.dataset.bound = 'true';
+            searchInput.addEventListener('input', () => {
+                state.query = searchInput.value.trim().toLowerCase();
+                render();
+            });
+        }
+
+        viewButtons.forEach((button) => {
+            if (button.dataset.bound === 'true') return;
+            button.dataset.bound = 'true';
+            button.addEventListener('click', () => {
+                state.view = button.getAttribute('data-resource-view') || 'grid';
+                viewButtons.forEach((item) => item.classList.toggle('active', item === button));
+                render();
+            });
+        });
+
+        const openResource = (item) => {
+            if (!modal || !modalTitle || !modalCategory || !modalSummary || !modalDownload) return;
+            const title = normalize(item.title) || 'Resource';
+            const category = normalize(item.tag) || 'Resource';
+            const summary = normalize(item.summary) || 'No summary has been added for this resource yet.';
+            const resourceUrl = normalize(item.url);
+            const canOpenLink = resourceUrl && !resourceUrl.endsWith(pageName) && resourceUrl !== '#';
+            const downloadName = `${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'resource'}.txt`;
+            const downloadBody = `${title}\nCategory: ${category}\n\n${summary}`;
+
+            modalTitle.textContent = title;
+            modalCategory.textContent = category;
+            modalSummary.textContent = summary;
+
+            if (modalView) {
+                if (canOpenLink) {
+                    modalView.hidden = false;
+                    modalView.setAttribute('href', resourceUrl);
+                } else {
+                    modalView.hidden = true;
+                    modalView.removeAttribute('href');
+                }
+            }
+
+            modalDownload.onclick = () => {
+                if (canOpenLink) {
+                    window.open(resourceUrl, '_blank', 'noopener');
+                } else {
+                    downloadTextFile(downloadName, downloadBody);
+                }
+            };
+
+            modal.show();
+        };
+
+        const render = () => {
+            const filtered = items.filter((item) => {
+                const category = normalize(item.tag);
+                const haystack = `${normalize(item.title)} ${normalize(item.summary)} ${category}`.toLowerCase();
+                const matchesCategory = state.category === 'all' || category === state.category;
+                const matchesQuery = !state.query || haystack.includes(state.query);
+                return matchesCategory && matchesQuery;
+            });
+
+            container.className = state.view === 'list' ? 'row g-3 resource-results resource-results-list' : 'row g-4 resource-results';
+
+            if (emptyState) emptyState.hidden = filtered.length !== 0;
+
+            container.innerHTML = filtered
+                .map((item, index) => {
+                    const title = escapeHtml(item.title || '');
+                    const category = escapeHtml(item.tag || 'Resource');
+                    const summary = escapeHtml(item.summary || '');
+                    const image = safeParseUrl(item.image);
+                    const icon = escapeHtml(item.icon || 'fa-book-open');
+                    const imageMarkup = image
+                        ? `<img src="${escapeHtml(image)}" alt="${title}" class="img-fluid rounded-4 mb-4 w-100 resource-thumb">`
+                        : `<div class="icon-box mb-4" style="width: 72px; height: 72px; font-size: 2rem;"><i class="fas ${icon}"></i></div>`;
+                    const colClass = state.view === 'list' ? 'col-12' : 'col-lg-4 col-md-6';
+                    return `
+                        <div class="${colClass}">
+                            <button type="button" class="feature-card resource-card p-4 h-100 text-start" data-resource-index="${index}">
+                                ${imageMarkup}
+                                <div class="text-primary fw-bold text-uppercase small mb-2">${category}</div>
+                                <h3 class="h4 mb-3">${title}</h3>
+                                <p class="text-muted mb-0">${summary}</p>
+                            </button>
+                        </div>
+                    `;
+                })
+                .join('');
+
+            container.querySelectorAll('[data-resource-index]').forEach((button) => {
+                button.addEventListener('click', () => {
+                    const index = Number(button.getAttribute('data-resource-index'));
+                    const item = filtered[index];
+                    if (item) openResource(item);
+                });
+            });
+        };
+
+        render();
+    };
+
     const renderTestimonials = (container, items) => {
         if (!container || !Array.isArray(items) || items.length === 0) return;
         container.innerHTML = items
@@ -273,8 +418,8 @@
                 if (!(input instanceof HTMLInputElement)) return;
                 if (!form.reportValidity()) return;
                 const email = input.value.trim();
-                const subject = encodeURIComponent('Email List Signup');
-                const body = encodeURIComponent(`Please add this email to the Atom Energy Law Advisory updates list:
+                const subject = encodeURIComponent('Mailing List Signup');
+                const body = encodeURIComponent(`Please add this email to the Atom Energy Law Advisory mailing list:
 
 ${email}`);
                 if (success) {
@@ -295,6 +440,7 @@ ${email}`);
         });
         setImage('[data-hub-intro-image]', intro.image, intro.sectionTitle || intro.heroTitle || 'Knowledge Hub');
         renderKnowledgeHubCards(document.getElementById('knowledgeHubNavCards'), intro.cards || [], visibility);
+        renderKnowledgeHubCards(document.getElementById('homeKnowledgeHubCards'), intro.cards || [], visibility);
     };
 
     const applyKnowledgeHubPage = (hub) => {
@@ -311,7 +457,7 @@ ${email}`);
         } else if (key === 'articles') {
             renderArticleLikeCards(container, hub?.articles || [], 'Read article');
         } else if (key === 'resources') {
-            renderArticleLikeCards(container, hub?.resources || [], 'Open resource');
+            renderResourceLibrary(container, hub?.resources || []);
         }
     };
 
