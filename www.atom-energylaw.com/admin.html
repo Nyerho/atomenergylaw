@@ -9,6 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        :root {
+            --admin-blue: #1593d1;
+            --admin-blue-deep: #0f6f9e;
+            --admin-surface: rgba(255, 255, 255, 0.96);
+            --admin-border: rgba(15, 23, 42, 0.08);
+            --admin-muted: #64748b;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
             font-size: 14px;
@@ -17,41 +25,102 @@
             color: #1a1a1a;
             min-height: 100vh;
         }
+
         h1, h2, h3, h4, h5, h6 {
             font-family: 'Marcellus', serif;
             font-weight: 400;
             line-height: 1.34;
         }
+
         .navbar {
             background: linear-gradient(135deg, rgba(21,147,209,0.98), rgba(22,106,150,0.98));
             padding: 0.9rem 0;
             box-shadow: 0 12px 34px rgba(6,28,63,0.18);
         }
+
         .panel {
             border-radius: 18px;
-            border: 1px solid rgba(15,23,42,0.08);
-            background: rgba(255,255,255,0.96);
+            border: 1px solid var(--admin-border);
+            background: var(--admin-surface);
             box-shadow: 0 18px 45px rgba(15,23,42,0.08);
         }
-        .item-card {
-            border-radius: 16px;
-            border: 1px solid rgba(15,23,42,0.08);
+
+        .status-note {
+            border-radius: 14px;
+            background: rgba(21, 147, 209, 0.08);
+            border: 1px solid rgba(21, 147, 209, 0.15);
+            color: #0f4c75;
+            padding: 10px 12px;
+            font-size: 0.9rem;
+        }
+
+        .editor-nav-group + .editor-nav-group {
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(15, 23, 42, 0.06);
+        }
+
+        .editor-nav-title {
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--admin-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .editor-nav-button {
+            width: 100%;
+            text-align: left;
+            border: 1px solid rgba(15, 23, 42, 0.08);
             background: #ffffff;
-            padding: 16px;
-        }
-        .item-actions {
+            border-radius: 14px;
+            padding: 12px 14px;
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
         }
-        .mono {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-            font-size: 0.92rem;
+
+        .editor-nav-button + .editor-nav-button {
+            margin-top: 10px;
         }
+
+        .editor-nav-button:hover,
+        .editor-nav-button.is-active {
+            border-color: rgba(21, 147, 209, 0.35);
+            box-shadow: 0 10px 24px rgba(21, 147, 209, 0.12);
+            transform: translateY(-1px);
+        }
+
+        .editor-nav-label {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .editor-nav-help {
+            color: var(--admin-muted);
+            font-size: 0.86rem;
+            margin-top: 2px;
+        }
+
+        .editor-nav-count {
+            min-width: 34px;
+            text-align: center;
+            border-radius: 999px;
+            padding: 4px 8px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--admin-blue-deep);
+            background: rgba(21, 147, 209, 0.12);
+        }
+
         .toggle-grid {
             display: grid;
             gap: 12px;
         }
+
         .toggle-item {
             display: flex;
             align-items: center;
@@ -62,12 +131,104 @@
             background: rgba(248, 250, 252, 0.9);
             border: 1px solid rgba(15, 23, 42, 0.06);
         }
+
         .toggle-label {
             font-weight: 600;
         }
+
         .toggle-help {
-            color: #64748b;
+            color: var(--admin-muted);
             font-size: 0.88rem;
+        }
+
+        .toggle-controls {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .toggle-state {
+            min-width: 42px;
+            text-align: center;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 5px 8px;
+            border-radius: 999px;
+            background: rgba(21, 147, 209, 0.12);
+            color: var(--admin-blue-deep);
+        }
+
+        .toggle-state.is-off {
+            background: rgba(148, 163, 184, 0.18);
+            color: #475569;
+        }
+
+        .form-check-input.toggle-switch {
+            width: 2.8rem;
+            height: 1.45rem;
+            cursor: pointer;
+        }
+
+        .editor-empty {
+            border: 1px dashed rgba(148, 163, 184, 0.5);
+            border-radius: 16px;
+            padding: 22px;
+            text-align: center;
+            color: var(--admin-muted);
+            background: rgba(248, 250, 252, 0.7);
+        }
+
+        .editor-item {
+            border-radius: 16px;
+            border: 1px solid rgba(15,23,42,0.08);
+            background: #ffffff;
+            padding: 18px;
+        }
+
+        .editor-item + .editor-item {
+            margin-top: 16px;
+        }
+
+        .field-hint {
+            color: var(--admin-muted);
+            font-size: 0.84rem;
+            margin-top: 6px;
+        }
+
+        .image-dropzone {
+            border: 1px dashed rgba(21, 147, 209, 0.32);
+            border-radius: 16px;
+            padding: 14px;
+            background: rgba(248, 250, 252, 0.7);
+        }
+
+        .image-preview {
+            width: 100%;
+            max-height: 230px;
+            object-fit: cover;
+            border-radius: 14px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            background: #ffffff;
+        }
+
+        .mono {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+            font-size: 0.92rem;
+        }
+
+        .publisher-note {
+            color: var(--admin-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 991px) {
+            .editor-nav-button {
+                padding: 11px 12px;
+            }
         }
     </style>
 </head>
@@ -92,23 +253,15 @@
                         <div class="mono mb-3">site-content.json</div>
                         <div class="d-grid gap-2">
                             <button class="btn btn-primary" id="btnReload" type="button">Reload</button>
+                            <button class="btn btn-outline-primary" id="btnSaveFile" type="button">Save JSON File</button>
                             <button class="btn btn-outline-primary" id="btnDownload" type="button">Download JSON</button>
                             <button class="btn btn-outline-secondary" id="btnCopy" type="button">Copy JSON</button>
                         </div>
                         <hr class="my-4">
                         <div class="mb-2 fw-bold">Import JSON</div>
                         <input class="form-control" id="importFile" type="file" accept="application/json">
-                        <div class="small text-muted mt-2">Import edits the browser draft. Download the JSON when you are ready to publish.</div>
-                    </div>
-
-                    <div class="panel p-4 mb-4">
-                        <h2 class="h4 mb-3">Site Details</h2>
-                        <div class="mb-3"><label class="form-label">Phone</label><input class="form-control" id="contactPhone"></div>
-                        <div class="mb-3"><label class="form-label">Email</label><input class="form-control" id="contactEmail"></div>
-                        <div class="mb-3"><label class="form-label">Address</label><textarea class="form-control" rows="2" id="contactAddress"></textarea></div>
-                        <div class="mb-3"><label class="form-label">LinkedIn</label><input class="form-control" id="socialLinkedIn"></div>
-                        <div class="mb-3"><label class="form-label">Instagram</label><input class="form-control" id="socialInstagram"></div>
-                        <div class="mb-0"><label class="form-label">YouTube</label><input class="form-control" id="socialYouTube"></div>
+                        <div class="small text-muted mt-2">Uploads are embedded into the content data, so images travel with the JSON you save or publish.</div>
+                        <div class="status-note mt-3" id="loadStatus">Loading current content and visibility settings.</div>
                     </div>
 
                     <div class="panel p-4 mb-4">
@@ -124,96 +277,29 @@
                     </div>
 
                     <div class="panel p-4">
-                        <h2 class="h4 mb-3">Knowledge Hub Intro</h2>
-                        <div class="mb-3"><label class="form-label">Kicker</label><input class="form-control" id="hubIntroKicker"></div>
-                        <div class="mb-3"><label class="form-label">Hero Title</label><input class="form-control" id="hubIntroHeroTitle"></div>
-                        <div class="mb-3"><label class="form-label">Hero Lead</label><textarea class="form-control" rows="2" id="hubIntroHeroLead"></textarea></div>
-                        <div class="mb-3"><label class="form-label">Section Title</label><input class="form-control" id="hubIntroSectionTitle"></div>
-                        <div class="mb-3"><label class="form-label">Section Lead</label><textarea class="form-control" rows="2" id="hubIntroSectionLead"></textarea></div>
-                        <div class="mb-3"><label class="form-label">Section Body</label><textarea class="form-control" rows="4" id="hubIntroSectionBody"></textarea></div>
-                        <div class="mb-0"><label class="form-label">Intro Image URL</label><input class="form-control mono" id="hubIntroImage"></div>
+                        <h2 class="h4 mb-3">Edit Content</h2>
+                        <p class="small text-muted mb-3">Select any page, section, or collection below to edit its content in one place.</p>
+                        <div id="editorNav"></div>
                     </div>
                 </div>
 
                 <div class="col-lg-8">
                     <div class="panel p-4 mb-4">
-                        <h2 class="h4 mb-3">Knowledge Hub Landing Cards</h2>
-                        <div class="small text-muted mb-3">These are the three cards shown on the Knowledge Hub home page.</div>
-                        <div class="d-grid gap-3" id="hubCardsList"></div>
-                    </div>
-
-                    <div class="panel p-4 mb-4">
-                        <h2 class="h4 mb-3">Subpage Headings</h2>
-                        <div class="row g-4">
-                            <div class="col-md-4">
-                                <h3 class="h6">News &amp; Updates</h3>
-                                <input class="form-control mb-2" id="newsPageKicker" placeholder="Kicker">
-                                <input class="form-control mb-2" id="newsPageTitle" placeholder="Title">
-                                <textarea class="form-control mb-2" rows="2" id="newsPageLead" placeholder="Lead"></textarea>
-                                <input class="form-control mb-2" id="newsPageSectionTitle" placeholder="Section title">
-                                <textarea class="form-control" rows="2" id="newsPageSectionLead" placeholder="Section lead"></textarea>
-                            </div>
-                            <div class="col-md-4">
-                                <h3 class="h6">Articles</h3>
-                                <input class="form-control mb-2" id="articlesPageKicker" placeholder="Kicker">
-                                <input class="form-control mb-2" id="articlesPageTitle" placeholder="Title">
-                                <textarea class="form-control mb-2" rows="2" id="articlesPageLead" placeholder="Lead"></textarea>
-                                <input class="form-control mb-2" id="articlesPageSectionTitle" placeholder="Section title">
-                                <textarea class="form-control" rows="2" id="articlesPageSectionLead" placeholder="Section lead"></textarea>
-                            </div>
-                            <div class="col-md-4">
-                                <h3 class="h6">Insights &amp; Resources</h3>
-                                <input class="form-control mb-2" id="resourcesPageKicker" placeholder="Kicker">
-                                <input class="form-control mb-2" id="resourcesPageTitle" placeholder="Title">
-                                <textarea class="form-control mb-2" rows="2" id="resourcesPageLead" placeholder="Lead"></textarea>
-                                <input class="form-control mb-2" id="resourcesPageSectionTitle" placeholder="Section title">
-                                <textarea class="form-control" rows="2" id="resourcesPageSectionLead" placeholder="Section lead"></textarea>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="panel p-4 mb-4">
-                        <div class="d-flex justify-content-between align-items-center gap-2 mb-3">
+                        <div class="d-flex justify-content-between align-items-start gap-3 flex-wrap mb-3">
                             <div>
-                                <h2 class="h4 mb-0">News &amp; Updates Items</h2>
-                                <div class="small text-muted">Shows on the homepage and the News &amp; Updates page.</div>
+                                <h2 class="h4 mb-1" id="editorTitle">Select an editor</h2>
+                                <div class="small text-muted" id="editorDescription">Choose any item from the list to edit its content.</div>
                             </div>
-                            <button class="btn btn-outline-primary" id="addNews" type="button">Add News Item</button>
+                            <button class="btn btn-outline-primary d-none" id="editorAddItem" type="button">Add Item</button>
                         </div>
-                        <div class="d-grid gap-3" id="newsList"></div>
-                    </div>
-
-                    <div class="panel p-4 mb-4">
-                        <div class="d-flex justify-content-between align-items-center gap-2 mb-3">
-                            <div>
-                                <h2 class="h4 mb-0">Article Items</h2>
-                                <div class="small text-muted">Add images here when an article needs photo content.</div>
-                            </div>
-                            <button class="btn btn-outline-primary" id="addArticle" type="button">Add Article</button>
-                        </div>
-                        <div class="d-grid gap-3" id="articlesList"></div>
-                    </div>
-
-                    <div class="panel p-4 mb-4">
-                        <div class="d-flex justify-content-between align-items-center gap-2 mb-3">
-                            <div>
-                                <h2 class="h4 mb-0">Insights &amp; Resources Items</h2>
-                                <div class="small text-muted">Use this section for bills, trackers, resource notes, and practical guides.</div>
-                            </div>
-                            <button class="btn btn-outline-primary" id="addResource" type="button">Add Resource</button>
-                        </div>
-                        <div class="d-grid gap-3" id="resourcesList"></div>
+                        <div id="editorForm"></div>
                     </div>
 
                     <div class="panel p-4">
-                        <div class="d-flex justify-content-between align-items-center gap-2 mb-3">
-                            <div>
-                                <h2 class="h4 mb-0">Homepage Testimonials</h2>
-                                <div class="small text-muted">Shows on the homepage.</div>
-                            </div>
-                            <button class="btn btn-outline-primary" id="addTestimonial" type="button">Add Testimonial</button>
+                        <h2 class="h4 mb-3">Publishing Notes</h2>
+                        <div class="publisher-note">
+                            Use <strong>Save JSON File</strong> to write the updated content file directly from the admin page when your browser supports it. If not, use <strong>Download JSON</strong> and replace <span class="mono">site-content.json</span> manually before you deploy. Uploaded images are stored inside the content data, so the admin does not need separate image URLs.
                         </div>
-                        <div class="d-grid gap-3" id="testimonialsList"></div>
                     </div>
                 </div>
             </div>
@@ -223,6 +309,11 @@
     <script>
         const ADMIN_PASSWORD = 'admin123';
         const el = (id) => document.getElementById(id);
+        const state = {
+            content: null,
+            activeEditorId: 'siteDetails',
+            saveHandle: null
+        };
 
         const pageToggleConfig = [
             ['home', 'Homepage', 'Controls the main landing page.'],
@@ -248,15 +339,191 @@
             ['hubSections', 'Hub Section Cards', 'The section-card area on the Knowledge Hub home page.']
         ];
 
+        const editorGroups = [
+            {
+                title: 'Shared Content',
+                items: [
+                    {
+                        id: 'siteDetails',
+                        label: 'Site Details',
+                        description: 'Phone, email, address, and social links used across the site.',
+                        type: 'object',
+                        path: ['site'],
+                        fields: [
+                            { key: 'contact.phone', label: 'Phone' },
+                            { key: 'contact.email', label: 'Email' },
+                            { key: 'contact.address', label: 'Address', type: 'textarea', rows: 2 },
+                            { key: 'social.linkedin', label: 'LinkedIn URL' },
+                            { key: 'social.instagram', label: 'Instagram URL' },
+                            { key: 'social.youtube', label: 'YouTube URL' }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: 'Knowledge Hub Pages',
+                items: [
+                    {
+                        id: 'hubIntro',
+                        label: 'Knowledge Hub Intro',
+                        description: 'Hero copy, intro copy, and the main image for the Knowledge Hub landing page.',
+                        type: 'object',
+                        path: ['knowledgeHub', 'intro'],
+                        fields: [
+                            { key: 'kicker', label: 'Kicker' },
+                            { key: 'heroTitle', label: 'Hero Title' },
+                            { key: 'heroLead', label: 'Hero Lead', type: 'textarea', rows: 3 },
+                            { key: 'sectionTitle', label: 'Section Title' },
+                            { key: 'sectionLead', label: 'Section Lead', type: 'textarea', rows: 3 },
+                            { key: 'sectionBody', label: 'Section Body', type: 'textarea', rows: 5 },
+                            { key: 'image', label: 'Intro Image', type: 'image' }
+                        ]
+                    },
+                    {
+                        id: 'hubCards',
+                        label: 'Knowledge Hub Cards',
+                        description: 'The landing cards that point visitors to the inner Knowledge Hub pages.',
+                        type: 'array',
+                        path: ['knowledgeHub', 'intro', 'cards'],
+                        itemLabel: 'Hub Card',
+                        addLabel: 'Add Card',
+                        createItem: () => ({ icon: 'fa-book-open', title: '', summary: '', button: '', url: '' }),
+                        fields: [
+                            { key: 'icon', label: 'Icon Class' },
+                            { key: 'title', label: 'Title' },
+                            { key: 'summary', label: 'Summary', type: 'textarea', rows: 3 },
+                            { key: 'button', label: 'Button Label' },
+                            { key: 'url', label: 'Destination URL' }
+                        ]
+                    },
+                    {
+                        id: 'newsPage',
+                        label: 'News & Updates Page',
+                        description: 'Headings and intro copy for the News & Updates page.',
+                        type: 'object',
+                        path: ['knowledgeHub', 'pages', 'news'],
+                        fields: [
+                            { key: 'kicker', label: 'Kicker' },
+                            { key: 'title', label: 'Title' },
+                            { key: 'lead', label: 'Lead', type: 'textarea', rows: 3 },
+                            { key: 'sectionTitle', label: 'Section Title' },
+                            { key: 'sectionLead', label: 'Section Lead', type: 'textarea', rows: 3 }
+                        ]
+                    },
+                    {
+                        id: 'articlesPage',
+                        label: 'Articles Page',
+                        description: 'Headings and intro copy for the Articles page.',
+                        type: 'object',
+                        path: ['knowledgeHub', 'pages', 'articles'],
+                        fields: [
+                            { key: 'kicker', label: 'Kicker' },
+                            { key: 'title', label: 'Title' },
+                            { key: 'lead', label: 'Lead', type: 'textarea', rows: 3 },
+                            { key: 'sectionTitle', label: 'Section Title' },
+                            { key: 'sectionLead', label: 'Section Lead', type: 'textarea', rows: 3 }
+                        ]
+                    },
+                    {
+                        id: 'resourcesPage',
+                        label: 'Insights & Resources Page',
+                        description: 'Headings and intro copy for the Insights & Resources page.',
+                        type: 'object',
+                        path: ['knowledgeHub', 'pages', 'resources'],
+                        fields: [
+                            { key: 'kicker', label: 'Kicker' },
+                            { key: 'title', label: 'Title' },
+                            { key: 'lead', label: 'Lead', type: 'textarea', rows: 3 },
+                            { key: 'sectionTitle', label: 'Section Title' },
+                            { key: 'sectionLead', label: 'Section Lead', type: 'textarea', rows: 3 }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: 'Collections',
+                items: [
+                    {
+                        id: 'newsItems',
+                        label: 'News Items',
+                        description: 'Cards that show on the homepage and News & Updates page.',
+                        type: 'array',
+                        path: ['knowledgeHub', 'news'],
+                        itemLabel: 'News Item',
+                        addLabel: 'Add News Item',
+                        createItem: () => ({ type: 'Update', icon: 'fa-bullhorn', year: String(new Date().getFullYear()), title: '', summary: '', url: 'news-updates.html', image: '' }),
+                        fields: [
+                            { key: 'type', label: 'Type' },
+                            { key: 'icon', label: 'Icon Class' },
+                            { key: 'year', label: 'Year' },
+                            { key: 'title', label: 'Title' },
+                            { key: 'summary', label: 'Summary', type: 'textarea', rows: 3 },
+                            { key: 'url', label: 'Destination URL' },
+                            { key: 'image', label: 'Image', type: 'image' }
+                        ]
+                    },
+                    {
+                        id: 'articleItems',
+                        label: 'Article Items',
+                        description: 'Article cards with image upload support.',
+                        type: 'array',
+                        path: ['knowledgeHub', 'articles'],
+                        itemLabel: 'Article',
+                        addLabel: 'Add Article',
+                        createItem: () => ({ tag: 'Article', icon: 'fa-newspaper', title: '', summary: '', url: 'articles.html', image: '' }),
+                        fields: [
+                            { key: 'tag', label: 'Tag' },
+                            { key: 'icon', label: 'Icon Class' },
+                            { key: 'title', label: 'Title' },
+                            { key: 'summary', label: 'Summary', type: 'textarea', rows: 3 },
+                            { key: 'url', label: 'Destination URL' },
+                            { key: 'image', label: 'Image', type: 'image' }
+                        ]
+                    },
+                    {
+                        id: 'resourceItems',
+                        label: 'Resource Items',
+                        description: 'Bills, trackers, and resource cards with direct image upload.',
+                        type: 'array',
+                        path: ['knowledgeHub', 'resources'],
+                        itemLabel: 'Resource',
+                        addLabel: 'Add Resource',
+                        createItem: () => ({ tag: 'Resource', icon: 'fa-book-open', title: '', summary: '', url: 'insights-resources.html', image: '' }),
+                        fields: [
+                            { key: 'tag', label: 'Tag' },
+                            { key: 'icon', label: 'Icon Class' },
+                            { key: 'title', label: 'Title' },
+                            { key: 'summary', label: 'Summary', type: 'textarea', rows: 3 },
+                            { key: 'url', label: 'Destination URL' },
+                            { key: 'image', label: 'Image', type: 'image' }
+                        ]
+                    },
+                    {
+                        id: 'testimonials',
+                        label: 'Homepage Testimonials',
+                        description: 'Testimonials shown on the homepage.',
+                        type: 'array',
+                        path: ['home', 'testimonials'],
+                        itemLabel: 'Testimonial',
+                        addLabel: 'Add Testimonial',
+                        createItem: () => ({ quote: '', name: '', role: '' }),
+                        fields: [
+                            { key: 'quote', label: 'Quote', type: 'textarea', rows: 4 },
+                            { key: 'name', label: 'Name' },
+                            { key: 'role', label: 'Role / Company' }
+                        ]
+                    }
+                ]
+            }
+        ];
+
+        const editorMap = Object.fromEntries(editorGroups.flatMap((group) => group.items.map((item) => [item.id, item])));
+
         const defaultContent = () => ({
             version: 2,
             site: {
                 contact: { phone: '', email: '', address: '' },
                 social: { linkedin: '#', instagram: '#', youtube: '#' }
-            },
-            visibility: {
-                pages: Object.fromEntries(pageToggleConfig.map(([key]) => [key, true])),
-                sections: Object.fromEntries(sectionToggleConfig.map(([key]) => [key, true]))
             },
             home: { testimonials: [] },
             knowledgeHub: {
@@ -271,32 +538,34 @@
                 news: [],
                 articles: [],
                 resources: []
+            },
+            visibility: {
+                pages: Object.fromEntries(pageToggleConfig.map(([key]) => [key, true])),
+                sections: Object.fromEntries(sectionToggleConfig.map(([key]) => [key, true]))
             }
         });
 
-        const state = { content: defaultContent() };
-        const escapeJson = (value) => JSON.stringify(value, null, 2);
+        const getPathValue = (target, path) => path.reduce((acc, key) => (acc == null ? undefined : acc[key]), target);
 
-        const fetchContent = async () => {
-            const url = new URL('site-content.json', window.location.href);
-            url.searchParams.set('v', String(Date.now()));
-            const response = await fetch(url.toString(), { cache: 'no-store' });
-            if (!response.ok) throw new Error('Failed to load content');
-            return response.json();
+        const setPathValue = (target, path, value) => {
+            let ref = target;
+            for (let index = 0; index < path.length - 1; index += 1) {
+                const key = path[index];
+                if (ref[key] == null || typeof ref[key] !== 'object') ref[key] = {};
+                ref = ref[key];
+            }
+            ref[path[path.length - 1]] = value;
         };
 
         const mergeDefaults = (content) => {
             const merged = defaultContent();
+            if (!content || typeof content !== 'object') return merged;
             merged.version = content.version ?? merged.version;
             merged.site = {
                 ...merged.site,
                 ...content.site,
                 contact: { ...merged.site.contact, ...(content.site?.contact || {}) },
                 social: { ...merged.site.social, ...(content.site?.social || {}) }
-            };
-            merged.visibility = {
-                pages: { ...merged.visibility.pages, ...(content.visibility?.pages || {}) },
-                sections: { ...merged.visibility.sections, ...(content.visibility?.sections || {}) }
             };
             merged.home = {
                 ...merged.home,
@@ -316,234 +585,25 @@
                 articles: Array.isArray(content.knowledgeHub?.articles) ? content.knowledgeHub.articles : merged.knowledgeHub.articles,
                 resources: Array.isArray(content.knowledgeHub?.resources) ? content.knowledgeHub.resources : merged.knowledgeHub.resources
             };
+            merged.visibility = {
+                pages: { ...merged.visibility.pages, ...(content.visibility?.pages || {}) },
+                sections: { ...merged.visibility.sections, ...(content.visibility?.sections || {}) }
+            };
             return merged;
         };
 
-        const moveItem = (list, index, direction) => {
-            const next = index + direction;
-            if (next < 0 || next >= list.length) return;
-            const temp = list[index];
-            list[index] = list[next];
-            list[next] = temp;
+        const escapeJson = (value) => JSON.stringify(value, null, 2);
+
+        const fetchContent = async () => {
+            const url = new URL('site-content.json', window.location.href);
+            url.searchParams.set('v', String(Date.now()));
+            const response = await fetch(url.toString(), { cache: 'no-store' });
+            if (!response.ok) throw new Error('Failed to load content');
+            return response.json();
         };
 
-        const bindSimpleFields = () => {
-            [
-                ['contactPhone', ['site', 'contact', 'phone']],
-                ['contactEmail', ['site', 'contact', 'email']],
-                ['contactAddress', ['site', 'contact', 'address']],
-                ['socialLinkedIn', ['site', 'social', 'linkedin']],
-                ['socialInstagram', ['site', 'social', 'instagram']],
-                ['socialYouTube', ['site', 'social', 'youtube']],
-                ['hubIntroKicker', ['knowledgeHub', 'intro', 'kicker']],
-                ['hubIntroHeroTitle', ['knowledgeHub', 'intro', 'heroTitle']],
-                ['hubIntroHeroLead', ['knowledgeHub', 'intro', 'heroLead']],
-                ['hubIntroSectionTitle', ['knowledgeHub', 'intro', 'sectionTitle']],
-                ['hubIntroSectionLead', ['knowledgeHub', 'intro', 'sectionLead']],
-                ['hubIntroSectionBody', ['knowledgeHub', 'intro', 'sectionBody']],
-                ['hubIntroImage', ['knowledgeHub', 'intro', 'image']],
-                ['newsPageKicker', ['knowledgeHub', 'pages', 'news', 'kicker']],
-                ['newsPageTitle', ['knowledgeHub', 'pages', 'news', 'title']],
-                ['newsPageLead', ['knowledgeHub', 'pages', 'news', 'lead']],
-                ['newsPageSectionTitle', ['knowledgeHub', 'pages', 'news', 'sectionTitle']],
-                ['newsPageSectionLead', ['knowledgeHub', 'pages', 'news', 'sectionLead']],
-                ['articlesPageKicker', ['knowledgeHub', 'pages', 'articles', 'kicker']],
-                ['articlesPageTitle', ['knowledgeHub', 'pages', 'articles', 'title']],
-                ['articlesPageLead', ['knowledgeHub', 'pages', 'articles', 'lead']],
-                ['articlesPageSectionTitle', ['knowledgeHub', 'pages', 'articles', 'sectionTitle']],
-                ['articlesPageSectionLead', ['knowledgeHub', 'pages', 'articles', 'sectionLead']],
-                ['resourcesPageKicker', ['knowledgeHub', 'pages', 'resources', 'kicker']],
-                ['resourcesPageTitle', ['knowledgeHub', 'pages', 'resources', 'title']],
-                ['resourcesPageLead', ['knowledgeHub', 'pages', 'resources', 'lead']],
-                ['resourcesPageSectionTitle', ['knowledgeHub', 'pages', 'resources', 'sectionTitle']],
-                ['resourcesPageSectionLead', ['knowledgeHub', 'pages', 'resources', 'sectionLead']]
-            ].forEach(([id, path]) => {
-                el(id).addEventListener('input', (event) => {
-                    let ref = state.content;
-                    for (let index = 0; index < path.length - 1; index += 1) ref = ref[path[index]];
-                    ref[path[path.length - 1]] = event.target.value;
-                });
-            });
-        };
-
-        const fillSimpleFields = () => {
-            el('contactPhone').value = state.content.site.contact.phone || '';
-            el('contactEmail').value = state.content.site.contact.email || '';
-            el('contactAddress').value = state.content.site.contact.address || '';
-            el('socialLinkedIn').value = state.content.site.social.linkedin || '';
-            el('socialInstagram').value = state.content.site.social.instagram || '';
-            el('socialYouTube').value = state.content.site.social.youtube || '';
-
-            el('hubIntroKicker').value = state.content.knowledgeHub.intro.kicker || '';
-            el('hubIntroHeroTitle').value = state.content.knowledgeHub.intro.heroTitle || '';
-            el('hubIntroHeroLead').value = state.content.knowledgeHub.intro.heroLead || '';
-            el('hubIntroSectionTitle').value = state.content.knowledgeHub.intro.sectionTitle || '';
-            el('hubIntroSectionLead').value = state.content.knowledgeHub.intro.sectionLead || '';
-            el('hubIntroSectionBody').value = state.content.knowledgeHub.intro.sectionBody || '';
-            el('hubIntroImage').value = state.content.knowledgeHub.intro.image || '';
-
-            ['news', 'articles', 'resources'].forEach((page) => {
-                el(page + 'PageKicker').value = state.content.knowledgeHub.pages[page].kicker || '';
-                el(page + 'PageTitle').value = state.content.knowledgeHub.pages[page].title || '';
-                el(page + 'PageLead').value = state.content.knowledgeHub.pages[page].lead || '';
-                el(page + 'PageSectionTitle').value = state.content.knowledgeHub.pages[page].sectionTitle || '';
-                el(page + 'PageSectionLead').value = state.content.knowledgeHub.pages[page].sectionLead || '';
-            });
-        };
-
-        const renderVisibilityToggles = () => {
-            const render = (containerId, config, branch) => {
-                const container = el(containerId);
-                container.innerHTML = '';
-                config.forEach(([key, label, help]) => {
-                    const checked = state.content.visibility[branch][key] !== false;
-                    const item = document.createElement('label');
-                    item.className = 'toggle-item';
-                    item.innerHTML = `
-                        <div>
-                            <div class="toggle-label">${label}</div>
-                            <div class="toggle-help">${help}</div>
-                        </div>
-                        <div class="form-check form-switch m-0">
-                            <input class="form-check-input" type="checkbox" data-branch="${branch}" data-key="${key}" ${checked ? 'checked' : ''}>
-                        </div>
-                    `;
-                    item.querySelector('input').addEventListener('change', (event) => {
-                        state.content.visibility[branch][key] = event.target.checked;
-                    });
-                    container.appendChild(item);
-                });
-            };
-            render('pageVisibilityList', pageToggleConfig, 'pages');
-            render('sectionVisibilityList', sectionToggleConfig, 'sections');
-        };
-
-        const renderHubCards = () => {
-            const cards = state.content.knowledgeHub.intro.cards;
-            while (cards.length < 3) {
-                cards.push({ icon: 'fa-book-open', title: '', summary: '', button: '', url: '' });
-            }
-            const container = el('hubCardsList');
-            container.innerHTML = '';
-            cards.slice(0, 3).forEach((card, index) => {
-                const node = document.createElement('div');
-                node.className = 'item-card';
-                node.innerHTML = `
-                    <div class="fw-bold mb-3">Card ${index + 1}</div>
-                    <div class="row g-3">
-                        <div class="col-md-6"><label class="form-label">Icon</label><input class="form-control mono" data-field="icon" value="${card.icon || ''}"></div>
-                        <div class="col-md-6"><label class="form-label">Button</label><input class="form-control" data-field="button" value="${card.button || ''}"></div>
-                        <div class="col-12"><label class="form-label">Title</label><input class="form-control" data-field="title" value="${card.title || ''}"></div>
-                        <div class="col-12"><label class="form-label">Summary</label><textarea class="form-control" rows="2" data-field="summary">${card.summary || ''}</textarea></div>
-                        <div class="col-12"><label class="form-label">URL</label><input class="form-control mono" data-field="url" value="${card.url || ''}"></div>
-                    </div>
-                `;
-                node.addEventListener('input', (event) => {
-                    const field = event.target.getAttribute('data-field');
-                    if (!field) return;
-                    state.content.knowledgeHub.intro.cards[index][field] = event.target.value;
-                });
-                container.appendChild(node);
-            });
-        };
-
-        const collectionConfigs = {
-            news: {
-                listId: 'newsList',
-                array: () => state.content.knowledgeHub.news,
-                fields: [['type', 'Type'], ['icon', 'Icon class'], ['year', 'Year'], ['url', 'URL'], ['image', 'Image URL'], ['title', 'Title'], ['summary', 'Summary', 'textarea']],
-                label: 'News item'
-            },
-            articles: {
-                listId: 'articlesList',
-                array: () => state.content.knowledgeHub.articles,
-                fields: [['tag', 'Tag'], ['icon', 'Icon class'], ['url', 'URL'], ['image', 'Image URL'], ['title', 'Title'], ['summary', 'Summary', 'textarea']],
-                label: 'Article'
-            },
-            resources: {
-                listId: 'resourcesList',
-                array: () => state.content.knowledgeHub.resources,
-                fields: [['tag', 'Tag'], ['icon', 'Icon class'], ['url', 'URL'], ['image', 'Image URL'], ['title', 'Title'], ['summary', 'Summary', 'textarea']],
-                label: 'Resource'
-            },
-            testimonials: {
-                listId: 'testimonialsList',
-                array: () => state.content.home.testimonials,
-                fields: [['quote', 'Quote', 'textarea'], ['name', 'Name'], ['role', 'Role / Company']],
-                label: 'Testimonial'
-            }
-        };
-
-        const renderCollection = (key) => {
-            const config = collectionConfigs[key];
-            const list = config.array();
-            const container = el(config.listId);
-            container.innerHTML = '';
-            list.forEach((item, index) => {
-                const card = document.createElement('div');
-                card.className = 'item-card';
-                const fieldsMarkup = config.fields.map(([field, label, type]) => {
-                    if (type === 'textarea') {
-                        return `<div class="col-12"><label class="form-label">${label}</label><textarea class="form-control" rows="3" data-field="${field}">${item[field] || ''}</textarea></div>`;
-                    }
-                    return `<div class="${field === 'title' ? 'col-12' : 'col-md-6'}"><label class="form-label">${label}</label><input class="form-control ${field === 'icon' || field === 'url' || field === 'image' ? 'mono' : ''}" data-field="${field}" value="${item[field] || ''}"></div>`;
-                }).join('');
-
-                card.innerHTML = `
-                    <div class="d-flex justify-content-between align-items-start gap-3 mb-3">
-                        <div class="fw-bold">${config.label} ${index + 1}</div>
-                        <div class="item-actions">
-                            <button class="btn btn-sm btn-outline-secondary" type="button" data-action="up"><i class="fas fa-arrow-up"></i></button>
-                            <button class="btn btn-sm btn-outline-secondary" type="button" data-action="down"><i class="fas fa-arrow-down"></i></button>
-                            <button class="btn btn-sm btn-outline-danger" type="button" data-action="delete"><i class="fas fa-trash"></i></button>
-                        </div>
-                    </div>
-                    <div class="row g-3">${fieldsMarkup}</div>
-                `;
-                card.addEventListener('input', (event) => {
-                    const field = event.target.getAttribute('data-field');
-                    if (!field) return;
-                    list[index][field] = event.target.value;
-                });
-                card.addEventListener('click', (event) => {
-                    const button = event.target.closest('button');
-                    if (!button) return;
-                    const action = button.getAttribute('data-action');
-                    if (action === 'delete') {
-                        list.splice(index, 1);
-                        renderAll();
-                    } else if (action === 'up') {
-                        moveItem(list, index, -1);
-                        renderAll();
-                    } else if (action === 'down') {
-                        moveItem(list, index, 1);
-                        renderAll();
-                    }
-                });
-                container.appendChild(card);
-            });
-        };
-
-        const renderAll = () => {
-            fillSimpleFields();
-            renderVisibilityToggles();
-            renderHubCards();
-            renderCollection('news');
-            renderCollection('articles');
-            renderCollection('resources');
-            renderCollection('testimonials');
-        };
-
-        const downloadJson = () => {
-            const blob = new Blob([escapeJson(state.content)], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'site-content.json';
-            document.body.appendChild(a);
-            a.click();
-            a.remove();
-            URL.revokeObjectURL(url);
+        const setStatus = (message) => {
+            el('loadStatus').textContent = message;
         };
 
         const requirePassword = () => {
@@ -562,41 +622,395 @@
             return false;
         };
 
-        const init = async () => {
-            if (!requirePassword()) return;
-            bindSimpleFields();
+        const createInput = ({ label, type = 'text', rows = 3, value = '', hint = '' }) => {
+            const wrapper = document.createElement('div');
+            wrapper.className = type === 'textarea' || type === 'image' ? 'col-12' : 'col-md-6';
+
+            const labelEl = document.createElement('label');
+            labelEl.className = 'form-label';
+            labelEl.textContent = label;
+            wrapper.appendChild(labelEl);
+
+            let fieldEl;
+            if (type === 'textarea') {
+                fieldEl = document.createElement('textarea');
+                fieldEl.className = 'form-control';
+                fieldEl.rows = rows;
+                fieldEl.value = value || '';
+            } else {
+                fieldEl = document.createElement('input');
+                fieldEl.className = 'form-control';
+                fieldEl.type = 'text';
+                fieldEl.value = value || '';
+            }
+            wrapper.appendChild(fieldEl);
+
+            if (hint) {
+                const hintEl = document.createElement('div');
+                hintEl.className = 'field-hint';
+                hintEl.textContent = hint;
+                wrapper.appendChild(hintEl);
+            }
+
+            return { wrapper, fieldEl };
+        };
+
+        const fileToDataUrl = (file) => new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(typeof reader.result === 'string' ? reader.result : '');
+            reader.onerror = () => reject(new Error('Could not read file'));
+            reader.readAsDataURL(file);
+        });
+
+        const createImageField = ({ label, value = '', onChange }) => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'col-12';
+
+            const labelEl = document.createElement('label');
+            labelEl.className = 'form-label';
+            labelEl.textContent = label;
+            wrapper.appendChild(labelEl);
+
+            const zone = document.createElement('div');
+            zone.className = 'image-dropzone';
+
+            const preview = document.createElement('img');
+            preview.className = 'image-preview';
+            preview.alt = label;
+            preview.hidden = !value;
+            if (value) preview.src = value;
+            zone.appendChild(preview);
+
+            const controls = document.createElement('div');
+            controls.className = 'd-flex flex-column flex-md-row gap-2 align-items-start';
+
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.accept = 'image/*';
+            fileInput.className = 'form-control';
+            fileInput.addEventListener('change', async (event) => {
+                const file = event.target.files && event.target.files[0];
+                if (!file) return;
+                const dataUrl = await fileToDataUrl(file);
+                onChange(dataUrl);
+                setStatus(`Embedded image uploaded: ${file.name}`);
+                renderEditor();
+            });
+            controls.appendChild(fileInput);
+
+            const clearButton = document.createElement('button');
+            clearButton.type = 'button';
+            clearButton.className = 'btn btn-outline-secondary';
+            clearButton.textContent = value ? 'Remove Image' : 'No Image';
+            clearButton.disabled = !value;
+            clearButton.addEventListener('click', () => {
+                onChange('');
+                setStatus('Removed the current image from this content item.');
+                renderEditor();
+            });
+            controls.appendChild(clearButton);
+            zone.appendChild(controls);
+
+            const hint = document.createElement('div');
+            hint.className = 'field-hint';
+            hint.textContent = 'Upload an image file directly. It will be embedded in the content data, so no image URL is needed.';
+            zone.appendChild(hint);
+
+            wrapper.appendChild(zone);
+            return wrapper;
+        };
+
+        const moveItem = (list, index, direction) => {
+            const next = index + direction;
+            if (next < 0 || next >= list.length) return;
+            const temp = list[index];
+            list[index] = list[next];
+            list[next] = temp;
+        };
+
+        const getActiveSchema = () => editorMap[state.activeEditorId] || editorGroups[0].items[0];
+
+        const renderVisibilityToggles = () => {
+            const render = (containerId, config, branch) => {
+                const container = el(containerId);
+                container.innerHTML = '';
+                config.forEach(([key, label, help]) => {
+                    const checked = state.content.visibility[branch][key] !== false;
+                    const item = document.createElement('label');
+                    item.className = 'toggle-item';
+                    item.innerHTML = `
+                        <div>
+                            <div class="toggle-label">${label}</div>
+                            <div class="toggle-help">${help}</div>
+                        </div>
+                        <div class="toggle-controls">
+                            <span class="toggle-state ${checked ? '' : 'is-off'}">${checked ? 'On' : 'Off'}</span>
+                            <div class="form-check form-switch m-0">
+                                <input class="form-check-input toggle-switch" type="checkbox" ${checked ? 'checked' : ''}>
+                            </div>
+                        </div>
+                    `;
+                    item.querySelector('input').addEventListener('change', (event) => {
+                        state.content.visibility[branch][key] = event.target.checked;
+                        const stateChip = item.querySelector('.toggle-state');
+                        stateChip.textContent = event.target.checked ? 'On' : 'Off';
+                        stateChip.classList.toggle('is-off', !event.target.checked);
+                    });
+                    container.appendChild(item);
+                });
+            };
+            render('pageVisibilityList', pageToggleConfig, 'pages');
+            render('sectionVisibilityList', sectionToggleConfig, 'sections');
+        };
+
+        const renderEditorNav = () => {
+            const nav = el('editorNav');
+            nav.innerHTML = '';
+            editorGroups.forEach((group) => {
+                const groupEl = document.createElement('div');
+                groupEl.className = 'editor-nav-group';
+
+                const titleEl = document.createElement('div');
+                titleEl.className = 'editor-nav-title';
+                titleEl.textContent = group.title;
+                groupEl.appendChild(titleEl);
+
+                group.items.forEach((item) => {
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'editor-nav-button' + (state.activeEditorId === item.id ? ' is-active' : '');
+                    const target = getPathValue(state.content, item.path);
+                    const count = Array.isArray(target) ? target.length : null;
+                    button.innerHTML = `
+                        <div>
+                            <div class="editor-nav-label">${item.label}</div>
+                            <div class="editor-nav-help">${item.description}</div>
+                        </div>
+                        ${count == null ? '' : `<span class="editor-nav-count">${count}</span>`}
+                    `;
+                    button.addEventListener('click', () => {
+                        state.activeEditorId = item.id;
+                        renderEditorNav();
+                        renderEditor();
+                    });
+                    groupEl.appendChild(button);
+                });
+                nav.appendChild(groupEl);
+            });
+        };
+
+        const renderObjectEditor = (schema, target, form) => {
+            if (!target || typeof target !== 'object') return;
+            const row = document.createElement('div');
+            row.className = 'row g-3';
+            schema.fields.forEach((field) => {
+                const path = field.key.split('.');
+                const value = getPathValue(target, path) || '';
+                if (field.type === 'image') {
+                    const imageField = createImageField({
+                        label: field.label,
+                        value,
+                        onChange: (nextValue) => setPathValue(target, path, nextValue)
+                    });
+                    row.appendChild(imageField);
+                    return;
+                }
+                const { wrapper, fieldEl } = createInput({
+                    label: field.label,
+                    type: field.type,
+                    rows: field.rows,
+                    value
+                });
+                fieldEl.addEventListener('input', (event) => setPathValue(target, path, event.target.value));
+                row.appendChild(wrapper);
+            });
+            form.appendChild(row);
+        };
+
+        const renderArrayEditor = (schema, list, form) => {
+            if (!Array.isArray(list) || list.length === 0) {
+                const empty = document.createElement('div');
+                empty.className = 'editor-empty';
+                empty.textContent = `No ${schema.itemLabel.toLowerCase()} entries yet. Use the add button above to create one.`;
+                form.appendChild(empty);
+                return;
+            }
+            list.forEach((item, index) => {
+                const card = document.createElement('div');
+                card.className = 'editor-item';
+
+                const header = document.createElement('div');
+                header.className = 'd-flex justify-content-between align-items-start gap-3 mb-3 flex-wrap';
+                header.innerHTML = `
+                    <div>
+                        <div class="fw-bold">${schema.itemLabel} ${index + 1}</div>
+                        <div class="small text-muted">Edit the content below or reorder the items.</div>
+                    </div>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <button class="btn btn-sm btn-outline-secondary" type="button" data-action="up"><i class="fas fa-arrow-up"></i></button>
+                        <button class="btn btn-sm btn-outline-secondary" type="button" data-action="down"><i class="fas fa-arrow-down"></i></button>
+                        <button class="btn btn-sm btn-outline-danger" type="button" data-action="delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                `;
+                header.addEventListener('click', (event) => {
+                    const button = event.target.closest('button');
+                    if (!button) return;
+                    const action = button.getAttribute('data-action');
+                    if (action === 'delete') {
+                        list.splice(index, 1);
+                    } else if (action === 'up') {
+                        moveItem(list, index, -1);
+                    } else if (action === 'down') {
+                        moveItem(list, index, 1);
+                    }
+                    renderEditorNav();
+                    renderEditor();
+                });
+                card.appendChild(header);
+
+                const row = document.createElement('div');
+                row.className = 'row g-3';
+                schema.fields.forEach((field) => {
+                    const path = field.key.split('.');
+                    const value = getPathValue(item, path) || '';
+                    if (field.type === 'image') {
+                        const imageField = createImageField({
+                            label: field.label,
+                            value,
+                            onChange: (nextValue) => setPathValue(item, path, nextValue)
+                        });
+                        row.appendChild(imageField);
+                        return;
+                    }
+                    const { wrapper, fieldEl } = createInput({
+                        label: field.label,
+                        type: field.type,
+                        rows: field.rows,
+                        value
+                    });
+                    fieldEl.addEventListener('input', (event) => setPathValue(item, path, event.target.value));
+                    row.appendChild(wrapper);
+                });
+                card.appendChild(row);
+                form.appendChild(card);
+            });
+        };
+
+        const renderEditor = () => {
+            const schema = getActiveSchema();
+            const target = getPathValue(state.content, schema.path);
+            el('editorTitle').textContent = schema.label;
+            el('editorDescription').textContent = schema.description;
+            const form = el('editorForm');
+            form.innerHTML = '';
+
+            const addButton = el('editorAddItem');
+            if (schema.type === 'array') {
+                addButton.classList.remove('d-none');
+                addButton.textContent = schema.addLabel || 'Add Item';
+                addButton.onclick = () => {
+                    const list = getPathValue(state.content, schema.path);
+                    list.push(schema.createItem ? schema.createItem() : {});
+                    renderEditorNav();
+                    renderEditor();
+                };
+                renderArrayEditor(schema, target, form);
+            } else {
+                addButton.classList.add('d-none');
+                addButton.onclick = null;
+                renderObjectEditor(schema, target, form);
+            }
+        };
+
+        const downloadJson = () => {
+            const blob = new Blob([escapeJson(state.content)], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'site-content.json';
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);
+        };
+
+        const saveJsonFile = async () => {
+            try {
+                const payload = escapeJson(state.content);
+                if ('showSaveFilePicker' in window) {
+                    if (!state.saveHandle) {
+                        state.saveHandle = await window.showSaveFilePicker({
+                            suggestedName: 'site-content.json',
+                            types: [{
+                                description: 'JSON files',
+                                accept: { 'application/json': ['.json'] }
+                            }]
+                        });
+                    }
+                    const writable = await state.saveHandle.createWritable();
+                    await writable.write(payload);
+                    await writable.close();
+                    setStatus('Saved the updated content directly to a local JSON file.');
+                } else {
+                    downloadJson();
+                    setStatus('Your browser does not support direct file saving here, so the JSON was downloaded instead.');
+                }
+            } catch (error) {
+                if (error && error.name === 'AbortError') return;
+                setStatus('Could not save the JSON file directly. Please use Download JSON instead.');
+            }
+        };
+
+        const bindActions = () => {
             el('btnReload').addEventListener('click', async () => {
-                state.content = mergeDefaults(await fetchContent());
-                renderAll();
+                try {
+                    state.content = mergeDefaults(await fetchContent());
+                    renderVisibilityToggles();
+                    renderEditorNav();
+                    renderEditor();
+                    setStatus('Reloaded content from site-content.json.');
+                } catch (_) {
+                    setStatus('Could not reload site-content.json. The admin is using the current draft values shown on this page.');
+                }
             });
-            el('btnDownload').addEventListener('click', downloadJson);
-            el('btnCopy').addEventListener('click', async () => navigator.clipboard.writeText(escapeJson(state.content)));
-            el('addNews').addEventListener('click', () => {
-                state.content.knowledgeHub.news.push({ type: 'Update', icon: 'fa-bullhorn', year: String(new Date().getFullYear()), url: 'news-updates.html', image: '', title: '', summary: '' });
-                renderAll();
+
+            el('btnSaveFile').addEventListener('click', saveJsonFile);
+            el('btnDownload').addEventListener('click', () => {
+                downloadJson();
+                setStatus('Downloaded the latest site-content.json draft.');
             });
-            el('addArticle').addEventListener('click', () => {
-                state.content.knowledgeHub.articles.push({ tag: 'Article', icon: 'fa-newspaper', url: 'articles.html', image: '', title: '', summary: '' });
-                renderAll();
-            });
-            el('addResource').addEventListener('click', () => {
-                state.content.knowledgeHub.resources.push({ tag: 'Resource', icon: 'fa-book-open', url: 'insights-resources.html', image: '', title: '', summary: '' });
-                renderAll();
-            });
-            el('addTestimonial').addEventListener('click', () => {
-                state.content.home.testimonials.push({ quote: '', name: 'Client', role: '' });
-                renderAll();
+            el('btnCopy').addEventListener('click', async () => {
+                await navigator.clipboard.writeText(escapeJson(state.content));
+                setStatus('Copied the latest JSON draft to the clipboard.');
             });
             el('importFile').addEventListener('change', async (event) => {
                 const file = event.target.files && event.target.files[0];
                 if (!file) return;
                 state.content = mergeDefaults(JSON.parse(await file.text()));
                 event.target.value = '';
-                renderAll();
+                renderVisibilityToggles();
+                renderEditorNav();
+                renderEditor();
+                setStatus('Imported content from the selected JSON file.');
             });
+        };
 
-            state.content = mergeDefaults(await fetchContent());
-            renderAll();
+        const init = async () => {
+            if (!requirePassword()) return;
+            state.content = defaultContent();
+            renderVisibilityToggles();
+            renderEditorNav();
+            renderEditor();
+            bindActions();
+            try {
+                state.content = mergeDefaults(await fetchContent());
+                renderVisibilityToggles();
+                renderEditorNav();
+                renderEditor();
+                setStatus('Loaded current content from site-content.json.');
+            } catch (_) {
+                setStatus('Could not load site-content.json automatically. The admin is using a local draft until you import or reload the content file.');
+            }
         };
 
         init();
