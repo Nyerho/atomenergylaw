@@ -1,7 +1,6 @@
 {
   "version": 2,
   "name": "atomenergylaw",
-  "public": true,
   "builds": [
     { "src": "www.atom-energylaw.com/**/*.html", "use": "@vercel/static" },
     { "src": "www.atom-energylaw.com/assets/**", "use": "@vercel/static" }
