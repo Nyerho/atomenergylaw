@@ -1,0 +1,17 @@
+.elementor-1861 .elementor-element.elementor-element-657c113 {
+    --display: flex;
+    --flex-direction: column;
+    --container-widget-width: 100%;
+    --container-widget-height: initial;
+    --container-widget-flex-grow: 0;
+    --container-widget-align-self: initial;
+    --flex-wrap-mobile: wrap;
+    --padding-top: 0px;
+    --padding-bottom: 0px;
+    --padding-left: 0px;
+    --padding-right: 0px;
+}
+
+.elementor-1861 .elementor-element.elementor-element-6057be9 .menu-wrap nav>ul li a {
+    font-weight: 600;
+}
