@@ -299,6 +299,7 @@
                         <h2 class="h4 mb-3">Publishing Notes</h2>
                         <div class="publisher-note">
                             Use <strong>Save JSON File</strong> to write the updated content file directly from the admin page when your browser supports it. If not, use <strong>Download JSON</strong> and replace <span class="mono">site-content.json</span> manually before you deploy. Uploaded images are stored inside the content data, so the admin does not need separate image URLs.
+                            The public pages also read the newest browser draft automatically, so page and section visibility changes can preview immediately after you edit them here.
                         </div>
                     </div>
                 </div>
@@ -308,6 +309,7 @@
 
     <script>
         const ADMIN_PASSWORD = 'admin123';
+        const DRAFT_STORAGE_KEY = 'atomSiteContentDraft';
         const el = (id) => document.getElementById(id);
         const state = {
             content: null,
@@ -521,6 +523,7 @@
 
         const defaultContent = () => ({
             version: 2,
+            updatedAt: '',
             site: {
                 contact: { phone: '', email: '', address: '' },
                 social: { linkedin: '#', instagram: '#', youtube: '#' }
@@ -561,6 +564,7 @@
             const merged = defaultContent();
             if (!content || typeof content !== 'object') return merged;
             merged.version = content.version ?? merged.version;
+            merged.updatedAt = typeof content.updatedAt === 'string' ? content.updatedAt : merged.updatedAt;
             merged.site = {
                 ...merged.site,
                 ...content.site,
@@ -593,6 +597,43 @@
         };
 
         const escapeJson = (value) => JSON.stringify(value, null, 2);
+
+        const parseUpdatedAt = (value) => {
+            const time = Date.parse(typeof value === 'string' ? value : '');
+            return Number.isNaN(time) ? 0 : time;
+        };
+
+        const loadLocalDraft = () => {
+            try {
+                const raw = window.localStorage.getItem(DRAFT_STORAGE_KEY);
+                if (!raw) return null;
+                return mergeDefaults(JSON.parse(raw));
+            } catch (_) {
+                return null;
+            }
+        };
+
+        const persistDraft = () => {
+            if (!state.content) return;
+            try {
+                window.localStorage.setItem(DRAFT_STORAGE_KEY, escapeJson(state.content));
+            } catch (_) {
+            }
+        };
+
+        const touchContent = () => {
+            if (!state.content) return;
+            state.content.updatedAt = new Date().toISOString();
+            persistDraft();
+        };
+
+        const pickFreshestContent = (fileContent, draftContent) => {
+            if (!draftContent) return fileContent;
+            if (!fileContent) return draftContent;
+            return parseUpdatedAt(draftContent.updatedAt) > parseUpdatedAt(fileContent.updatedAt)
+                ? draftContent
+                : fileContent;
+        };
 
         const fetchContent = async () => {
             const url = new URL('site-content.json', window.location.href);
@@ -693,6 +734,7 @@
                 if (!file) return;
                 const dataUrl = await fileToDataUrl(file);
                 onChange(dataUrl);
+                touchContent();
                 setStatus(`Embedded image uploaded: ${file.name}`);
                 renderEditor();
             });
@@ -705,6 +747,7 @@
             clearButton.disabled = !value;
             clearButton.addEventListener('click', () => {
                 onChange('');
+                touchContent();
                 setStatus('Removed the current image from this content item.');
                 renderEditor();
             });
@@ -755,6 +798,7 @@
                         const stateChip = item.querySelector('.toggle-state');
                         stateChip.textContent = event.target.checked ? 'On' : 'Off';
                         stateChip.classList.toggle('is-off', !event.target.checked);
+                        touchContent();
                     });
                     container.appendChild(item);
                 });
@@ -821,7 +865,10 @@
                     rows: field.rows,
                     value
                 });
-                fieldEl.addEventListener('input', (event) => setPathValue(target, path, event.target.value));
+                fieldEl.addEventListener('input', (event) => {
+                    setPathValue(target, path, event.target.value);
+                    touchContent();
+                });
                 row.appendChild(wrapper);
             });
             form.appendChild(row);
@@ -863,6 +910,7 @@
                     } else if (action === 'down') {
                         moveItem(list, index, 1);
                     }
+                    touchContent();
                     renderEditorNav();
                     renderEditor();
                 });
@@ -888,7 +936,10 @@
                         rows: field.rows,
                         value
                     });
-                    fieldEl.addEventListener('input', (event) => setPathValue(item, path, event.target.value));
+                    fieldEl.addEventListener('input', (event) => {
+                        setPathValue(item, path, event.target.value);
+                        touchContent();
+                    });
                     row.appendChild(wrapper);
                 });
                 card.appendChild(row);
@@ -911,6 +962,7 @@
                 addButton.onclick = () => {
                     const list = getPathValue(state.content, schema.path);
                     list.push(schema.createItem ? schema.createItem() : {});
+                    touchContent();
                     renderEditorNav();
                     renderEditor();
                 };
@@ -950,9 +1002,11 @@
                     const writable = await state.saveHandle.createWritable();
                     await writable.write(payload);
                     await writable.close();
+                    persistDraft();
                     setStatus('Saved the updated content directly to a local JSON file.');
                 } else {
                     downloadJson();
+                    persistDraft();
                     setStatus('Your browser does not support direct file saving here, so the JSON was downloaded instead.');
                 }
             } catch (error) {
@@ -964,11 +1018,12 @@
         const bindActions = () => {
             el('btnReload').addEventListener('click', async () => {
                 try {
-                    state.content = mergeDefaults(await fetchContent());
+                    state.content = pickFreshestContent(mergeDefaults(await fetchContent()), loadLocalDraft());
                     renderVisibilityToggles();
                     renderEditorNav();
                     renderEditor();
-                    setStatus('Reloaded content from site-content.json.');
+                    persistDraft();
+                    setStatus('Reloaded content from the latest available file or browser draft.');
                 } catch (_) {
                     setStatus('Could not reload site-content.json. The admin is using the current draft values shown on this page.');
                 }
@@ -977,16 +1032,19 @@
             el('btnSaveFile').addEventListener('click', saveJsonFile);
             el('btnDownload').addEventListener('click', () => {
                 downloadJson();
+                persistDraft();
                 setStatus('Downloaded the latest site-content.json draft.');
             });
             el('btnCopy').addEventListener('click', async () => {
                 await navigator.clipboard.writeText(escapeJson(state.content));
+                persistDraft();
                 setStatus('Copied the latest JSON draft to the clipboard.');
             });
             el('importFile').addEventListener('change', async (event) => {
                 const file = event.target.files && event.target.files[0];
                 if (!file) return;
                 state.content = mergeDefaults(JSON.parse(await file.text()));
+                touchContent();
                 event.target.value = '';
                 renderVisibilityToggles();
                 renderEditorNav();
@@ -997,19 +1055,21 @@
 
         const init = async () => {
             if (!requirePassword()) return;
-            state.content = defaultContent();
+            state.content = loadLocalDraft() || defaultContent();
             renderVisibilityToggles();
             renderEditorNav();
             renderEditor();
             bindActions();
             try {
-                state.content = mergeDefaults(await fetchContent());
+                state.content = pickFreshestContent(mergeDefaults(await fetchContent()), loadLocalDraft()) || defaultContent();
                 renderVisibilityToggles();
                 renderEditorNav();
                 renderEditor();
-                setStatus('Loaded current content from site-content.json.');
+                persistDraft();
+                setStatus('Loaded the latest available content from site-content.json and the browser draft.');
             } catch (_) {
-                setStatus('Could not load site-content.json automatically. The admin is using a local draft until you import or reload the content file.');
+                persistDraft();
+                setStatus('Could not load site-content.json automatically. The admin is using the current browser draft until you import or reload the content file.');
             }
         };
 
@@ -1017,6 +1077,4 @@
     </script>
 </body>
 </html>
-
-
 

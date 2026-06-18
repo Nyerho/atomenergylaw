@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "updatedAt": "2026-06-18T00:00:00.000Z",
   "site": {
     "contact": {
       "phone": "+234 906 049 0067",
@@ -35,10 +36,10 @@
     "intro": {
       "kicker": "Sector Intelligence",
       "heroTitle": "Knowledge Hub",
-      "heroLead": "A central library for news, articles, bills, updates, and practical sector resources.",
+      "heroLead": "A central library for latest updates, articles and insights, and practical sector resources.",
       "sectionTitle": "A focused hub for sector intelligence",
       "sectionLead": "Explore the latest market developments, commercially relevant commentary, and a dedicated library of legal reference materials.",
-      "sectionBody": "The Knowledge Hub brings together Atom Energy Law Advisory's latest updates, deeper articles and insights, and a dedicated Resource Center covering bills, laws, regulations, and practical reference materials for the energy and natural resources sectors.",
+      "sectionBody": "The Knowledge Hub brings together Atom Energy Law Advisory's latest updates, articles and insights, and a dedicated Resource Center covering bills, laws, regulations, and practical reference materials for the energy and natural resources sectors.",
       "image": "assets/images/energy.webp",
       "cards": [
         {

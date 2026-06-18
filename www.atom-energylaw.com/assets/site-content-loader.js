@@ -1,4 +1,5 @@
 (() => {
+    const DRAFT_STORAGE_KEY = 'atomSiteContentDraft';
     const defaultVisibility = {
         pages: {
             home: true,
@@ -37,6 +38,11 @@
         insightsResources: ['insights-resources.html']
     };
 
+    const legalHrefMap = {
+        'privacy policy': 'privacy-policy.html',
+        'anti-bribery and corruption statement': 'anti-bribery-corruption-statement.html'
+    };
+
     const safeParseUrl = (value) => {
         if (typeof value !== 'string') return null;
         const trimmed = value.trim();
@@ -61,6 +67,15 @@
                 el.setAttribute('target', '_blank');
                 el.setAttribute('rel', 'noopener noreferrer');
             }
+        });
+    };
+
+    const setPageHref = (elements, value) => {
+        const href = safeParseUrl(value) || '#';
+        elements.forEach((el) => {
+            el.setAttribute('href', href);
+            el.removeAttribute('target');
+            el.removeAttribute('rel');
         });
     };
 
@@ -94,9 +109,31 @@
         if (!el) return;
         el.hidden = true;
         el.setAttribute('aria-hidden', 'true');
-        if (el.classList.contains('d-flex')) {
-            el.style.display = 'none';
+        el.style.setProperty('display', 'none', 'important');
+    };
+
+    const parseUpdatedAt = (value) => {
+        const time = Date.parse(typeof value === 'string' ? value : '');
+        return Number.isNaN(time) ? 0 : time;
+    };
+
+    const loadStoredDraft = () => {
+        try {
+            const raw = window.localStorage.getItem(DRAFT_STORAGE_KEY);
+            if (!raw) return null;
+            const parsed = JSON.parse(raw);
+            return parsed && typeof parsed === 'object' ? parsed : null;
+        } catch (_) {
+            return null;
         }
+    };
+
+    const pickFreshestContent = (fileContent, draftContent) => {
+        if (!draftContent) return fileContent;
+        if (!fileContent) return draftContent;
+        return parseUpdatedAt(draftContent.updatedAt) > parseUpdatedAt(fileContent.updatedAt)
+            ? draftContent
+            : fileContent;
     };
 
     const applySectionVisibility = (visibility) => {
@@ -121,6 +158,15 @@
             if (!isVisible(visibility, 'pages', pageKey)) {
                 hideLinksForPage(pageKey);
             }
+        });
+    };
+
+    const applyLegalLinks = () => {
+        document.querySelectorAll('a').forEach((link) => {
+            const label = (link.textContent || '').trim().toLowerCase();
+            const href = legalHrefMap[label];
+            if (!href) return;
+            setPageHref([link], href);
         });
     };
 
@@ -463,6 +509,7 @@ ${email}`);
 
     const applyContent = (content) => {
         const visibility = mergeVisibility(content);
+        applyLegalLinks();
         applyNavigationVisibility(visibility);
         if (!applyPageVisibility(visibility)) return;
         applySectionVisibility(visibility);
@@ -492,10 +539,15 @@ ${email}`);
 
     const init = async () => {
         try {
-            const content = await fetchJson();
+            const fileContent = await fetchJson();
+            const draftContent = loadStoredDraft();
+            const content = pickFreshestContent(fileContent, draftContent);
             if (!content) return;
             applyContent(content);
         } catch (_) {
+            const draftContent = loadStoredDraft();
+            if (!draftContent) return;
+            applyContent(draftContent);
         }
     };
 
