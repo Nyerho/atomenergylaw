@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -174,19 +174,18 @@
         }
 
         .navbar-landing {
-            background: radial-gradient(900px 520px at 18% 20%, rgba(21, 147, 209, 0.22), rgba(0, 0, 0, 0) 60%),
-                radial-gradient(900px 520px at 78% 55%, rgba(21, 147, 209, 0.14), rgba(0, 0, 0, 0) 55%),
-                linear-gradient(135deg, #06294f, #021223);
-            border-bottom: 1px solid rgba(255,255,255,0.16);
-            box-shadow: 0 12px 34px rgba(6, 28, 63, 0.18);
+            background: rgba(255, 255, 255, 0.98);
+            border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+            box-shadow: 0 12px 34px rgba(15, 23, 42, 0.08);
+            backdrop-filter: blur(12px);
         }
 
         .navbar-landing .navbar-brand {
-            padding: 0.35rem 0.8rem;
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 1);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            box-shadow: 0 10px 24px rgba(2, 6, 23, 0.18);
+            padding: 0;
+            border-radius: 0;
+            background: transparent;
+            border: 0;
+            box-shadow: none;
         }
 
         .navbar-landing .navbar-brand img {
@@ -194,16 +193,16 @@
         }
 
         .navbar-landing .nav-link {
-            color: rgba(255, 255, 255, 0.86) !important;
+            color: rgba(15, 23, 42, 0.82) !important;
         }
 
         .navbar-landing .nav-link:hover,
         .navbar-landing .nav-link.active {
-            color: #ffffff !important;
+            color: var(--secondary-color) !important;
         }
 
         .navbar-landing .nav-link::after {
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: var(--primary-color);
         }
 
         @media (max-width: 991px) {
@@ -233,8 +232,9 @@
             }
 
             .navbar-landing .nav-reveal {
-                background: linear-gradient(180deg, rgba(6, 41, 79, 0.98), rgba(2, 18, 35, 0.98));
-                border-color: rgba(255, 255, 255, 0.14);
+                background: rgba(255, 255, 255, 0.98);
+                border-color: rgba(15, 23, 42, 0.08);
+                box-shadow: 0 18px 32px rgba(15, 23, 42, 0.08);
             }
 
             .nav-reveal .navbar-nav {
@@ -255,7 +255,7 @@
             }
 
             .navbar-landing .nav-reveal .nav-link:hover {
-                background: rgba(255, 255, 255, 0.12);
+                background: rgba(21, 147, 209, 0.08);
             }
 
             .nav-reveal .nav-item {
@@ -1884,8 +1884,8 @@
             <a class="navbar-brand" href="index.html">
                 <img src="assets/Atom logo final-I7OGcKSj.png" alt="Atom-Energylaw">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(255,255,255,0.35);">
-                <span class="fa fa-bars" style="color: rgba(255,255,255,0.92);"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(15,23,42,0.18);">
+                <span class="fa fa-bars" style="color: #0f172a;"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end nav-reveal" id="navbarNav">
                 <ul class="navbar-nav">
@@ -1995,8 +1995,7 @@ ADVISORY</h1>
     <section class="practice-groups-section section-blue" id="practice-groups" data-visibility-section="homePracticeGroups">
         <div class="container">
             <div class="text-center mb-5">
-                <span class="text-primary fw-bold text-uppercase">Capabilities</span>
-                <h2 class="display-5 mb-2">Capabilities</h2>
+                <h2 class="display-5 mb-2">Our Capabilities</h2>
                 <p class="text-muted mx-auto mb-0" style="max-width: 860px;">A full suite of legal and strategic advisory services spanning the entire energy value chain.</p>
             </div>
             <div class="row justify-content-center">
@@ -2305,9 +2304,9 @@ ADVISORY</h1>
             </div>
             <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
                 <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
+                    <a href="privacy-policy.html">Privacy Policy</a>
                     <span style="opacity: 0.5;">|</span>
-                    <a href="#">Anti-Bribery and Corruption Statement</a>
+                    <a href="anti-bribery-corruption-statement.html">Anti-Bribery and Corruption Statement</a>
                     <a href="admin.html" aria-label="Admin" title="Admin"><i class="fas fa-lock"></i></a>
                 </div>
                 <div class="small" style="color: rgba(255,255,255,0.72);">All rights reserved. (c) 2026 ATOM ENERGY LAW ADVISORY</div>
@@ -2508,6 +2507,7 @@ ADVISORY</h1>
     </script>
 </body>
 </html>
+
 
 
 
