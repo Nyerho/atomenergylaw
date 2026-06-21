@@ -1,5 +1,7 @@
 (() => {
     const DRAFT_STORAGE_KEY = 'atomSiteContentDraft';
+    const MAILING_LIST_API = '/api/mailing-list';
+    const PRELOADER_LOGO = 'assets/Atom logo final-I7OGcKSj.png';
     const defaultVisibility = {
         pages: {
             home: true,
@@ -96,6 +98,154 @@
             .replaceAll('>', '&gt;')
             .replaceAll('"', '&quot;')
             .replaceAll("'", '&#39;');
+    };
+
+    const initSitePreloader = () => {
+        if (window.__atomSitePreloader) return window.__atomSitePreloader;
+
+        const styleId = 'atom-site-preloader-style';
+        if (!document.getElementById(styleId)) {
+            const style = document.createElement('style');
+            style.id = styleId;
+            style.textContent = `
+                .atom-site-preloader {
+                    position: fixed;
+                    inset: 0;
+                    z-index: 9999;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: linear-gradient(135deg, rgba(6, 41, 79, 0.98), rgba(2, 18, 35, 0.98));
+                    opacity: 1;
+                    visibility: visible;
+                    transition: opacity 280ms ease, visibility 280ms ease;
+                }
+
+                .atom-site-preloader.is-hidden {
+                    opacity: 0;
+                    visibility: hidden;
+                }
+
+                .atom-site-preloader-card {
+                    display: grid;
+                    justify-items: center;
+                    gap: 16px;
+                    text-align: center;
+                    padding: 28px 24px;
+                }
+
+                .atom-site-preloader-logo-wrap {
+                    width: 86px;
+                    height: 86px;
+                    border-radius: 50%;
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(255, 255, 255, 0.08);
+                    box-shadow: 0 18px 40px rgba(2, 6, 23, 0.28);
+                }
+
+                .atom-site-preloader-logo {
+                    width: 54px;
+                    height: 54px;
+                    object-fit: contain;
+                    animation: atomLogoPulse 1.5s ease-in-out infinite;
+                }
+
+                .atom-site-preloader-spinner {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    border: 3px solid rgba(255, 255, 255, 0.14);
+                    border-top-color: #1593d1;
+                    animation: atomSpinner 0.9s linear infinite;
+                }
+
+                .atom-site-preloader-text {
+                    color: rgba(255, 255, 255, 0.84);
+                    font: 500 0.92rem/1.6 Montserrat, sans-serif;
+                    letter-spacing: 0.08em;
+                    text-transform: uppercase;
+                }
+
+                @keyframes atomSpinner {
+                    to { transform: rotate(360deg); }
+                }
+
+                @keyframes atomLogoPulse {
+                    0%, 100% { transform: scale(1); opacity: 1; }
+                    50% { transform: scale(0.94); opacity: 0.88; }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        const overlay = document.createElement('div');
+        overlay.className = 'atom-site-preloader';
+        overlay.innerHTML = `
+            <div class="atom-site-preloader-card" role="status" aria-live="polite" aria-label="Page loading">
+                <div class="atom-site-preloader-logo-wrap">
+                    <img src="${escapeHtml(PRELOADER_LOGO)}" alt="Atom Energy Law Advisory" class="atom-site-preloader-logo">
+                </div>
+                <div class="atom-site-preloader-spinner" aria-hidden="true"></div>
+                <div class="atom-site-preloader-text">Loading Atom Energy Law</div>
+            </div>
+        `;
+
+        const attach = () => {
+            if (!document.body || overlay.parentNode) return;
+            document.body.appendChild(overlay);
+            document.body.style.overflow = 'hidden';
+        };
+
+        if (document.body) {
+            attach();
+        } else {
+            document.addEventListener('DOMContentLoaded', attach, { once: true });
+        }
+
+        let finished = false;
+        const finish = () => {
+            if (finished) return;
+            finished = true;
+            overlay.classList.add('is-hidden');
+            window.setTimeout(() => {
+                if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+                if (document.body) document.body.style.overflow = '';
+            }, 300);
+        };
+
+        window.addEventListener('load', () => window.setTimeout(finish, 120), { once: true });
+        window.setTimeout(finish, 4200);
+
+        window.__atomSitePreloader = { finish };
+        return window.__atomSitePreloader;
+    };
+
+    const safeJson = async (response) => {
+        try {
+            return await response.json();
+        } catch (_) {
+            return null;
+        }
+    };
+
+    const serializeSubscribersToCsv = (subscribers) => {
+        const rows = [['Email', 'Source', 'Page URL', 'Joined At']];
+        (subscribers || []).forEach((subscriber) => {
+            rows.push([
+                subscriber?.email || '',
+                subscriber?.source || '',
+                subscriber?.pageUrl || '',
+                subscriber?.joinedAt || ''
+            ]);
+        });
+        return rows
+            .map((row) => row.map((cell) => {
+                const text = String(cell ?? '');
+                return /[",\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+            }).join(','))
+            .join('\n');
     };
 
     const mergeVisibility = (content) => ({
@@ -668,27 +818,72 @@
     };
 
     const bindMailingListForms = (content) => {
-        const destination = content?.site?.contact?.email || 'advisory@atom-energylaw.com';
         document.querySelectorAll('[data-email-list-form]').forEach((form) => {
             if (form.dataset.bound === 'true') return;
             form.dataset.bound = 'true';
-            form.addEventListener('submit', (event) => {
+            form.addEventListener('submit', async (event) => {
                 event.preventDefault();
                 const input = form.querySelector('[data-email-list-input]');
                 const success = form.querySelector('[data-email-list-success]');
+                const submitButton = form.querySelector('button[type="submit"]');
                 if (!(input instanceof HTMLInputElement)) return;
                 if (!form.reportValidity()) return;
                 const email = input.value.trim();
-                const subject = encodeURIComponent('Mailing List Signup');
-                const body = encodeURIComponent(`Please add this email to the Atom Energy Law Advisory mailing list:
+                const source = form.getAttribute('data-email-list-source')
+                    || document.body?.dataset?.pageKey
+                    || document.body?.dataset?.hubPageKey
+                    || 'website';
 
-${email}`);
-                if (success) {
-                    success.textContent = 'Opening your email client to complete the signup request.';
+                if (submitButton instanceof HTMLButtonElement) {
+                    submitButton.disabled = true;
+                    submitButton.dataset.originalLabel = submitButton.textContent || 'Join';
+                    submitButton.textContent = 'Joining...';
                 }
-                window.setTimeout(() => {
-                    window.location.href = `mailto:${destination}?subject=${subject}&body=${body}`;
-                }, 180);
+
+                if (success) {
+                    success.textContent = 'Submitting your signup...';
+                }
+
+                try {
+                    const response = await fetch(MAILING_LIST_API, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            email,
+                            source,
+                            pageUrl: window.location.href,
+                            destinationEmail: content?.site?.contact?.email || 'advisory@atom-energylaw.com'
+                        })
+                    });
+                    const data = await safeJson(response);
+                    if (!response.ok) {
+                        throw new Error(data?.message || 'Could not complete the mailing list signup.');
+                    }
+
+                    input.value = '';
+                    if (success) {
+                        success.textContent = data?.message || 'You have joined the mailing list. Please check your email for the welcome message.';
+                    }
+
+                    const modalEl = form.closest('.modal');
+                    if (modalEl && window.bootstrap?.Modal) {
+                        const modal = window.bootstrap.Modal.getInstance(modalEl) || new window.bootstrap.Modal(modalEl);
+                        const markDismissed = () => window.sessionStorage.setItem('atom-energylaw-email-list-session-v2', 'true');
+                        markDismissed();
+                        window.setTimeout(() => modal.hide(), 180);
+                    }
+                } catch (error) {
+                    if (success) {
+                        success.textContent = error instanceof Error
+                            ? error.message
+                            : 'The mailing list is not available right now. Please try again shortly.';
+                    }
+                } finally {
+                    if (submitButton instanceof HTMLButtonElement) {
+                        submitButton.disabled = false;
+                        submitButton.textContent = submitButton.dataset.originalLabel || 'Join';
+                    }
+                }
             });
         });
     };
@@ -752,6 +947,8 @@ ${email}`);
         if (!response.ok) return null;
         return response.json();
     };
+
+    initSitePreloader();
 
     const init = async () => {
         try {

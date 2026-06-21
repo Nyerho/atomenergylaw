@@ -2465,18 +2465,16 @@ ADVISORY</h1>
                         <span>Mailing List</span>
                     </div>
                     <h2 class="h3 mb-3 text-white" id="emailListModalLabel">Join Our Mailing List</h2>
-                    <p class="mb-4" style="color: rgba(255,255,255,0.78);">Get occasional firm news, insights, and sector updates from Atom Energy Law Advisory.</p>
-                    <form id="emailListForm" class="row g-3">
+                    <form id="emailListForm" class="row g-3" data-email-list-form data-email-list-source="modal-popup">
                         <div class="col-12">
-                            <input type="email" class="form-control" id="emailListInput" placeholder="Enter your email address" autocomplete="email" required>
+                            <input type="email" class="form-control" id="emailListInput" data-email-list-input placeholder="Enter your email address" autocomplete="email" required>
                         </div>
                         <div class="col-12 d-flex flex-column flex-sm-row gap-3">
                             <button type="submit" class="btn btn-primary flex-fill">Join Mailing List</button>
                             <button type="button" class="btn btn-outline-dark flex-fill" data-bs-dismiss="modal">Maybe Later</button>
                         </div>
                         <div class="col-12">
-                            <div class="email-list-success small" id="emailListSuccess" aria-live="polite"></div>
-                            <div class="email-list-note">Submitting opens your email client with a pre-filled signup request to the firm.</div>
+                            <div class="email-list-success small" id="emailListSuccess" data-email-list-success aria-live="polite"></div>
                         </div>
                     </form>
                 </div>
@@ -2715,10 +2713,7 @@ ADVISORY</h1>
     <script>
         (() => {
             const modalEl = document.getElementById('emailListModal');
-            const form = document.getElementById('emailListForm');
-            const input = document.getElementById('emailListInput');
-            const success = document.getElementById('emailListSuccess');
-            if (!modalEl || !form || !input || !success || !window.bootstrap?.Modal) return;
+            if (!modalEl || !window.bootstrap?.Modal) return;
 
             const modal = new bootstrap.Modal(modalEl);
             const storageKey = 'atom-energylaw-email-list-session-v2';
@@ -2729,23 +2724,7 @@ ADVISORY</h1>
             }
 
             const markDismissed = () => window.sessionStorage.setItem(storageKey, 'true');
-
             modalEl.addEventListener('hidden.bs.modal', markDismissed);
-
-            form.addEventListener('submit', (event) => {
-                event.preventDefault();
-                if (!form.reportValidity()) return;
-
-                const email = input.value.trim();
-                const subject = encodeURIComponent('Mailing List Signup');
-                const body = encodeURIComponent(`Please add this email to the Atom Energy Law Advisory mailing list:\n\n${email}`);
-                success.textContent = 'Opening your email client to complete the signup request.';
-                markDismissed();
-                window.setTimeout(() => {
-                    window.location.href = `mailto:advisory@atom-energylaw.com?subject=${subject}&body=${body}`;
-                    modal.hide();
-                }, 250);
-            });
         })();
     </script>
     <script>

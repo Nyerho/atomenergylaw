@@ -225,6 +225,24 @@
             font-size: 0.9rem;
         }
 
+        .subscriber-table th {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--admin-muted);
+        }
+
+        .subscriber-table td {
+            vertical-align: middle;
+            font-size: 0.92rem;
+        }
+
+        .subscriber-empty {
+            text-align: center;
+            color: var(--admin-muted);
+            padding: 22px 10px;
+        }
+
         @media (max-width: 991px) {
             .editor-nav-button {
                 padding: 11px 12px;
@@ -302,6 +320,36 @@
                             The public pages also read the newest browser draft automatically, so page and section visibility changes can preview immediately after you edit them here.
                         </div>
                     </div>
+
+                    <div class="panel p-4 mt-4">
+                        <div class="d-flex justify-content-between align-items-start gap-3 flex-wrap mb-3">
+                            <div>
+                                <h2 class="h4 mb-1">Mailing List Subscribers</h2>
+                                <div class="small text-muted">Refresh the stored subscriber list, export it as CSV, or open the connected Google Sheet once the mailing-list backend is configured.</div>
+                            </div>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <button class="btn btn-outline-primary" id="btnSubscribersRefresh" type="button">Refresh Subscribers</button>
+                                <button class="btn btn-outline-secondary" id="btnSubscribersCsv" type="button">Download CSV</button>
+                                <a class="btn btn-outline-secondary d-none" id="subscriberSheetLink" href="#" target="_blank" rel="noopener noreferrer">Open Google Sheet</a>
+                            </div>
+                        </div>
+                        <div class="status-note" id="subscriberStatus">Subscriber data has not been loaded yet.</div>
+                        <div class="table-responsive mt-3">
+                            <table class="table subscriber-table align-middle mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>Source</th>
+                                        <th>Page</th>
+                                        <th>Joined</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="subscriberTableBody">
+                                    <tr><td colspan="4" class="subscriber-empty">No subscribers loaded yet.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -314,7 +362,9 @@
         const state = {
             content: null,
             activeEditorId: 'siteDetails',
-            saveHandle: null
+            saveHandle: null,
+            subscribers: [],
+            subscribersSheetUrl: ''
         };
 
         const pageToggleConfig = [
@@ -645,6 +695,108 @@
 
         const setStatus = (message) => {
             el('loadStatus').textContent = message;
+        };
+
+        const setSubscriberStatus = (message, isError = false) => {
+            const status = el('subscriberStatus');
+            status.textContent = message;
+            status.style.color = isError ? '#991b1b' : '#0f4c75';
+            status.style.background = isError ? 'rgba(248, 113, 113, 0.10)' : 'rgba(21, 147, 209, 0.08)';
+            status.style.borderColor = isError ? 'rgba(248, 113, 113, 0.22)' : 'rgba(21, 147, 209, 0.15)';
+        };
+
+        const downloadText = (filename, content, type = 'text/plain;charset=utf-8') => {
+            const blob = new Blob([content], { type });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = filename;
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            URL.revokeObjectURL(url);
+        };
+
+        const formatSubscriberDate = (value) => {
+            const time = Date.parse(typeof value === 'string' ? value : '');
+            if (Number.isNaN(time)) return 'Unknown';
+            return new Date(time).toLocaleString();
+        };
+
+        const serializeSubscribersToCsv = (subscribers) => {
+            const rows = [['Email', 'Source', 'Page URL', 'Joined At']];
+            subscribers.forEach((subscriber) => {
+                rows.push([
+                    subscriber?.email || '',
+                    subscriber?.source || '',
+                    subscriber?.pageUrl || '',
+                    subscriber?.joinedAt || ''
+                ]);
+            });
+            return rows
+                .map((row) => row.map((cell) => {
+                    const text = String(cell ?? '');
+                    return /[",\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+                }).join(','))
+                .join('\n');
+        };
+
+        const renderSubscribers = () => {
+            const body = el('subscriberTableBody');
+            const sheetLink = el('subscriberSheetLink');
+            if (!body) return;
+
+            if (!Array.isArray(state.subscribers) || state.subscribers.length === 0) {
+                body.innerHTML = '<tr><td colspan="4" class="subscriber-empty">No subscribers available yet.</td></tr>';
+            } else {
+                body.innerHTML = state.subscribers
+                    .slice()
+                    .sort((a, b) => parseUpdatedAt(b?.joinedAt) - parseUpdatedAt(a?.joinedAt))
+                    .map((subscriber) => `
+                        <tr>
+                            <td>${subscriber?.email ? `<a href="mailto:${subscriber.email}">${subscriber.email}</a>` : 'Unknown'}</td>
+                            <td>${subscriber?.source || 'Website'}</td>
+                            <td class="small text-muted">${subscriber?.pageUrl || '-'}</td>
+                            <td>${formatSubscriberDate(subscriber?.joinedAt)}</td>
+                        </tr>
+                    `)
+                    .join('');
+            }
+
+            if (sheetLink) {
+                if (state.subscribersSheetUrl) {
+                    sheetLink.href = state.subscribersSheetUrl;
+                    sheetLink.classList.remove('d-none');
+                } else {
+                    sheetLink.href = '#';
+                    sheetLink.classList.add('d-none');
+                }
+            }
+        };
+
+        const fetchSubscribers = async () => {
+            setSubscriberStatus('Loading subscriber list...');
+            try {
+                const response = await fetch('/api/mailing-list?format=json', { cache: 'no-store' });
+                const data = await response.json().catch(() => ({}));
+                if (!response.ok) {
+                    throw new Error(data?.message || 'Could not load subscriber records.');
+                }
+                state.subscribers = Array.isArray(data?.subscribers) ? data.subscribers : [];
+                state.subscribersSheetUrl = typeof data?.sheetUrl === 'string' ? data.sheetUrl : '';
+                renderSubscribers();
+                setSubscriberStatus(`Loaded ${state.subscribers.length} subscriber${state.subscribers.length === 1 ? '' : 's'}.`);
+            } catch (error) {
+                state.subscribers = [];
+                state.subscribersSheetUrl = '';
+                renderSubscribers();
+                setSubscriberStatus(
+                    error instanceof Error
+                        ? error.message
+                        : 'Could not load subscriber records.',
+                    true
+                );
+            }
         };
 
         const requirePassword = () => {
@@ -1051,6 +1203,16 @@
                 renderEditor();
                 setStatus('Imported content from the selected JSON file.');
             });
+
+            el('btnSubscribersRefresh').addEventListener('click', fetchSubscribers);
+            el('btnSubscribersCsv').addEventListener('click', () => {
+                if (!state.subscribers.length) {
+                    setSubscriberStatus('There are no loaded subscribers to export yet.', true);
+                    return;
+                }
+                downloadText('mailing-list-subscribers.csv', serializeSubscribersToCsv(state.subscribers), 'text/csv;charset=utf-8');
+                setSubscriberStatus('Downloaded the current subscriber list as CSV.');
+            });
         };
 
         const init = async () => {
@@ -1071,10 +1233,10 @@
                 persistDraft();
                 setStatus('Could not load site-content.json automatically. The admin is using the current browser draft until you import or reload the content file.');
             }
+            fetchSubscribers();
         };
 
         init();
     </script>
 </body>
 </html>
-
