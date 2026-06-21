@@ -1,0 +1,19 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/expertise", "destination": "/expertise.html" },
+    { "source": "/expertise-sector", "destination": "/expertise-sector.html" },
+    { "source": "/practice", "destination": "/practice.html" },
+    { "source": "/sectors", "destination": "/sectors.html" },
+    { "source": "/services", "destination": "/services.html" },
+    { "source": "/news-updates", "destination": "/news-updates.html" },
+    { "source": "/articles", "destination": "/articles.html" },
+    { "source": "/insights-resources", "destination": "/insights-resources.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/privacy-policy", "destination": "/privacy-policy.html" },
+    { "source": "/anti-bribery-corruption-statement", "destination": "/anti-bribery-corruption-statement.html" },
+    { "source": "/meet-our-lawyers", "destination": "/meet-our-lawyers.html" },
+    { "source": "/admin", "destination": "/admin.html" }
+  ]
+}

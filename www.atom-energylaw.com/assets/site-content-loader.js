@@ -452,6 +452,143 @@
             .join('');
     };
 
+    const renderHomeHubExplorer = (content) => {
+        const nav = document.getElementById('homeHubExplorerNav');
+        const preview = document.getElementById('homeHubExplorerPreview');
+        const hub = content?.knowledgeHub;
+        const testimonials = content?.home?.testimonials;
+        if (!nav || !preview || !hub) return;
+
+        const sections = [
+            {
+                id: 'news',
+                navTitle: 'Latest Updates',
+                navSubtitle: 'Current briefings and market developments.',
+                kicker: hub?.pages?.news?.kicker || 'Latest Briefings',
+                title: hub?.pages?.news?.title || 'Latest Updates',
+                lead: hub?.pages?.news?.lead || 'Track announcements, market developments, and practical updates relevant to the energy and natural resources sectors.',
+                link: 'news-updates.html',
+                button: 'Open Latest Updates',
+                image: hub?.news?.[0]?.image || 'assets/heroslide4.jpg',
+                stats: [
+                    { label: 'Coverage', value: 'News', note: 'Fast, timely briefings from across the sector.' },
+                    { label: 'Items', value: String((hub?.news || []).length || 0).padStart(2, '0'), note: 'Live entries curated for relevance.' },
+                    { label: 'Focus', value: 'Current', note: 'Built for decisions that need speed and clarity.' }
+                ],
+                bullets: (hub?.news || []).slice(0, 4).map((item) => `${item.title}: ${item.summary}`)
+            },
+            {
+                id: 'articles',
+                navTitle: 'Articles & Insights',
+                navSubtitle: 'Long-form analysis and thought leadership.',
+                kicker: hub?.pages?.articles?.kicker || 'Thought Leadership',
+                title: hub?.pages?.articles?.title || 'Articles & Insights',
+                lead: hub?.pages?.articles?.lead || 'Longer-form analysis, client notes, and commercially focused insight.',
+                link: 'articles.html',
+                button: 'Open Articles & Insights',
+                image: hub?.articles?.[0]?.image || 'assets/heroslide3.jpg',
+                stats: [
+                    { label: 'Coverage', value: 'Ideas', note: 'Insight-led pieces with commercial context.' },
+                    { label: 'Items', value: String((hub?.articles || []).length || 0).padStart(2, '0'), note: 'Feature-ready article previews.' },
+                    { label: 'Focus', value: 'Depth', note: 'Built for deeper reading and practical takeaways.' }
+                ],
+                bullets: (hub?.articles || []).slice(0, 4).map((item) => `${item.title}: ${item.summary}`)
+            },
+            {
+                id: 'resources',
+                navTitle: 'Resource Center',
+                navSubtitle: 'Bills, laws, regulations, and practical tools.',
+                kicker: hub?.pages?.resources?.kicker || 'Bills, Laws and Regulations',
+                title: hub?.pages?.resources?.title || 'Resource Center',
+                lead: hub?.pages?.resources?.lead || 'Browse bills, laws, regulations, trackers, and practical legal materials.',
+                link: 'insights-resources.html',
+                button: 'Open Resource Center',
+                image: hub?.resources?.[0]?.image || 'assets/mining.jpg',
+                stats: [
+                    { label: 'Coverage', value: 'Library', note: 'Reference materials organized for practical use.' },
+                    { label: 'Items', value: String((hub?.resources || []).length || 0).padStart(2, '0'), note: 'Bills, laws, and regulations in one place.' },
+                    { label: 'Focus', value: 'Tools', note: 'Useful for projects, compliance, and market tracking.' }
+                ],
+                bullets: (hub?.resources || []).slice(0, 4).map((item) => `${item.title}: ${item.summary}`)
+            },
+            {
+                id: 'testimonials',
+                navTitle: 'Client Perspectives',
+                navSubtitle: 'Selected comments from clients and partners.',
+                kicker: 'Client Perspectives',
+                title: 'Trusted by Clients',
+                lead: 'Selected comments from clients and partners who value clarity, responsiveness, and execution-ready counsel.',
+                link: 'contact.html',
+                button: 'Contact The Firm',
+                image: 'assets/whoweare-optimized.webp',
+                stats: [
+                    { label: 'Coverage', value: 'Trust', note: 'Feedback grounded in execution and responsiveness.' },
+                    { label: 'Voices', value: String((testimonials || []).length || 0).padStart(2, '0'), note: 'Representative comments across mandates.' },
+                    { label: 'Focus', value: 'Value', note: 'Commercially grounded legal support that moves matters forward.' }
+                ],
+                bullets: (testimonials || []).slice(0, 4).map((item) => `"${item.quote}" - ${item.name}, ${item.role}`)
+            }
+        ].filter((section) => Array.isArray(section.bullets) && section.bullets.length);
+
+        if (!sections.length) return;
+
+        const renderPreview = (sectionId) => {
+            const active = sections.find((section) => section.id === sectionId) || sections[0];
+            nav.querySelectorAll('.hub-explorer-item').forEach((button) => {
+                button.classList.toggle('is-active', button.getAttribute('data-hub-section') === active.id);
+            });
+
+            const statsMarkup = active.stats.map((stat) => `
+                <div class="hub-preview-stat">
+                    <div class="hub-preview-stat-label">${escapeHtml(stat.label)}</div>
+                    <div class="hub-preview-stat-value">${escapeHtml(stat.value)}</div>
+                    <div class="hub-preview-stat-note">${escapeHtml(stat.note)}</div>
+                </div>
+            `).join('');
+
+            const bulletsMarkup = active.bullets.map((bullet) => `
+                <div class="hub-preview-list-item">
+                    <i class="fas fa-circle-check"></i>
+                    <span>${escapeHtml(bullet)}</span>
+                </div>
+            `).join('');
+
+            const imageStyle = active.image ? `style="--hub-preview-image: url('${escapeHtml(active.image)}')"` : '';
+
+            preview.innerHTML = `
+                <article class="hub-preview-panel">
+                    <div class="hub-preview-media" ${imageStyle}></div>
+                    <div class="hub-preview-content">
+                        <p class="hub-preview-kicker">${escapeHtml(active.kicker)}</p>
+                        <h3 class="hub-preview-title">${escapeHtml(active.title)}</h3>
+                        <p class="hub-preview-lead">${escapeHtml(active.lead)}</p>
+                        <div class="hub-preview-stats">${statsMarkup}</div>
+                        <div class="hub-preview-list">${bulletsMarkup}</div>
+                        <a href="${escapeHtml(active.link)}" class="btn btn-primary hub-preview-cta">${escapeHtml(active.button)} <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            `;
+        };
+
+        nav.innerHTML = sections.map((section, index) => `
+            <button type="button" class="hub-explorer-item${index === 0 ? ' is-active' : ''}" data-hub-section="${escapeHtml(section.id)}">
+                <div class="hub-explorer-item-title">
+                    <span>${escapeHtml(section.navTitle)}</span>
+                    <i class="fas fa-arrow-right"></i>
+                </div>
+                <p class="hub-explorer-item-subtitle">${escapeHtml(section.navSubtitle)}</p>
+            </button>
+        `).join('');
+
+        nav.querySelectorAll('.hub-explorer-item').forEach((button) => {
+            button.addEventListener('click', () => {
+                renderPreview(button.getAttribute('data-hub-section') || sections[0].id);
+            });
+        });
+
+        renderPreview(sections[0].id);
+    };
+
     const bindMailingListForms = (content) => {
         const destination = content?.site?.contact?.email || 'advisory@atom-energylaw.com';
         document.querySelectorAll('[data-email-list-form]').forEach((form) => {
@@ -524,6 +661,7 @@ ${email}`);
 
         renderHomeNews(document.getElementById('homeNewsContainer'), content?.knowledgeHub?.news || []);
         renderTestimonials(document.getElementById('homeTestimonialsContainer'), content?.home?.testimonials || []);
+        renderHomeHubExplorer(content);
         applyKnowledgeHubIntro(content?.knowledgeHub, visibility);
         applyKnowledgeHubPage(content?.knowledgeHub);
         bindMailingListForms(content);
