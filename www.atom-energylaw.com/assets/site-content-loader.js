@@ -452,11 +452,89 @@
             .join('');
     };
 
+    const getHomeHubExplorerFallbackContent = () => ({
+        home: {
+            testimonials: [
+                {
+                    quote: 'Clear guidance, fast turnaround, and strong commercial judgement. We felt supported throughout a complex transaction.',
+                    name: 'Client',
+                    role: 'Project Developer'
+                },
+                {
+                    quote: 'They helped us navigate regulatory issues with confidence. Practical, responsive, and deeply sector-aware.',
+                    name: 'Client',
+                    role: 'Investor'
+                },
+                {
+                    quote: 'Responsive, discreet, and precise. Their dispute readiness work strengthened our position and reduced risk.',
+                    name: 'General Counsel',
+                    role: 'Energy Company'
+                }
+            ]
+        },
+        knowledgeHub: {
+            pages: {
+                news: {
+                    kicker: 'Latest Briefings',
+                    title: 'Latest Updates',
+                    lead: 'Track announcements, market developments, and practical updates relevant to the energy and natural resources sectors.'
+                },
+                articles: {
+                    kicker: 'Thought Leadership',
+                    title: 'Articles & Insights',
+                    lead: 'Publish longer-form analysis, client notes, and commercially focused insight.'
+                },
+                resources: {
+                    kicker: 'Bills, Laws and Regulations',
+                    title: 'Resource Center',
+                    lead: 'Browse bills, laws, regulations, trackers, and practical legal materials.'
+                }
+            },
+            news: [
+                {
+                    title: 'New advisory support for energy transition projects',
+                    summary: 'Expanded support for renewables, embedded generation, and infrastructure investment aligned with evolving market and policy frameworks.',
+                    image: 'assets/heroslide3.jpg'
+                },
+                {
+                    title: 'Monitoring petroleum and power regulatory developments',
+                    summary: 'Short updates and practical takeaways on licensing, compliance, and market reforms affecting sector participants.',
+                    image: 'assets/heroslide4.jpg'
+                }
+            ],
+            articles: [
+                {
+                    title: 'Structuring value in Nigeria\'s evolving energy market',
+                    summary: 'A practical look at risk allocation, documentation priorities, and execution strategy across complex energy transactions.',
+                    image: 'assets/heroslide3.jpg'
+                },
+                {
+                    title: 'Regulatory clarity and investment confidence',
+                    summary: 'How disciplined regulatory analysis can improve investor readiness, project certainty, and commercial timing.',
+                    image: 'assets/heroslide4.jpg'
+                }
+            ],
+            resources: [
+                {
+                    title: 'Petroleum Industry Reform Bill Tracker',
+                    summary: 'A practical snapshot of current petroleum-sector bill developments, major clauses, and the commercial issues stakeholders should monitor.',
+                    image: 'assets/mining.jpg'
+                },
+                {
+                    title: 'Petroleum Industry Act Reference Note',
+                    summary: 'A practical summary of key provisions, compliance considerations, and implementation points under the Petroleum Industry Act.',
+                    image: 'assets/maritime.jpg'
+                }
+            ]
+        }
+    });
+
     const renderHomeHubExplorer = (content) => {
         const nav = document.getElementById('homeHubExplorerNav');
         const preview = document.getElementById('homeHubExplorerPreview');
-        const hub = content?.knowledgeHub;
-        const testimonials = content?.home?.testimonials;
+        const source = content?.knowledgeHub ? content : getHomeHubExplorerFallbackContent();
+        const hub = source?.knowledgeHub;
+        const testimonials = source?.home?.testimonials;
         if (!nav || !preview || !hub) return;
 
         const sections = [
@@ -684,7 +762,10 @@ ${email}`);
             applyContent(content);
         } catch (_) {
             const draftContent = loadStoredDraft();
-            if (!draftContent) return;
+            if (!draftContent) {
+                renderHomeHubExplorer(null);
+                return;
+            }
             applyContent(draftContent);
         }
     };
