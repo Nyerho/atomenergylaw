@@ -16,6 +16,8 @@
     { "source": "/meet-our-lawyers", "destination": "/meet-our-lawyers.html" },
     { "source": "/admin", "destination": "/admin.html" },
     { "source": "/nmdpra", "destination": "/NMPDRA.html" },
-    { "source": "/NMPDRA", "destination": "/NMPDRA.html" }
+    { "source": "/NMPDRA", "destination": "/NMPDRA.html" },
+    { "source": "/nmdpra.html", "destination": "/NMPDRA.html" },
+    { "source": "/NMPDRA.html", "destination": "/NMPDRA.html" }
   ]
 }
