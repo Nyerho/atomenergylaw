@@ -47,7 +47,6 @@
             color: var(--text-light);
             overflow-x: hidden;
             min-height: 100vh;
-            scroll-behavior: smooth;
         }
 
         p {
@@ -1156,6 +1155,60 @@
             color: rgba(15, 23, 42, 0.74);
             font-weight: 800;
             font-size: 0.82rem;
+        }
+
+        .nmpdra-section {
+            position: relative;
+            padding: 95px 0;
+            background:
+                radial-gradient(900px 640px at 12% 10%, rgba(21, 147, 209, 0.12), rgba(255, 255, 255, 0) 60%),
+                radial-gradient(900px 640px at 92% 62%, rgba(21, 147, 209, 0.10), rgba(255, 255, 255, 0) 55%),
+                linear-gradient(180deg, #ffffff 0%, #f7fbff 55%, #ffffff 100%);
+        }
+
+        .nmdpra-slideshow {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 22px 60px rgba(15, 23, 42, 0.14);
+            min-height: 420px;
+        }
+
+        .nmdpra-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 800ms ease;
+        }
+
+        .nmdpra-slide.is-active {
+            opacity: 1;
+        }
+
+        .nmdpra-slideshow-nav {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .nmdpra-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.4);
+            transition: background 200ms ease, transform 200ms ease;
+            cursor: pointer;
+        }
+
+        .nmdpra-dot.is-active {
+            background: #ffffff;
+            transform: scale(1.3);
         }
 
         .news-section {
@@ -2365,6 +2418,31 @@ ADVISORY</h1>
         </div>
     </section>
 
+    <section class="nmpdra-section" id="nmdpra-event">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <div class="about-copy">
+                        <h2 class="about-title">NMPDRA Event</h2>
+                        <p class="mb-4">Join us for the National Mineral and Petroleum Development Regulatory Act event, where industry leaders, policymakers, and legal experts gather to discuss the latest developments in Nigeria's energy and mineral sectors.</p>
+                        <p class="mb-4">Explore insights from the event, view photo highlights, and connect with our team for further guidance on regulatory compliance and strategic opportunities.</p>
+                        <a href="NMPDRA.html" class="btn btn-primary">View Event Gallery</a>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="nmdpra-slideshow" id="nmdpraSlideshow">
+                        <div class="nmdpra-slide is-active" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-08.jpg');"></div>
+                        <div class="nmdpra-slide" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-09.jpg');"></div>
+                        <div class="nmdpra-slide" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-10.jpg');"></div>
+                        <div class="nmdpra-slide" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-11.jpg');"></div>
+                        <div class="nmdpra-slide" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-12.jpg');"></div>
+                        <div class="nmdpra-slideshow-nav" id="nmdpraSlideshowNav"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="hub-explorer-section section-blue" id="knowledge-hub-explorer">
         <div class="container">
             <div class="text-center mb-5">
@@ -2596,17 +2674,21 @@ ADVISORY</h1>
         (() => {
             const selectors = ['.nav-hub-group', '.nav-hub-card', '.metric-card', '.hover-card', '.news-card', '.lawyer-card', '.gallery-tile', '.practice-item'];
             const cardSelector = selectors.join(', ');
-            const targets = [];
+            const sections = Array.from(document.querySelectorAll('section'));
+            const targets = new Set();
 
-            document.querySelectorAll(cardSelector).forEach((card, index) => {
-                card.classList.add('reveal-on-scroll');
-                const delay = Math.min(240, index * 70);
-                card.style.setProperty('--reveal-delay', `${delay}ms`);     
-                targets.push(card);
+            sections.forEach((section) => {
+                const cards = Array.from(section.querySelectorAll(cardSelector));
+                cards.forEach((card, index) => {
+                    card.classList.add('reveal-on-scroll');
+                    const delay = Math.min(240, index * 70);
+                    card.style.setProperty('--reveal-delay', `${delay}ms`);
+                    targets.add(card);
+                });
             });
 
             if (!('IntersectionObserver' in window)) {
-                targets.forEach((el) => el.classList.add('is-visible'));        
+                targets.forEach((el) => el.classList.add('is-visible'));
                 return;
             }
 
@@ -2618,7 +2700,7 @@ ADVISORY</h1>
                         observer.unobserve(entry.target);
                     });
                 },
-                { threshold: 0.1, rootMargin: '0px 0px -5% 0px' }
+                { threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
             );
 
             targets.forEach((el) => observer.observe(el));
@@ -2705,6 +2787,50 @@ ADVISORY</h1>
             carouselEl.addEventListener('slid.bs.carousel', (event) => {
                 updateMarkers(event.to ?? 0);
             });
+        })();
+    </script>
+    <script>
+        (() => {
+            const slideshowEl = document.getElementById('nmdpraSlideshow');
+            const slides = Array.from(slideshowEl?.querySelectorAll('.nmdpra-slide') || []);
+            const navEl = document.getElementById('nmdpraSlideshowNav');
+            if (!slideshowEl || !slides.length || !navEl) return;
+
+            const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            let currentIndex = 0;
+            const durationMs = 4500;
+
+            const createNavDots = () => {
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.className = 'nmdpra-dot' + (index === 0 ? ' is-active' : '');
+                    dot.addEventListener('click', () => goToSlide(index));
+                    navEl.appendChild(dot);
+                });
+            };
+
+            const updateDots = () => {
+                const dots = navEl.querySelectorAll('.nmdpra-dot');
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('is-active', i === currentIndex);
+                });
+            };
+
+            const goToSlide = (index) => {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('is-active', i === index);
+                });
+                currentIndex = index;
+                updateDots();
+            };
+
+            createNavDots();
+
+            if (!reduceMotion) {
+                window.setInterval(() => {
+                    goToSlide((currentIndex + 1) % slides.length);
+                }, durationMs);
+            }
         })();
     </script>
     <script>
