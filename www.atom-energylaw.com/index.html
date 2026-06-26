@@ -47,6 +47,7 @@
             color: var(--text-light);
             overflow-x: hidden;
             min-height: 100vh;
+            scroll-behavior: smooth;
         }
 
         p {
@@ -2595,21 +2596,17 @@ ADVISORY</h1>
         (() => {
             const selectors = ['.nav-hub-group', '.nav-hub-card', '.metric-card', '.hover-card', '.news-card', '.lawyer-card', '.gallery-tile', '.practice-item'];
             const cardSelector = selectors.join(', ');
-            const sections = Array.from(document.querySelectorAll('section'));
-            const targets = new Set();
+            const targets = [];
 
-            sections.forEach((section) => {
-                const cards = Array.from(section.querySelectorAll(cardSelector));
-                cards.forEach((card, index) => {
-                    card.classList.add('reveal-on-scroll');
-                    const delay = Math.min(240, index * 70);
-                    card.style.setProperty('--reveal-delay', `${delay}ms`);
-                    targets.add(card);
-                });
+            document.querySelectorAll(cardSelector).forEach((card, index) => {
+                card.classList.add('reveal-on-scroll');
+                const delay = Math.min(240, index * 70);
+                card.style.setProperty('--reveal-delay', `${delay}ms`);     
+                targets.push(card);
             });
 
             if (!('IntersectionObserver' in window)) {
-                targets.forEach((el) => el.classList.add('is-visible'));
+                targets.forEach((el) => el.classList.add('is-visible'));        
                 return;
             }
 
@@ -2621,7 +2618,7 @@ ADVISORY</h1>
                         observer.unobserve(entry.target);
                     });
                 },
-                { threshold: 0.12, rootMargin: '0px 0px -10% 0px' }
+                { threshold: 0.1, rootMargin: '0px 0px -5% 0px' }
             );
 
             targets.forEach((el) => observer.observe(el));

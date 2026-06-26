@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="NMDPRA GCLAF 2026 - Atom-Energylaw">
+    <meta name="description" content="NMDPRA General Counsel and Legal Advisers Forum 2026: Beyond Compliance">
+    <title>NMDPRA GCLAF 2026 | Atom-Energylaw</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>document.documentElement.classList.add('js');</script>
+    
+    <style>
+        :root {
+            --primary-color: #1593d1;
+            --secondary-color: #0f6f9e;
+            --accent-blue: #1593d1;
+            --dark-bg: #ffffff;
+            --dark-bg-2: #f8f9fa;
+            --glass-bg: rgba(255, 255, 255, 0.9);
+            --glass-border: rgba(0, 0, 0, 0.1);
+            --text-light: #333333;
+            --text-muted: #666666;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            line-height: 1.4;
+            margin: 0;
+            background: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            font-size: 14px;
+            line-height: 26.6px;
+            font-weight: 400;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Marcellus', serif;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: 1.34;
+            color: #1a1a1a;
+        }
+
+        h1 {
+            font-size: clamp(2.3rem, 4vw, 3.4rem);
+            line-height: 1.16;
+        }
+
+        h2 {
+            font-size: clamp(1.95rem, 3vw, 2.45rem);
+            line-height: 1.28;
+        }
+
+        h3 {
+            font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+            line-height: 1.3;
+        }
+
+        h4 {
+            font-size: clamp(1.28rem, 1.7vw, 1.58rem);
+            line-height: 1.34;
+        }
+
+        .navbar {
+            background: #ffffff;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 0.9rem 0;
+            box-shadow: 0 12px 34px rgba(6, 28, 63, 0.12);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: #1a1a1a !important;
+            font-size: 1.5rem;
+        }
+
+        .navbar-brand img {
+            height: 50px;
+        }
+
+        .navbar-nav {
+            align-items: center;
+            gap: 1.15rem;
+        }
+
+        .nav-link {
+            color: #1a1a1a !important;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.74rem;
+            padding: 0.35rem 0.1rem !important;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-color: transparent;
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 999px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            box-shadow: 0 14px 30px rgba(21, 147, 209, 0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            transform: translateY(-1px);
+            box-shadow: 0 18px 38px rgba(21, 147, 209, 0.3);
+        }
+
+        .glass-panel {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-section {
+            position: relative;
+            padding: 140px 0 90px;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: radial-gradient(800px 520px at 20% 20%, rgba(21, 147, 209, 0.22), rgba(6, 28, 63, 0) 60%),
+                        radial-gradient(700px 520px at 80% 70%, rgba(21, 147, 209, 0.14), rgba(6, 28, 63, 0) 55%),
+                        linear-gradient(180deg, #061c3f 0%, #041329 100%);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(110deg, rgba(2, 6, 23, 0.48), rgba(2, 6, 23, 0.58));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: 1.16;
+            color: #ffffff;
+            font-size: clamp(1.75rem, 2.7vw, 2.95rem);
+            text-shadow: 0 10px 28px rgba(2, 6, 23, 0.45);
+        }
+
+        .hero-lead {
+            color: rgba(255, 255, 255, 0.96);
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 26.6px;
+            text-shadow: 0 6px 18px rgba(2, 6, 23, 0.36);
+        }
+
+        .section {
+            position: relative;
+            padding: 95px 0;
+            background: linear-gradient(180deg, #ffffff 0%, #f7fbff 55%, #ffffff 100%);
+        }
+
+        .section-blue {
+            background: radial-gradient(900px 520px at 18% 20%, rgba(21, 147, 209, 0.18), rgba(0, 0, 0, 0) 55%),
+                        radial-gradient(900px 520px at 78% 55%, rgba(21, 147, 209, 0.35), rgba(0, 0, 0, 0) 60%),
+                        linear-gradient(135deg, #06294f, #021329);
+            color: rgba(255, 255, 255, 0.88);
+        }
+
+        .section-blue h1,
+        .section-blue h2,
+        .section-blue h3,
+        .section-blue h4,
+        .section-blue h5,
+        .section-blue h6 {
+            color: #ffffff;
+        }
+
+        .detail-card {
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 16px;
+            padding: 1.8rem;
+            transition: all 0.3s;
+            height: 100%;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+            border-color: var(--primary-color);
+        }
+
+        .detail-card .icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(21, 147, 209, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .detail-card h3 {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+
+        .detail-card p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+
+        .testimonial-card {
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: rgba(15, 23, 42, 0.9);
+            padding: 2rem;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.12);
+        }
+
+        .testimonial-quote {
+            font-size: 1.05rem;
+            line-height: 1.82;
+            color: rgba(15, 23, 42, 0.78);
+        }
+
+        .testimonial-meta {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .testimonial-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(21, 147, 209, 0.12);
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background: rgba(21, 147, 209, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 1.8rem;
+            border-radius: 0 16px 16px 0;
+            margin: 2.5rem 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .highlight-box strong {
+            color: var(--text-light);
+            font-weight: 600;
+        }
+
+        .site-footer {
+            background: radial-gradient(900px 520px at 18% 20%, rgba(21, 147, 209, 0.28), rgba(0, 0, 0, 0) 60%),
+                        radial-gradient(900px 520px at 78% 55%, rgba(21, 147, 209, 0.18), rgba(0, 0, 0, 0) 55%),
+                        linear-gradient(135deg, #06294f, #021329);
+            color: rgba(255, 255, 255, 0.82);
+            padding: 110px 0 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 1px, rgba(0, 0, 0, 0) 1px),
+                                linear-gradient(45deg, rgba(255, 255, 255, 0.06) 1px, rgba(0, 0, 0, 0) 1px);
+            background-size: 64px 64px;
+            opacity: 0.22;
+            pointer-events: none;
+        }
+
+        .site-footer .footer-title {
+            color: #ffffff;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            margin-bottom: 18px;
+        }
+
+        .site-footer .footer-links {
+            list-style: none;
+            padding-left: 0;
+            margin: 0;
+            display: grid;
+            gap: 10px;
+        }
+
+        .site-footer .footer-links a {
+            color: rgba(255, 255, 255, 0.78);
+            text-decoration: none;
+            transition: color 200ms ease;
+        }
+
+        .site-footer .footer-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .site-footer .footer-social {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .site-footer .footer-social a {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.12);
+            color: rgba(255, 255, 255, 0.92);
+            text-decoration: none;
+            transition: transform 200ms ease, background 200ms ease, color 200ms ease;
+        }
+
+        .site-footer .footer-social a:hover {
+            transform: translateY(-2px);
+            background: rgba(21, 147, 209, 0.18);
+            color: var(--accent-blue);
+        }
+
+        .site-footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            margin-top: 70px;
+            padding-top: 22px;
+        }
+
+        .site-footer .footer-legal {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .site-footer .footer-legal a {
+            color: rgba(255, 255, 255, 0.78);
+            text-decoration: none;
+        }
+
+        .site-footer .footer-legal a:hover {
+            color: var(--accent-blue);
+        }
+    </style>
+</head>
+<body id="top">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/Atom logo final-I7OGcKSj.png" alt="Atom-Energylaw">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(0,0,0,0.25);">
+                <span class="fa fa-bars" style="color: #1a1a1a;"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Who we are</a></li>
+                    <li class="nav-item"><a class="nav-link" href="expertise.html">Our Expertise</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Knowledge Hub</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <img src="assets/NMDPRA LOGO.jpg" alt="NMDPRA Logo" style="height: 80px; border-radius: 12px;">
+                        <div>
+                            <div class="text-uppercase fw-bold" style="color: rgba(255,255,255,0.8); letter-spacing: 0.1em; font-size: 0.85rem;">NMDPRA GENERAL COUNSEL AND LEGAL ADVISERS FORUM</div>
+                            <div class="text-white" style="font-family: 'Marcellus', serif; font-size: 1.5rem;">NMDPRA GCLAF 2026</div>
+                        </div>
+                    </div>
+                    <h1 class="hero-title mb-3">General Counsel and Legal Advisers Forum</h1>
+                    <p class="hero-lead mb-4">"Beyond Compliance: Driving Regulatory Certainty and Investment Confidence in Nigeria's Petroleum Sector"</p>
+                    <div class="d-flex flex-wrap gap-4">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-calendar-alt" style="color: rgba(255,255,255,0.8);"></i>
+                            <span class="text-white">June 29-30, 2026</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-clock" style="color: rgba(255,255,255,0.8);"></i>
+                            <span class="text-white">9:00 AM – 4:00 PM Daily</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-map-marker-alt" style="color: rgba(255,255,255,0.8);"></i>
+                            <span class="text-white">Abuja Continental Hotel</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="mb-4">About the Event</h2>
+            <p>
+                The NMDPRA General Counsel and Legal Advisers Forum is the flagship industry engagement initiative of the Nigerian Midstream and Downstream Petroleum Regulatory Authority, designed to engage directly with chief legal officers, general counsels, and in-house legal teams of licensed operators. The Forum serves as a strategic platform for regulatory dialogue, policy clarification, and collaborative problem-solving between the Authority and the legal leadership responsible for ensuring compliance and guiding operational decisions within the petroleum industry.
+            </p>
+            <p>
+                Against the backdrop of a rapidly evolving post-PIA regulatory framework, the Forum offers participants a high-level opportunity to engage directly with the NMDPRA on areas of legal ambiguity, implementation challenges, and shared compliance responsibilities. It serves not only as a knowledge exchange platform but also as a regulatory feedback mechanism to strengthen mutual understanding between the Authority and the legal leadership of licensed entities. The Authority believes that sustained engagement at this level is vital for building trust, improving regulatory clarity, and reinforcing the legal foundations of a transparent, accountable, and investor-friendly petroleum industry.
+            </p>
+            <p>
+                This year's edition is convened under the theme "Beyond Compliance: Driving Regulatory Certainty and Investment Confidence in Nigeria's Petroleum Sector", and will build on the foundation of the 2025 edition which succeeded in establishing compliance as a shared value between the NMDPRA and the legal leadership of licensed operators.
+            </p>
+            <p>
+                Participants will leave the Forum better equipped to interpret regulatory expectations, guide internal compliance strategy, and engage more confidently with the Authority in resolving legal and operational issues.
+            </p>
+            <div class="highlight-box">
+                <strong>Atom Energy Law Advisory</strong> is proud to act as technical organising partners to the NMDPRA for this year's edition of the Forum.
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Details Section -->
+    <section class="section section-blue">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Event Details</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="detail-card">
+                        <div class="icon">
+                            <i class="fas fa-calendar-alt fa-lg"></i>
+                        </div>
+                        <h3>Date</h3>
+                        <p>Monday, 29th June – Tuesday, 30th June 2026</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="detail-card">
+                        <div class="icon">
+                            <i class="fas fa-clock fa-lg"></i>
+                        </div>
+                        <h3>Time</h3>
+                        <p>9:00 AM – 4:00 PM Daily</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="detail-card">
+                        <div class="icon">
+                            <i class="fas fa-map-marker-alt fa-lg"></i>
+                        </div>
+                        <h3>Venue</h3>
+                        <p>Ballroom 4, Ladi Kwali Conference Centre, Abuja Continental Hotel</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="detail-card">
+                        <div class="icon">
+                            <i class="fas fa-globe fa-lg"></i>
+                        </div>
+                        <h3>Theme</h3>
+                        <p>"Beyond Compliance: Driving Regulatory Certainty and Investment Confidence in Nigeria's Petroleum Sector"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5 text-center">
+                <a href="#" class="btn btn-primary">Download 2026 Programme</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Should Attend Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Who Should Attend</h2>
+                <p class="text-muted mb-4" style="font-size: 1.1rem;">General Counsel and Legal Advisers in the Petroleum Industry</p>
+                <div class="d-inline-flex align-items-center gap-3 p-3 mb-4" style="background: rgba(21,147,209,0.08); border: 1px solid rgba(21,147,209,0.2); border-radius: 12px;">
+                    <i class="fas fa-exclamation-triangle" style="color: var(--primary-color);"></i>
+                    <span style="font-weight: 600; color: var(--text-light);">Physical attendance is strictly by invitation</span>
+                </div>
+                <p class="mb-4" style="font-size: 1.1rem;">Want to follow the conversations virtually?</p>
+                <a href="#" class="btn btn-primary">Pre-register to livestream</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section section-blue">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Testimonials</h2>
+                <p style="color: rgba(255,255,255,0.75);">What past attendees have to say</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            "The Forum provided invaluable clarity on post-PIA regulatory expectations. A must-attend for every legal leader in the sector."
+                        </div>
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar">PA</div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--text-light);">Previous Attendee</div>
+                                <div style="color: var(--text-muted); font-size: 0.9rem;">General Counsel, Major Petroleum Operator</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            "A rare opportunity to engage directly with NMDPRA leadership and shape the regulatory conversation."
+                        </div>
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar">PA</div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--text-light);">Previous Attendee</div>
+                                <div style="color: var(--text-muted); font-size: 0.9rem;">Legal Adviser, Downstream Operator</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="testimonial-card">
+                        <div class="testimonial-quote">
+                            "The collaborative problem-solving approach sets this Forum apart from typical industry conferences."
+                        </div>
+                        <div class="testimonial-meta">
+                            <div class="testimonial-avatar">PA</div>
+                            <div>
+                                <div style="font-weight: 600; color: var(--text-light);">Previous Attendee</div>
+                                <div style="color: var(--text-muted); font-size: 0.9rem;">Chief Legal Officer, Midstream Company</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="p-5" style="background: linear-gradient(135deg, #06294f, #021329); border-radius: 24px; color: white; text-align: center;">
+                        <h2 class="mb-3">Be Part of the Conversation</h2>
+                        <p class="mb-4" style="color: rgba(255,255,255,0.8); max-width: 700px; margin-left: auto; margin-right: auto;">
+                            Join leading general counsel, regulators and industry voices as we move the conversation beyond compliance, toward regulatory certainty and investment confidence in Nigeria's petroleum sector.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 justify-content-center">
+                            <a href="index.html" class="btn btn-primary">Back to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container position-relative">
+            <div class="row g-5">
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Capabilities</h5>
+                    <ul class="footer-links">
+                        <li><a href="expertise.html#deal-advisory">Deal Advisory</a></li>
+                        <li><a href="expertise.html#project-structuring">Project Structuring</a></li>
+                        <li><a href="expertise.html#regulatory-compliance">Regulatory Compliance</a></li>
+                        <li><a href="expertise.html#policy-legislative">Policy & Legislative Advisory</a></li>
+                        <li><a href="expertise.html#disputes-resolution">Dispute Resolution</a></li>
+                        <li><a href="expertise.html#tax-advisory">Tax Advisory</a></li>
+                        <li><a href="expertise.html#general-counsel">General Counsel and Company Secretariat Support</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Knowledge Hub</h5>
+                    <ul class="footer-links">
+                        <li><a href="news-updates.html">Latest Updates</a></li>
+                        <li><a href="articles.html">Articles & Insights</a></li>
+                        <li><a href="insights-resources.html">Resource Center</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h5 class="footer-title">Social</h5>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/company/atom-energy-law-advisory/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.instagram.com/atomenergylaw?igsh=Zmg5emJxdzFmeW8z" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@atomenergylawadvisory?si=VWPskopzJdfvKg_x" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <div class="mt-4">
+                        <div class="text-white fw-bold mb-2">Contact</div>
+                        <div class="small" style="color: rgba(255,255,255,0.78);">
+                            <div class="mb-1"><i class="fas fa-phone me-2"></i>+234 906 049 0067</div>
+                            <div class="mb-1"><i class="fas fa-envelope me-2"></i>advisory@atom-energylaw.com</div>
+                            <div><i class="fas fa-map-marker-alt me-2"></i>Plot C104, Peachvile Platinum, Jabi-Airport Road, Abuja.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+                <div class="footer-legal">
+                    <a href="privacy-policy.html">Privacy Policy</a>
+                    <span style="opacity: 0.5;">|</span>
+                    <a href="anti-bribery-corruption-statement.html">Anti-Bribery and Corruption Statement</a>
+                    <a href="admin.html" aria-label="Admin" title="Admin"><i class="fas fa-lock"></i></a>
+                </div>
+                <div class="small" style="color: rgba(255,255,255,0.72);">All rights reserved. (c) 2026 ATOM ENERGY LAW ADVISORY</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
