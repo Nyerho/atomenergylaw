@@ -192,148 +192,87 @@
             z-index: 2;
         }
 
-        .photo-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-        }
-
-        .photo-item {
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-            cursor: pointer;
+        .event-photo-slideshow {
             position: relative;
-            aspect-ratio: 4/3;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.6s ease forwards;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.2);
         }
 
-        .photo-item:nth-child(2) { aspect-ratio: 3/4; animation-delay: 0.1s; }
-        .photo-item:nth-child(3) { aspect-ratio: 1/1; animation-delay: 0.2s; }
-        .photo-item:nth-child(4) { aspect-ratio: 16/9; animation-delay: 0.3s; }
-        .photo-item:nth-child(5) { aspect-ratio: 4/3; animation-delay: 0.4s; }
-        .photo-item:nth-child(6) { aspect-ratio: 3/4; animation-delay: 0.5s; }
-        .photo-item:nth-child(7) { aspect-ratio: 1/1; animation-delay: 0.6s; }
-        .photo-item:nth-child(8) { aspect-ratio: 16/9; animation-delay: 0.7s; }
-        .photo-item:nth-child(n+9) { animation-delay: 0.8s; }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .photo-item:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 24px 48px rgba(15, 23, 42, 0.2);
-        }
-
-        .photo-item::before {
-            content: '';
+        .event-photo-slide {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(2, 6, 23, 0.6), transparent 60%);
             opacity: 0;
-            transition: opacity 0.3s ease;
-            z-index: 1;
+            transition: opacity 1s ease;
         }
 
-        .photo-item:hover::before {
+        .event-photo-slide.active {
             opacity: 1;
+            position: relative;
         }
 
-        .photo-item::after {
-            content: '\f00e';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.8);
-            color: white;
-            font-size: 2rem;
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 2;
-        }
-
-        .photo-item:hover::after {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .photo-item img {
+        .event-photo-slide img {
             width: 100%;
-            height: 100%;
+            height: 600px;
             object-fit: cover;
             display: block;
-            transition: transform 0.6s ease;
         }
 
-        .photo-item:hover img {
-            transform: scale(1.1);
-        }
-
-        /* Lightbox */
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            background: rgba(2, 6, 23, 0.95);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
-        .lightbox.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .lightbox-content {
-            max-width: 90%;
-            max-height: 90%;
-            position: relative;
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        }
-
-        .lightbox.active .lightbox-content {
-            transform: scale(1);
-        }
-
-        .lightbox-content img {
-            max-width: 100%;
-            max-height: 90vh;
-            display: block;
-            border-radius: 16px;
-            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
-        }
-
-        .lightbox-close {
+        .event-photo-slideshow-nav {
             position: absolute;
-            top: 24px;
-            right: 24px;
-            background: rgba(255, 255, 255, 0.1);
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            z-index: 10;
+        }
+
+        .event-photo-slideshow-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .event-photo-slideshow-dot.active {
+            background: white;
+            width: 32px;
+            border-radius: 6px;
+        }
+
+        .event-photo-slideshow-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.15);
             color: white;
             border: none;
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             cursor: pointer;
             transition: background 0.3s ease;
+            z-index: 10;
         }
 
-        .lightbox-close:hover {
-            background: rgba(255, 255, 255, 0.2);
+        .event-photo-slideshow-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .event-photo-slideshow-btn.prev {
+            left: 24px;
+        }
+
+        .event-photo-slideshow-btn.next {
+            right: 24px;
         }
 
         .hero-title {
@@ -774,24 +713,25 @@
         </div>
     </section>
 
-    <!-- Photo Gallery Section -->
+    <!-- Event Photos Slideshow Section -->
     <section class="section">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="mb-3">Event Photos</h2>
                 <p class="text-muted">Highlights from previous editions of the NMDPRA General Counsel and Legal Advisers Forum</p>
             </div>
-            <div class="photo-gallery" id="nmdpraGallery"></div>
+            <div class="event-photo-slideshow" id="eventPhotoSlideshow">
+                <button class="event-photo-slideshow-btn prev" id="prevPhotoSlide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="event-photo-slideshow-wrapper" id="photoSlideWrapper"></div>
+                <div class="event-photo-slideshow-nav" id="photoSlideNav"></div>
+                <button class="event-photo-slideshow-btn next" id="nextPhotoSlide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
         </div>
     </section>
-
-    <!-- Lightbox -->
-    <div class="lightbox" id="photoLightbox">
-        <button class="lightbox-close" id="lightboxClose">&times;</button>
-        <div class="lightbox-content">
-            <img src="" alt="Event photo" id="lightboxImage">
-        </div>
-    </div>
 
     <!-- CTA Section -->
     <section class="section">
@@ -890,64 +830,76 @@
             }
         })();
 
-        // Photo Gallery
+        // Event Photos Slideshow
         (() => {
-            const galleryEl = document.getElementById('nmdpraGallery');
-            const lightbox = document.getElementById('photoLightbox');
-            const lightboxImage = document.getElementById('lightboxImage');
-            const lightboxClose = document.getElementById('lightboxClose');
+            const slideshow = document.getElementById('eventPhotoSlideshow');
+            const wrapper = document.getElementById('photoSlideWrapper');
+            const nav = document.getElementById('photoSlideNav');
+            const prevBtn = document.getElementById('prevPhotoSlide');
+            const nextBtn = document.getElementById('nextPhotoSlide');
 
-            if (!galleryEl || !lightbox || !lightboxImage || !lightboxClose) return;
+            if (!slideshow || !wrapper || !nav || !prevBtn || !nextBtn) return;
 
-            // List of photos
+            // Updated list of photos
             const photos = [
-                'PHOTO-2025-08-18-11-35-08.jpg',
-                'PHOTO-2025-08-18-11-35-08 2.jpg',
-                'PHOTO-2025-08-18-11-35-08 3.jpg',
-                'PHOTO-2025-08-18-11-35-08 4.jpg',
-                'PHOTO-2025-08-18-11-35-08 5.jpg',
                 'PHOTO-2025-08-18-11-35-09.jpg',
-                'PHOTO-2025-08-18-11-35-09 2.jpg',
-                'PHOTO-2025-08-18-11-35-09 3.jpg',
-                'PHOTO-2025-08-18-11-35-09 4.jpg',
-                'PHOTO-2025-08-18-11-35-09 5.jpg',
-                'PHOTO-2025-08-18-11-35-09 6.jpg',
-                'PHOTO-2025-08-18-11-35-09 7.jpg'
+                'PHOTO-2025-08-18-11-35-10 2.jpg',
+                'PHOTO-2025-08-18-11-35-11 4.jpg',
+                'PHOTO-2025-08-18-11-35-12 7.jpg',
+                'PHOTO-2025-08-18-11-35-13 5.jpg',
+                'PHOTO-2025-08-18-11-35-14 8.jpg'
             ];
 
-            photos.forEach(photo => {
-                const item = document.createElement('div');
-                item.className = 'photo-item';
-                item.innerHTML = `<img src="assets/nmdpra photos/${encodeURIComponent(photo)}" alt="NMDPRA Event Photo" loading="lazy">`;
-                
-                item.addEventListener('click', () => {
-                    lightboxImage.src = `assets/nmdpra photos/${encodeURIComponent(photo)}`;
-                    lightbox.classList.add('active');
-                    document.body.style.overflow = 'hidden';
-                });
-                
-                galleryEl.appendChild(item);
+            let currentIndex = 0;
+            let slideshowInterval;
+
+            // Create slides
+            photos.forEach((photo, index) => {
+                const slide = document.createElement('div');
+                slide.className = `event-photo-slide ${index === 0 ? 'active' : ''}`;
+                slide.innerHTML = `<img src="assets/nmdpra photos/${encodeURIComponent(photo)}" alt="NMDPRA Event Photo" loading="lazy">`;
+                wrapper.appendChild(slide);
+
+                const dot = document.createElement('div');
+                dot.className = `event-photo-slideshow-dot ${index === 0 ? 'active' : ''}`;
+                dot.addEventListener('click', () => goToSlide(index));
+                nav.appendChild(dot);
             });
 
-            // Close lightbox
-            const closeLightbox = () => {
-                lightbox.classList.remove('active');
-                document.body.style.overflow = '';
+            const slides = Array.from(wrapper.querySelectorAll('.event-photo-slide'));
+            const dots = Array.from(nav.querySelectorAll('.event-photo-slideshow-dot'));
+
+            const goToSlide = (index) => {
+                slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+                dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+                currentIndex = index;
             };
 
-            lightboxClose.addEventListener('click', closeLightbox);
-            lightbox.addEventListener('click', (e) => {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
+            const nextSlide = () => goToSlide((currentIndex + 1) % photos.length);
+            const prevSlide = () => goToSlide((currentIndex - 1 + photos.length) % photos.length);
+
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                resetInterval();
             });
 
-            // Close on Escape key
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-                    closeLightbox();
-                }
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                resetInterval();
             });
+
+            const startInterval = () => {
+                slideshowInterval = window.setInterval(nextSlide, 5000);
+            };
+
+            const resetInterval = () => {
+                clearInterval(slideshowInterval);
+                startInterval();
+            };
+
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                startInterval();
+            }
         })();
     </script>
 </body>
