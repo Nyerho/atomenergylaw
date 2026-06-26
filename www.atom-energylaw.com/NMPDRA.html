@@ -70,6 +70,11 @@
             line-height: 1.3;
         }
 
+        h4 {
+            font-size: clamp(1.28rem, 1.7vw, 1.58rem);
+            line-height: 1.34;
+        }
+
         .navbar {
             background: #ffffff;
             border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -140,7 +145,13 @@
             box-shadow: 0 18px 38px rgba(21, 147, 209, 0.3);
         }
 
-        /* Hero Section */
+        .glass-panel {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
         .hero-section {
             position: relative;
             padding: 140px 0 90px;
@@ -148,42 +159,32 @@
             display: flex;
             align-items: center;
             overflow: hidden;
-            background: radial-gradient(800px 520px at 20% 20%, rgba(21, 147, 209, 0.22), rgba(6, 28, 63, 0) 60%),
-                        radial-gradient(700px 520px at 80% 70%, rgba(21, 147, 209, 0.14), rgba(6, 28, 63, 0) 55%),
-                        linear-gradient(180deg, #061c3f 0%, #041329 100%);
         }
 
         .hero-slideshow {
             position: absolute;
             inset: 0;
             z-index: 0;
-            overflow: hidden;
         }
 
         .hero-slide {
             position: absolute;
-            inset: -20px;
-            opacity: 0;
-            transform: scale(1.03);
-            transition: opacity 1.15s ease, transform 7s ease;
+            inset: 0;
             background-size: cover;
             background-position: center;
-            filter: saturate(0.95) contrast(1.02);
-            will-change: opacity, transform;
+            opacity: 0;
+            transition: opacity 1200ms ease;
         }
 
         .hero-slide.is-active {
             opacity: 1;
-            transform: scale(1);
         }
 
         .hero-overlay {
             position: absolute;
             inset: 0;
             z-index: 1;
-            background:
-                linear-gradient(110deg, rgba(2, 6, 23, 0.48), rgba(2, 6, 23, 0.58)),
-                radial-gradient(720px 420px at 18% 22%, rgba(21, 147, 209, 0.26), rgba(0, 0, 0, 0) 60%);
+            background: linear-gradient(110deg, rgba(2, 6, 23, 0.58), rgba(2, 6, 23, 0.68));
         }
 
         .hero-content {
@@ -191,35 +192,31 @@
             z-index: 2;
         }
 
-        .hero-text-panel {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            max-width: 700px;
-            transition: opacity 520ms ease, transform 520ms ease;
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
         }
 
-        .hero-text-panel.is-switching {
-            opacity: 0.12;
-            transform: translateY(8px);
+        .photo-item {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            aspect-ratio: 4/3;
+            cursor: pointer;
         }
 
-        .hero-kicker {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-            color: rgba(255, 255, 255, 0.92);
-            font-weight: 600;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            font-size: 0.8rem;
+        .photo-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 36px rgba(15, 23, 42, 0.16);
         }
 
-        .hero-kicker::after {
-            content: '';
-            height: 1px;
-            flex: 1 1 auto;
-            background: rgba(255, 255, 255, 0.2);
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .hero-title {
@@ -232,7 +229,7 @@
         }
 
         .hero-lead {
-            color: rgba(255, 255, 255, 0.92);
+            color: rgba(255, 255, 255, 0.96);
             font-weight: 400;
             font-size: 14px;
             line-height: 26.6px;
@@ -242,13 +239,13 @@
         .section {
             position: relative;
             padding: 95px 0;
-            background: linear-gradient(180deg, #ffffff 0%, #f8fbff 55%, #ffffff 100%);
+            background: linear-gradient(180deg, #ffffff 0%, #f7fbff 55%, #ffffff 100%);
         }
 
         .section-blue {
             background: radial-gradient(900px 520px at 18% 20%, rgba(21, 147, 209, 0.18), rgba(0, 0, 0, 0) 55%),
                         radial-gradient(900px 520px at 78% 55%, rgba(21, 147, 209, 0.35), rgba(0, 0, 0, 0) 60%),
-                        linear-gradient(135deg, #06294f, #021223);
+                        linear-gradient(135deg, #06294f, #021329);
             color: rgba(255, 255, 255, 0.88);
         }
 
@@ -300,7 +297,7 @@
         .detail-card p {
             color: var(--text-muted);
             font-size: 0.92rem;
-            line-height: 1.55;
+            line-height: 1.5;
             margin-bottom: 0;
         }
 
@@ -321,7 +318,7 @@
         }
 
         .testimonial-quote {
-            font-size: 1.02rem;
+            font-size: 1.05rem;
             line-height: 1.82;
             color: rgba(15, 23, 42, 0.78);
         }
@@ -351,7 +348,7 @@
             padding: 1.8rem;
             border-radius: 0 16px 16px 0;
             margin: 2.5rem 0;
-            font-size: 1.02rem;
+            font-size: 1.05rem;
             line-height: 1.7;
         }
 
@@ -363,7 +360,7 @@
         .site-footer {
             background: radial-gradient(900px 520px at 18% 20%, rgba(21, 147, 209, 0.28), rgba(0, 0, 0, 0) 60%),
                         radial-gradient(900px 520px at 78% 55%, rgba(21, 147, 209, 0.18), rgba(0, 0, 0, 0) 55%),
-                        linear-gradient(135deg, #06294f, #021223);
+                        linear-gradient(135deg, #06294f, #021329);
             color: rgba(255, 255, 255, 0.82);
             padding: 110px 0 50px;
             position: relative;
@@ -453,17 +450,6 @@
         .site-footer .footer-legal a:hover {
             color: var(--accent-blue);
         }
-
-        @media (max-width: 991px) {
-            .hero-section {
-                padding: 130px 0 70px;
-                min-height: auto;
-            }
-
-            .hero-text-panel {
-                width: 100%;
-            }
-        }
     </style>
 </head>
 <body id="top">
@@ -490,33 +476,38 @@
 
     <!-- Hero Section -->
     <section class="hero-section">
-        <div class="hero-slideshow" aria-hidden="true">
-            <div class="hero-slide is-active" style="background-image: url('assets/PixVerse_Image_Effect_prompt_oil rigs .jpg');"></div>
-            <div class="hero-slide" data-bg="assets/PixVerse_Image_Effect_prompt_oil wells .jpg"></div>
-            <div class="hero-slide" data-bg="assets/PixVerse_Image_Effect_prompt_oil mining sites .jpg"></div>
-            <div class="hero-slide" data-bg="assets/PixVerse_Image_Effect_prompt_mining sites .jpg"></div>
+        <div class="hero-slideshow">
+            <div class="hero-slide is-active" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-08.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-08 2.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-09.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-10.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-11.jpg');"></div>
         </div>
-        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="hero-overlay"></div>
         <div class="container hero-content">
             <div class="row align-items-center">
-                <div class="col-lg-9">
-                    <div class="hero-text-panel" id="heroTextPanel">
-                        <div class="hero-kicker">Featured Event</div>
-                        <h1 class="hero-title mb-0">NMDPRA General Counsel & Legal Advisers Forum 2026</h1>
-                        <p class="hero-lead mb-0">"Beyond Compliance: Driving Regulatory Certainty and Investment Confidence in Nigeria's Petroleum Sector"</p>
-                        <div class="mt-4 d-flex flex-wrap gap-4">
-                            <div class="d-flex align-items-center gap-2">
-                                <i class="fas fa-calendar-alt" style="color: rgba(255,255,255,0.8);"></i>
-                                <span class="text-white">June 29-30, 2026</span>
-                            </div>
-                            <div class="d-flex align-items-center gap-2">
-                                <i class="fas fa-clock" style="color: rgba(255,255,255,0.8);"></i>
-                                <span class="text-white">9:00 AM – 4:00 PM Daily</span>
-                            </div>
-                            <div class="d-flex align-items-center gap-2">
-                                <i class="fas fa-map-marker-alt" style="color: rgba(255,255,255,0.8);"></i>
-                                <span class="text-white">Abuja Continental Hotel</span>
-                            </div>
+                <div class="col-lg-8">
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <img src="assets/NMDPRA LOGO.jpg" alt="NMDPRA Logo" style="height: 80px; border-radius: 12px;">
+                        <div>
+                            <div class="text-uppercase fw-bold" style="color: rgba(255,255,255,0.8); letter-spacing: 0.1em; font-size: 0.85rem;">NMDPRA GENERAL COUNSEL AND LEGAL ADVISERS FORUM</div>
+                            <div class="text-white" style="font-family: 'Marcellus', serif; font-size: 1.5rem;">NMDPRA GCLAF 2026</div>
+                        </div>
+                    </div>
+                    <h1 class="hero-title mb-3">General Counsel and Legal Advisers Forum</h1>
+                    <p class="hero-lead mb-4">"Beyond Compliance: Driving Regulatory Certainty and Investment Confidence in Nigeria's Petroleum Sector"</p>
+                    <div class="d-flex flex-wrap gap-4">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-calendar-alt" style="color: rgba(255,255,255,0.8);"></i>
+                            <span class="text-white">June 29-30, 2026</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-clock" style="color: rgba(255,255,255,0.8);"></i>
+                            <span class="text-white">9:00 AM – 4:00 PM Daily</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fas fa-map-marker-alt" style="color: rgba(255,255,255,0.8);"></i>
+                            <span class="text-white">Abuja Continental Hotel</span>
                         </div>
                     </div>
                 </div>
@@ -541,7 +532,7 @@
                 Participants will leave the Forum better equipped to interpret regulatory expectations, guide internal compliance strategy, and engage more confidently with the Authority in resolving legal and operational issues.
             </p>
             <div class="highlight-box">
-                <strong>Atom Energy Law Advisory</strong> is proud to act as technical organizing partners to the NMDPRA for this year's edition of the Forum.
+                <strong>Atom Energy Law Advisory</strong> is proud to act as technical organising partners to the NMDPRA for this year's edition of the Forum.
             </div>
         </div>
     </section>
@@ -666,12 +657,23 @@
         </div>
     </section>
 
+    <!-- Photo Gallery Section -->
+    <section class="section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="mb-3">Event Photos</h2>
+                <p class="text-muted">Highlights from previous editions of the NMDPRA General Counsel and Legal Advisers Forum</p>
+            </div>
+            <div class="photo-gallery" id="nmdpraGallery"></div>
+        </div>
+    </section>
+
     <!-- CTA Section -->
     <section class="section">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <div class="p-5" style="background: linear-gradient(135deg, #06294f, #021223); border-radius: 24px; color: white; text-align: center;">
+                    <div class="p-5" style="background: linear-gradient(135deg, #06294f, #021329); border-radius: 24px; color: white; text-align: center;">
                         <h2 class="mb-3">Be Part of the Conversation</h2>
                         <p class="mb-4" style="color: rgba(255,255,255,0.8); max-width: 700px; margin-left: auto; margin-right: auto;">
                             Join leading general counsel, regulators and industry voices as we move the conversation beyond compliance, toward regulatory certainty and investment confidence in Nigeria's petroleum sector.
@@ -696,7 +698,7 @@
                         <li><a href="expertise.html#project-structuring">Project Structuring</a></li>
                         <li><a href="expertise.html#regulatory-compliance">Regulatory Compliance</a></li>
                         <li><a href="expertise.html#policy-legislative">Policy & Legislative Advisory</a></li>
-                        <li><a href="expertise.html#disputes-resolution">Disputes Resolution</a></li>
+                        <li><a href="expertise.html#disputes-resolution">Dispute Resolution</a></li>
                         <li><a href="expertise.html#tax-advisory">Tax Advisory</a></li>
                         <li><a href="expertise.html#general-counsel">General Counsel and Company Secretariat Support</a></li>
                     </ul>
@@ -741,40 +743,55 @@
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Hero Slideshow
         (() => {
             const slides = Array.from(document.querySelectorAll('.hero-slide'));
-            const panel = document.getElementById('heroTextPanel');
+            if (!slides.length) return;
 
-            if (!slides.length || !panel) return;
+            let currentIndex = 0;
+            const durationMs = 5000;
 
-            const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-            const ensureLoaded = (slide) => {
-                if (!slide) return;
-                const source = slide.dataset.bg;
-                if (!source || slide.dataset.loaded === 'true') return;
-                slide.style.backgroundImage = `url('${source}')`;
-                slide.dataset.loaded = 'true';
+            const goToSlide = (index) => {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('is-active', i === index);
+                });
+                currentIndex = index;
             };
 
-            ensureLoaded(slides[0]);
-            ensureLoaded(slides[1]);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                window.setInterval(() => {
+                    goToSlide((currentIndex + 1) % slides.length);
+                }, durationMs);
+            }
+        })();
 
-            if (reduceMotion) return;
+        // Photo Gallery
+        (() => {
+            const galleryEl = document.getElementById('nmdpraGallery');
+            if (!galleryEl) return;
 
-            let index = 0;
-            const durationMs = 6200;
-            const switchMs = 480;
+            // List of photos (we'll use a subset)
+            const photos = [
+                'PHOTO-2025-08-18-11-35-08.jpg',
+                'PHOTO-2025-08-18-11-35-08 2.jpg',
+                'PHOTO-2025-08-18-11-35-08 3.jpg',
+                'PHOTO-2025-08-18-11-35-08 4.jpg',
+                'PHOTO-2025-08-18-11-35-08 5.jpg',
+                'PHOTO-2025-08-18-11-35-09.jpg',
+                'PHOTO-2025-08-18-11-35-09 2.jpg',
+                'PHOTO-2025-08-18-11-35-09 3.jpg',
+                'PHOTO-2025-08-18-11-35-09 4.jpg',
+                'PHOTO-2025-08-18-11-35-09 5.jpg',
+                'PHOTO-2025-08-18-11-35-09 6.jpg',
+                'PHOTO-2025-08-18-11-35-09 7.jpg'
+            ];
 
-            const apply = (nextIndex) => {
-                slides.forEach((el, i) => el.classList.toggle('is-active', i === nextIndex));
-                ensureLoaded(slides[nextIndex]);
-                ensureLoaded(slides[(nextIndex + 1) % slides.length]);
-            };
-
-            window.setInterval(() => {
-                index = (index + 1) % slides.length;
-                apply(index);
-            }, durationMs);
+            photos.forEach(photo => {
+                const item = document.createElement('div');
+                item.className = 'photo-item';
+                item.innerHTML = `<img src="assets/nmdpra photos/${encodeURIComponent(photo)}" alt="NMDPRA Event Photo" loading="lazy">`;
+                galleryEl.appendChild(item);
+            });
         })();
     </script>
 </body>
