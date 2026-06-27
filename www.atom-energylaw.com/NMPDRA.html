@@ -195,84 +195,68 @@
         .event-photo-slideshow {
             position: relative;
             width: 100%;
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
             border-radius: 24px;
             overflow: hidden;
             box-shadow: 0 24px 60px rgba(15, 23, 42, 0.2);
         }
 
-        .event-photo-slide {
-            position: absolute;
-            inset: 0;
-            opacity: 0;
-            transition: opacity 1s ease;
-        }
-
-        .event-photo-slide.active {
-            opacity: 1;
-            position: relative;
-        }
-
-        .event-photo-slide img {
-            width: 100%;
-            height: 600px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .event-photo-slideshow-nav {
-            position: absolute;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%);
+        .photo-row {
             display: flex;
-            gap: 12px;
-            z-index: 10;
+            gap: 16px;
+            padding: 16px 0;
+            overflow: hidden;
         }
 
-        .event-photo-slideshow-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.4);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+        .photo-track {
+            display: flex;
+            gap: 16px;
+            flex-shrink: 0;
         }
 
-        .event-photo-slideshow-dot.active {
-            background: white;
-            width: 32px;
-            border-radius: 6px;
+        .photo-item {
+            flex-shrink: 0;
+            width: 300px;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
         }
 
-        .event-photo-slideshow-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border: none;
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            font-size: 1.25rem;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            z-index: 10;
+        .photo-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        .event-photo-slideshow-btn:hover {
-            background: rgba(255, 255, 255, 0.25);
+        .row-1 .photo-track {
+            animation: scroll-left 30s linear infinite;
         }
 
-        .event-photo-slideshow-btn.prev {
-            left: 24px;
+        .row-2 .photo-track {
+            animation: scroll-right 30s linear infinite;
         }
 
-        .event-photo-slideshow-btn.next {
-            right: 24px;
+        .row-3 .photo-track {
+            animation: scroll-left 30s linear infinite;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes scroll-right {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
         }
 
         .hero-title {
@@ -544,7 +528,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <div class="d-flex align-items-center gap-3 mb-4">
-                        <img src="assets/nmpdralogo.PNG" alt="NMDPRA Logo" style="height: 80px; border-radius: 12px;">
+                        <img src="assets/nmpdralogo.JPG" alt="NMDPRA Logo" style="height: 80px; border-radius: 12px; object-fit: contain;">
                         <div>
                             <div class="text-uppercase fw-bold" style="color: rgba(255,255,255,0.8); letter-spacing: 0.1em; font-size: 0.85rem;">NMDPRA GENERAL COUNSEL AND LEGAL ADVISERS FORUM</div>
                             <div class="text-white" style="font-family: 'Marcellus', serif; font-size: 1.5rem;">NMDPRA GCLAF 2026</div>
@@ -638,7 +622,7 @@
                 </div>
             </div>
             <div class="mt-5 text-center">
-                <a href="#" class="btn btn-primary">Download 2026 Programme</a>
+                <button id="downloadProgrammeBtn" class="btn btn-primary">Download 2026 Programme</button>
             </div>
         </div>
     </section>
@@ -654,7 +638,7 @@
                     <span style="font-weight: 600; color: var(--text-light);">Physical attendance is strictly by invitation</span>
                 </div>
                 <p class="mb-4" style="font-size: 1.1rem;">Want to follow the conversations virtually?</p>
-                <a href="#" class="btn btn-primary">Pre-register to livestream</a>
+                <a href="#" class="btn btn-primary">Watch livestream</a>
             </div>
         </div>
     </section>
@@ -666,49 +650,7 @@
                 <h2 class="mb-3">Testimonials</h2>
                 <p style="color: rgba(255,255,255,0.75);">What past attendees have to say</p>
             </div>
-            <div class="row g-4">
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">
-                            "The Forum provided invaluable clarity on post-PIA regulatory expectations. A must-attend for every legal leader in the sector."
-                        </div>
-                        <div class="testimonial-meta">
-                            <div class="testimonial-avatar">PA</div>
-                            <div>
-                                <div style="font-weight: 600; color: var(--text-light);">Previous Attendee</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">General Counsel, Major Petroleum Operator</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">
-                            "A rare opportunity to engage directly with NMDPRA leadership and shape the regulatory conversation."
-                        </div>
-                        <div class="testimonial-meta">
-                            <div class="testimonial-avatar">PA</div>
-                            <div>
-                                <div style="font-weight: 600; color: var(--text-light);">Previous Attendee</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">Legal Adviser, Downstream Operator</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="testimonial-card">
-                        <div class="testimonial-quote">
-                            "The collaborative problem-solving approach sets this Forum apart from typical industry conferences."
-                        </div>
-                        <div class="testimonial-meta">
-                            <div class="testimonial-avatar">PA</div>
-                            <div>
-                                <div style="font-weight: 600; color: var(--text-light);">Previous Attendee</div>
-                                <div style="color: var(--text-muted); font-size: 0.9rem;">Chief Legal Officer, Midstream Company</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row g-4" id="nmdpraTestimonials">
             </div>
         </div>
     </section>
@@ -721,14 +663,9 @@
                 <p class="text-muted">Highlights from previous editions of the NMDPRA General Counsel and Legal Advisers Forum</p>
             </div>
             <div class="event-photo-slideshow" id="eventPhotoSlideshow">
-                <button class="event-photo-slideshow-btn prev" id="prevPhotoSlide">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="event-photo-slideshow-wrapper" id="photoSlideWrapper"></div>
-                <div class="event-photo-slideshow-nav" id="photoSlideNav"></div>
-                <button class="event-photo-slideshow-btn next" id="nextPhotoSlide">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                <div class="photo-row row-1" id="photoRow1"></div>
+                <div class="photo-row row-2" id="photoRow2"></div>
+                <div class="photo-row row-3" id="photoRow3"></div>
             </div>
         </div>
     </section>
@@ -808,6 +745,64 @@
     <!-- Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Load site content and render NMDPRA-specific sections
+        (async () => {
+            try {
+                const response = await fetch('site-content.json?t=' + Date.now());
+                if (!response.ok) throw new Error('Failed to load content');
+                const content = await response.json();
+                const nmdpra = content.nmdpra || {};
+
+                // Render testimonials
+                const testimonialsEl = document.getElementById('nmdpraTestimonials');
+                if (testimonialsEl && Array.isArray(nmdpra.testimonials)) {
+                    testimonialsEl.innerHTML = nmdpra.testimonials.map(t => {
+                        const initials = (t.name || 'PA').split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase();
+                        return `
+                            <div class="col-lg-4">
+                                <div class="testimonial-card">
+                                    <div class="testimonial-quote">
+                                        "${t.quote || ''}"
+                                    </div>
+                                    <div class="testimonial-meta">
+                                        <div class="testimonial-avatar">${initials}</div>
+                                        <div>
+                                            <div style="font-weight: 600; color: var(--text-light);">${t.name || 'Previous Attendee'}</div>
+                                            <div style="color: var(--text-muted); font-size: 0.9rem;">${t.role || ''}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                }
+
+                // Set up download programme button
+                const downloadBtn = document.getElementById('downloadProgrammeBtn');
+                if (downloadBtn) {
+                    if (nmdpra.programmeFile) {
+                        downloadBtn.addEventListener('click', () => {
+                            const link = document.createElement('a');
+                            link.href = nmdpra.programmeFile;
+                            link.download = 'NMDPRA-2026-Programme.pdf';
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+                        });
+                        downloadBtn.disabled = false;
+                        downloadBtn.textContent = 'Download 2026 Programme';
+                    } else {
+                        downloadBtn.disabled = true;
+                        downloadBtn.textContent = 'Programme Coming Soon';
+                        downloadBtn.classList.add('btn-secondary');
+                        downloadBtn.classList.remove('btn-primary');
+                    }
+                }
+            } catch (e) {
+                console.error('Failed to load content:', e);
+            }
+        })();
+
         // Hero Slideshow
         (() => {
             const slides = Array.from(document.querySelectorAll('.hero-slide'));
@@ -830,76 +825,53 @@
             }
         })();
 
-        // Event Photos Slideshow
+        // Event Photos Slideshow (3-row)
         (() => {
-            const slideshow = document.getElementById('eventPhotoSlideshow');
-            const wrapper = document.getElementById('photoSlideWrapper');
-            const nav = document.getElementById('photoSlideNav');
-            const prevBtn = document.getElementById('prevPhotoSlide');
-            const nextBtn = document.getElementById('nextPhotoSlide');
+            const row1 = document.getElementById('photoRow1');
+            const row2 = document.getElementById('photoRow2');
+            const row3 = document.getElementById('photoRow3');
 
-            if (!slideshow || !wrapper || !nav || !prevBtn || !nextBtn) return;
+            if (!row1 || !row2 || !row3) return;
 
-            // Updated list of photos
+            // List of photos
             const photos = [
                 'PHOTO-2025-08-18-11-35-09.jpg',
                 'PHOTO-2025-08-18-11-35-10 2.jpg',
                 'PHOTO-2025-08-18-11-35-11 4.jpg',
                 'PHOTO-2025-08-18-11-35-12 7.jpg',
                 'PHOTO-2025-08-18-11-35-13 5.jpg',
-                'PHOTO-2025-08-18-11-35-14 8.jpg'
+                'PHOTO-2025-08-18-11-35-14 8.jpg',
+                'PHOTO-2025-08-18-11-35-08.jpg',
+                'PHOTO-2025-08-18-11-35-08 2.jpg',
+                'PHOTO-2025-08-18-11-35-09 2.jpg',
+                'PHOTO-2025-08-18-11-35-10 3.jpg',
+                'PHOTO-2025-08-18-11-35-11 2.jpg',
+                'PHOTO-2025-08-18-11-35-12 2.jpg'
             ];
 
-            let currentIndex = 0;
-            let slideshowInterval;
-
-            // Create slides
-            photos.forEach((photo, index) => {
-                const slide = document.createElement('div');
-                slide.className = `event-photo-slide ${index === 0 ? 'active' : ''}`;
-                slide.innerHTML = `<img src="assets/nmdpra photos/${encodeURIComponent(photo)}" alt="NMDPRA Event Photo" loading="lazy">`;
-                wrapper.appendChild(slide);
-
-                const dot = document.createElement('div');
-                dot.className = `event-photo-slideshow-dot ${index === 0 ? 'active' : ''}`;
-                dot.addEventListener('click', () => goToSlide(index));
-                nav.appendChild(dot);
-            });
-
-            const slides = Array.from(wrapper.querySelectorAll('.event-photo-slide'));
-            const dots = Array.from(nav.querySelectorAll('.event-photo-slideshow-dot'));
-
-            const goToSlide = (index) => {
-                slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-                dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
-                currentIndex = index;
+            // Function to create a photo track
+            const createTrack = (photoList) => {
+                const track = document.createElement('div');
+                track.className = 'photo-track';
+                // Duplicate photos for infinite scroll
+                const allPhotos = [...photoList, ...photoList];
+                allPhotos.forEach(photo => {
+                    const item = document.createElement('div');
+                    item.className = 'photo-item';
+                    item.innerHTML = `<img src="assets/nmdpra photos/${encodeURIComponent(photo)}" alt="NMDPRA Event Photo" loading="lazy">`;
+                    track.appendChild(item);
+                });
+                return track;
             };
 
-            const nextSlide = () => goToSlide((currentIndex + 1) % photos.length);
-            const prevSlide = () => goToSlide((currentIndex - 1 + photos.length) % photos.length);
+            // Split photos into 3 groups
+            const group1 = photos.slice(0, 4);
+            const group2 = photos.slice(4, 8);
+            const group3 = photos.slice(8, 12);
 
-            prevBtn.addEventListener('click', () => {
-                prevSlide();
-                resetInterval();
-            });
-
-            nextBtn.addEventListener('click', () => {
-                nextSlide();
-                resetInterval();
-            });
-
-            const startInterval = () => {
-                slideshowInterval = window.setInterval(nextSlide, 5000);
-            };
-
-            const resetInterval = () => {
-                clearInterval(slideshowInterval);
-                startInterval();
-            };
-
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                startInterval();
-            }
+            row1.appendChild(createTrack(group1));
+            row2.appendChild(createTrack(group2));
+            row3.appendChild(createTrack(group3));
         })();
     </script>
 </body>
