@@ -2904,9 +2904,40 @@ ADVISORY</h1>
 
             const markDismissed = () => window.sessionStorage.setItem(storageKey, 'true');
             modalEl.addEventListener('hidden.bs.modal', markDismissed);
+            
+            // Ensure body scroll is restored after modal interactions
+            const ensureScrollable = () => {
+                if (document.body.style.overflow === 'hidden') {
+                    document.body.style.overflow = '';
+                }
+            };
+            modalEl.addEventListener('hidden.bs.modal', ensureScrollable);
         })();
     </script>
     <script>
+        // General function to ensure body is scrollable
+        const ensureBodyScrollable = () => {
+            if (document.body.style.overflow === 'hidden') {
+                document.body.style.overflow = '';
+            }
+            if (document.documentElement.style.overflow === 'hidden') {
+                document.documentElement.style.overflow = '';
+            }
+        };
+
+        // Run on page load and when DOM is ready
+        document.addEventListener('DOMContentLoaded', ensureBodyScrollable);
+        window.addEventListener('load', ensureBodyScrollable);
+        // Also check periodically for 5 seconds after load to catch any stuck states
+        window.addEventListener('load', () => {
+            let checks = 0;
+            const interval = setInterval(() => {
+                ensureBodyScrollable();
+                checks++;
+                if (checks > 10) clearInterval(interval);
+            }, 500);
+        });
+
         (() => {
             const popup = document.getElementById('cookieConsent');
             const backdrop = document.getElementById('cookieConsentBackdrop');
@@ -2929,6 +2960,7 @@ ADVISORY</h1>
                 window.setTimeout(() => {
                     popup.hidden = true;
                     backdrop.hidden = true;
+                    ensureBodyScrollable();
                 }, 220);
             };
 
