@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programme QR Code</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #f0f4f8;
+        }
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1593d1;
+            margin-bottom: 24px;
+        }
+        img {
+            border: 2px solid #1593d1;
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        a {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, #1593d1, #0f6f9e);
+            color: white;
+            text-decoration: none;
+            border-radius: 999px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Programme QR Code</h1>
+        <img id="qrCode" src="" alt="QR Code">
+        <br>
+        <a href="#" id="downloadLink" download="programme-qr.png">Download QR Code</a>
+    </div>
+    <script>
+        // Replace with your actual domain/path
+        const baseUrl = window.location.href.split('?')[0].split('#')[0].replace('programme-qr.html', '');
+        const programmePath = 'assets/General%20Counsel%20Brochure%202.0.pdf';
+        const fullUrl = baseUrl + programmePath;
+        const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(fullUrl);
+        
+        const qrImg = document.getElementById('qrCode');
+        const downloadLink = document.getElementById('downloadLink');
+        
+        qrImg.src = qrUrl;
+        downloadLink.href = qrUrl;
+        
+        console.log('QR Code URL:', fullUrl);
+    </script>
+</body>
+</html>

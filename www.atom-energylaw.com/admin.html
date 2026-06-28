@@ -566,6 +566,36 @@
                         ]
                     }
                 ]
+            },
+            {
+                title: 'NMDPRA Event',
+                items: [
+                    {
+                        id: 'nmdpraProgramme',
+                        label: 'Event Programme',
+                        description: 'Upload or set the URL for the event programme file.',
+                        type: 'object',
+                        path: ['nmdpra', 'programmeFile'],
+                        fields: [
+                            { key: 'programmeFile', label: 'Programme File (Upload or URL)', type: 'file' }
+                        ]
+                    },
+                    {
+                        id: 'nmdpraTestimonials',
+                        label: 'NMDPRA Testimonials',
+                        description: 'Testimonials shown on the NMDPRA event page.',
+                        type: 'array',
+                        path: ['nmdpra', 'testimonials'],
+                        itemLabel: 'Testimonial',
+                        addLabel: 'Add Testimonial',
+                        createItem: () => ({ quote: '', name: '', role: '' }),
+                        fields: [
+                            { key: 'quote', label: 'Quote', type: 'textarea', rows: 4 },
+                            { key: 'name', label: 'Name' },
+                            { key: 'role', label: 'Role / Company' }
+                        ]
+                    }
+                ]
             }
         ];
 
@@ -579,6 +609,7 @@
                 social: { linkedin: '#', instagram: '#', youtube: '#' }
             },
             home: { testimonials: [] },
+            nmdpra: { programmeFile: '', testimonials: [] },
             knowledgeHub: {
                 intro: {
                     kicker: '', heroTitle: '', heroLead: '', sectionTitle: '', sectionLead: '', sectionBody: '', image: '', cards: []
@@ -625,6 +656,12 @@
                 ...merged.home,
                 ...content.home,
                 testimonials: Array.isArray(content.home?.testimonials) ? content.home.testimonials : merged.home.testimonials
+            };
+            merged.nmdpra = {
+                ...merged.nmdpra,
+                ...content.nmdpra,
+                programmeFile: content.nmdpra?.programmeFile || merged.nmdpra.programmeFile,
+                testimonials: Array.isArray(content.nmdpra?.testimonials) ? content.nmdpra.testimonials : merged.nmdpra.testimonials
             };
             merged.knowledgeHub = {
                 ...merged.knowledgeHub,
@@ -855,6 +892,74 @@
             reader.readAsDataURL(file);
         });
 
+        const createFileField = ({ label, value = '', onChange }) => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'col-12';
+
+            const labelEl = document.createElement('label');
+            labelEl.className = 'form-label';
+            labelEl.textContent = label;
+            wrapper.appendChild(labelEl);
+
+            const zone = document.createElement('div');
+            zone.className = 'image-dropzone';
+
+            const info = document.createElement('div');
+            info.className = 'mb-2';
+            info.textContent = value ? 'File uploaded successfully' : 'No file uploaded';
+            zone.appendChild(info);
+
+            const controls = document.createElement('div');
+            controls.className = 'd-flex flex-column flex-md-row gap-2 align-items-start';
+
+            const fileInput = document.createElement('input');
+            fileInput.type = 'file';
+            fileInput.className = 'form-control';
+            fileInput.addEventListener('change', async (event) => {
+                const file = event.target.files && event.target.files[0];
+                if (!file) return;
+                const dataUrl = await fileToDataUrl(file);
+                onChange(dataUrl);
+                touchContent();
+                setStatus(`File uploaded: ${file.name}`);
+                renderEditor();
+            });
+            controls.appendChild(fileInput);
+
+            const urlInput = document.createElement('input');
+            urlInput.type = 'text';
+            urlInput.className = 'form-control';
+            urlInput.placeholder = 'Or paste a URL';
+            urlInput.value = (value && !value.startsWith('data:')) ? value : '';
+            urlInput.addEventListener('input', (event) => {
+                onChange(event.target.value);
+                touchContent();
+            });
+            controls.appendChild(urlInput);
+
+            const clearButton = document.createElement('button');
+            clearButton.type = 'button';
+            clearButton.className = 'btn btn-outline-secondary';
+            clearButton.textContent = value ? 'Remove File' : 'No File';
+            clearButton.disabled = !value;
+            clearButton.addEventListener('click', () => {
+                onChange('');
+                touchContent();
+                setStatus('Removed the file');
+                renderEditor();
+            });
+            controls.appendChild(clearButton);
+            zone.appendChild(controls);
+
+            const hint = document.createElement('div');
+            hint.className = 'field-hint';
+            hint.textContent = 'Upload a file directly, or paste a URL to an existing file.';
+            zone.appendChild(hint);
+
+            wrapper.appendChild(zone);
+            return wrapper;
+        };
+
         const createImageField = ({ label, value = '', onChange }) => {
             const wrapper = document.createElement('div');
             wrapper.className = 'col-12';
@@ -1009,6 +1114,15 @@
                         onChange: (nextValue) => setPathValue(target, path, nextValue)
                     });
                     row.appendChild(imageField);
+                    return;
+                }
+                if (field.type === 'file') {
+                    const fileField = createFileField({
+                        label: field.label,
+                        value,
+                        onChange: (nextValue) => setPathValue(target, path, nextValue)
+                    });
+                    row.appendChild(fileField);
                     return;
                 }
                 const { wrapper, fieldEl } = createInput({

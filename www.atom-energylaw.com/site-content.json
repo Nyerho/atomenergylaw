@@ -9,7 +9,7 @@
     },
     "social": {
       "linkedin": "https://www.linkedin.com/company/atom-energy-law-advisory/",
-      "instagram": "https://www.instagram.com/atomenergylaw?igsh=Zmg5emJxdzFmeW8z",
+      "instagram": "https://www.instagram.com/atomenergylaw?igsh=Zmg5emJxdzFmeW8=",
       "youtube": "https://youtube.com/@atomenergylawadvisory?si=VWPskopzJdfvKg_x"
     }
   },
@@ -28,6 +28,21 @@
       {
         "quote": "Responsive, discreet, and precise. Their dispute readiness work strengthened our position and reduced risk.",
         "name": "General Counsel",
+        "role": "Energy Company"
+      }
+    ]
+  },
+  "nmdpra": {
+    "programmeFile": "assets/General%20Counsel%20Brochure%202.0.pdf",
+    "testimonials": [
+      {
+        "quote": "An essential forum for staying current with downstream petroleum regulations and industry best practices.",
+        "name": "Industry Participant",
+        "role": "Downstream Operator"
+      },
+      {
+        "quote": "Insightful discussions and valuable networking opportunities with key stakeholders in the sector.",
+        "name": "Legal Advisor",
         "role": "Energy Company"
       }
     ]

@@ -535,7 +535,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-8">
                     <div class="d-flex align-items-center gap-3 mb-4">
-                        <img src="assets/forumlogo.PNG" alt="NMDPRA Forum Logo" style="max-height: 220px; width: 100%; max-width: 800px; object-fit: contain;">
+                        <img src="assets/IMG_1884.PNG" alt="NMDPRA Forum Logo" style="max-height: 220px; width: 100%; max-width: 800px; object-fit: contain;">
                     </div>
                     <p class="hero-lead mb-4">"Beyond Compliance: Driving Regulatory Certainty and Investment Confidence in Nigeria's Petroleum Sector"</p>
                     <div class="d-flex flex-wrap gap-4">
@@ -738,20 +738,20 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Load site content and render NMDPRA-specific sections
-    (async () => {
-        try {
-            const response = await fetch('site-content.json?t=' + Date.now());
-            if (!response.ok) throw new Error('Failed to load content');
-            const content = await response.json();
-            const nmdpra = content.nmdpra || {};
+        (async () => {
+            try {
+                const response = await fetch('site-content.json?t=' + Date.now());
+                if (!response.ok) throw new Error('Failed to load content');
+                const content = await response.json();
+                const nmdpra = content.nmdpra || {};
 
-            // Set up download programme button
-            const downloadBtn = document.getElementById('downloadProgrammeBtn');
-            if (downloadBtn) {
-                if (nmdpra.programmeFile) {
+                // Set up download programme button
+                const downloadBtn = document.getElementById('downloadProgrammeBtn');
+                if (downloadBtn && nmdpra.programmeFile) {
+                    const programmeUrl = nmdpra.programmeFile;
                     downloadBtn.addEventListener('click', () => {
                         const link = document.createElement('a');
-                        link.href = nmdpra.programmeFile;
+                        link.href = programmeUrl;
                         link.download = 'NMDPRA-2026-Programme.pdf';
                         document.body.appendChild(link);
                         link.click();
@@ -760,16 +760,17 @@
                     downloadBtn.disabled = false;
                     downloadBtn.textContent = 'Download 2026 Programme';
                 } else {
-                    downloadBtn.disabled = true;
-                    downloadBtn.textContent = 'Programme Coming Soon';
-                    downloadBtn.classList.add('btn-secondary');
-                    downloadBtn.classList.remove('btn-primary');
+                    if (downloadBtn) {
+                        downloadBtn.disabled = true;
+                        downloadBtn.textContent = 'Programme Coming Soon';
+                        downloadBtn.classList.add('btn-secondary');
+                        downloadBtn.classList.remove('btn-primary');
+                    }
                 }
+            } catch (e) {
+                console.error('Failed to load content:', e);
             }
-        } catch (e) {
-            console.error('Failed to load content:', e);
-        }
-    })();
+        })();
 
         // Hero Slideshow
         (() => {
@@ -801,20 +802,20 @@
 
             if (!row1 || !row2 || !row3) return;
 
-            // List of photos
+            // List of photos - curated selection for better gallery
             const photos = [
-                'PHOTO-2025-08-18-11-35-09.jpg',
-                'PHOTO-2025-08-18-11-35-10 2.jpg',
-                'PHOTO-2025-08-18-11-35-11 4.jpg',
-                'PHOTO-2025-08-18-11-35-12 7.jpg',
-                'PHOTO-2025-08-18-11-35-13 5.jpg',
-                'PHOTO-2025-08-18-11-35-14 8.jpg',
-                'PHOTO-2025-08-18-11-35-08.jpg',
-                'PHOTO-2025-08-18-11-35-08 2.jpg',
-                'PHOTO-2025-08-18-11-35-09 2.jpg',
-                'PHOTO-2025-08-18-11-35-10 3.jpg',
-                'PHOTO-2025-08-18-11-35-11 2.jpg',
-                'PHOTO-2025-08-18-11-35-12 2.jpg'
+                'PHOTO-2025-08-18-11-35-15.jpg',
+                'PHOTO-2025-08-18-11-35-14 10.jpg',
+                'PHOTO-2025-08-18-11-35-13 11.jpg',
+                'PHOTO-2025-08-18-11-35-12 6.jpg',
+                'PHOTO-2025-08-18-11-35-11 7.jpg',
+                'PHOTO-2025-08-18-11-35-10 4.jpg',
+                'PHOTO-2025-08-18-11-35-09 9.jpg',
+                'PHOTO-2025-08-18-11-35-08 5.jpg',
+                'PHOTO-2025-08-18-11-35-14 5.jpg',
+                'PHOTO-2025-08-18-11-35-13 8.jpg',
+                'PHOTO-2025-08-18-11-35-12 3.jpg',
+                'PHOTO-2025-08-18-11-35-11 12.jpg'
             ];
 
             // Function to create a photo track
