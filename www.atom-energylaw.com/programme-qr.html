@@ -50,8 +50,8 @@
         <a href="#" id="downloadLink" download="programme-qr.png">Download QR Code</a>
     </div>
     <script>
-        // Replace with your actual domain/path
-        const baseUrl = window.location.href.split('?')[0].split('#')[0].replace('programme-qr.html', '');
+        // Replace with your actual production domain
+        const baseUrl = 'https://www.atom-energylaw.com/'; // <-- CHANGE THIS TO YOUR ACTUAL DOMAIN
         const programmePath = 'assets/General%20Counsel%20Brochure%202.0.pdf';
         const fullUrl = baseUrl + programmePath;
         const qrUrl = 'https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=' + encodeURIComponent(fullUrl);
