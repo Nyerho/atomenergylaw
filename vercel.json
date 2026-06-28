@@ -7,13 +7,14 @@
     { "src": "www.atom-energylaw.com/assets/**", "use": "@vercel/static" },
     { "src": "www.atom-energylaw.com/site-content.json", "use": "@vercel/static" },
     { "src": "www.atom-energylaw.com/*.png", "use": "@vercel/static" },
-    { "src": "www.atom-energylaw.com/*.ttf", "use": "@vercel/static" }
+    { "src": "www.atom-energylaw.com/*.ttf", "use": "@vercel/static" },
+    { "src": "www.atom-energylaw.com/*.pdf", "use": "@vercel/static" }
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "api/$1.js" },
     { "src": "/", "dest": "www.atom-energylaw.com/index.html" },
     { "src": "/index(?:\\.html)?", "dest": "www.atom-energylaw.com/index.html" },
-    { "src": "/(about|expertise|expertise-sector|practice|sectors|services|news-updates|articles|insights-resources|contact|privacy-policy|anti-bribery-corruption-statement|meet-our-lawyers|admin)(?:\\.html)?", "dest": "www.atom-energylaw.com/$1.html" },
+    { "src": "/(about|expertise|expertise-sector|practice|sectors|services|news-updates|articles|insights-resources|contact|privacy-policy|anti-bribery-corruption-statement|meet-our-lawyers|admin|programme-qr)(?:\\.html)?", "dest": "www.atom-energylaw.com/$1.html" },
     { "src": "/(nmdpra|NMPDRA)(?:\\.html)?", "dest": "www.atom-energylaw.com/NMPDRA.html" },
     { "src": "/site-content\\.json", "dest": "www.atom-energylaw.com/site-content.json" },
     { "src": "/assets/(.*)", "dest": "www.atom-energylaw.com/assets/$1" },
