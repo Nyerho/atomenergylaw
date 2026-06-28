@@ -527,9 +527,9 @@
         <div class="container hero-content">
             <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <div class="d-flex align-items-center gap-3 mb-4">
+                    <div class="d-flex align-items-center gap-3 mb-4 flex-wrap">
                         <img id="forumLogo" src="assets/forumlogo.PNG" alt="NMDPRA Forum Logo" style="height: 120px; object-fit: contain;">
-                        <a id="downloadProcessedLogo" class="btn btn-sm btn-primary ms-2" hidden>Download processed logo</a>
+                        <button id="downloadProcessedLogo" class="btn btn-lg btn-danger ms-2">Download Transparent Logo</button>
                     </div>
                     <p class="hero-lead mb-4">"Beyond Compliance: Driving Regulatory Certainty and Investment Confidence in Nigeria's Petroleum Sector"</p>
                     <div class="d-flex flex-wrap gap-4">
@@ -756,30 +756,31 @@
             };
         }
 
-        // Process the forum logo when page loads and image is ready
+        // Process the forum logo when user clicks the button
         document.addEventListener('DOMContentLoaded', () => {
             const logoImg = document.getElementById('forumLogo');
             const downloadBtn = document.getElementById('downloadProcessedLogo');
             if (logoImg && downloadBtn) {
-                const processLogo = async () => {
+                downloadBtn.addEventListener('click', async () => {
                     try {
                         console.log('Processing forum logo...');
                         const processedUrl = await removeWhiteBackground(logoImg);
                         logoImg.src = processedUrl;
-                        downloadBtn.href = processedUrl;
-                        downloadBtn.download = 'forumlogo-transparent.png';
-                        downloadBtn.hidden = false;
-                        console.log('Forum logo processed successfully');
+                        
+                        // Create a temporary link to download
+                        const tempLink = document.createElement('a');
+                        tempLink.href = processedUrl;
+                        tempLink.download = 'forumlogo-transparent.png';
+                        document.body.appendChild(tempLink);
+                        tempLink.click();
+                        document.body.removeChild(tempLink);
+                        
+                        console.log('Forum logo processed and downloaded successfully');
                     } catch (e) {
-                        console.error('Failed to process logo:', e);
+                        console.error('Failed to process/download logo:', e);
+                        alert('Failed to process logo, check console for errors');
                     }
-                };
-
-                if (logoImg.complete) {
-                    processLogo();
-                } else {
-                    logoImg.onload = processLogo;
-                }
+                });
             }
         });
     </script>
