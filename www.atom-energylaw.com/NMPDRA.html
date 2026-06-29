@@ -527,14 +527,13 @@
             <div class="hero-slide is-active" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-08.jpg');"></div>
             <div class="hero-slide" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-08 2.jpg');"></div>
             <div class="hero-slide" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-09.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-10.jpg');"></div>
             <div class="hero-slide" style="background-image: url('assets/nmdpra photos/PHOTO-2025-08-18-11-35-11.jpg');"></div>
         </div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
             <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <div class="mb-4" style="display: flex; justify-content: flex-start;">
+                    <div class="mb-2" style="display: flex; justify-content: flex-start;">
                         <img src="assets/IMG_1884.PNG" alt="NMDPRA Forum Logo" style="max-height: 350px; width: 100%; max-width: 1000px; object-fit: contain;">
                     </div>
                     <p class="hero-lead mb-4">"Beyond Compliance: Driving Regulatory Certainty and Investment Confidence in Nigeria's Petroleum Sector"</p>
@@ -804,18 +803,18 @@
 
             // List of photos - curated selection for better gallery
             const photos = [
+                '7000d3d1-77b0-4455-a097-1c1e6e8d7ac6.jpg',
+                '7c4292be-1660-42d6-b070-4170a91ebb27.jpg',
+                '1144e343-7184-4e66-8279-5f4429029759.jpg',
+                'cd132dc1-902a-4170-9366-5cfdd26abc91.jpg',
+                '68574fb5-f4ab-4bc1-9386-cd49be67699f.jpg',
+                '2f6cebaa-f706-4f6c-ae6c-709006f8a228.jpg',
+                '5c7da47e-ec39-4fa9-98af-de939636bd6b.jpg',
+                '10286973-4873-4237-b1c2-97ec52dcc7c4.jpg',
                 'PHOTO-2025-08-18-11-35-15.jpg',
                 'PHOTO-2025-08-18-11-35-14 10.jpg',
                 'PHOTO-2025-08-18-11-35-13 11.jpg',
-                'PHOTO-2025-08-18-11-35-12 6.jpg',
-                'PHOTO-2025-08-18-11-35-11 7.jpg',
-                'PHOTO-2025-08-18-11-35-10 4.jpg',
-                'PHOTO-2025-08-18-11-35-09 9.jpg',
-                'PHOTO-2025-08-18-11-35-08 5.jpg',
-                'PHOTO-2025-08-18-11-35-14 5.jpg',
-                'PHOTO-2025-08-18-11-35-13 8.jpg',
-                'PHOTO-2025-08-18-11-35-12 3.jpg',
-                'PHOTO-2025-08-18-11-35-11 12.jpg'
+                'PHOTO-2025-08-18-11-35-12 6.jpg'
             ];
 
             // Function to create a photo track
@@ -827,7 +826,12 @@
                 allPhotos.forEach(photo => {
                     const item = document.createElement('div');
                     item.className = 'photo-item';
-                    item.innerHTML = `<img src="assets/nmdpra photos/${encodeURIComponent(photo)}" alt="NMDPRA Event Photo" loading="lazy">`;
+                    // Check if it's a new photo (UUID format, no spaces)
+                    const isNewPhoto = !photo.startsWith('PHOTO-');
+                    const photoPath = isNewPhoto 
+                        ? `assets/${encodeURIComponent(photo)}` 
+                        : `assets/nmdpra photos/${encodeURIComponent(photo)}`;
+                    item.innerHTML = `<img src="${photoPath}" alt="NMDPRA Event Photo" loading="lazy">`;
                     track.appendChild(item);
                 });
                 return track;
