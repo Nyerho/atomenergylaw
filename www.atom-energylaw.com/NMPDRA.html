@@ -224,8 +224,8 @@
 
         .photo-item {
             flex-shrink: 0;
-            width: 300px;
-            height: 200px;
+            width: 240px;
+            height: 160px;
             border-radius: 12px;
             overflow: hidden;
         }
@@ -246,6 +246,10 @@
 
         .row-3 .photo-track {
             animation: scroll-left 30s linear infinite;
+        }
+
+        .row-4 .photo-track {
+            animation: scroll-right 30s linear infinite;
         }
 
         @keyframes scroll-left {
@@ -533,8 +537,8 @@
         <div class="container hero-content">
             <div class="row align-items-center">
                 <div class="col-lg-8">
-                    <div class="mb-2" style="display: flex; justify-content: flex-start;">
-                        <img src="assets/IMG_1884.PNG" alt="NMDPRA Forum Logo" style="max-height: 350px; width: 100%; max-width: 1000px; object-fit: contain;">
+                    <div class="mb-1" style="display: flex; justify-content: flex-start;">
+                        <img src="assets/IMG_1884.PNG" alt="NMDPRA Forum Logo" style="max-height: 300px; width: 100%; max-width: 800px; object-fit: contain;">
                     </div>
                     <p class="hero-lead mb-4">"Beyond Compliance: Driving Regulatory Certainty and Investment Confidence in Nigeria's Petroleum Sector"</p>
                     <div class="d-flex flex-wrap gap-4">
@@ -657,6 +661,7 @@
                 <div class="photo-row row-1" id="photoRow1"></div>
                 <div class="photo-row row-2" id="photoRow2"></div>
                 <div class="photo-row row-3" id="photoRow3"></div>
+                <div class="photo-row row-4" id="photoRow4"></div>
             </div>
         </div>
     </section>
@@ -793,15 +798,16 @@
             }
         })();
 
-        // Event Photos Slideshow (3-row)
+        // Event Photos Slideshow (4-row)
         (() => {
             const row1 = document.getElementById('photoRow1');
             const row2 = document.getElementById('photoRow2');
             const row3 = document.getElementById('photoRow3');
+            const row4 = document.getElementById('photoRow4');
 
-            if (!row1 || !row2 || !row3) return;
+            if (!row1 || !row2 || !row3 || !row4) return;
 
-            // List of photos - curated selection for better gallery
+            // List of photos - curated selection for better gallery (including all new and old photos)
             const photos = [
                 '7000d3d1-77b0-4455-a097-1c1e6e8d7ac6.jpg',
                 '7c4292be-1660-42d6-b070-4170a91ebb27.jpg',
@@ -814,7 +820,18 @@
                 'PHOTO-2025-08-18-11-35-15.jpg',
                 'PHOTO-2025-08-18-11-35-14 10.jpg',
                 'PHOTO-2025-08-18-11-35-13 11.jpg',
-                'PHOTO-2025-08-18-11-35-12 6.jpg'
+                'PHOTO-2025-08-18-11-35-12 6.jpg',
+                'PHOTO-2025-08-18-11-35-11 7.jpg',
+                'PHOTO-2025-08-18-11-35-09 9.jpg',
+                'PHOTO-2025-08-18-11-35-08 5.jpg',
+                'PHOTO-2025-08-18-11-35-14 5.jpg',
+                'PHOTO-2025-08-18-11-35-13 8.jpg',
+                'PHOTO-2025-08-18-11-35-12 3.jpg',
+                'PHOTO-2025-08-18-11-35-11 12.jpg',
+                'PHOTO-2025-08-18-11-35-14 11.jpg',
+                'PHOTO-2025-08-18-11-35-13 10.jpg',
+                'PHOTO-2025-08-18-11-35-12 10.jpg',
+                'PHOTO-2025-08-18-11-35-11 10.jpg'
             ];
 
             // Function to create a photo track
@@ -837,14 +854,16 @@
                 return track;
             };
 
-            // Split photos into 3 groups
-            const group1 = photos.slice(0, 4);
-            const group2 = photos.slice(4, 8);
-            const group3 = photos.slice(8, 12);
+            // Split photos into 4 groups
+            const group1 = photos.slice(0, 6);
+            const group2 = photos.slice(6, 12);
+            const group3 = photos.slice(12, 18);
+            const group4 = photos.slice(18, 24);
 
             row1.appendChild(createTrack(group1));
             row2.appendChild(createTrack(group2));
             row3.appendChild(createTrack(group3));
+            row4.appendChild(createTrack(group4));
         })();
     </script>
 </body>
