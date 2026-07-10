@@ -1,4 +1,4 @@
-const SHEET_ID = 'PASTE_YOUR_GOOGLE_SHEET_ID';
+const SHEET_ID = '14Uuia7k-fgZ0fk0t_i8qy-C7dkM7O-WGvYqlqT-l9WQ';
 const SHEET_NAME = 'Subscribers';
 const SITE_URL = 'https://www.atom-energylaw.com';
 const LOGO_URL = 'https://www.atom-energylaw.com/assets/Atom%20logo%20final-I7OGcKSj.png';
