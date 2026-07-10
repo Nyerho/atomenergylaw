@@ -1,7 +1,7 @@
 (() => {
     const DRAFT_STORAGE_KEY = 'atomSiteContentDraft';
     const MAILING_LIST_API = '/api/mailing-list';
-    const PRELOADER_LOGO = 'assets/Atom logo final-I7OGcKSj.png';
+    const PRELOADER_LOGO = 'assets/atom-logo-final.png';
     const defaultVisibility = {
         pages: {
             home: true,
