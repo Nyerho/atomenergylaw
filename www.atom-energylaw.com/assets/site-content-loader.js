@@ -10,20 +10,20 @@
             practice: true,
             sectors: true,
             contact: true,
-            knowledgeHub: true,
-            newsUpdates: true,
-            articles: true,
-            insightsResources: true
+            knowledgeHub: false,
+            newsUpdates: false,
+            articles: false,
+            insightsResources: false
         },
         sections: {
             homeOverview: true,
             homeExpertise: true,
             homePracticeGroups: true,
-            homeNews: true,
+            homeNews: false,
             homeTestimonials: true,
             homeContactCta: true,
-            hubIntro: true,
-            hubSections: true
+            hubIntro: false,
+            hubSections: false
         }
     };
 
@@ -828,41 +828,23 @@
                 const submitButton = form.querySelector('button[type="submit"]');
                 if (!(input instanceof HTMLInputElement)) return;
                 if (!form.reportValidity()) return;
-                const email = input.value.trim();
-                const source = form.getAttribute('data-email-list-source')
-                    || document.body?.dataset?.pageKey
-                    || document.body?.dataset?.hubPageKey
-                    || 'website';
 
                 if (submitButton instanceof HTMLButtonElement) {
                     submitButton.disabled = true;
                     submitButton.dataset.originalLabel = submitButton.textContent || 'Join';
-                    submitButton.textContent = 'Joining...';
+                    submitButton.textContent = 'Processing...';
                 }
 
                 if (success) {
-                    success.textContent = 'Submitting your signup...';
+                    success.textContent = 'Mailing list signup is temporarily unavailable. Please check back soon.';
                 }
 
                 try {
-                    const response = await fetch(MAILING_LIST_API, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            email,
-                            source,
-                            pageUrl: window.location.href,
-                            destinationEmail: content?.site?.contact?.email || 'advisory@atom-energylaw.com'
-                        })
-                    });
-                    const data = await safeJson(response);
-                    if (!response.ok) {
-                        throw new Error(data?.message || 'Could not complete the mailing list signup.');
-                    }
+                    await new Promise(resolve => setTimeout(resolve, 800));
 
                     input.value = '';
                     if (success) {
-                        success.textContent = data?.message || 'You have joined the mailing list. Please check your email for the welcome message.';
+                        success.textContent = 'Thank you for your interest! Mailing list signup is temporarily disabled while we set up our company email. Please check back soon.';
                     }
 
                     const modalEl = form.closest('.modal');
@@ -870,13 +852,7 @@
                         const modal = window.bootstrap.Modal.getInstance(modalEl) || new window.bootstrap.Modal(modalEl);
                         const markDismissed = () => window.sessionStorage.setItem('atom-energylaw-email-list-session-v2', 'true');
                         markDismissed();
-                        window.setTimeout(() => modal.hide(), 180);
-                    }
-                } catch (error) {
-                    if (success) {
-                        success.textContent = error instanceof Error
-                            ? error.message
-                            : 'The mailing list is not available right now. Please try again shortly.';
+                        window.setTimeout(() => modal.hide(), 2500);
                     }
                 } finally {
                     if (submitButton instanceof HTMLButtonElement) {
