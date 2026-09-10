@@ -193,20 +193,20 @@
       "practice": true,
       "sectors": true,
       "contact": true,
-      "knowledgeHub": false,
-      "newsUpdates": false,
-      "articles": false,
-      "insightsResources": false
+      "knowledgeHub": true,
+      "newsUpdates": true,
+      "articles": true,
+      "insightsResources": true
     },
     "sections": {
       "homeOverview": true,
       "homeExpertise": true,
       "homePracticeGroups": true,
-      "homeNews": false,
+      "homeNews": true,
       "homeTestimonials": true,
       "homeContactCta": true,
-      "hubIntro": false,
-      "hubSections": false
+      "hubIntro": true,
+      "hubSections": true
     }
   }
 }
