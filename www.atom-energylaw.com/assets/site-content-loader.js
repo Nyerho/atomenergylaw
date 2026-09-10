@@ -695,9 +695,9 @@
                 kicker: hub?.pages?.news?.kicker || 'News & Updates',
                 title: hub?.pages?.news?.title || 'Latest Updates',
                 lead: hub?.pages?.news?.lead || 'Track announcements, market developments, and practical updates relevant to the energy and natural resources sectors.',
-                link: 'news-updates.html',
-                button: 'Open Latest Updates',
-                image: hub?.news?.[0]?.image || 'assets/heroslide4.jpg',
+                link: hub?.articles?.[0]?.url || 'news-updates.html',
+                button: hub?.articles?.[0]?.button || 'Read',
+                image: hub?.articles?.[0]?.image || hub?.news?.[0]?.image || 'assets/heroslide4.jpg',
                 stats: [
                     { label: 'Coverage', value: 'News', note: 'Fast, timely briefings from across the sector.' },
                     { label: 'Items', value: String((hub?.news || []).length || 0).padStart(2, '0'), note: 'Live entries curated for relevance.' },
