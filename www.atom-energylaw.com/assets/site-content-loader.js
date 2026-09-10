@@ -739,23 +739,6 @@
                 ],
                 bullets: (hub?.resources || []).slice(0, 4).map((item) => `${item.title}: ${item.summary}`)
             },
-            {
-                id: 'testimonials',
-                navTitle: 'Client Perspectives',
-                navSubtitle: 'Selected comments from clients and partners.',
-                kicker: 'Client Perspectives',
-                title: 'Trusted by Clients',
-                lead: 'Selected comments from clients and partners who value clarity, responsiveness, and execution-ready counsel.',
-                link: 'contact.html',
-                button: 'Contact The Firm',
-                image: 'assets/whoweare-optimized.webp',
-                stats: [
-                    { label: 'Coverage', value: 'Trust', note: 'Feedback grounded in execution and responsiveness.' },
-                    { label: 'Voices', value: String((testimonials || []).length || 0).padStart(2, '0'), note: 'Representative comments across mandates.' },
-                    { label: 'Focus', value: 'Value', note: 'Commercially grounded legal support that moves matters forward.' }
-                ],
-                bullets: (testimonials || []).slice(0, 4).map((item) => `"${item.quote}" - ${item.name}, ${item.role}`)
-            }
         ].filter((section) => Array.isArray(section.bullets) && section.bullets.length);
 
         if (!sections.length) return;
