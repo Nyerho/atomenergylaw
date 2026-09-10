@@ -53,8 +53,8 @@
       "heroTitle": "Knowledge Hub",
       "heroLead": "A central library for latest updates, articles and insights, and practical sector resources.",
       "sectionTitle": "A focused hub for sector intelligence",
-      "sectionLead": "Explore the latest market developments, commercially relevant commentary, and a dedicated library of legal reference materials.",
-      "sectionBody": "The Knowledge Hub brings together Atom Energy Law Advisory's latest updates, articles and insights, and a dedicated Resource Center covering bills, laws, regulations, and practical reference materials for the energy and natural resources sectors.",
+      "sectionLead": "",
+      "sectionBody": "",
       "image": "assets/images/energy.webp",
       "cards": [
         {
@@ -74,7 +74,7 @@
         {
           "icon": "fa-scale-balanced",
           "title": "Resource Center",
-          "summary": "Bills, laws, regulations, and practical legal reference materials curated by the admin.",
+          "summary": "laws and regulations, and practical legal reference materials curated by the admin.",
           "button": "Open Resource Center",
           "url": "insights-resources.html"
         }
@@ -82,7 +82,7 @@
     },
     "pages": {
       "news": {
-        "kicker": "Latest Briefings",
+        "kicker": "News & Updates",
         "title": "Latest Updates",
         "lead": "Track announcements, market developments, and practical updates relevant to the energy and natural resources sectors.",
         "sectionTitle": "Latest sector and firm updates",
@@ -96,10 +96,10 @@
         "sectionLead": "Each card can carry an image, summary, and a link to the full piece or destination page."
       },
       "resources": {
-        "kicker": "Bills, Laws and Regulations",
+        "kicker": "Laws and Regulations",
         "title": "Resource Center",
-        "lead": "Browse bills, laws, regulations, trackers, and practical legal materials especially relevant to oil, gas, power, mining, and maritime stakeholders.",
-        "sectionTitle": "Bills, laws, regulations, and practical resources",
+        "lead": "Browse laws and regulations, trackers, and practical legal materials especially relevant to oil, gas, power, mining, and maritime stakeholders.",
+        "sectionTitle": "laws and regulations, and practical resources",
         "sectionLead": "Use the filters and search tools below to browse the library by category or locate a specific legal instrument."
       }
     },
@@ -156,17 +156,16 @@
         "summary": "A concise note on how ongoing legal support strengthens governance, contracting, and compliance for operators.",
         "url": "articles.html",
         "image": "assets/maritime.jpg"
+      },
+      {
+        "tag": "Newsletter",
+        "icon": "fa-newspaper",
+        "title": "The Energy Brief — August 2026",
+        "summary": "Monthly regulatory updates covering Nigeria’s petroleum, power, mining, and maritime sectors, including key developments and practical market context.",
+        "url": "assets/the-energy-brief-august-2026.pdf"
       }
     ],
     "resources": [
-      {
-        "tag": "Bill",
-        "icon": "fa-landmark",
-        "title": "Petroleum Industry Reform Bill Tracker",
-        "summary": "A practical snapshot of current petroleum-sector bill developments, major clauses, and the commercial issues stakeholders should monitor.",
-        "url": "",
-        "image": "assets/mining.jpg"
-      },
       {
         "tag": "Law",
         "icon": "fa-book-open",
@@ -182,13 +181,6 @@
         "summary": "A curated note on current regulations, implementation trends, and what they mean for investment, operations, and project documentation.",
         "url": "",
         "image": "assets/heroslide4.jpg"
-      },
-      {
-        "tag": "Newsletter",
-        "icon": "fa-newspaper",
-        "title": "The Energy Brief — August 2026",
-        "summary": "Monthly regulatory updates covering Nigeria’s petroleum, power, mining, and maritime sectors, including key developments and practical market context.",
-        "url": "assets/the-energy-brief-august-2026.pdf"
       }
     ]
   },

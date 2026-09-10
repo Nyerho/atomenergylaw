@@ -625,7 +625,7 @@
         knowledgeHub: {
             pages: {
                 news: {
-                    kicker: 'Latest Briefings',
+                    kicker: 'News & Updates',
                     title: 'Latest Updates',
                     lead: 'Track announcements, market developments, and practical updates relevant to the energy and natural resources sectors.'
                 },
@@ -635,9 +635,9 @@
                     lead: 'Publish longer-form analysis, client notes, and commercially focused insight.'
                 },
                 resources: {
-                    kicker: 'Bills, Laws and Regulations',
+                    kicker: 'Laws and Regulations',
                     title: 'Resource Center',
-                    lead: 'Browse bills, laws, regulations, trackers, and practical legal materials.'
+                    lead: 'Browse laws and regulations, trackers, and practical legal materials.'
                 }
             },
             news: [
@@ -666,8 +666,8 @@
             ],
             resources: [
                 {
-                    title: 'Petroleum Industry Reform Bill Tracker',
-                    summary: 'A practical snapshot of current petroleum-sector bill developments, major clauses, and the commercial issues stakeholders should monitor.',
+                    title: 'Petroleum Industry Reform legal resources Tracker',
+                    summary: 'A practical snapshot of current petroleum-sector legal resources developments, major clauses, and the commercial issues stakeholders should monitor.',
                     image: 'assets/mining.jpg'
                 },
                 {
@@ -692,7 +692,7 @@
                 id: 'news',
                 navTitle: 'Latest Updates',
                 navSubtitle: 'Current briefings and market developments.',
-                kicker: hub?.pages?.news?.kicker || 'Latest Briefings',
+                kicker: hub?.pages?.news?.kicker || 'News & Updates',
                 title: hub?.pages?.news?.title || 'Latest Updates',
                 lead: hub?.pages?.news?.lead || 'Track announcements, market developments, and practical updates relevant to the energy and natural resources sectors.',
                 link: 'news-updates.html',
@@ -725,16 +725,16 @@
             {
                 id: 'resources',
                 navTitle: 'Resource Center',
-                navSubtitle: 'Bills, laws, regulations, and practical tools.',
-                kicker: hub?.pages?.resources?.kicker || 'Bills, Laws and Regulations',
+                navSubtitle: 'laws and regulations, and practical tools.',
+                kicker: hub?.pages?.resources?.kicker || 'Laws and Regulations',
                 title: hub?.pages?.resources?.title || 'Resource Center',
-                lead: hub?.pages?.resources?.lead || 'Browse bills, laws, regulations, trackers, and practical legal materials.',
+                lead: hub?.pages?.resources?.lead || 'Browse laws and regulations, trackers, and practical legal materials.',
                 link: 'insights-resources.html',
                 button: 'Open Resource Center',
                 image: hub?.resources?.[0]?.image || 'assets/mining.jpg',
                 stats: [
                     { label: 'Coverage', value: 'Library', note: 'Reference materials organized for practical use.' },
-                    { label: 'Items', value: String((hub?.resources || []).length || 0).padStart(2, '0'), note: 'Bills, laws, and regulations in one place.' },
+                    { label: 'Items', value: String((hub?.resources || []).length || 0).padStart(2, '0'), note: 'legal resources, laws, and regulations in one place.' },
                     { label: 'Focus', value: 'Tools', note: 'Useful for projects, compliance, and market tracking.' }
                 ],
                 bullets: (hub?.resources || []).slice(0, 4).map((item) => `${item.title}: ${item.summary}`)
