@@ -801,7 +801,7 @@
     };
 
     const openZohoCampaignsPopup = () => {
-        const popupId = 'atom-zoho-campaigns-popup-script';
+        const popupId = 'ZC_Forms_Popup';
         const open = () => {
             if (typeof window.loadZCPopup === 'function') {
                 window.loadZCPopup('3z355af77cf665d66b9b242fb14db7cebb3a2c83e274ba2f53a87bc4525a41df51', 'ZCFORMVIEW', '1341a734a');
