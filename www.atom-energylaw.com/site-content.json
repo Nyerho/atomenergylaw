@@ -98,8 +98,8 @@
       "resources": {
         "kicker": "Laws and Regulations",
         "title": "Resource Center",
-        "lead": "Browse laws and regulations, trackers, and practical legal materials especially relevant to oil, gas, power, mining, and maritime stakeholders.",
-        "sectionTitle": "laws and regulations, and practical resources",
+        "lead": "Browse Laws, Regulations, Trackers, and Practical Legal Materials Especially Relevant to Oil, Gas, Power, Mining, and Maritime Stakeholders.",
+        "sectionTitle": "Browse Laws, Regulations and Practical Materials",
         "sectionLead": "Use the filters and search tools below to browse the library by category or locate a specific legal instrument."
       }
     },
@@ -134,6 +134,14 @@
     ],
     "articles": [
       {
+        "tag": "Monthly Regulatory Update",
+        "icon": "fa-newspaper",
+        "title": "The Energy Brief — August 2026",
+        "summary": "The Energy Brief: Monthly regulatory updates on Nigeria’s Petroleum, Power, Mining and Maritime Sectors (August 2026)",
+        "url": "assets/the-energy-brief-august-2026.pdf",
+        "button": "Read"
+      },
+      {
         "tag": "Article",
         "icon": "fa-newspaper",
         "title": "Structuring value in Nigeria's evolving energy market",
@@ -156,13 +164,6 @@
         "summary": "A concise note on how ongoing legal support strengthens governance, contracting, and compliance for operators.",
         "url": "articles.html",
         "image": "assets/maritime.jpg"
-      },
-      {
-        "tag": "Newsletter",
-        "icon": "fa-newspaper",
-        "title": "The Energy Brief — August 2026",
-        "summary": "Monthly regulatory updates covering Nigeria’s petroleum, power, mining, and maritime sectors, including key developments and practical market context.",
-        "url": "assets/the-energy-brief-august-2026.pdf"
       }
     ],
     "resources": [

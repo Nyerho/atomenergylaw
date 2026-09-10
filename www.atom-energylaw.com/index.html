@@ -8,8 +8,8 @@
         .who-we-are-detail p { margin-bottom: 1.2rem; }
         .who-we-are-points { display: flex; flex-wrap: wrap; gap: .75rem 1.4rem; margin-top: 1.6rem; color: #0f294d; font-size: .88rem; font-weight: 700; }
         .who-we-are-points i { margin-right: .35rem; color: #16b89a; }
-        .hub-heading-row { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 2.5rem; }
-        .hub-heading-note { max-width: 28rem; margin: 0; color: rgba(255,255,255,.68); text-align: right; }
+        .hub-heading-row { display: flex; align-items: end; justify-content: center; gap: 2rem; margin-bottom: 2.5rem; text-align: center; }
+        .hub-heading-note { max-width: 28rem; margin: 0; color: rgba(255,255,255,.68); text-align: center; }
         .hub-destination-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
         .hub-destination-card { display: flex; min-height: 225px; flex-direction: column; align-items: flex-start; padding: 1.6rem; border: 1px solid rgba(255,255,255,.12); border-radius: 22px; background: rgba(5,14,35,.5); color: #fff; text-decoration: none; transition: transform .2s ease, border-color .2s ease, background .2s ease; }
         .hub-destination-card:hover { transform: translateY(-5px); border-color: #16d2b0; background: rgba(5,14,35,.85); color: #fff; }
@@ -17,7 +17,7 @@
         .hub-destination-title { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 1rem; font-size: 1.15rem; font-weight: 800; }
         .hub-destination-title i { color: #16d2b0; font-size: .9rem; }
         .hub-destination-copy { margin-top: .7rem; color: rgba(255,255,255,.64); line-height: 1.6; }
-        @media (max-width: 991px) { .who-we-are-layout, .hub-destination-grid { grid-template-columns: 1fr; } .who-we-are-detail { border-left: 0; border-top: 1px solid rgba(15,41,77,.16); padding: 1.5rem 0 0; } .hub-heading-row { align-items: flex-start; flex-direction: column; } .hub-heading-note { text-align: left; } }
+        @media (max-width: 991px) { .who-we-are-layout, .hub-destination-grid { grid-template-columns: 1fr; } .who-we-are-detail { border-left: 0; border-top: 1px solid rgba(15,41,77,.16); padding: 1.5rem 0 0; } .hub-heading-row { align-items: center; flex-direction: column; } .hub-heading-note { text-align: center; } }
 
     </style></head><body id="top" data-page-key="home">    <!-- Navbar -->    <nav class="navbar navbar-expand-lg glass-nav navbar-landing">        <div class="container">            <a class="navbar-brand" href="index.html">                <img src="assets/atom-logo-final.png" alt="Atom-Energylaw">            </a>            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(15,23,42,0.18);">                <span class="fa fa-bars" style="color: #0f172a;"></span>            </button>            <div class="collapse navbar-collapse justify-content-end nav-reveal" id="navbarNav">                <ul class="navbar-nav">                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>                    <li class="nav-item"><a class="nav-link" href="about.html">Who we are</a></li>                    <li class="nav-item"><a class="nav-link" href="expertise.html">Our Expertise</a></li>                    <li class="nav-item"><a class="nav-link" href="services.html">Knowledge Hub</a></li>                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>                </ul>            </div>        </div>    </nav>    <!-- Hero Section -->    <section class="hero-section">        <div class="hero-slideshow" aria-hidden="true">            <div class="hero-slide is-active" style="background-image: url('assets/hero1-optimized.webp');"></div>            <div class="hero-slide" data-bg="assets/hero2-optimized.webp"></div>            <div class="hero-slide" data-bg="assets/heroslide3.jpg"></div>            <div class="hero-slide" data-bg="assets/heroslide4.jpg"></div>        </div>        <div class="hero-overlay" aria-hidden="true"></div>        <div class="container hero-content">            <div class="row">                <div class="col-lg-9">                    <div class="hero-text-panel" id="heroTextPanel">                        <h1 class="display-4 hero-title mb-0" id="heroTitleText">PREMIER ENERGY LAW ADVISORY</h1>                        <p class="lead hero-lead mb-0" id="heroLeadText">Exclusive Tier 1 legal and strategic services across the energy and natural resources value chain.</p>                    </div>                </div>            </div>        </div>    </section>    <!-- Firm Overview Section -->    <section class="about-section who-we-are-section" data-visibility-section="homeOverview" id="firm-overview">
         <div class="container">
@@ -46,7 +46,6 @@
                     <span class="section-eyebrow">Knowledge Hub</span>
                     <h2 class="display-5 mb-0">Explore the Hub</h2>
                 </div>
-                <p class="hub-heading-note">Practical perspectives and sector resources from Atom Energy Law Advisory.</p>
             </div>
             <div class="hub-destination-grid">
                 <a class="hub-destination-card" href="news-updates.html">
