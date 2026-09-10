@@ -182,6 +182,13 @@
         "summary": "A curated note on current regulations, implementation trends, and what they mean for investment, operations, and project documentation.",
         "url": "",
         "image": "assets/heroslide4.jpg"
+      },
+      {
+        "tag": "Newsletter",
+        "icon": "fa-newspaper",
+        "title": "The Energy Brief — August 2026",
+        "summary": "Monthly regulatory updates covering Nigeria’s petroleum, power, mining, and maritime sectors, including key developments and practical market context.",
+        "url": "assets/the-energy-brief-august-2026.pdf"
       }
     ]
   },
