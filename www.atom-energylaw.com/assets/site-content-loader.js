@@ -800,53 +800,40 @@
         renderPreview(sections[0].id);
     };
 
+    const openZohoCampaignsPopup = () => {
+        const popupId = 'atom-zoho-campaigns-popup-script';
+        const open = () => {
+            if (typeof window.loadZCPopup === 'function') {
+                window.loadZCPopup('3z355af77cf665d66b9b242fb14db7cebb3a2c83e274ba2f53a87bc4525a41df51', 'ZCFORMVIEW', '1341a734a');
+                return true;
+            }
+            return false;
+        };
+        if (open()) return;
+        if (document.getElementById(popupId)) return;
+        const script = document.createElement('script');
+        script.id = popupId;
+        script.type = 'text/javascript';
+        script.src = 'https://campaigns.zoho.com/js/optin.min.js';
+        script.onload = open;
+        document.head.appendChild(script);
+    };
     const bindMailingListForms = (content) => {
         document.querySelectorAll('[data-email-list-form]').forEach((form) => {
             if (form.dataset.bound === 'true') return;
             form.dataset.bound = 'true';
-            form.addEventListener('submit', async (event) => {
+            form.addEventListener('submit', (event) => {
                 event.preventDefault();
                 const input = form.querySelector('[data-email-list-input]');
                 const success = form.querySelector('[data-email-list-success]');
-                const submitButton = form.querySelector('button[type="submit"]');
-                if (!(input instanceof HTMLInputElement)) return;
-                if (!form.reportValidity()) return;
-
-                if (submitButton instanceof HTMLButtonElement) {
-                    submitButton.disabled = true;
-                    submitButton.dataset.originalLabel = submitButton.textContent || 'Join';
-                    submitButton.textContent = 'Processing...';
-                }
-
+                if (!(input instanceof HTMLInputElement) || !form.reportValidity()) return;
+                openZohoCampaignsPopup();
                 if (success) {
-                    success.textContent = 'Mailing list signup is temporarily unavailable. Please check back soon.';
-                }
-
-                try {
-                    await new Promise(resolve => setTimeout(resolve, 800));
-
-                    input.value = '';
-                    if (success) {
-                        success.textContent = 'Thank you for your interest! Mailing list signup is temporarily disabled while we set up our company email. Please check back soon.';
-                    }
-
-                    const modalEl = form.closest('.modal');
-                    if (modalEl && window.bootstrap?.Modal) {
-                        const modal = window.bootstrap.Modal.getInstance(modalEl) || new window.bootstrap.Modal(modalEl);
-                        const markDismissed = () => window.sessionStorage.setItem('atom-energylaw-email-list-session-v2', 'true');
-                        markDismissed();
-                        window.setTimeout(() => modal.hide(), 2500);
-                    }
-                } finally {
-                    if (submitButton instanceof HTMLButtonElement) {
-                        submitButton.disabled = false;
-                        submitButton.textContent = submitButton.dataset.originalLabel || 'Join';
-                    }
+                    success.textContent = 'Please complete the signup in the Zoho form that has opened.';
                 }
             });
         });
     };
-
     const applyKnowledgeHubIntro = (hub, visibility) => {
         const intro = hub?.intro || {};
         Object.entries(intro).forEach(([key, value]) => {
