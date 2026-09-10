@@ -819,19 +819,10 @@
         document.head.appendChild(script);
     };
     const bindMailingListForms = (content) => {
-        document.querySelectorAll('[data-email-list-form]').forEach((form) => {
-            if (form.dataset.bound === 'true') return;
-            form.dataset.bound = 'true';
-            form.addEventListener('submit', (event) => {
-                event.preventDefault();
-                const input = form.querySelector('[data-email-list-input]');
-                const success = form.querySelector('[data-email-list-success]');
-                if (!(input instanceof HTMLInputElement) || !form.reportValidity()) return;
-                openZohoCampaignsPopup();
-                if (success) {
-                    success.textContent = 'Please complete the signup in the Zoho form that has opened.';
-                }
-            });
+        document.querySelectorAll('[data-zoho-mailing-list-trigger]').forEach((button) => {
+            if (button.dataset.bound === 'true') return;
+            button.dataset.bound = 'true';
+            button.addEventListener('click', () => openZohoCampaignsPopup());
         });
     };
     const applyKnowledgeHubIntro = (hub, visibility) => {
