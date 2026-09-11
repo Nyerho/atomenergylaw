@@ -285,6 +285,19 @@
             : fileContent;
     };
 
+    const keepPublishedKnowledgeHubContent = (content) => {
+        if (!content || typeof content !== 'object') return content;
+        const hub = content.knowledgeHub;
+        if (!hub || typeof hub !== 'object') return content;
+        // Keep the live hub aligned with the material actually uploaded by the owner.
+        hub.news = [];
+        hub.resources = [];
+        hub.articles = (Array.isArray(hub.articles) ? hub.articles : []).filter((item) =>
+            item && item.url === 'assets/the-energy-brief-august-2026.pdf'
+        );
+        return content;
+    };
+
     const applySectionVisibility = (visibility) => {
         document.querySelectorAll('[data-visibility-section]').forEach((el) => {
             const key = el.getAttribute('data-visibility-section');
@@ -454,7 +467,7 @@
         const modalSummary = document.getElementById('resourceModalSummary');
         const modalView = document.getElementById('resourceModalView');
         const modalDownload = document.getElementById('resourceModalDownload');
-        const modal = modalEl && window.bootstrap?.Modal ? new bootstrap.Modal(modalEl) : null;
+        const modal = modalEl && window.bootstrap?.Modal ? bootstrap.Modal.getOrCreateInstance(modalEl, { backdrop: true, keyboard: true, focus: true }) : null;
         const pageName = 'insights-resources.html';
         const state = { query: '', category: 'all', view: 'grid' };
 
@@ -522,7 +535,9 @@
                 }
             };
 
-            modal.show();
+            // Reuse one Bootstrap instance so the dialog remains reliable after close/reopen.
+            modal.hide();
+            window.requestAnimationFrame(() => modal.show());
         };
 
         const render = () => {
@@ -602,79 +617,16 @@
     };
 
     const getHomeHubExplorerFallbackContent = () => ({
-        home: {
-            testimonials: [
-                {
-                    quote: 'Clear guidance, fast turnaround, and strong commercial judgement. We felt supported throughout a complex transaction.',
-                    name: 'Client',
-                    role: 'Project Developer'
-                },
-                {
-                    quote: 'They helped us navigate regulatory issues with confidence. Practical, responsive, and deeply sector-aware.',
-                    name: 'Client',
-                    role: 'Investor'
-                },
-                {
-                    quote: 'Responsive, discreet, and precise. Their dispute readiness work strengthened our position and reduced risk.',
-                    name: 'General Counsel',
-                    role: 'Energy Company'
-                }
-            ]
-        },
+        home: { testimonials: [] },
         knowledgeHub: {
             pages: {
-                news: {
-                    kicker: 'News & Updates',
-                    title: 'Latest Updates',
-                    lead: 'Track announcements, market developments, and practical updates relevant to the energy and natural resources sectors.'
-                },
-                articles: {
-                    kicker: 'Thought Leadership',
-                    title: 'Articles & Insights',
-                    lead: 'Publish longer-form analysis, client notes, and commercially focused insight.'
-                },
-                resources: {
-                    kicker: 'Laws and Regulations',
-                    title: 'Resource Center',
-                    lead: 'Browse laws and regulations, trackers, and practical legal materials.'
-                }
+                news: { kicker: 'News & Updates', title: 'Latest Updates', lead: 'No updates have been published yet.' },
+                articles: { kicker: 'Thought Leadership', title: 'Articles & Insights', lead: 'Published articles and insights will appear here.' },
+                resources: { kicker: 'Laws and Regulations', title: 'Resource Center', lead: 'Uploaded legal resources will appear here.' }
             },
-            news: [
-                {
-                    title: 'New advisory support for energy transition projects',
-                    summary: 'Expanded support for renewables, embedded generation, and infrastructure investment aligned with evolving market and policy frameworks.',
-                    image: 'assets/heroslide3.jpg'
-                },
-                {
-                    title: 'Monitoring petroleum and power regulatory developments',
-                    summary: 'Short updates and practical takeaways on licensing, compliance, and market reforms affecting sector participants.',
-                    image: 'assets/heroslide4.jpg'
-                }
-            ],
-            articles: [
-                {
-                    title: 'Structuring value in Nigeria\'s evolving energy market',
-                    summary: 'A practical look at risk allocation, documentation priorities, and execution strategy across complex energy transactions.',
-                    image: 'assets/heroslide3.jpg'
-                },
-                {
-                    title: 'Regulatory clarity and investment confidence',
-                    summary: 'How disciplined regulatory analysis can improve investor readiness, project certainty, and commercial timing.',
-                    image: 'assets/heroslide4.jpg'
-                }
-            ],
-            resources: [
-                {
-                    title: 'Petroleum Industry Reform legal resources Tracker',
-                    summary: 'A practical snapshot of current petroleum-sector legal resources developments, major clauses, and the commercial issues stakeholders should monitor.',
-                    image: 'assets/mining.jpg'
-                },
-                {
-                    title: 'Petroleum Industry Act Reference Note',
-                    summary: 'A practical summary of key provisions, compliance considerations, and implementation points under the Petroleum Industry Act.',
-                    image: 'assets/maritime.jpg'
-                }
-            ]
+            news: [],
+            articles: [],
+            resources: []
         }
     });
 
@@ -866,14 +818,14 @@
             const draftContent = loadStoredDraft();
             const content = pickFreshestContent(fileContent, draftContent);
             if (!content) return;
-            applyContent(content);
+            applyContent(keepPublishedKnowledgeHubContent(content));
         } catch (_) {
             const draftContent = loadStoredDraft();
             if (!draftContent) {
                 renderHomeHubExplorer(null);
                 return;
             }
-            applyContent(draftContent);
+            applyContent(keepPublishedKnowledgeHubContent(draftContent));
         }
     };
 

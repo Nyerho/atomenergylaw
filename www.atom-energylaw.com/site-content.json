@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-06-18T00:00:00.000Z",
+  "updatedAt": "2026-09-11T13:54:00.000Z",
   "site": {
     "contact": {
       "phone": "+234 906 049 0067",
@@ -103,35 +103,7 @@
         "sectionLead": "Use the filters and search tools below to browse the library by category or locate a specific legal instrument."
       }
     },
-    "news": [
-      {
-        "type": "Announcement",
-        "icon": "fa-bullhorn",
-        "year": "2026",
-        "title": "New advisory support for energy transition projects",
-        "summary": "Expanded support for renewables, embedded generation, and infrastructure investment aligned with evolving market and policy frameworks.",
-        "url": "contact.html",
-        "image": "assets/heroslide3.jpg"
-      },
-      {
-        "type": "Update",
-        "icon": "fa-scale-balanced",
-        "year": "2026",
-        "title": "Monitoring petroleum and power regulatory developments",
-        "summary": "Short updates and practical takeaways on licensing, compliance, and market reforms affecting sector participants.",
-        "url": "news-updates.html",
-        "image": "assets/heroslide4.jpg"
-      },
-      {
-        "type": "Shoutout",
-        "icon": "fa-star",
-        "year": "2026",
-        "title": "Client success in a high-stakes regulatory engagement",
-        "summary": "Celebrating a major milestone for a client operating across the energy value chain, supported through strategy, compliance, and policy engagement.",
-        "url": "contact.html",
-        "image": "assets/mining.jpg"
-      }
-    ],
+    "news": [],
     "articles": [
       {
         "tag": "Monthly Regulatory Update",
@@ -141,50 +113,9 @@
         "url": "assets/the-energy-brief-august-2026.pdf",
         "button": "Read",
         "image": "assets/the-energy-brief-august-2026.jpg"
-      },
-      {
-        "tag": "Article",
-        "icon": "fa-newspaper",
-        "title": "Structuring value in Nigeria's evolving energy market",
-        "summary": "A practical look at risk allocation, documentation priorities, and execution strategy across complex energy transactions.",
-        "url": "articles.html",
-        "image": "assets/heroslide3.jpg"
-      },
-      {
-        "tag": "Commentary",
-        "icon": "fa-pen-nib",
-        "title": "Regulatory clarity and investment confidence",
-        "summary": "How disciplined regulatory analysis can improve investor readiness, project certainty, and commercial timing.",
-        "url": "articles.html",
-        "image": "assets/heroslide4.jpg"
-      },
-      {
-        "tag": "Insight",
-        "icon": "fa-file-lines",
-        "title": "Operational legal support for energy businesses",
-        "summary": "A concise note on how ongoing legal support strengthens governance, contracting, and compliance for operators.",
-        "url": "articles.html",
-        "image": "assets/maritime.jpg"
       }
     ],
-    "resources": [
-      {
-        "tag": "Law",
-        "icon": "fa-book-open",
-        "title": "Petroleum Industry Act Reference Note",
-        "summary": "A practical summary of key provisions, compliance considerations, and implementation points under the Petroleum Industry Act.",
-        "url": "",
-        "image": "assets/maritime.jpg"
-      },
-      {
-        "tag": "Regulation",
-        "icon": "fa-lightbulb",
-        "title": "Energy Market Regulation Watch",
-        "summary": "A curated note on current regulations, implementation trends, and what they mean for investment, operations, and project documentation.",
-        "url": "",
-        "image": "assets/heroslide4.jpg"
-      }
-    ]
+    "resources": []
   },
   "visibility": {
     "pages": {
