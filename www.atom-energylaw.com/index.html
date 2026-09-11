@@ -60,6 +60,9 @@
             const formView = 'ZCFORMVIEW';
             const accountId = '1341a734a';
             let attempts = 0;
+            // Zoho Campaigns requires the regional redirect values before the popup is built.
+            window.ZC_URL = 'campaigns.zoho.com';
+            window.ZCMP_RedirUrl = 'maillist-manage.com';
             const tryLoadZohoPopup = () => {
                 if (window.__atomZohoPopupLoaded) return true;
                 if (typeof window.loadZCPopup === 'function') {
