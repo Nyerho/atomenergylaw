@@ -1,6 +1,5 @@
 (() => {
     const DRAFT_STORAGE_KEY = 'atomSiteContentDraft';
-    const MAILING_LIST_API = '/api/mailing-list';
     const PRELOADER_LOGO = 'assets/atom-logo-final.png';
     const defaultVisibility = {
         pages: {
@@ -800,30 +799,6 @@
         renderPreview(sections[0].id);
     };
 
-    const openZohoCampaignsPopup = () => {
-        const zohoFormId = '3z355af77cf665d66b9b242fb14db7cebb3a2c83e274ba2f53a87bc4525a41df51';
-        if (document.getElementById(`popup_SF_${zohoFormId}`) || window.__atomZohoPopupLoading) {
-            return;
-        }
-        if (typeof window.loadZCPopup !== 'function') {
-            console.error('Zoho Campaigns popup script has not loaded.');
-            return;
-        }
-        // Zoho's current loader does not initialize the default .com region
-        // before building its popup and opt-in requests.
-        window.ZC_URL = 'campaigns.zoho.com';
-        window.ZCMP_RedirUrl = 'maillist-manage.com';
-        window.__atomZohoPopupLoading = true;
-        window.loadZCPopup(zohoFormId, 'ZCFORMVIEW', '1341a734a');
-        window.setTimeout(() => { window.__atomZohoPopupLoading = false; }, 5000);
-    };
-    const bindMailingListForms = (content) => {
-        document.querySelectorAll('[data-zoho-mailing-list-trigger]').forEach((button) => {
-            if (button.dataset.bound === 'true') return;
-            button.dataset.bound = 'true';
-            button.addEventListener('click', () => openZohoCampaignsPopup());
-        });
-    };
     const applyKnowledgeHubIntro = (hub, visibility) => {
         const intro = hub?.intro || {};
         Object.entries(intro).forEach(([key, value]) => {
@@ -873,7 +848,6 @@
         renderHomeHubExplorer(content);
         applyKnowledgeHubIntro(content?.knowledgeHub, visibility);
         applyKnowledgeHubPage(content?.knowledgeHub);
-        bindMailingListForms(content);
     };
 
     const fetchJson = async () => {
