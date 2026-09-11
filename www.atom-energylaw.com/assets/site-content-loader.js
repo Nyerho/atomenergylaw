@@ -805,6 +805,10 @@
             console.error('Zoho Campaigns popup script has not loaded.');
             return;
         }
+        // Zoho's current loader does not initialize the default .com region
+        // before building its popup and opt-in requests.
+        window.ZC_URL = 'campaigns.zoho.com';
+        window.ZCMP_RedirUrl = 'maillist-manage.com';
         window.loadZCPopup('3z355af77cf665d66b9b242fb14db7cebb3a2c83e274ba2f53a87bc4525a41df51', 'ZCFORMVIEW', '1341a734a');
     };
     const bindMailingListForms = (content) => {
