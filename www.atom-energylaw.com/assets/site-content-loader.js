@@ -801,22 +801,11 @@
     };
 
     const openZohoCampaignsPopup = () => {
-        const popupId = 'ZC_Forms_Popup';
-        const open = () => {
-            if (typeof window.loadZCPopup === 'function') {
-                window.loadZCPopup('3z355af77cf665d66b9b242fb14db7cebb3a2c83e274ba2f53a87bc4525a41df51', 'ZCFORMVIEW', '1341a734a');
-                return true;
-            }
-            return false;
-        };
-        if (open()) return;
-        if (document.getElementById(popupId)) return;
-        const script = document.createElement('script');
-        script.id = popupId;
-        script.type = 'text/javascript';
-        script.src = 'https://campaigns.zoho.com/js/optin.min.js';
-        script.onload = open;
-        document.head.appendChild(script);
+        if (typeof window.loadZCPopup !== 'function') {
+            console.error('Zoho Campaigns popup script has not loaded.');
+            return;
+        }
+        window.loadZCPopup('3z355af77cf665d66b9b242fb14db7cebb3a2c83e274ba2f53a87bc4525a41df51', 'ZCFORMVIEW', '1341a734a');
     };
     const bindMailingListForms = (content) => {
         document.querySelectorAll('[data-zoho-mailing-list-trigger]').forEach((button) => {
