@@ -115,7 +115,8 @@
                 let attempts = 0;
                 const reveal = window.setInterval(() => {
                     attempts += 1;
-                    if (revealZohoPopup() || attempts >= 20) window.clearInterval(reveal);
+                    revealZohoPopup();
+                    if (attempts >= 40) window.clearInterval(reveal);
                 }, 100);
             };
             document.querySelectorAll('[data-zoho-mailing-list-trigger]').forEach((button) => {
