@@ -801,6 +801,10 @@
     };
 
     const openZohoCampaignsPopup = () => {
+        const zohoFormId = '3z355af77cf665d66b9b242fb14db7cebb3a2c83e274ba2f53a87bc4525a41df51';
+        if (document.getElementById(`popup_SF_${zohoFormId}`) || window.__atomZohoPopupLoading) {
+            return;
+        }
         if (typeof window.loadZCPopup !== 'function') {
             console.error('Zoho Campaigns popup script has not loaded.');
             return;
@@ -809,7 +813,9 @@
         // before building its popup and opt-in requests.
         window.ZC_URL = 'campaigns.zoho.com';
         window.ZCMP_RedirUrl = 'maillist-manage.com';
-        window.loadZCPopup('3z355af77cf665d66b9b242fb14db7cebb3a2c83e274ba2f53a87bc4525a41df51', 'ZCFORMVIEW', '1341a734a');
+        window.__atomZohoPopupLoading = true;
+        window.loadZCPopup(zohoFormId, 'ZCFORMVIEW', '1341a734a');
+        window.setTimeout(() => { window.__atomZohoPopupLoading = false; }, 5000);
     };
     const bindMailingListForms = (content) => {
         document.querySelectorAll('[data-zoho-mailing-list-trigger]').forEach((button) => {
