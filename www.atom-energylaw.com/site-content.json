@@ -51,7 +51,7 @@
     "intro": {
       "kicker": "Sector Intelligence",
       "heroTitle": "Knowledge Hub",
-      "heroLead": "A central library for latest updates, articles and insights, and practical sector resources.",
+      "heroLead": "A central library for publications and insights, deals and announcements, and practical sector resources.",
       "sectionTitle": "A focused hub for sector intelligence",
       "sectionLead": "",
       "sectionBody": "The Knowledge Hub brings together Atom Energy Law Advisory's latest updates, deeper articles and insights, and a dedicated Resource Center covering bills, laws, regulations, and practical reference materials for the energy and natural resources sectors.",
@@ -59,16 +59,16 @@
       "cards": [
         {
           "icon": "fa-bullhorn",
-          "title": "Latest Updates",
+          "title": "Deals and Announcements",
           "summary": "Firm announcements, regulatory developments, and current market updates.",
-          "button": "Open Latest Updates",
+          "button": "Open Deals and Announcements",
           "url": "news-updates.html"
         },
         {
           "icon": "fa-newspaper",
-          "title": "Articles & Insights",
+          "title": "Publications and Insights",
           "summary": "Longer-form commentary, explainers, and insight-led analysis with supporting images.",
-          "button": "Open Articles & Insights",
+          "button": "Open Publications and Insights",
           "url": "articles.html"
         },
         {
@@ -83,16 +83,16 @@
     "pages": {
       "news": {
         "kicker": "News & Updates",
-        "title": "Latest Updates",
+        "title": "Deals and Announcements",
         "lead": "Track announcements, market developments, and practical updates relevant to the energy and natural resources sectors.",
-        "sectionTitle": "Latest sector and firm updates",
+        "sectionTitle": "Deals, announcements, and sector updates",
         "sectionLead": "Use these cards for announcements, short developments, and timely commentary."
       },
       "articles": {
         "kicker": "Thought Leadership",
-        "title": "Articles & Insights",
+        "title": "Publications and Insights",
         "lead": "Publish longer-form analysis, client notes, and commercially focused insights with supporting imagery.",
-        "sectionTitle": "Featured articles and insights",
+        "sectionTitle": "Featured publications and insights",
         "sectionLead": "Each card can carry an image, summary, and a link to the full piece or destination page."
       },
       "resources": {
