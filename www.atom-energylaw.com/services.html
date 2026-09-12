@@ -51,6 +51,16 @@
 .hub-explore-item strong { display:block; margin:.65rem 0 .8rem; font-family:Montserrat,sans-serif; font-size:1rem; line-height:1.35; }
 .hub-explore-item small { color:#8b8f98; font-size:.76rem; }
 @media (max-width: 991px) { .hub-explore-heading { grid-template-columns:1fr; gap:1rem; } .hub-explore-grid { grid-template-columns:1fr; gap:2rem; } }
+
+.hub-explore-grid--single { max-width: 920px; }
+.hub-explore-feature { display:grid; grid-template-columns: minmax(230px, 300px) 1fr; gap:2rem; padding:1.8rem 0; color:#0f294d; text-decoration:none; }
+.hub-explore-feature img { width:100%; height:210px; object-fit:cover; border-radius:14px; box-shadow:0 12px 28px rgba(15,41,77,.12); }
+.hub-explore-feature-copy { align-self:center; }
+.hub-explore-feature-copy h3 { margin:.55rem 0 .75rem; color:#0f294d; font-family:Montserrat,sans-serif; font-size:1.45rem; font-weight:700; }
+.hub-explore-feature-copy p { max-width:38rem; margin:0 0 1.2rem; color:#667085; line-height:1.7; }
+.hub-explore-read { color:#a4873d; font-size:.72rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+.hub-explore-feature:hover .hub-explore-read { color:#1593d1; }
+@media (max-width: 767px) { .hub-explore-feature { grid-template-columns:1fr; gap:1.25rem; } .hub-explore-feature img { height:240px; } }
 </style></head><body data-page-key="knowledgeHub"><nav class="navbar navbar-expand-lg"><div class="container"><a class="navbar-brand" href="index.html"><img src="assets/atom-logo-final.png" alt="Atom-Energylaw"></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(15,23,42,0.18);"><span class="fa fa-bars" style="color: #0f172a;"></span></button><div class="collapse navbar-collapse justify-content-end nav-reveal" id="navbarNav"><ul class="navbar-nav">
   <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
   <li class="nav-item"><a class="nav-link" href="about.html">Who we are</a></li>
@@ -71,29 +81,24 @@
         <span class="hub-explore-kicker">From the firm</span>
         <h2 class="display-5 mb-0">Explore the hub</h2>
       </div>
-      <p>Analysis, announcements and practical resources from Atom Energy Law Advisory.</p>
+      <p>Read the latest regulatory update from Atom Energy Law Advisory.</p>
     </div>
-    <div class="hub-explore-grid">
+    <div class="hub-explore-grid hub-explore-grid--single">
       <div class="hub-explore-column">
-        <div class="hub-explore-column-head"><div><span>From the firm</span><h3>Publications and Insights</h3></div><a href="articles.html">View all <span aria-hidden="true">→</span></a></div>
+        <div class="hub-explore-column-head">
+          <div><span>Publications and Insights</span><h3>The latest publication</h3></div>
+          <a href="articles.html">View all <span aria-hidden="true">→</span></a>
+        </div>
         <div class="hub-explore-rule"></div>
-        <a class="hub-explore-item" href="articles.html"><span class="hub-explore-category">Energy and Natural Resources</span><strong>The Energy Brief — Monthly regulatory updates across Nigeria’s energy and natural resources sectors</strong><small>Read the latest publication</small></a>
-        <a class="hub-explore-item" href="articles.html"><span class="hub-explore-category">Corporate and Commercial</span><strong>Commercially focused analysis, explainers and practical legal guidance</strong><small>Explore publications</small></a>
-        <a class="hub-explore-item" href="articles.html"><span class="hub-explore-category">Project and Infrastructure</span><strong>Insight-led commentary for investors, developers and sector stakeholders</strong><small>Browse insights</small></a>
-      </div>
-      <div class="hub-explore-column">
-        <div class="hub-explore-column-head"><div><span>Latest</span><h3>Deals and Announcements</h3></div><a href="news-updates.html">View all <span aria-hidden="true">→</span></a></div>
-        <div class="hub-explore-rule"></div>
-        <a class="hub-explore-item" href="news-updates.html"><span class="hub-explore-category">Announcements</span><strong>Firm news, milestones and developments from Atom Energy Law Advisory</strong><small>View announcements</small></a>
-        <a class="hub-explore-item" href="news-updates.html"><span class="hub-explore-category">Deals</span><strong>Transaction updates and market developments across the sectors we serve</strong><small>View deals</small></a>
-        <a class="hub-explore-item" href="news-updates.html"><span class="hub-explore-category">Speaking</span><strong>Our perspectives, engagements and participation in sector conversations</strong><small>See latest updates</small></a>
-      </div>
-      <div class="hub-explore-column">
-        <div class="hub-explore-column-head"><div><span>Practical tools</span><h3>Resource Center</h3></div><a href="insights-resources.html">View all <span aria-hidden="true">→</span></a></div>
-        <div class="hub-explore-rule"></div>
-        <a class="hub-explore-item" href="insights-resources.html"><span class="hub-explore-category">Laws and Regulations</span><strong>Reference materials for oil, gas, power, mining and maritime stakeholders</strong><small>Browse resources</small></a>
-        <a class="hub-explore-item" href="insights-resources.html"><span class="hub-explore-category">Trackers</span><strong>Practical legal materials organized for faster research and decision-making</strong><small>Open resource center</small></a>
-        <a class="hub-explore-item" href="insights-resources.html"><span class="hub-explore-category">Guidance</span><strong>Curated tools and materials supporting projects, compliance and investment</strong><small>Explore the library</small></a>
+        <a class="hub-explore-feature" href="assets/the-energy-brief-august-2026.pdf" target="_blank" rel="noopener">
+          <img src="assets/the-energy-brief-august-2026.jpg" alt="The Energy Brief — August 2026 cover">
+          <div class="hub-explore-feature-copy">
+            <span class="hub-explore-category">Monthly Regulatory Update</span>
+            <h3>The Energy Brief — August 2026</h3>
+            <p>Monthly regulatory updates on Nigeria’s petroleum, power, mining and maritime sectors.</p>
+            <span class="hub-explore-read">Read updated monthly regulatory PDF <span aria-hidden="true">→</span></span>
+          </div>
+        </a>
       </div>
     </div>
   </div>
