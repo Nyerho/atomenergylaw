@@ -355,6 +355,33 @@
         return false;
     };
 
+    const renderHomeResourceSlideshow = (container, items) => {
+        if (!container || !Array.isArray(items) || items.length === 0) return;
+        let active = 0;
+        const render = () => {
+            const item = items[active] || items[0];
+            const title = escapeHtml(item.title || 'Legal resource');
+            const summary = escapeHtml(item.summary || '');
+            const tag = escapeHtml(item.tag || 'Resource');
+            const image = safeParseUrl(item.image);
+            const url = escapeHtml(item.url || 'insights-resources.html');
+            container.innerHTML = `
+                <div class="feature-card p-0 overflow-hidden" aria-label="Latest legal resource preview">
+                    <div class="row g-0 align-items-stretch">
+                        <div class="col-lg-5">${image ? `<img src="${escapeHtml(image)}" alt="${title}" class="w-100 h-100" style="min-height:220px;object-fit:cover;">` : '<div class="h-100 d-flex align-items-center justify-content-center bg-light" style="min-height:220px;"><i class="fas fa-scale-balanced fa-3x text-primary"></i></div>'}</div>
+                        <div class="col-lg-7 p-4 p-lg-5 d-flex flex-column justify-content-center">
+                            <div class="text-primary fw-bold text-uppercase small mb-2">${tag} · ${active + 1} / ${items.length}</div>
+                            <h3 class="h4 mb-3">${title}</h3>
+                            <p class="text-muted mb-4">${summary}</p>
+                            <div class="d-flex flex-wrap align-items-center gap-2"><a href="${url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open PDF <i class="fas fa-arrow-up-right-from-square ms-1"></i></a><button type="button" class="btn btn-outline-primary" data-resource-prev aria-label="Previous resource"><i class="fas fa-chevron-left"></i></button><button type="button" class="btn btn-outline-primary" data-resource-next aria-label="Next resource"><i class="fas fa-chevron-right"></i></button></div>
+                        </div>
+                    </div>
+                </div>`;
+            container.querySelector('[data-resource-prev]').addEventListener('click', () => { active = (active - 1 + items.length) % items.length; render(); });
+            container.querySelector('[data-resource-next]').addEventListener('click', () => { active = (active + 1) % items.length; render(); });
+        };
+        render();
+    };
     const renderHomeNews = (container, items) => {
         if (!container || !Array.isArray(items) || items.length === 0) return;
         const slice = items.slice(0, 2);
@@ -796,6 +823,7 @@
         setHref(byData('social', 'youtube'), content?.site?.social?.youtube);
 
         renderHomeNews(document.getElementById('homeNewsContainer'), content?.knowledgeHub?.news || []);
+        renderHomeResourceSlideshow(document.getElementById('homeResourceSlideshow'), content?.knowledgeHub?.resources || []);
         renderTestimonials(document.getElementById('homeTestimonialsContainer'), content?.home?.testimonials || []);
         renderHomeHubExplorer(content);
         applyKnowledgeHubIntro(content?.knowledgeHub, visibility);

@@ -103,7 +103,40 @@
         "sectionLead": "Use the filters and search tools below to browse the library by category or locate a specific legal instrument."
       }
     },
-    "news": [],
+    "news": [
+      {
+        "type": "New Resource",
+        "icon": "fa-scale-balanced",
+        "year": "2026",
+        "title": "Petroleum Industry Act 2021",
+        "summary": "The principal statutory framework for Nigeria’s petroleum industry.",
+        "url": "assets/knowledge-hub/petroleum-industry-act-2021.pdf"
+      },
+      {
+        "type": "New Resource",
+        "icon": "fa-scale-balanced",
+        "year": "2026",
+        "title": "Electricity Act 2023",
+        "summary": "Legislation governing electricity generation, transmission, distribution, and electricity markets.",
+        "url": "assets/knowledge-hub/electricity-act-2023.pdf"
+      },
+      {
+        "type": "New Resource",
+        "icon": "fa-scale-balanced",
+        "year": "2026",
+        "title": "Compendium of Oil and Gas Laws and Regulations (Pre-PIA)",
+        "summary": "A consolidated reference to the pre-Petroleum Industry Act oil and gas framework.",
+        "url": "assets/knowledge-hub/oil-gas-laws-compendium-pre-pia.pdf"
+      },
+      {
+        "type": "New Resource",
+        "icon": "fa-scale-balanced",
+        "year": "2026",
+        "title": "Coastal and Inland Shipping (Cabotage) Act 2003",
+        "summary": "Rules for cabotage operations and the use of vessels in Nigerian waters.",
+        "url": "assets/knowledge-hub/cabotage-act-2003.pdf"
+      }
+    ],
     "articles": [
       {
         "tag": "Monthly Regulatory Update",
@@ -115,7 +148,80 @@
         "image": "assets/the-energy-brief-august-2026.jpg"
       }
     ],
-    "resources": []
+    "resources": [
+      {
+        "tag": "Energy & Petroleum",
+        "icon": "fa-oil-well",
+        "title": "Petroleum Industry Act 2021",
+        "summary": "The principal statutory framework for Nigeria’s petroleum industry.",
+        "url": "assets/knowledge-hub/petroleum-industry-act-2021.pdf",
+        "button": "Open PDF",
+        "image": "assets/knowledge-hub/petroleum-industry-act-2021.jpg"
+      },
+      {
+        "tag": "Energy & Petroleum",
+        "icon": "fa-bolt",
+        "title": "Electricity Act 2023",
+        "summary": "Legislation governing electricity generation, transmission, distribution, and electricity markets.",
+        "url": "assets/knowledge-hub/electricity-act-2023.pdf",
+        "button": "Open PDF",
+        "image": "assets/knowledge-hub/electricity-act-2023.jpg"
+      },
+      {
+        "tag": "Energy & Petroleum",
+        "icon": "fa-book-open",
+        "title": "Compendium of Oil and Gas Laws and Regulations (Pre-PIA)",
+        "summary": "A consolidated reference to the pre-Petroleum Industry Act oil and gas framework.",
+        "url": "assets/knowledge-hub/oil-gas-laws-compendium-pre-pia.pdf",
+        "button": "Open PDF",
+        "image": "assets/knowledge-hub/oil-gas-laws-compendium-pre-pia.jpg"
+      },
+      {
+        "tag": "Maritime & Shipping",
+        "icon": "fa-ship",
+        "title": "Coastal and Inland Shipping (Cabotage) Act 2003",
+        "summary": "Rules for cabotage operations and the use of vessels in Nigerian waters.",
+        "url": "assets/knowledge-hub/cabotage-act-2003.pdf",
+        "button": "Open PDF",
+        "image": "assets/knowledge-hub/cabotage-act-2003.jpg"
+      },
+      {
+        "tag": "Maritime & Shipping",
+        "icon": "fa-ship",
+        "title": "Merchant Shipping Act 2007",
+        "summary": "A broad statutory reference covering merchant shipping and maritime administration.",
+        "url": "assets/knowledge-hub/merchant-shipping-act-2007.pdf",
+        "button": "Open PDF",
+        "image": "assets/knowledge-hub/merchant-shipping-act-2007.jpg"
+      },
+      {
+        "tag": "Maritime & Shipping",
+        "icon": "fa-anchor",
+        "title": "Nigerian Maritime Administration and Safety Agency Act 2007",
+        "summary": "Establishes NIMASA and sets out its functions, powers, and maritime safety mandate.",
+        "url": "assets/knowledge-hub/nimasa-act-2007.pdf",
+        "button": "Open PDF",
+        "image": "assets/knowledge-hub/nimasa-act-2007.jpg"
+      },
+      {
+        "tag": "Maritime & Shipping",
+        "icon": "fa-shield-halved",
+        "title": "Suppression of Piracy and Other Maritime Offences (SPOMO) Act 2019",
+        "summary": "Nigeria’s principal legislation for piracy and other maritime offences.",
+        "url": "assets/knowledge-hub/spomo-act-2019.pdf",
+        "button": "Open PDF",
+        "image": "assets/knowledge-hub/spomo-act-2019.jpg"
+      },
+      {
+        "tag": "Mining & Natural Resources",
+        "icon": "fa-gem",
+        "title": "Nigerian Minerals and Mining Act 2007",
+        "summary": "The statutory framework for mineral ownership, exploration, mining, and related rights.",
+        "url": "assets/knowledge-hub/minerals-and-mining-act-2007.pdf",
+        "button": "Open PDF",
+        "image": "assets/knowledge-hub/minerals-and-mining-act-2007.jpg"
+      }
+    ]
   },
   "visibility": {
     "pages": {
