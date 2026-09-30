@@ -76,12 +76,13 @@
   .nav-chevron { display: none; }
 }
 <style>
-.hub-preview-card{padding:1.5rem; background:rgba(255,255,255,.96); color:rgba(15,23,42,.9);}
+.hub-preview-cards{row-gap:2rem!important;align-items:stretch;}
+.hub-preview-card{display:flex;flex-direction:column;min-height:330px;padding:1.5rem;background:rgba(255,255,255,.96);color:rgba(15,23,42,.9);}
 .hub-preview-card .news-title{color:#0f172a;}
-.hub-card-previews{display:grid;gap:.7rem;}
-.hub-card-preview{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;padding:.78rem .85rem;border:1px solid rgba(15,23,42,.08);border-radius:12px;background:rgba(21,147,209,.045);color:rgba(15,23,42,.75);font-size:.86rem;line-height:1.45;min-height:58px;}
+.hub-card-previews{display:grid;grid-template-rows:repeat(2,minmax(72px,1fr));gap:1rem;flex:1;align-content:stretch;}
+.hub-card-preview{display:flex;align-items:center;justify-content:space-between;gap:.8rem;padding:.9rem 1rem;border:1px solid rgba(15,23,42,.08);border-radius:12px;background:rgba(21,147,209,.045);color:rgba(15,23,42,.75);font-size:.86rem;line-height:1.45;min-height:72px;}
 .hub-card-preview i{color:var(--primary-color);font-size:.72rem;margin-top:.2rem;flex:0 0 auto;}
-.hub-preview-card .news-link{display:inline-flex;align-items:center;gap:.5rem;}
+.hub-preview-card .news-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.25rem!important;}
 </style></style><style>
 /* Compact Knowledge Hub menu: centered directly beneath its trigger. */
 .nav-item-dropdown > .nav-dropdown { top: calc(100% + 4px) !important; left: 0 !important; right: auto !important; min-width: 188px !important; width: 188px !important; max-width: 188px !important; padding: .28rem !important; transform: translateY(-4px) !important; }
