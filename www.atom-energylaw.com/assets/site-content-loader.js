@@ -286,15 +286,9 @@
     };
 
     const keepPublishedKnowledgeHubContent = (content) => {
-        if (!content || typeof content !== 'object') return content;
-        const hub = content.knowledgeHub;
-        if (!hub || typeof hub !== 'object') return content;
-        // Keep the live hub aligned with the material actually uploaded by the owner.
-        hub.news = [];
-        hub.resources = [];
-        hub.articles = (Array.isArray(hub.articles) ? hub.articles : []).filter((item) =>
-            item && item.url === 'assets/the-energy-brief-august-2026.pdf'
-        );
+        // Keep all published Knowledge Hub entries available to the homepage preview.
+        // Each subsection renderer limits its preview to two items, while the linked
+        // subsection pages continue to expose the complete library.
         return content;
     };
 
