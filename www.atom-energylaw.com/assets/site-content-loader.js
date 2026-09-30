@@ -416,13 +416,13 @@
                 const url = escapeHtml(item.url || '#');
                 const cta = escapeHtml(item.button || tag || emptyLabel);
                 const media = image
-                    ? `<img src="${escapeHtml(image)}" alt="${title}" class="img-fluid rounded-4 mb-4 w-100" style="height: 220px; object-fit: cover;">`
+                    ? `<img src="${escapeHtml(image)}" alt="${title}" class="img-fluid rounded-4 mb-4 w-100" style="height: 300px; object-fit: contain; object-position: center; background: #f4f8fc; padding: .35rem;">`
                     : `<div class="icon-box mx-auto mb-4" style="width: 72px; height: 72px; font-size: 2rem;"><i class="fas ${icon}"></i></div>`;
                 return `
                     <div class="col-lg-4 col-md-6">
                         <div class="feature-card p-4 h-100">
                             ${media}
-                            <div class="text-primary fw-bold text-uppercase small mb-2">${tag}</div>
+                            ${tag ? `<div class="text-primary fw-bold text-uppercase small mb-2">${tag}</div>` : ''}
                             <h4 class="mb-3">${title}</h4>
                             <p class="text-muted mb-4">${summary}</p>
                             <a href="${url}" class="btn btn-outline-primary mt-auto align-self-start">${cta}</a>

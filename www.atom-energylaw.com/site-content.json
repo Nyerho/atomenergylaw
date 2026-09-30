@@ -91,14 +91,14 @@
       "articles": {
         "kicker": "Thought Leadership",
         "title": "Publications and Insights",
-        "lead": "Publish longer-form analysis, client notes, and commercially focused insights with supporting imagery.",
+        "lead": "",
         "sectionTitle": "Featured publications and insights",
-        "sectionLead": "Each card can carry an image, summary, and a link to the full piece or destination page."
+        "sectionLead": ""
       },
       "resources": {
         "kicker": "Laws and Regulations",
         "title": "Resource Center",
-        "lead": "Browse Laws, Regulations, and Practical Legal Materials Especially Relevant to Oil, Gas, Power, Mining, and Maritime Sectors.",
+        "lead": "Browse Laws, Regulations, and Practical Legal Materials Relevant to Oil, Gas, Power, Mining, and Maritime Sectors.",
         "sectionTitle": "Browse Laws, Regulations and Practical Materials",
         "sectionLead": ""
       }
@@ -139,10 +139,9 @@
     ],
     "articles": [
       {
-        "tag": "Monthly Regulatory Update",
         "icon": "fa-newspaper",
-        "title": "The Energy Brief — August 2026",
-        "summary": "The Energy Brief: Monthly regulatory updates on Nigeria’s Petroleum, Power, Mining and Maritime Sectors (August 2026)",
+        "title": "The Energy Brief",
+        "summary": "Monthly regulatory updates on Nigeria’s Petroleum, Power, Mining and Maritime Sectors",
         "url": "assets/the-energy-brief-august-2026.pdf",
         "button": "Read",
         "image": "assets/the-energy-brief-august-2026.jpg"
@@ -150,7 +149,7 @@
     ],
     "resources": [
       {
-        "tag": "Energy & Petroleum",
+        "tag": "Oil & Gas",
         "icon": "fa-oil-well",
         "title": "Petroleum Industry Act 2021",
         "url": "assets/knowledge-hub/petroleum-industry-act-2021.pdf",
@@ -158,7 +157,7 @@
         "summary": "The principal statutory framework for Nigeria’s petroleum industry."
       },
       {
-        "tag": "Energy & Petroleum",
+        "tag": "Oil & Gas",
         "icon": "fa-bolt",
         "title": "Electricity Act 2023",
         "url": "assets/knowledge-hub/electricity-act-2023.pdf",
@@ -166,7 +165,7 @@
         "summary": "Legislation governing electricity generation, transmission, distribution, and electricity markets."
       },
       {
-        "tag": "Energy & Petroleum",
+        "tag": "Oil & Gas",
         "icon": "fa-book-open",
         "title": "Compendium of Oil and Gas Laws and Regulations (Pre-PIA)",
         "url": "assets/knowledge-hub/oil-gas-laws-compendium-pre-pia.pdf",
