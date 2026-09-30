@@ -385,27 +385,18 @@
 .nav-item-dropdown:hover > .nav-dropdown, .nav-item-dropdown:focus-within > .nav-dropdown, .nav-item-dropdown.is-open > .nav-dropdown { transform: translateY(0) !important; }
 .nav-item-dropdown > .nav-dropdown a { white-space: normal !important; padding: .54rem .58rem !important; font-size: .72rem !important; line-height: 1.35 !important; }
 @media (max-width: 991px) { .nav-item-dropdown > .nav-dropdown { width:auto !important; max-width:none !important; transform:none !important; } }
+</style><style>
+/* Main-site navigation alignment */
+.navbar{background:rgba(255,255,255,.96)!important;border-bottom:1px solid rgba(15,23,42,.08)!important;padding:.9rem 0!important;box-shadow:0 12px 34px rgba(6,28,63,.10)!important;}
+.navbar-brand{padding:.2rem .65rem!important;border-radius:999px!important;background:rgba(255,255,255,.96)!important;}
+.navbar-brand img{height:50px!important;width:auto!important;filter:none!important;}
+.navbar-nav{align-items:center!important;gap:1.15rem!important;}
+.navbar-toggler{border-color:rgba(15,23,42,.18)!important;box-shadow:none!important;}
+.nav-link{color:rgba(15,23,42,.82)!important;font-weight:500!important;text-transform:uppercase!important;letter-spacing:.08em!important;font-size:.74rem!important;margin-left:0!important;padding:.35rem .1rem!important;}
+.nav-link:hover,.nav-link.active{color:#1593d1!important;}
 </style></head>
 <body data-page-key="expertise">
-    <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img src="assets/Atom logo final-I7OGcKSj.png" alt="Atom-Energylaw">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(15,23,42,0.18);">
-                <span class="fa fa-bars" style="color: #0f172a;"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">Who we are</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="expertise.html">Our Expertise</a></li>
-                    <li class="nav-item"><a class="nav-link" href="services.html">Knowledge Hub</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-expand-lg" aria-label="Primary navigation"><div class="container"><a class="navbar-brand" href="index.html"><img src="assets/atom-logo-final.png" alt="Atom Energy Law Advisory"></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#atomPrimaryNav" aria-controls="atomPrimaryNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button><div class="collapse navbar-collapse justify-content-end" id="atomPrimaryNav"><div class="navbar-nav align-items-lg-center"><a class="nav-link" href="index.html">Home</a><a class="nav-link" href="about.html">Who we are</a><a class="nav-link active" href="expertise.html">Our Expertise</a><div class="nav-item-dropdown"><a class="nav-link nav-dropdown-toggle" href="services.html" aria-haspopup="true" aria-expanded="false">Knowledge Hub <i class="fas fa-chevron-down nav-chevron" aria-hidden="true"></i></a><div class="nav-dropdown" role="menu"><a href="news-updates.html" role="menuitem"><span>Deals and Announcements</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a><a href="articles.html" role="menuitem"><span>Publications and Insights</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a><a href="insights-resources.html" role="menuitem"><span>Resource Center</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a></div></div><a class="nav-link" href="contact.html">Contact Us</a></div></div></div></nav>
 
     <section class="page-hero" id="topHero">
         <div class="container">
@@ -610,5 +601,6 @@
             });
         })();
     </script>
+<script>document.querySelectorAll('.nav-item-dropdown').forEach(function(item){var trigger=item.querySelector('.nav-dropdown-toggle'); trigger.addEventListener('click',function(e){if(window.innerWidth<=991){e.preventDefault();var open=item.classList.toggle('is-open');trigger.setAttribute('aria-expanded',String(open));}}); item.addEventListener('mouseenter',function(){trigger.setAttribute('aria-expanded','true');}); item.addEventListener('mouseleave',function(){if(!item.classList.contains('is-open'))trigger.setAttribute('aria-expanded','false');});});</script>
 </body>
 </html>
