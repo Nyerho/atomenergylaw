@@ -584,21 +584,15 @@
                 .map((item, index) => {
                     const title = escapeHtml(item.title || '');
                     const category = escapeHtml(item.tag || 'Resource');
-                    const summary = escapeHtml(item.summary || '');
-                    const image = safeParseUrl(item.image);
-                    const icon = escapeHtml(item.icon || 'fa-book-open');
-                    const imageMarkup = image
-                        ? `<img src="${escapeHtml(image)}" alt="${title}" class="img-fluid rounded-4 mb-4 w-100 resource-thumb">`
-                        : `<div class="icon-box mb-4" style="width: 72px; height: 72px; font-size: 2rem;"><i class="fas ${icon}"></i></div>`;
+                    const resourceUrl = escapeHtml(item.url || '#');
                     const colClass = state.view === 'list' ? 'col-12' : 'col-lg-4 col-md-6';
                     return `
                         <div class="${colClass}">
-                            <button type="button" class="feature-card resource-card p-4 h-100 text-start" data-resource-index="${index}">
-                                ${imageMarkup}
+                            <article class="feature-card resource-card p-4 h-100">
                                 <div class="text-primary fw-bold text-uppercase small mb-2">${category}</div>
-                                <h3 class="h4 mb-3">${title}</h3>
-                                <p class="text-muted mb-0">${summary}</p>
-                            </button>
+                                <h3 class="h4 mb-4">${title}</h3>
+                                <a class="btn btn-primary mt-auto align-self-start" href="${resourceUrl}" target="_blank" rel="noopener">Open PDF <i class="fas fa-arrow-up-right-from-square ms-1"></i></a>
+                            </article>
                         </div>
                     `;
                 })
@@ -662,122 +656,23 @@
         const preview = document.getElementById('homeHubExplorerPreview');
         const source = content?.knowledgeHub ? content : getHomeHubExplorerFallbackContent();
         const hub = source?.knowledgeHub;
-        const testimonials = source?.home?.testimonials;
         if (!nav || !preview || !hub) return;
-
         const sections = [
-            {
-                id: 'news',
-                navTitle: 'Latest Updates',
-                navSubtitle: 'Current briefings and market developments.',
-                kicker: hub?.pages?.news?.kicker || 'News & Updates',
-                title: hub?.pages?.news?.title || 'Latest Updates',
-                lead: hub?.pages?.news?.lead || 'Track announcements, market developments, and practical updates relevant to the energy and natural resources sectors.',
-                link: hub?.articles?.[0]?.url || 'news-updates.html',
-                button: hub?.articles?.[0]?.button || 'Read',
-                image: hub?.articles?.[0]?.image || hub?.news?.[0]?.image || 'assets/heroslide4.jpg',
-                stats: [
-                    { label: 'Coverage', value: 'News', note: 'Fast, timely briefings from across the sector.' },
-                    { label: 'Items', value: String((hub?.news || []).length || 0).padStart(2, '0'), note: 'Live entries curated for relevance.' },
-                    { label: 'Focus', value: 'Current', note: 'Built for decisions that need speed and clarity.' }
-                ],
-                bullets: (hub?.news || []).slice(0, 4).map((item) => `${item.title}: ${item.summary}`)
-            },
-            {
-                id: 'articles',
-                navTitle: 'Articles & Insights',
-                navSubtitle: 'Long-form analysis and thought leadership.',
-                kicker: hub?.pages?.articles?.kicker || 'Thought Leadership',
-                title: hub?.pages?.articles?.title || 'Articles & Insights',
-                lead: hub?.pages?.articles?.lead || 'Longer-form analysis, client notes, and commercially focused insight.',
-                link: 'articles.html',
-                button: 'Open Articles & Insights',
-                image: hub?.articles?.[0]?.image || 'assets/heroslide3.jpg',
-                stats: [
-                    { label: 'Coverage', value: 'Ideas', note: 'Insight-led pieces with commercial context.' },
-                    { label: 'Items', value: String((hub?.articles || []).length || 0).padStart(2, '0'), note: 'Feature-ready article previews.' },
-                    { label: 'Focus', value: 'Depth', note: 'Built for deeper reading and practical takeaways.' }
-                ],
-                bullets: (hub?.articles || []).slice(0, 4).map((item) => `${item.title}: ${item.summary}`)
-            },
-            {
-                id: 'resources',
-                navTitle: 'Resource Center',
-                navSubtitle: 'laws and regulations, and practical tools.',
-                kicker: hub?.pages?.resources?.kicker || 'Laws and Regulations',
-                title: hub?.pages?.resources?.title || 'Resource Center',
-                lead: hub?.pages?.resources?.lead || 'Browse laws and regulations, trackers, and practical legal materials.',
-                link: 'insights-resources.html',
-                button: 'Open Resource Center',
-                image: hub?.resources?.[0]?.image || 'assets/mining.jpg',
-                stats: [
-                    { label: 'Coverage', value: 'Library', note: 'Reference materials organized for practical use.' },
-                    { label: 'Items', value: String((hub?.resources || []).length || 0).padStart(2, '0'), note: 'legal resources, laws, and regulations in one place.' },
-                    { label: 'Focus', value: 'Tools', note: 'Useful for projects, compliance, and market tracking.' }
-                ],
-                bullets: (hub?.resources || []).slice(0, 4).map((item) => `${item.title}: ${item.summary}`)
-            },
-        ].filter((section) => Array.isArray(section.bullets) && section.bullets.length);
-
-        if (!sections.length) return;
-
-        const renderPreview = (sectionId) => {
-            const active = sections.find((section) => section.id === sectionId) || sections[0];
-            nav.querySelectorAll('.hub-explorer-item').forEach((button) => {
-                button.classList.toggle('is-active', button.getAttribute('data-hub-section') === active.id);
-            });
-
-            const statsMarkup = active.stats.map((stat) => `
-                <div class="hub-preview-stat">
-                    <div class="hub-preview-stat-label">${escapeHtml(stat.label)}</div>
-                    <div class="hub-preview-stat-value">${escapeHtml(stat.value)}</div>
-                    <div class="hub-preview-stat-note">${escapeHtml(stat.note)}</div>
-                </div>
-            `).join('');
-
-            const bulletsMarkup = active.bullets.map((bullet) => `
-                <div class="hub-preview-list-item">
-                    <i class="fas fa-circle-check"></i>
-                    <span>${escapeHtml(bullet)}</span>
-                </div>
-            `).join('');
-
-            const imageStyle = active.image ? `style="--hub-preview-image: url('${escapeHtml(active.image)}')"` : '';
-
-            preview.innerHTML = `
-                <article class="hub-preview-panel">
-                    <div class="hub-preview-media" ${imageStyle}></div>
-                    <div class="hub-preview-content">
-                        <p class="hub-preview-kicker">${escapeHtml(active.kicker)}</p>
-                        <h3 class="hub-preview-title">${escapeHtml(active.title)}</h3>
-                        <p class="hub-preview-lead">${escapeHtml(active.lead)}</p>
-                        <div class="hub-preview-stats">${statsMarkup}</div>
-                        <div class="hub-preview-list">${bulletsMarkup}</div>
-                        <a href="${escapeHtml(active.link)}" class="btn btn-primary hub-preview-cta">${escapeHtml(active.button)} <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </article>
-            `;
+            { id: 'news', label: 'Deals and Announcements', kicker: 'Latest updates', link: 'news-updates.html', button: 'View updates', items: hub.news || [] },
+            { id: 'articles', label: 'Publications and Insights', kicker: 'Thought leadership', link: 'articles.html', button: 'Read insights', items: hub.articles || [] },
+            { id: 'resources', label: 'Resource Center', kicker: 'Laws and regulations', link: 'insights-resources.html', button: 'Browse resources', items: hub.resources || [] }
+        ];
+        const visible = sections.filter((section) => section.items.length);
+        if (!visible.length) return;
+        nav.innerHTML = '';
+        const render = () => {
+            preview.innerHTML = `<div class="row g-4 hub-preview-cards">${visible.map((section) => {
+                const previews = section.items.slice(0, 2).map((item) => `<div class="hub-card-preview"><span>${escapeHtml(item.title || '')}</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></div>`).join('');
+                return `<div class="col-lg-4 col-md-6"><article class="news-card hub-preview-card h-100"><div class="news-meta mb-3"><span class="news-badge"><i class="fas fa-layer-group"></i><span>${escapeHtml(section.kicker)}</span></span></div><h3 class="h5 news-title mb-3">${escapeHtml(section.label)}</h3><div class="hub-card-previews">${previews}</div><a href="${escapeHtml(section.link)}" class="news-link mt-4">${escapeHtml(section.button)} <i class="fas fa-arrow-right"></i></a></article></div>`;
+            }).join('')}</div>`;
         };
-
-        nav.innerHTML = sections.map((section, index) => `
-            <button type="button" class="hub-explorer-item${index === 0 ? ' is-active' : ''}" data-hub-section="${escapeHtml(section.id)}">
-                <div class="hub-explorer-item-title">
-                    <span>${escapeHtml(section.navTitle)}</span>
-                    <i class="fas fa-arrow-right"></i>
-                </div>
-                <p class="hub-explorer-item-subtitle">${escapeHtml(section.navSubtitle)}</p>
-            </button>
-        `).join('');
-
-        nav.querySelectorAll('.hub-explorer-item').forEach((button) => {
-            button.addEventListener('click', () => {
-                renderPreview(button.getAttribute('data-hub-section') || sections[0].id);
-            });
-        });
-
-        renderPreview(sections[0].id);
+        render();
     };
-
     const applyKnowledgeHubIntro = (hub, visibility) => {
         const intro = hub?.intro || {};
         Object.entries(intro).forEach(([key, value]) => {
@@ -823,7 +718,6 @@
         setHref(byData('social', 'youtube'), content?.site?.social?.youtube);
 
         renderHomeNews(document.getElementById('homeNewsContainer'), content?.knowledgeHub?.news || []);
-        renderHomeResourceSlideshow(document.getElementById('homeResourceSlideshow'), content?.knowledgeHub?.resources || []);
         renderTestimonials(document.getElementById('homeTestimonialsContainer'), content?.home?.testimonials || []);
         renderHomeHubExplorer(content);
         applyKnowledgeHubIntro(content?.knowledgeHub, visibility);
