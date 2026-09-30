@@ -35,6 +35,12 @@
 .nav-item-dropdown:hover > .nav-dropdown,
 .nav-item-dropdown:focus-within > .nav-dropdown,
 .nav-item-dropdown.is-open > .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+</style><style>
+/* Compact Knowledge Hub menu: centered directly beneath its trigger. */
+.nav-item-dropdown > .nav-dropdown { top: calc(100% + 6px) !important; left: 50% !important; right: auto !important; min-width: 214px !important; width: 214px !important; max-width: 214px !important; padding: .4rem !important; transform: translate(-50%, -6px) !important; }
+.nav-item-dropdown:hover > .nav-dropdown, .nav-item-dropdown:focus-within > .nav-dropdown, .nav-item-dropdown.is-open > .nav-dropdown { transform: translate(-50%, 0) !important; }
+.nav-item-dropdown > .nav-dropdown a { white-space: normal !important; padding: .58rem .65rem !important; font-size: .68rem !important; line-height: 1.35 !important; }
+@media (max-width: 991px) { .nav-item-dropdown > .nav-dropdown { width:auto !important; max-width:none !important; transform:none !important; } }
 </style></head><body data-page-key="contact">    <!-- Navbar -->    <nav class="navbar navbar-expand-lg glass-nav">        <div class="container">            <a class="navbar-brand" href="index.html">                <img src="assets/atom-logo-final.png" alt="Atom-Energylaw">            </a>            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border-color: rgba(15,23,42,0.18);">                <span class="fa fa-bars" style="color: #0f172a;"></span>            </button>            <div class="collapse navbar-collapse justify-content-end nav-reveal" id="navbarNav">                <ul class="navbar-nav">
   <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
   <li class="nav-item"><a class="nav-link" href="about.html">Who we are</a></li>

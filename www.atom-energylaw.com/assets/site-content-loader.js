@@ -590,7 +590,8 @@
                         <div class="${colClass}">
                             <article class="feature-card resource-card p-4 h-100">
                                 <div class="text-primary fw-bold text-uppercase small mb-2">${category}</div>
-                                <h3 class="h4 mb-4">${title}</h3>
+                                <h3 class="h4 mb-3">${title}</h3>
+                                <p class="text-muted mb-4">${escapeHtml(item.summary || '')}</p>
                                 <a class="btn btn-primary mt-auto align-self-start" href="${resourceUrl}" target="_blank" rel="noopener">Open PDF <i class="fas fa-arrow-up-right-from-square ms-1"></i></a>
                             </article>
                         </div>
