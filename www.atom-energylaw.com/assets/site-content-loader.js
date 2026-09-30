@@ -647,11 +647,10 @@
     });
 
     const renderHomeHubExplorer = (content) => {
-        const nav = document.getElementById('homeHubExplorerNav');
         const preview = document.getElementById('homeHubExplorerPreview');
         const source = content?.knowledgeHub ? content : getHomeHubExplorerFallbackContent();
         const hub = source?.knowledgeHub;
-        if (!nav || !preview || !hub) return;
+        if (!preview || !hub) return;
         const sections = [
             { id: 'news', label: 'Deals and Announcements', kicker: 'Latest updates', link: 'news-updates.html', button: 'View updates', items: hub.news || [] },
             { id: 'articles', label: 'Publications and Insights', kicker: 'Thought leadership', link: 'articles.html', button: 'Read insights', items: hub.articles || [] },
@@ -659,7 +658,6 @@
         ];
         const visible = sections.filter((section) => section.items.length);
         if (!visible.length) return;
-        nav.innerHTML = '';
         const render = () => {
             preview.innerHTML = `<div class="row g-4 hub-preview-cards">${visible.map((section) => {
                 const previews = section.items.slice(0, 2).map((item) => `<div class="hub-card-preview"><span>${escapeHtml(item.title || '')}</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></div>`).join('');
