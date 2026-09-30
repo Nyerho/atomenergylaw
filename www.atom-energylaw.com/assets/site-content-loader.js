@@ -663,7 +663,7 @@
         const render = () => {
             preview.innerHTML = `<div class="row g-4 hub-preview-cards">${visible.map((section) => {
                 const previews = section.items.slice(0, 2).map((item) => `<div class="hub-card-preview"><span>${escapeHtml(item.title || '')}</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></div>`).join('');
-                return `<div class="col-lg-4 col-md-6"><article class="news-card hub-preview-card h-100"><div class="news-meta mb-3"><span class="news-badge"><i class="fas fa-layer-group"></i><span>${escapeHtml(section.kicker)}</span></span></div><h3 class="h5 news-title mb-3">${escapeHtml(section.label)}</h3><div class="hub-card-previews">${previews}</div><a href="${escapeHtml(section.link)}" class="news-link mt-4">${escapeHtml(section.button)} <i class="fas fa-arrow-right"></i></a></article></div>`;
+                return `<div class="col-md-6 col-xl-4"><article class="news-card hub-preview-card h-100"><div class="news-meta mb-3"><span class="news-badge"><i class="fas fa-layer-group"></i><span>${escapeHtml(section.kicker)}</span></span></div><h3 class="h5 news-title mb-3">${escapeHtml(section.label)}</h3><div class="hub-card-previews">${previews}</div><a href="${escapeHtml(section.link)}" class="news-link mt-4">${escapeHtml(section.button)} <i class="fas fa-arrow-right"></i></a></article></div>`;
             }).join('')}</div>`;
         };
         render();
