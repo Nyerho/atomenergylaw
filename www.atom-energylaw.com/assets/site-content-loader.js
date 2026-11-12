@@ -645,7 +645,7 @@
         const preview = document.getElementById('homeHubExplorerPreview');
         const source = content?.knowledgeHub ? content : getHomeHubExplorerFallbackContent();
         const hub = source?.knowledgeHub;
-        if (!preview || !hub) return;
+        if (!preview || !hub || preview.dataset.staticHub === 'true') return;
         const sections = [
             { id: 'news', label: 'Deals and Announcements', kicker: 'Latest updates', link: 'news-updates.html', button: 'View updates', items: hub.news || [] },
             { id: 'articles', label: 'Publications and Insights', kicker: 'Thought leadership', link: 'articles.html', button: 'Read insights', items: hub.articles || [] },
