@@ -525,7 +525,6 @@
         const openResource = (item) => {
             if (!modal || !modalTitle || !modalCategory || !modalSummary || !modalDownload) return;
             const title = normalize(item.title) || 'Resource';
-            const category = normalize(item.tag) || 'Resource';
             const summary = normalize(item.summary) || 'No summary has been added for this resource yet.';
             const resourceUrl = normalize(item.url);
             const canOpenLink = resourceUrl && !resourceUrl.endsWith(pageName) && resourceUrl !== '#';
@@ -575,13 +574,11 @@
             container.innerHTML = filtered
                 .map((item, index) => {
                     const title = escapeHtml(item.title || '');
-                    const category = escapeHtml(item.tag || 'Resource');
                     const resourceUrl = escapeHtml(item.url || '#');
                     const colClass = state.view === 'list' ? 'col-12' : 'col-lg-4 col-md-6';
                     return `
                         <div class="${colClass}">
                             <article class="feature-card resource-card p-4 h-100">
-                                <div class="text-primary fw-bold text-uppercase small mb-2">${category}</div>
                                 <h3 class="h4 mb-3">${title}</h3>
                                 <p class="text-muted mb-4">${escapeHtml(item.summary || '')}</p>
                                 <a class="btn btn-primary mt-auto align-self-start" href="${resourceUrl}" target="_blank" rel="noopener">Open PDF <i class="fas fa-arrow-up-right-from-square ms-1"></i></a>
