@@ -4,4 +4,5 @@ compress-images.cjs
 compress-images.mjs
 package.json
 package-lock.json
+.dev.vars
 www.atom-energylaw.com/assets/nmdpra photos-backup

@@ -1,0 +1,4 @@
+name = "atomenergylaw"
+compatibility_date = "2026-11-12"
+pages_build_output_dir = "./www.atom-energylaw.com"
+send_metrics = false

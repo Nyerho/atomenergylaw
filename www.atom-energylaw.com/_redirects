@@ -1,0 +1,3 @@
+# Cloudflare Pages serves matching .html files at clean URLs automatically.
+/nmdpra /NMPDRA 301
+/nmdpra.html /NMPDRA 301
