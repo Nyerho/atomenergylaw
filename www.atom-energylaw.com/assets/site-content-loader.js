@@ -367,12 +367,10 @@
                             <div class="text-primary fw-bold text-uppercase small mb-2">${tag} · ${active + 1} / ${items.length}</div>
                             <h3 class="h4 mb-3">${title}</h3>
                             <p class="text-muted mb-4">${summary}</p>
-                            <div class="d-flex flex-wrap align-items-center gap-2"><a href="${url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open PDF <i class="fas fa-arrow-up-right-from-square ms-1"></i></a><button type="button" class="btn btn-outline-primary" data-resource-prev aria-label="Previous resource"><i class="fas fa-chevron-left"></i></button><button type="button" class="btn btn-outline-primary" data-resource-next aria-label="Next resource"><i class="fas fa-chevron-right"></i></button></div>
+                            <div class="d-flex flex-wrap align-items-center gap-2"><a href="${url}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open PDF <i class="fas fa-arrow-up-right-from-square ms-1"></i></a></div>
                         </div>
                     </div>
                 </div>`;
-            container.querySelector('[data-resource-prev]').addEventListener('click', () => { active = (active - 1 + items.length) % items.length; render(); });
-            container.querySelector('[data-resource-next]').addEventListener('click', () => { active = (active + 1) % items.length; render(); });
         };
         render();
     };
@@ -659,9 +657,9 @@
         const visible = sections.filter((section) => section.items.length);
         if (!visible.length) return;
         const render = () => {
-            preview.innerHTML = `<div class="hub-index-cards">${visible.map((section, index) => {
-                const previews = section.items.slice(0, 3).map((item, itemIndex) => `<a class="hub-index-item" href="${escapeHtml(item.url || section.link)}" ${String(item.url || '').endsWith('.pdf') ? 'target="_blank" rel="noopener"' : ''}><span class="hub-index-item-number">0${itemIndex + 1}</span><span>${escapeHtml(item.title || '')}</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>`).join('');
-                return `<article class="hub-index-card"><div class="hub-index-card-top"><span class="hub-index-number">0${index + 1}</span><span class="hub-index-kicker">${escapeHtml(section.kicker)}</span></div><h3>${escapeHtml(section.label)}</h3><div class="hub-index-list">${previews}</div><a class="hub-index-link" href="${escapeHtml(section.link)}">${escapeHtml(section.button)} <i class="fas fa-arrow-right" aria-hidden="true"></i></a></article>`;
+            preview.innerHTML = `<div class="hub-rail">${visible.map((section, index) => {
+                const previews = section.items.slice(0, 3).map((item, itemIndex) => `<a class="hub-rail-item" href="${escapeHtml(item.url || section.link)}" ${String(item.url || '').endsWith('.pdf') ? 'target="_blank" rel="noopener"' : ''}><span class="hub-rail-item-number">0${itemIndex + 1}</span><span>${escapeHtml(item.title || '')}</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>`).join('');
+                return `<article class="hub-rail-row"><div class="hub-rail-index">0${index + 1}</div><div class="hub-rail-main"><div class="hub-rail-kicker">${escapeHtml(section.kicker)}</div><h3>${escapeHtml(section.label)}</h3><div class="hub-rail-items">${previews}</div></div><a class="hub-rail-link" href="${escapeHtml(section.link)}">${escapeHtml(section.button)} <i class="fas fa-arrow-right" aria-hidden="true"></i></a></article>`;
             }).join('')}</div>`;
         };
         render();

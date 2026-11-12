@@ -12,14 +12,13 @@
     if (!file) return '';
     const title = escapeHtml(document.title || 'Regulatory document');
     const category = escapeHtml(document.category || 'oil-gas');
-    const categoryLabel = escapeHtml(document.categoryLabel || 'Oil & Gas');
     const year = document.year ? String(document.year) : '';
     const size = formatSize(document.fileSizeBytes);
     return `<div class="col-md-6 col-xl-4">
       <article class="card resource-card ${latest ? 'latest-resource-card' : ''}" data-resource-card data-category="${category}" data-year="${escapeHtml(year)}">
         <div class="card-body">
           <div><h2>${title}</h2>
-          <p>${latest ? 'Recently added regulatory document' : 'Regulatory document'}${year ? ` · Document year ${escapeHtml(year)}` : ''}${size ? ` · ${escapeHtml(size)}` : ''}</p></div>
+          <p>${latest ? 'Recently added regulatory document' : 'Regulatory document'}${size ? ` · ${escapeHtml(size)}` : ''}</p></div>
           <div class="resource-actions">
             <a class="btn btn-primary" href="${escapeHtml(file)}" target="_blank" rel="noopener">Open PDF <i class="fa fa-arrow-right ms-1" aria-hidden="true"></i></a>
           </div>
