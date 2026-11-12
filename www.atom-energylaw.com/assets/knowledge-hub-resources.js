@@ -18,40 +18,15 @@
     return `<div class="col-md-6 col-xl-4">
       <article class="card resource-card ${latest ? 'latest-resource-card' : ''}" data-resource-card data-category="${category}" data-year="${escapeHtml(year)}">
         <div class="card-body">
-          <div><span class="tag">${latest ? 'New addition · ' : ''}${categoryLabel}${year ? ` · ${escapeHtml(year)}` : ''}</span>
-          <h2>${title}</h2>
+          <div><h2>${title}</h2>
           <p>${latest ? 'Recently added regulatory document' : 'Regulatory document'}${year ? ` · Document year ${escapeHtml(year)}` : ''}${size ? ` · ${escapeHtml(size)}` : ''}</p></div>
           <div class="resource-actions">
-            <button class="btn btn-outline-primary" type="button" data-pdf-preview data-pdf="${escapeHtml(file)}" data-pdf-title="${title}">Preview</button>
             <a class="btn btn-primary" href="${escapeHtml(file)}" target="_blank" rel="noopener">Open PDF <i class="fa fa-arrow-right ms-1" aria-hidden="true"></i></a>
           </div>
         </div>
       </article>
     </div>`;
   };
-
-  const dialog = document.getElementById('pdfPreviewDialog');
-  const frame = document.getElementById('pdfPreviewFrame');
-  const previewTitle = document.getElementById('pdfPreviewTitle');
-  const openLink = document.getElementById('pdfPreviewOpenLink');
-  const showPreview = (button) => {
-    const file = safeFile(button.dataset.pdf);
-    if (!file || !dialog || !frame) return;
-    previewTitle.textContent = button.dataset.pdfTitle || 'Document preview';
-    frame.title = `PDF preview: ${previewTitle.textContent}`;
-    frame.src = `${file}#toolbar=1&navpanes=0&view=FitH`;
-    if (openLink) openLink.href = file;
-    if (typeof dialog.showModal === 'function') dialog.showModal();
-    else window.open(file, '_blank', 'noopener');
-  };
-
-  document.addEventListener('click', (event) => {
-    const preview = event.target.closest('[data-pdf-preview]');
-    if (preview) showPreview(preview);
-    if (event.target.closest('[data-close-pdf-preview]')) dialog?.close();
-    if (dialog && event.target === dialog) dialog.close();
-  });
-  dialog?.addEventListener('close', () => { if (frame) frame.removeAttribute('src'); });
 
   const latestGrid = document.getElementById('latestRegulations');
   const regulationGrid = document.getElementById('regulationGrid');
@@ -84,25 +59,6 @@
     const count = document.getElementById('resourceResultCount');
     if (count) count.textContent = `${visible} document${visible === 1 ? '' : 's'}`;
   };
-
-  // Existing acts are already in the library; add the same in-page preview interaction.
-  for (const link of document.querySelectorAll('#existingResourceGrid [data-resource-card] a[href$=".pdf"]')) {
-    const card = link.closest('[data-resource-card]');
-    const preview = card.querySelector('[data-pdf-preview]') || document.createElement('button');
-    if (!preview.hasAttribute('data-pdf-preview')) {
-      preview.type = 'button';
-      preview.className = 'btn btn-outline-primary';
-      preview.textContent = 'Preview';
-    }
-    preview.dataset.pdfPreview = '';
-    preview.dataset.pdf = link.getAttribute('href');
-    preview.dataset.pdfTitle = card.querySelector('h2')?.textContent.trim() || 'Document preview';
-    link.classList.remove('btn-primary');
-    link.classList.add('btn-outline-primary');
-    link.innerHTML = 'Open PDF <i class="fa fa-arrow-right ms-1" aria-hidden="true"></i>';
-    link.parentElement.classList.add('resource-actions');
-    if (!preview.isConnected) link.before(preview);
-  }
 
   const controls = ['resourceSearch', 'resourceCategory', 'resourceYear'];
   for (const id of controls) {

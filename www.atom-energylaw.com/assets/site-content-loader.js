@@ -659,9 +659,9 @@
         const visible = sections.filter((section) => section.items.length);
         if (!visible.length) return;
         const render = () => {
-            preview.innerHTML = `<div class="row g-4 hub-preview-cards">${visible.map((section) => {
-                const previews = section.items.slice(0, 2).map((item) => `<div class="hub-card-preview"><span>${escapeHtml(item.title || '')}</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></div>`).join('');
-                return `<div class="col-md-6 col-xl-4"><article class="news-card hub-preview-card h-100"><div class="news-meta mb-3"><span class="news-badge"><i class="fas fa-layer-group"></i><span>${escapeHtml(section.kicker)}</span></span></div><h3 class="h5 news-title mb-3">${escapeHtml(section.label)}</h3><div class="hub-card-previews">${previews}</div><a href="${escapeHtml(section.link)}" class="news-link mt-4">${escapeHtml(section.button)} <i class="fas fa-arrow-right"></i></a></article></div>`;
+            preview.innerHTML = `<div class="hub-index-cards">${visible.map((section, index) => {
+                const previews = section.items.slice(0, 3).map((item, itemIndex) => `<a class="hub-index-item" href="${escapeHtml(item.url || section.link)}" ${String(item.url || '').endsWith('.pdf') ? 'target="_blank" rel="noopener"' : ''}><span class="hub-index-item-number">0${itemIndex + 1}</span><span>${escapeHtml(item.title || '')}</span><i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>`).join('');
+                return `<article class="hub-index-card"><div class="hub-index-card-top"><span class="hub-index-number">0${index + 1}</span><span class="hub-index-kicker">${escapeHtml(section.kicker)}</span></div><h3>${escapeHtml(section.label)}</h3><div class="hub-index-list">${previews}</div><a class="hub-index-link" href="${escapeHtml(section.link)}">${escapeHtml(section.button)} <i class="fas fa-arrow-right" aria-hidden="true"></i></a></article>`;
             }).join('')}</div>`;
         };
         render();
