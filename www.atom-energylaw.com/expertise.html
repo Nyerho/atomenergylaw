@@ -423,6 +423,17 @@
   .expertise-nav-fix .nav-item-dropdown:hover>.nav-dropdown{transform:translate(-50%,0)!important}
   .expertise-nav-fix .nav-item-dropdown:focus-within>.nav-dropdown{transform:translate(-50%,-4px)!important}
 }
+</style><style>
+/* Final Expertise nav geometry: the menu is anchored below Knowledge Hub, with no Hub-to-Contact gap. */
+@media(min-width:992px){
+  .expertise-nav-fix .navbar-nav{gap:0!important}
+  .expertise-nav-fix .navbar-nav>.nav-link{margin-left:1.15rem!important}
+  .expertise-nav-fix .navbar-nav>.nav-item-dropdown + .nav-link{margin-left:0!important}
+  .expertise-nav-fix .nav-item-dropdown{position:relative!important;display:flex!important;align-items:center!important;margin:0!important;overflow:visible!important}
+  .expertise-nav-fix .nav-item-dropdown>.nav-dropdown{position:absolute!important;top:100%!important;left:50%!important;right:auto!important;margin:0!important;transform:translate(-50%,-4px)!important}
+  .expertise-nav-fix .nav-item-dropdown:hover>.nav-dropdown{transform:translate(-50%,0)!important}
+  .expertise-nav-fix .nav-item-dropdown:focus-within>.nav-dropdown{transform:translate(-50%,-4px)!important}
+}
 </style></head>
 <body data-page-key="expertise">
     <nav class="navbar navbar-expand-lg expertise-nav-fix" aria-label="Primary navigation"><div class="container"><a class="navbar-brand" href="index.html"><img src="assets/atom-logo-final.png" alt="Atom Energy Law Advisory"></a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#atomPrimaryNav" aria-controls="atomPrimaryNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button><div class="collapse navbar-collapse justify-content-end" id="atomPrimaryNav"><div class="navbar-nav align-items-lg-center"><a class="nav-link" href="index.html">Home</a><a class="nav-link" href="about.html">Who we are</a><a class="nav-link active" href="expertise.html">Our Expertise</a><div class="nav-item-dropdown"><a class="nav-link nav-dropdown-toggle" href="services.html" aria-haspopup="true" aria-expanded="false">Knowledge Hub <i class="fas fa-chevron-down nav-chevron" aria-hidden="true"></i></a><div class="nav-dropdown" role="menu"><a href="news-updates.html" role="menuitem"><span>Deals and Announcements</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a><a href="articles.html" role="menuitem"><span>Publications and Insights</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a><a href="insights-resources.html" role="menuitem"><span>Resource Center</span><i class="fas fa-arrow-right" aria-hidden="true"></i></a></div></div><a class="nav-link" href="contact.html">Contact Us</a></div></div></div></nav>
