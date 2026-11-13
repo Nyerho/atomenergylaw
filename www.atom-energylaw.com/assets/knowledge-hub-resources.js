@@ -13,7 +13,6 @@
     const title = escapeHtml(document.title || 'Regulatory document');
     const category = escapeHtml(document.category || 'oil-gas');
     const year = document.year ? String(document.year) : '';
-    const size = formatSize(document.fileSizeBytes);
     return `<div class="col-md-6 col-xl-4">
       <article class="card resource-card ${latest ? 'latest-resource-card' : ''}" data-resource-card data-category="${category}" data-year="${escapeHtml(year)}">
         <div class="card-body">
