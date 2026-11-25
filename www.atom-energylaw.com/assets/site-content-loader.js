@@ -40,8 +40,8 @@
     };
 
     const legalHrefMap = {
-        'privacy policy': 'privacy-policy.html',
-        'anti-bribery and corruption statement': 'anti-bribery-corruption-statement.html'
+        'privacy policy': '/privacy-policy',
+        'anti-bribery and corruption statement': '/anti-bribery-corruption-statement'
     };
 
     const safeParseUrl = (value) => {
